@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class GPUModel extends ComponentModel {
 
-    SimpleIntegerProperty intClockSpeed, intMemory;
+    private SimpleIntegerProperty intClockSpeed, intMemory;
 
     public GPUModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intClockSpeed, int intMemory) {
         super(txtName, txtBrand, doublePrice, doublePerformanceValue);

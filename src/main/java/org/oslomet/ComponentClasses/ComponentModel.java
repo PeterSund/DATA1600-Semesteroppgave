@@ -7,8 +7,8 @@ import javafx.beans.property.StringProperty;
 
 public class ComponentModel {
 
-    SimpleStringProperty txtName, txtBrand;
-    SimpleDoubleProperty doublePrice, doublePerformanceValue;
+    private SimpleStringProperty txtName, txtBrand;
+    private SimpleDoubleProperty doublePrice, doublePerformanceValue;
 
     //Constructor
     public ComponentModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue) {
@@ -23,20 +23,12 @@ public class ComponentModel {
         return txtName.get();
     }
 
-    public StringProperty txtNameProperty() {
-        return txtName;
-    }
-
     public void setTxtName(String txtName) {
         this.txtName.set(txtName);
     }
 
     public String getTxtBrand() {
         return txtBrand.get();
-    }
-
-    public StringProperty txtBrandProperty() {
-        return txtBrand;
     }
 
     public void setTxtBrand(String txtBrand) {
@@ -47,20 +39,12 @@ public class ComponentModel {
         return doublePrice.get();
     }
 
-    public DoubleProperty doublePriceProperty() {
-        return doublePrice;
-    }
-
     public void setDoublePrice(double doublePrice) {
         this.doublePrice.set(doublePrice);
     }
 
     public double getDoublePerformanceValue() {
         return doublePerformanceValue.get();
-    }
-
-    public DoubleProperty doublePerformanceValueProperty() {
-        return doublePerformanceValue;
     }
 
     public void setDoublePerformanceValue(double doublePerformanceValue) {

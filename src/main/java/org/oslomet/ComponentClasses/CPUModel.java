@@ -5,8 +5,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class CPUModel extends ComponentModel {
 
-    SimpleIntegerProperty intClockSpeed, intCores;
-    SimpleDoubleProperty doubleFrequency;
+    private SimpleIntegerProperty intClockSpeed, intCores;
+    private SimpleDoubleProperty doubleFrequency;
 
     public CPUModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intClockSpeed, double doubleFrequency, int intCores) {
         super(txtName, txtBrand, doublePrice, doublePerformanceValue);
