@@ -7,8 +7,8 @@ import javafx.beans.property.StringProperty;
 
 public class ComponentModel {
 
-    StringProperty txtName, txtBrand;
-    DoubleProperty doublePrice, doublePerformanceValue;
+    SimpleStringProperty txtName, txtBrand;
+    SimpleDoubleProperty doublePrice, doublePerformanceValue;
 
     //Constructor
     public ComponentModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue) {
