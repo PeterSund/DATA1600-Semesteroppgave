@@ -5,29 +5,29 @@ import javafx.beans.property.SimpleBooleanProperty;
 
 public class SoundCardModel extends ComponentModel {
 
-    private SimpleBooleanProperty booleanSurround, booleanBassBoost;
+    private SimpleBooleanProperty surround, bassBoost;
 
     //Constructor
-    public SoundCardModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, boolean booleanSurround, boolean booleanBassBoost) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.booleanSurround= new SimpleBooleanProperty(booleanSurround);
-        this.booleanBassBoost = new SimpleBooleanProperty(booleanBassBoost);
+    public SoundCardModel(String name, String brand, double price, double performanceValue, boolean surround, boolean bassBoost) {
+        super(name, brand, price, performanceValue);
+        this.surround= new SimpleBooleanProperty(surround);
+        this.bassBoost = new SimpleBooleanProperty(bassBoost);
     }
 
     //Getters/Setters
-    public boolean isBooleanSurround() {
-        return booleanSurround.get();
+    public boolean isSurround() {
+        return surround.get();
     }
 
-    public void setBooleanSurround(boolean booleanSurround) {
-        this.booleanSurround.set(booleanSurround);
+    public void setSurround(boolean surround) {
+        this.surround.set(surround);
     }
 
-    public boolean isBooleanBassBoost() {
-        return booleanBassBoost.get();
+    public boolean isBassBoost() {
+        return bassBoost.get();
     }
 
-    public void setBooleanBassBoost(boolean booleanBassBoost) {
-        this.booleanBassBoost.set(booleanBassBoost);
+    public void setBassBoost(boolean bassBoost) {
+        this.bassBoost.set(bassBoost);
     }
 }

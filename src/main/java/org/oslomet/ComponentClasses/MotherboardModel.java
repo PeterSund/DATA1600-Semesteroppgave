@@ -5,20 +5,20 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class MotherboardModel extends ComponentModel {
 
-    private SimpleStringProperty txtType;
+    private SimpleStringProperty type;
 
     //Constructor
-    public MotherboardModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, String txtType) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.txtType = new SimpleStringProperty(txtType);
+    public MotherboardModel(String name, String brand, double price, double performanceValue, String type) {
+        super(name, brand, price, performanceValue);
+        this.type = new SimpleStringProperty(type);
     }
 
     //Getters/Setters
-    public String getTxtType() {
-        return txtType.get();
+    public String getType() {
+        return type.get();
     }
 
-    public void setTxtType(String txtType) {
-        this.txtType.set(txtType);
+    public void setType(String type) {
+        this.type.set(type);
     }
 }

@@ -7,29 +7,29 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class RAMModel extends ComponentModel {
 
-    private SimpleIntegerProperty intCapacity;
-    private SimpleDoubleProperty doubleMemorySpeed;
+    private SimpleIntegerProperty capacity;
+    private SimpleDoubleProperty memorySpeed;
 
     //Constructor
-    public RAMModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intCapacity, double doubleMemorySpeed) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.intCapacity = new SimpleIntegerProperty(intCapacity);
-        this.doubleMemorySpeed = new SimpleDoubleProperty(doubleMemorySpeed);
+    public RAMModel(String name, String brand, double price, double performanceValue, int capacity, double memorySpeed) {
+        super(name, brand, price, performanceValue);
+        this.capacity = new SimpleIntegerProperty(capacity);
+        this.memorySpeed = new SimpleDoubleProperty(memorySpeed);
     }
 
-    public int getIntCapacity() {
-        return intCapacity.get();
+    public int getCapacity() {
+        return capacity.get();
     }
 
-    public void setIntCapacity(int intCapacity) {
-        this.intCapacity.set(intCapacity);
+    public void setCapacity(int capacity) {
+        this.capacity.set(capacity);
     }
 
-    public double getDoubleMemorySpeed() {
-        return doubleMemorySpeed.get();
+    public double getMemorySpeed() {
+        return memorySpeed.get();
     }
 
-    public void setDoubleMemorySpeed(double doubleMemorySpeed) {
-        this.doubleMemorySpeed.set(doubleMemorySpeed);
+    public void setMemorySpeed(double memorySpeed) {
+        this.memorySpeed.set(memorySpeed);
     }
 }

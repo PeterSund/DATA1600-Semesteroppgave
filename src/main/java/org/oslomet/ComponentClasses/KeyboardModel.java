@@ -5,40 +5,40 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class KeyboardModel extends ComponentModel {
 
-    private SimpleStringProperty txtType, txtLanguage;
-    private SimpleBooleanProperty booleanWireless;
+    private SimpleStringProperty type, language;
+    private SimpleBooleanProperty wireless;
 
     //Constructor
-    public KeyboardModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue,
-                         String txtType, String txtLanguage, boolean booleanWireless) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.txtType = new SimpleStringProperty(txtType);
-        this.txtLanguage = new SimpleStringProperty(txtLanguage);
-        this.booleanWireless = new SimpleBooleanProperty(booleanWireless);
+    public KeyboardModel(String name, String brand, double price, double performanceValue,
+                         String type, String language, boolean wireless) {
+        super(name, brand, price, performanceValue);
+        this.type = new SimpleStringProperty(type);
+        this.language = new SimpleStringProperty(language);
+        this.wireless = new SimpleBooleanProperty(wireless);
     }
 
     //Getters/Setters
-    public String getTxtType() {
-        return txtType.get();
+    public String getType() {
+        return type.get();
     }
 
-    public void setTxtType(String txtType) {
-        this.txtType.set(txtType);
+    public void setType(String type) {
+        this.type.set(type);
     }
 
-    public String getTxtLanguage() {
-        return txtLanguage.get();
+    public String getLanguage() {
+        return language.get();
     }
 
-    public void setTxtLanguage(String txtLanguage) {
-        this.txtLanguage.set(txtLanguage);
+    public void setLanguage(String language) {
+        this.language.set(language);
     }
 
-    public boolean isBooleanWireless() {
-        return booleanWireless.get();
+    public boolean isWireless() {
+        return wireless.get();
     }
 
-    public void setBooleanWireless(boolean booleanWireless) {
-        this.booleanWireless.set(booleanWireless);
+    public void setWireless(boolean wireless) {
+        this.wireless.set(wireless);
     }
 }

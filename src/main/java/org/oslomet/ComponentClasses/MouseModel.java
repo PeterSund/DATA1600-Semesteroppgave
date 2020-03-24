@@ -5,29 +5,29 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class MouseModel extends ComponentModel {
 
-    private SimpleStringProperty txtType;
-    private SimpleBooleanProperty booleanWireless;
+    private SimpleStringProperty type;
+    private SimpleBooleanProperty wireless;
 
-    public MouseModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, String txtType, boolean booleanWireless) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.txtType = new SimpleStringProperty(txtType);
-        this.booleanWireless = new SimpleBooleanProperty(booleanWireless);
+    public MouseModel(String name, String brand, double price, double performanceValue, String type, boolean wireless) {
+        super(name, brand, price, performanceValue);
+        this.type = new SimpleStringProperty(type);
+        this.wireless = new SimpleBooleanProperty(wireless);
     }
 
     //Getters/Setters
-    public String getTxtType() {
-        return txtType.get();
+    public String type() {
+        return type.get();
     }
 
-    public void setTxtType(String txtType) {
-        this.txtType.set(txtType);
+    public void type(String type) {
+        this.type.set(type);
     }
 
-    public boolean isBooleanWireless() {
-        return booleanWireless.get();
+    public boolean wireless() {
+        return wireless.get();
     }
-    public void setBooleanWireless(boolean booleanWireless) {
-        this.booleanWireless.set(booleanWireless);
+    public void setWireless(boolean wireless) {
+        this.wireless.set(wireless);
     }
 
 }

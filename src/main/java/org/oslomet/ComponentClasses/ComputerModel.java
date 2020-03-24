@@ -19,24 +19,25 @@ public class ComputerModel {
     private SimpleObjectProperty<MouseModel> mouse;
 
 
+    //Constructor
     public ComputerModel(String configName, ComputerCaseModel computerCase, CPUModel cpu, GPUModel gpu, RAMModel ram, HarddriveModel hardDrive,
                          MotherboardModel motherboard, PSUModel psu, SoundCardModel soundCard, KeyboardModel keyboard, MonitorModel monitor,
                          MouseModel mouse) {
         this.configName = new SimpleStringProperty(configName);
-        this.computerCase = new SimpleObjectProperty<ComputerCaseModel>(computerCase);
-        this.cpu = new SimpleObjectProperty<CPUModel>(cpu);
-        this.gpu = new SimpleObjectProperty<GPUModel>(gpu);
-        this.ram = new SimpleObjectProperty<RAMModel>(ram);
-        this.hardDrive = new SimpleObjectProperty<HarddriveModel>(hardDrive);
-        this.motherboard = new SimpleObjectProperty<MotherboardModel>(motherboard);
-        this.psu = new SimpleObjectProperty<PSUModel>(psu);
-        this.soundCard = new SimpleObjectProperty<SoundCardModel>(soundCard);
-        this.keyboard = new SimpleObjectProperty<KeyboardModel>(keyboard);
-        this.monitor = new SimpleObjectProperty<MonitorModel>(monitor);
-        this.mouse = new SimpleObjectProperty<MouseModel>(mouse);
+        this.computerCase = new SimpleObjectProperty<>(computerCase);
+        this.cpu = new SimpleObjectProperty<>(cpu);
+        this.gpu = new SimpleObjectProperty<>(gpu);
+        this.ram = new SimpleObjectProperty<>(ram);
+        this.hardDrive = new SimpleObjectProperty<>(hardDrive);
+        this.motherboard = new SimpleObjectProperty<>(motherboard);
+        this.psu = new SimpleObjectProperty<>(psu);
+        this.soundCard = new SimpleObjectProperty<>(soundCard);
+        this.keyboard = new SimpleObjectProperty<>(keyboard);
+        this.monitor = new SimpleObjectProperty<>(monitor);
+        this.mouse = new SimpleObjectProperty<>(mouse);
     }
 
-
+    //Getters/Setters
     public String getConfigName() {
         return configName.get();
     }

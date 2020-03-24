@@ -6,20 +6,20 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class MonitorModel extends ComponentModel {
 
-    private SimpleIntegerProperty intSize;
+    private SimpleIntegerProperty size;
 
     //Constructor
-    public MonitorModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intSize) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.intSize = new SimpleIntegerProperty(intSize);
+    public MonitorModel(String name, String brand, double price, double performanceValue, int size) {
+        super(name, brand, price, performanceValue);
+        this.size = new SimpleIntegerProperty(size);
     }
 
     //Getters/Setters
-    public int getIntSize() {
-        return intSize.get();
+    public int getSize() {
+        return size.get();
     }
 
-    public void setIntSize(int intSize) {
-        this.intSize.set(intSize);
+    public void setSize(int size) {
+        this.size.set(size);
     }
 }

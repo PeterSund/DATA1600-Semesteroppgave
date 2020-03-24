@@ -8,6 +8,7 @@ public class CPUModel extends ComponentModel {
     private SimpleIntegerProperty intClockSpeed, intCores;
     private SimpleDoubleProperty doubleFrequency;
 
+    //Constructor
     public CPUModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intClockSpeed, double doubleFrequency, int intCores) {
         super(txtName, txtBrand, doublePrice, doublePerformanceValue);
         this.intClockSpeed = new SimpleIntegerProperty(intClockSpeed);
@@ -16,6 +17,7 @@ public class CPUModel extends ComponentModel {
 
     }
 
+    //Getters/Setters
     public int getIntClockSpeed() {return intClockSpeed.get(); }
 
     public void setIntClockSpeed(int intClockSpeed) {this.intClockSpeed.set(intClockSpeed); }
