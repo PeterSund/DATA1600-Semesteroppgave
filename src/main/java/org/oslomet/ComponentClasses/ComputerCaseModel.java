@@ -4,28 +4,28 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class ComputerCaseModel extends ComponentModel {
 
-    private SimpleStringProperty txtDimensions, txtColor;
+    private SimpleStringProperty dimensions, color;
 
     //Constructor
-    public ComputerCaseModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, String txtDimensions, String txtColor) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.txtDimensions = new SimpleStringProperty(txtDimensions);
-        this.txtColor = new SimpleStringProperty(txtColor);
+    public ComputerCaseModel(String name, String brand, double price, double performanceValue, String dimensions, String color) {
+        super(name, brand, price, performanceValue);
+        this.dimensions = new SimpleStringProperty(dimensions);
+        this.color = new SimpleStringProperty(color);
     }
 
-    public String getTxtDimensions() {
-        return txtDimensions.get();
+    public String getDimensions() {
+        return dimensions.get();
     }
 
-    public void setTxtDimensions(String txtDimensions) {
-        this.txtDimensions.set(txtDimensions);
+    public void setDimensions(String dimensions) {
+        this.dimensions.set(dimensions);
     }
 
-    public String getTxtColor() {
-        return txtColor.get();
+    public String getColor() {
+        return color.get();
     }
 
-    public void setTxtColor(String txtColor) {
-        this.txtColor.set(txtColor);
+    public void setColor(String color) {
+        this.color.set(color);
     }
 }

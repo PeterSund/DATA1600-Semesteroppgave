@@ -5,30 +5,30 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class CPUModel extends ComponentModel {
 
-    private SimpleIntegerProperty intClockSpeed, intCores;
-    private SimpleDoubleProperty doubleFrequency;
+    private SimpleIntegerProperty clockSpeed, cores;
+    private SimpleDoubleProperty frequency;
 
     //Constructor
-    public CPUModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intClockSpeed, double doubleFrequency, int intCores) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.intClockSpeed = new SimpleIntegerProperty(intClockSpeed);
-        this.doubleFrequency = new SimpleDoubleProperty(doubleFrequency);
-        this.intCores = new SimpleIntegerProperty(intCores);
+    public CPUModel(String name, String brand, double price, double performanceValue, int clockSpeed, double frequency, int cores) {
+        super(name, brand, price, performanceValue);
+        this.clockSpeed = new SimpleIntegerProperty(clockSpeed);
+        this.frequency = new SimpleDoubleProperty(frequency);
+        this.cores = new SimpleIntegerProperty(cores);
 
     }
 
     //Getters/Setters
-    public int getIntClockSpeed() {return intClockSpeed.get(); }
+    public int getClockSpeed() {return clockSpeed.get(); }
 
-    public void setIntClockSpeed(int intClockSpeed) {this.intClockSpeed.set(intClockSpeed); }
+    public void setClockSpeed(int clockSpeed) {this.clockSpeed.set(clockSpeed); }
 
-    public double getDoubleFrequency() {return doubleFrequency.get(); }
+    public double getFrequency() {return frequency.get(); }
 
-    public void setDoubleFrequency(int doubleFrequency) {this.doubleFrequency.set(doubleFrequency); }
+    public void setFrequency(int frequency) {this.frequency.set(frequency); }
 
-    public int getIntCores() {return intCores.get(); }
+    public int getCores() {return cores.get(); }
 
-    public void setIntCores(int intCores) {this.intCores.set(intCores); }
+    public void setCores(int cores) {this.cores.set(cores); }
 
 }
 

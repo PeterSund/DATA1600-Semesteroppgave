@@ -1,37 +1,36 @@
 package org.oslomet.ComponentClasses;
 
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class HarddriveModel extends ComponentModel {
 
-    private SimpleStringProperty txtType;
-    private SimpleIntegerProperty intCapacity;
+    private SimpleStringProperty type;
+    private SimpleIntegerProperty capacity;
 
     //Constructor
-    public HarddriveModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, String txtType, int intCapacity) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.txtType = new SimpleStringProperty(txtType);
-        this.intCapacity = new SimpleIntegerProperty(intCapacity);
+    public HarddriveModel(String name, String brand, double price, double performanceValue, String type, int capacity) {
+        super(name, brand, price, performanceValue);
+        this.type = new SimpleStringProperty(type);
+        this.capacity = new SimpleIntegerProperty(capacity);
     }
 
     //Getters/Setters
-    public String getTxtType() {
-        return txtType.get();
+    public String getType() {
+        return type.get();
     }
 
-    public void setTxtType(String txtType) {
-        this.txtType.set(txtType);
+    public void setType(String type) {
+        this.type.set(type);
     }
 
-    public int getIntCapacity() {
-        return intCapacity.get();
+    public int getCapacity() {
+        return capacity.get();
     }
 
 
-    public void setIntCapacity(int intCapacity) {
-        this.intCapacity.set(intCapacity);
+    public void setCapacity(int capacity) {
+        this.capacity.set(capacity);
     }
 
 }

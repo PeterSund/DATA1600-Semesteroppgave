@@ -4,22 +4,22 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class GPUModel extends ComponentModel {
 
-    private SimpleIntegerProperty intClockSpeed, intMemory;
+    private SimpleIntegerProperty clockSpeed, memory;
 
     //Constructor
-    public GPUModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue, int intClockSpeed, int intMemory) {
-        super(txtName, txtBrand, doublePrice, doublePerformanceValue);
-        this.intClockSpeed = new SimpleIntegerProperty(intClockSpeed);
-        this.intMemory = new SimpleIntegerProperty(intMemory);
+    public GPUModel(String name, String brand, double price, double performanceValue, int clockSpeed, int memory) {
+        super(name, brand, price, performanceValue);
+        this.clockSpeed = new SimpleIntegerProperty(clockSpeed);
+        this.memory = new SimpleIntegerProperty(memory);
 
     }
     //Setters/Setters
-    public int getIntClockSpeed() {return intClockSpeed.get(); }
+    public int getClockSpeed() {return clockSpeed.get(); }
 
-    public void setIntClockSpeed(int intClockSpeed) {this.intClockSpeed.set(intClockSpeed); }
+    public void setClockSpeed(int clockSpeed) {this.clockSpeed.set(clockSpeed); }
 
-    public int getIntMemory() {return intMemory.get(); }
+    public int getMemory() {return memory.get(); }
 
-    public void setIntMemory(int intMemory) {this.intMemory.set(intMemory); }
+    public void setMemory(int memory) {this.memory.set(memory); }
     }
 

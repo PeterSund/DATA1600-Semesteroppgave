@@ -7,47 +7,47 @@ import javafx.beans.property.StringProperty;
 
 public class ComponentModel {
 
-    private SimpleStringProperty txtName, txtBrand;
-    private SimpleDoubleProperty doublePrice, doublePerformanceValue;
+    private SimpleStringProperty name, brand;
+    private SimpleDoubleProperty price, performanceValue;
 
     //Constructor
-    public ComponentModel(String txtName, String txtBrand, double doublePrice, double doublePerformanceValue) {
-        this.txtName = new SimpleStringProperty(txtName);
-        this.txtBrand = new SimpleStringProperty(txtBrand);
-        this.doublePrice = new SimpleDoubleProperty(doublePrice);
-        this.doublePerformanceValue = new SimpleDoubleProperty(doublePerformanceValue);
+    public ComponentModel(String name, String brand, double price, double performanceValue) {
+        this.name = new SimpleStringProperty(name);
+        this.brand = new SimpleStringProperty(brand);
+        this.price = new SimpleDoubleProperty(price);
+        this.performanceValue = new SimpleDoubleProperty(performanceValue);
     }
 
     //Getters/Setters
-    public String getTxtName() {
-        return txtName.get();
+    public String getName() {
+        return name.get();
     }
 
-    public void setTxtName(String txtName) {
-        this.txtName.set(txtName);
+    public void setName(String name) {
+        this.name.set(name);
     }
 
-    public String getTxtBrand() {
-        return txtBrand.get();
+    public String getBrand() {
+        return brand.get();
     }
 
-    public void setTxtBrand(String txtBrand) {
-        this.txtBrand.set(txtBrand);
+    public void setBrand(String brand) {
+        this.brand.set(brand);
     }
 
-    public double getDoublePrice() {
-        return doublePrice.get();
+    public double getPrice() {
+        return price.get();
     }
 
-    public void setDoublePrice(double doublePrice) {
-        this.doublePrice.set(doublePrice);
+    public void setPrice(double price) {
+        this.price.set(price);
     }
 
-    public double getDoublePerformanceValue() {
-        return doublePerformanceValue.get();
+    public double getPerformanceValue() {
+        return performanceValue.get();
     }
 
-    public void setDoublePerformanceValue(double doublePerformanceValue) {
-        this.doublePerformanceValue.set(doublePerformanceValue);
+    public void setPerformanceValue(double performanceValue) {
+        this.performanceValue.set(performanceValue);
     }
 }
