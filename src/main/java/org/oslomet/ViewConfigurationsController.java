@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +18,50 @@ import java.util.ResourceBundle;
 
 public class ViewConfigurationsController {
 
+    @FXML
+    private Button btnEditConfig;
+
+    @FXML
+    private Label lbl1;
+
+    @FXML
+    private MenuBar menubarEditConfig;
+
+    @FXML
+    private Menu loginAdmin;
+
+    @FXML
+    private Menu getHelp;
+
+    @FXML
+    private TableView<?> tableviewMyConfigs;
+
+    @FXML
+    private Button btnDeleteConfig;
+
+    @FXML
+    private Button btnSaveConfigs;
+
+    @FXML
+    void adminLogin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteConfig(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveConfigs(ActionEvent event) {
+
+    }
+
+    @FXML
+    void showHelp(ActionEvent event) {
+
+    }
+
     /*
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -25,9 +69,6 @@ public class ViewConfigurationsController {
     }
 
      */
-
-    @FXML
-    Label lbl1;
 
     //Change to view to primary controller
     @FXML

@@ -13,11 +13,91 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.TableView;
 
 public class EditConfigurationController {
+
+    @FXML
+    private Button btnComputerCase;
+
+    @FXML
+    private Button btnCPU;
+
+    @FXML
+    private Button btnGPU;
+
+    @FXML
+    private Button btnHarddrive;
+
+    @FXML
+    private Button btnMotherboard;
+
+    @FXML
+    private Button btnRAM;
+
+    @FXML
+    private Button btnSoundcard;
+
+    @FXML
+    private Button btnPSU;
+
+    @FXML
+    private Button btnMonitor;
+
+    @FXML
+    private Button btnMouse;
+
+    @FXML
+    private Button btnKeyboard;
+
+    @FXML
+    private MenuBar menubarEditConfig;
+
+    @FXML
+    private Menu loginAdmin;
+
+    @FXML
+    private Menu getHelp;
+
+    @FXML
+    private TableView<?> tableviewMyConfig;
+
+    @FXML
+    private Button btnRemoveComp;
+
+    @FXML
+    private Button btnSaveConfig;
+
+    @FXML
+    void adminLogin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void removeComponent(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveConfig(ActionEvent event) {
+
+    }
+
+    @FXML
+    void showComponent(ActionEvent event) {
+
+    }
+
+    @FXML
+    void showHelp(ActionEvent event) {
+
+    }
 
     @FXML
     private TextField txt1;
@@ -34,11 +114,8 @@ public class EditConfigurationController {
 
     @FXML
     void addToArray(ActionEvent event) throws IOException {
-
-        Context.addToArray(txt1.getText());
-
+    Context.addToArray(txt1.getText());
     }
-
 }
 
 
