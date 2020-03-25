@@ -1,7 +1,8 @@
-package org.oslomet.ComponentClasses;
+package org.oslomet.ComputerClasses;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ComponentClasses.*;
 
 public class ComputerModel {
 
