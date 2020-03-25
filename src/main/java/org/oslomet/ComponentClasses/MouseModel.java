@@ -29,5 +29,4 @@ public class MouseModel extends ComponentModel {
     public void setWireless(boolean wireless) {
         this.wireless.set(wireless);
     }
-
 }
