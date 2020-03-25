@@ -14,14 +14,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableView;
+import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComputerClasses.ComputerModel;
+import org.oslomet.ComputerClasses.ComputerRegistry;
 
 public class EditConfigurationController {
+
+    ComputerRegistry configs = new ComputerRegistry();
 
     @FXML
     private Button btnComputerCase;
@@ -81,6 +87,22 @@ public class EditConfigurationController {
 
     @FXML
     void removeComponent(ActionEvent event) {
+        ComputerCaseModel case1 = new ComputerCaseModel("Case", "Hans", 20.0, 20.0, "qwd","blue");
+        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 3.2, 4);
+        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4, 512);
+        HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
+        KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
+        MonitorModel monitor = new MonitorModel("Monitor", "Hans", 10.5, 5.5, 21);
+        MotherboardModel motherboard = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");
+        SoundCardModel sc1 = new SoundCardModel("SC1", "Logitech", 499, 20, true, true);
+        RAMModel RAM1 = new RAMModel("RAM1", "Acer", 1000, 25, 300, 400);
+        PSUModel PSU1 = new PSUModel("PSU1", "Dell", 200, 400, 500);
+        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 0, "Gaming", true);
+
+        ComputerModel testPC = new ComputerModel("TestPC", case1, cpu, gpu, RAM1, hdd, motherboard, PSU1, sc1, keyboard, monitor, Mouse1, 100.5, 100);
+
+        configs.addComputer(testPC);
+
 
     }
 

@@ -1,5 +1,6 @@
 package org.oslomet.ComputerClasses;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ComponentClasses.*;
@@ -18,12 +19,14 @@ public class ComputerModel {
     private SimpleObjectProperty<KeyboardModel> keyboard;
     private SimpleObjectProperty<MonitorModel> monitor;
     private SimpleObjectProperty<MouseModel> mouse;
+    private SimpleDoubleProperty totalPrice;
+    private SimpleDoubleProperty totalPerformanceValue;
 
 
     //Constructor
     public ComputerModel(String configName, ComputerCaseModel computerCase, CPUModel cpu, GPUModel gpu, RAMModel ram, HarddriveModel hardDrive,
                          MotherboardModel motherboard, PSUModel psu, SoundCardModel soundCard, KeyboardModel keyboard, MonitorModel monitor,
-                         MouseModel mouse) {
+                         MouseModel mouse, double totalPrice, double totalPerformanceValue) {
         this.configName = new SimpleStringProperty(configName);
         this.computerCase = new SimpleObjectProperty<>(computerCase);
         this.cpu = new SimpleObjectProperty<>(cpu);
@@ -36,6 +39,8 @@ public class ComputerModel {
         this.keyboard = new SimpleObjectProperty<>(keyboard);
         this.monitor = new SimpleObjectProperty<>(monitor);
         this.mouse = new SimpleObjectProperty<>(mouse);
+        this.totalPrice = new SimpleDoubleProperty(totalPrice);
+        this.totalPerformanceValue = new SimpleDoubleProperty(totalPerformanceValue);
     }
 
     //Getters/Setters

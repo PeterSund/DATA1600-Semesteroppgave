@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.oslomet.ComputerClasses.ComputerRegistry;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ViewConfigurationsController {
+public class ViewConfigurationsController implements Initializable {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ComputerRegistry.attachTableView(tableviewMyConfigs);
+    }
 
     @FXML
     private Button btnEditConfig;
@@ -49,6 +55,8 @@ public class ViewConfigurationsController {
 
     @FXML
     void deleteConfig(ActionEvent event) {
+        String ut = ComputerRegistry.getValue();
+        lbl1.setText(ut);
 
     }
 
