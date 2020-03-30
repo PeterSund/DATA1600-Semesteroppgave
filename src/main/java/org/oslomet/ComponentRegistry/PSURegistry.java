@@ -1,4 +1,4 @@
-package org.oslomet.ComponetRegistry;
+package org.oslomet.ComponentRegistry;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
