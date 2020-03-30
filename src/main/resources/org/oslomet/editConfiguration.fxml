@@ -137,7 +137,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <TableView id="ComputerCase" fx:id="twComputercase" layoutX="200.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView id="Computercase" fx:id="twComputercase" layoutX="200.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Computercase" />
           <TableColumn prefWidth="75.0" text="C2" />
@@ -155,7 +155,7 @@
           <TableColumn prefWidth="71.20001220703125" text="C2" />
         </columns>
       </TableView>
-      <TableView id="Harddrive" fx:id="twHardDrive" layoutX="14.0" layoutY="606.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView id="Hard drive" fx:id="twHardDrive" layoutX="14.0" layoutY="606.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Hard drive" />
           <TableColumn prefWidth="75.0" text="C2" />

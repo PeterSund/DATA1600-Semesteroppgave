@@ -154,7 +154,6 @@ public class EditConfigurationController implements Initializable {
     public void showTableView(String component) {
 
         for (TableView tv : tableViewArray) {
-            System.out.print(tv.getId());
             if (tv.getId().equals(component)) {
                 tv.setVisible(true);
             }
