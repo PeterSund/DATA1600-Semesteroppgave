@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="767.0" style="-fx-background-color: #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="932.0" style="-fx-background-color: #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
       <Button layoutX="577.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeToViewConfigurations" text="&lt;- View configurations" />
       <Label layoutX="215.0" layoutY="62.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
@@ -50,7 +50,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnHarddrive" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Hard drive">
+            <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Hard drive">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -137,5 +137,71 @@
             <Font size="17.0" />
          </font>
       </Button>
+      <TableView id="ComputerCase" fx:id="twComputercase" layoutX="200.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Computercase" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="CPU" fx:id="twCPU" layoutX="431.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="CPU" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="GPU" fx:id="twGPU" layoutX="669.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="79.19997864961624" text="GPU" />
+          <TableColumn prefWidth="71.20001220703125" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="Harddrive" fx:id="twHardDrive" layoutX="14.0" layoutY="606.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Hard drive" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="Motherboard" fx:id="twMotherboard" layoutX="250.0" layoutY="643.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Motherboard" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="RAM" fx:id="twRAM" layoutX="477.0" layoutY="643.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="RAM" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="Soundcard" fx:id="twSoundcard" layoutX="694.0" layoutY="643.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Soundcard" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="PSU" fx:id="twPSU" layoutX="724.0" layoutY="418.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="PSU" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="Monitor" fx:id="twMonitor" layoutX="715.0" layoutY="202.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Monitor" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="Mouse" fx:id="twMouse" layoutX="715.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Mouse" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView id="Keyboard" fx:id="twKeyboard" layoutX="400.0" layoutY="-9.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Keyboard" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

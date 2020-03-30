@@ -25,7 +25,7 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 
-public class EditConfigurationController {
+public class EditConfigurationController implements Initializable {
 
     ComputerRegistry configs = new ComputerRegistry();
 
@@ -81,6 +81,44 @@ public class EditConfigurationController {
     private Button btnSaveConfig;
 
     @FXML
+    private TableView<?> twComputercase;
+
+    @FXML
+    private TableView<?> twCPU;
+
+    @FXML
+    private TableView<?> twGPU;
+
+    @FXML
+    private TableView<?> twHardDrive;
+
+    @FXML
+    private TableView<?> twMotherboard;
+
+    @FXML
+    private TableView<?> twRAM;
+
+    @FXML
+    private TableView<?> twSoundcard;
+
+    @FXML
+    private TableView<?> twPSU;
+
+    @FXML
+    private TableView<?> twMonitor;
+
+    @FXML
+    private TableView<?> twMouse;
+
+    @FXML
+    private TableView<?> twKeyboard;
+
+
+    public TableView[] tableViewArray2 = {twComputercase, twCPU, twGPU, twHardDrive, twKeyboard, twMonitor, twMotherboard, twMouse, twPSU, twRAM, twSoundcard};
+
+    public List<TableView> tableViewArray = new ArrayList<>();
+
+    @FXML
     void adminLogin(ActionEvent event) {
 
     }
@@ -111,9 +149,27 @@ public class EditConfigurationController {
 
     }
 
+
+
+    public void showTableView(String component) {
+
+        for (TableView tv : tableViewArray) {
+            System.out.print(tv.getId());
+            if (tv.getId().equals(component)) {
+                tv.setVisible(true);
+            }
+            else {
+                tv.setVisible(false);
+            }
+        }
+    }
+
     @FXML
     void showComponent(ActionEvent event) {
-
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1,component.length()-1);
+        showTableView(component);
     }
 
     @FXML
@@ -136,7 +192,22 @@ public class EditConfigurationController {
 
     @FXML
     void addToArray(ActionEvent event) throws IOException {
-    Context.addToArray(txt1.getText());
+        Context.addToArray(txt1.getText());
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewArray.add(twComputercase);
+        tableViewArray.add(twCPU);
+        tableViewArray.add(twGPU);
+        tableViewArray.add(twHardDrive);
+        tableViewArray.add(twKeyboard);
+        tableViewArray.add(twMonitor);
+        tableViewArray.add(twMotherboard);
+        tableViewArray.add(twMouse);
+        tableViewArray.add(twPSU);
+        tableViewArray.add(twRAM);
+        tableViewArray.add(twSoundcard);
     }
 }
 
