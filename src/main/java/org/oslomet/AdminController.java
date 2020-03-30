@@ -1,10 +1,21 @@
 package org.oslomet;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import org.oslomet.ComponentClasses.KeyboardModel;
+import org.oslomet.ComponentRegistry.KeyboardRegistry;
 
-public class AdminController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class AdminController implements Initializable {
+
+    public List<TableView> tableViewArray = new ArrayList<>();
 
     @FXML
     private Button btnLogOut;
@@ -58,7 +69,7 @@ public class AdminController {
     private TableView<?> tvCPU;
 
     @FXML
-    private TableView<?> tvHarddrive;
+    private TableView<?> tvHardDrive;
 
     @FXML
     private TableView<?> tvMotherboard;
@@ -80,5 +91,66 @@ public class AdminController {
 
     @FXML
     private TableView<?> tvKeyboard;
+
+    public void editText() {
+
+    }
+
+    public void editPrice() {
+
+    }
+
+    public void editPerformanceValue() {
+
+    }
+
+    public void editBooleanAttribute() {
+
+    }
+
+    public void showTableView(String component) {
+
+        for (TableView tv : tableViewArray) {
+            if (tv.getId().equals(component)) {
+                tv.setVisible(true);
+            }
+            else {
+                tv.setVisible(false);
+            }
+        }
+    }
+
+    @FXML
+    void showComponent(ActionEvent event) {
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1,component.length()-1);
+        System.out.println(component);
+        showTableView(component);
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        KeyboardRegistry.attachTableView(tvKeyboard);
+        KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);
+        KeyboardRegistry.addComponent(testKey);
+        /*tableViewArray.add(tvComputercase);
+        tableViewArray.add(tvCPU);
+        //tableViewArray.add(tvGPU);
+        tableViewArray.add(tvHardDrive);
+        tableViewArray.add(tvKeyboard);
+        tableViewArray.add(tvMonitor);
+        tableViewArray.add(tvMotherboard);
+        tableViewArray.add(tvMouse);
+        tableViewArray.add(tvPSU);
+        tableViewArray.add(tvRAM);
+        tableViewArray.add(tvSoundcard);
+
+         */
+
+        tableViewArray.add(tvMouse);
+        tableViewArray.add(tvKeyboard);
+    }
 
 }

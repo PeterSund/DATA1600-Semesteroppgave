@@ -113,9 +113,6 @@ public class EditConfigurationController implements Initializable {
     @FXML
     private TableView<?> twKeyboard;
 
-
-    public TableView[] tableViewArray2 = {twComputercase, twCPU, twGPU, twHardDrive, twKeyboard, twMonitor, twMotherboard, twMouse, twPSU, twRAM, twSoundcard};
-
     public List<TableView> tableViewArray = new ArrayList<>();
 
     @FXML
@@ -145,7 +142,12 @@ public class EditConfigurationController implements Initializable {
     }
 
     @FXML
-    void saveConfig(ActionEvent event) {
+    void saveConfig(ActionEvent event) throws IOException {
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+        window.setScene(viewConfScene);
+        window.show();
 
     }
 
@@ -172,8 +174,7 @@ public class EditConfigurationController implements Initializable {
     }
 
     @FXML
-    void showHelp(ActionEvent event) {
-
+    void showHelp(ActionEvent event) throws IOException {
     }
 
     @FXML
