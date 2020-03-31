@@ -108,6 +108,26 @@ public class AdminController implements Initializable {
 
     }
 
+    public void editSize() {
+
+    }
+
+    public void editClockSpeed() {
+
+    }
+
+    public void editMemory() {
+
+    }
+
+    public void editWatt() {
+
+    }
+
+    public void editCapacity() {
+
+    }
+
     public void showTableView(String component) {
 
         for (TableView tv : tableViewArray) {
