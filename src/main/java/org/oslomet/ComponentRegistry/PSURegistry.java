@@ -12,6 +12,11 @@ public class PSURegistry implements RegistryMethods  {
         tv.setItems(psuArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(PSUModel psu) {
         psuArray.add(psu);

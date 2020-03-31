@@ -14,6 +14,11 @@ public class HardDriveRegistry implements RegistryMethods {
         tv.setItems(hardDriveArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(HarddriveModel hardDrive) {
         hardDriveArray.add(hardDrive);

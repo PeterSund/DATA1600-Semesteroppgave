@@ -14,6 +14,11 @@ public class CPURegistry implements RegistryMethods {
         tv.setItems(cpuArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(CPUModel cpu) {
         cpuArray.add(cpu);

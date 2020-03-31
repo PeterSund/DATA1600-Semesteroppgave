@@ -14,6 +14,11 @@ public class GPURegistry implements RegistryMethods {
         tv.setItems(gpuArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(GPUModel gpu) {
         gpuArray.add(gpu);

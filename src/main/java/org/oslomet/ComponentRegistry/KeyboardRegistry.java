@@ -13,6 +13,10 @@ public class KeyboardRegistry implements RegistryMethods {
         tv.setItems(keyboardArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
 
     //Add component to array
     public static void addComponent(KeyboardModel keyboard) {

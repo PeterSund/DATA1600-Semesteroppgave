@@ -17,6 +17,11 @@ public class MotherboardRegistry implements RegistryMethods {
         motherboardArray.add(motherboard);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Removes selected component from array by comparing names
     public static void removeComponent(MotherboardModel motherboard) {
         for (MotherboardModel obj : motherboardArray) {

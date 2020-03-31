@@ -13,6 +13,11 @@ public class MonitorRegistry implements RegistryMethods  {
         tv.setItems(monitorArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(MonitorModel monitor) {
         monitorArray.add(monitor);

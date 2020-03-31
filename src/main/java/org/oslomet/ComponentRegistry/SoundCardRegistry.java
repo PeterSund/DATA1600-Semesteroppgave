@@ -12,6 +12,11 @@ public class SoundCardRegistry implements RegistryMethods  {
         tv.setItems(soundCardArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(SoundCardModel soundCard) {
         soundCardArray.add(soundCard);

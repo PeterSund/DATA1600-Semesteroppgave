@@ -12,6 +12,11 @@ public class MouseRegistry implements RegistryMethods  {
         tv.setItems(mouseArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(MouseModel mouse) {
         mouseArray.add(mouse);

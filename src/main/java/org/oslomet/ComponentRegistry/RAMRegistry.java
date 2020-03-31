@@ -12,6 +12,11 @@ public class RAMRegistry implements RegistryMethods  {
         tv.setItems(ramArray);
     }
 
+    //Creates component
+    public static void createComponent() {
+
+    }
+
     //Add component to array
     public static void addComponent(RAMModel ram) {
         ramArray.add(ram);
