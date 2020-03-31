@@ -189,8 +189,7 @@
 
          </columns>
       </TableView>
-      
-      <TableView id="Motherboard" fx:id="tvMotherboard" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+
       <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn prefWidth="175.0" text="Name " />
@@ -240,7 +239,6 @@
 
          </columns>
       </TableView>
-      <TableView id="RAM" fx:id="tvRAM" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
       <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn prefWidth="175.0" text="Name " />
@@ -294,7 +292,6 @@
 
          </columns>
       </TableView>
-      <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
       <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn prefWidth="175.0" text="Name " />
@@ -349,7 +346,6 @@
          </columns>
 
       </TableView>
-      <TableView id="PSU" fx:id="tvPSU" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
       <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn prefWidth="216.0" text="Name " />
@@ -396,7 +392,6 @@
 
          </columns>
       </TableView>
-      <TableView id="Monitor" fx:id="tvMonitor" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
       <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn prefWidth="224.0" text="Name " />
@@ -443,7 +438,6 @@
 
          </columns>
       </TableView>
-      <TableView id="Mouse" fx:id="tvMouse" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
       <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn prefWidth="175.0" text="Name " />
