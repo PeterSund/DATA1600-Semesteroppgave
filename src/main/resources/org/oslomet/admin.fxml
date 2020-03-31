@@ -9,7 +9,21 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
-      <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" text="Log out" />
+   <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" text="Log out" />
+   <Button fx:id="btnCPU" onAction="#showComponent" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="CPU" />
+   <Button fx:id="btnGPU" onAction="#showComponent" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="GPU" />
+   <Button fx:id="btnHarddrive" onAction="#showComponent" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
+   <Button fx:id="btnMotherboard" onAction="#showComponent" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
+   <Button fx:id="btnRAM" layoutX="30.0" onAction="#showComponent" layoutY="230.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="RAM" />
+   <Button fx:id="btnSoundcard" onAction="#showComponent" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
+   <Button fx:id="btnPSU" onAction="#showComponent" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="PSU" />
+   <Button fx:id="btnMonitor" onAction="#showComponent" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
+   <Button fx:id="btnMouse" onAction="#showComponent" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Mouse " />
+   <Button fx:id="btnComputercase" onAction="#showComponent" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" text="Computercase" />
+   <Button fx:id="btnKeyboard" onAction="#showComponent" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
+   <Button fx:id="btnAddComponent" onAction="#showComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" text="Add Component" />
+   <Button fx:id="btnLoadComponent" onAction="#showComponent" layoutX="922.0" layoutY="400.0" mnemonicParsing="false" text="Load components" />
+   <Button fx:id="btnSaveComponent" onAction="#showComponent" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" text="Save components" />
 
       <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
         <columns>
@@ -64,21 +78,6 @@
 
         </columns>
       </TableView>
-      <Button fx:id="btnCPU" onAction="#showComponent" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="CPU" />
-      <Button fx:id="btnGPU" onAction="#showComponent" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="GPU" />
-      <Button fx:id="btnHarddrive" onAction="#showComponent" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
-      <Button fx:id="btnMotherboard" onAction="#showComponent" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
-      <Button fx:id="btnRAM" layoutX="30.0" onAction="#showComponent" layoutY="230.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="RAM" />
-      <Button fx:id="btnSoundcard" onAction="#showComponent" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
-      <Button fx:id="btnPSU" onAction="#showComponent" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="PSU" />
-      <Button fx:id="btnMonitor" onAction="#showComponent" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
-      <Button fx:id="btnMouse" onAction="#showComponent" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Mouse " />
-      <Button fx:id="btnComputercase" onAction="#showComponent" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" text="Computercase" />
-      <Button fx:id="btnKeyboard" onAction="#showComponent" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
-      <Button fx:id="btnAddComponent" onAction="#showComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" text="Add Component" />
-      <Button fx:id="btnLoadComponent" onAction="#showComponent" layoutX="922.0" layoutY="400.0" mnemonicParsing="false" text="Load components" />
-      <Button fx:id="btnSaveComponent" onAction="#showComponent" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" text="Save components" />
-
 
       <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
@@ -120,7 +119,7 @@
 
             <TableColumn fx:id="colCPUMemory" onEditCommit="#editMemory" prefWidth="232.0" text="Memory">
                <cellValueFactory>
-                  <PropertyValueFactory property="clockSpeed" />
+                  <PropertyValueFactory property="memory" />
                </cellValueFactory>
             </TableColumn>
 
@@ -138,6 +137,53 @@
 
          </columns>
       </TableView>
+
+       <TableView id="CPU" fx:id="tvGPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn fx:id="colGPUName" onEditCommit="#editText"  prefWidth="175.0" text="Name">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+                   <cellFactory>
+                       <TextFieldTableCell fx:factory="forTableColumn"/>
+                   </cellFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+                   <cellFactory>
+                       <TextFieldTableCell fx:factory="forTableColumn"/>
+                   </cellFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUClockSpeed" onEditCommit="#editClockSpeed" prefWidth="178.0" text="Clock speed">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="clockSpeed" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUMemory" onEditCommit="#editMemory" prefWidth="232.0" text="Memory">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="memory" />
+                   </cellValueFactory>
+               </TableColumn>
+
+           </columns>
+       </TableView>
 
       <TableView id="Hard drive" fx:id="tvHarddrive" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
@@ -192,11 +238,6 @@
 
       <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn prefWidth="175.0" text="Name " />
-            <TableColumn prefWidth="189.0" text="Brand" />
-            <TableColumn prefWidth="202.0" text="Price" />
-            <TableColumn prefWidth="212.0" text="Performance value" />
-            <TableColumn prefWidth="241.0" text="Type" />
 
             <TableColumn fx:id="MotherboardName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
                 <cellValueFactory>
@@ -239,14 +280,9 @@
 
          </columns>
       </TableView>
+
       <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn prefWidth="175.0" text="Name " />
-            <TableColumn prefWidth="133.0" text="Brand" />
-            <TableColumn prefWidth="160.0" text="Price" />
-            <TableColumn prefWidth="141.0" text="Performance value" />
-            <TableColumn prefWidth="178.0" text="Capacity" />
-            <TableColumn prefWidth="232.0" text="Memory speed " />
 
             <TableColumn fx:id="RAMName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
                 <cellValueFactory>
@@ -284,7 +320,7 @@
                 </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="RAMMemorySpeed" onEditCommit="#editBooleanAttribute" prefWidth="232.0" text="Memory speed ">
+            <TableColumn fx:id="RAMMemorySpeed" onEditCommit="#editMemorySpeed" prefWidth="232.0" text="Memory speed ">
                 <cellValueFactory>
                     <PropertyValueFactory property="memorySpeed" />
                 </cellValueFactory>
@@ -292,14 +328,9 @@
 
          </columns>
       </TableView>
+
       <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn prefWidth="175.0" text="Name " />
-            <TableColumn prefWidth="133.0" text="Brand" />
-            <TableColumn prefWidth="160.0" text="Price" />
-            <TableColumn prefWidth="141.0" text="Performance value" />
-            <TableColumn prefWidth="178.0" text="Surround" />
-            <TableColumn prefWidth="232.0" text="Bassboost" />
 
              <TableColumn fx:id="SoundcardName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
                  <cellValueFactory>
@@ -348,11 +379,6 @@
       </TableView>
       <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn prefWidth="216.0" text="Name " />
-            <TableColumn prefWidth="181.0" text="Brand" />
-            <TableColumn prefWidth="194.0" text="Price" />
-            <TableColumn prefWidth="225.0" text="Performance value" />
-            <TableColumn prefWidth="203.0" text="Watt" />
 
              <TableColumn fx:id="PSUName" onEditCommit="#editText" prefWidth="216.0" text="Name ">
                  <cellValueFactory>
@@ -392,13 +418,9 @@
 
          </columns>
       </TableView>
+
       <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn prefWidth="224.0" text="Name " />
-            <TableColumn prefWidth="162.0" text="Brand" />
-            <TableColumn prefWidth="176.0" text="Price" />
-            <TableColumn prefWidth="210.0" text="Performance value" />
-            <TableColumn prefWidth="247.0" text="Size" />
 
              <TableColumn fx:id="colMonitorName" onEditCommit="#editText" prefWidth="224.0" text="Name ">
                  <cellValueFactory>
@@ -438,14 +460,9 @@
 
          </columns>
       </TableView>
+
       <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn prefWidth="175.0" text="Name " />
-            <TableColumn prefWidth="133.0" text="Brand" />
-            <TableColumn prefWidth="160.0" text="Price" />
-            <TableColumn prefWidth="192.0" text="Performance value" />
-            <TableColumn prefWidth="181.0" text="Type" />
-            <TableColumn prefWidth="178.0" text="Wireless" />
 
              <TableColumn fx:id="colMouseName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
                  <cellValueFactory>
@@ -495,6 +512,7 @@
 
          </columns>
       </TableView>
+
       <TableView id="Keyboard" fx:id="tvKeyboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
