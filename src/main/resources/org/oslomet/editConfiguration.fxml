@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -123,7 +122,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Menu">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#adminLogin" text="Admin login" />
+                  <MenuItem mnemonicParsing="false" text="Admin login" />
                   <MenuItem mnemonicParsing="false" text="Help" />
                </items></Menu>
         </menus>
@@ -131,32 +130,178 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <TableView fx:id="tableviewMyConfig" layoutX="215.0" layoutY="91.0" prefHeight="368.0" prefWidth="520.0">
-      </TableView>
 
        <TableView id="Computercase" fx:id="tvComputercase" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="175.0" text="Name " />
-               <TableColumn prefWidth="133.0" text="Brand" />
-               <TableColumn prefWidth="160.0" text="Price" />
-               <TableColumn prefWidth="141.0" text="Performance value" />
-               <TableColumn prefWidth="178.0" text="Dimension" />
-               <TableColumn prefWidth="232.0" text="Color" />
+               <TableColumn fx:id="colComputercaseName" prefWidth="175.0" text="Name">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colComputercaseBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colComputercasePrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colComputercasePV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colComputercaseDimension" prefWidth="178.0" text="Dimension">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="dimensions" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colComputercaseColor" prefWidth="232.0" text="Color">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="color" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
-       <!-- TableView CPU -->
+       <TableView id="CPU" fx:id="tvCPU" layoutX="196.0" layoutY="489.0" prefHeight="200.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn fx:id="colCPUName" prefWidth="175.0" text="Name">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
 
-       <!-- TableView GPU -->
+               <TableColumn fx:id="colCPUBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colCPUPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colCPUPV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colCPUClockSpeed" prefWidth="178.0" text="Clock speed">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="clockSpeed" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colCPUMemory" prefWidth="232.0" text="Memory">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="memory" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colCPUFrequency" prefWidth="232.0" text="Frequency">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="frequency" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colCPUCores" prefWidth="232.0" text="Cores">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="cores" />
+                   </cellValueFactory>
+               </TableColumn>
+
+           </columns>
+       </TableView>
+
+       <TableView id="GPU" fx:id="tvGPU" layoutX="196.0" layoutY="489.0" prefHeight="200.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn fx:id="colGPUName" prefWidth="175.0" text="Name">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUPV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUClockSpeed" prefWidth="178.0" text="Clock speed">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="clockSpeed" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUMemory" prefWidth="232.0" text="Memory">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="memory" />
+                   </cellValueFactory>
+               </TableColumn>
+
+           </columns>
+       </TableView>
 
        <TableView id="Hard drive" fx:id="tvHarddrive" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="175.0" text="Name " />
-               <TableColumn prefWidth="133.0" text="Brand" />
-               <TableColumn prefWidth="160.0" text="Price" />
-               <TableColumn prefWidth="141.0" text="Performance value" />
-               <TableColumn prefWidth="178.0" text="Type" />
-               <TableColumn prefWidth="232.0" text="Capacity" />
+               <TableColumn fx:id="colHarddriveName" prefWidth="175.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colHarddriveBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colHarddrivePrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colHarddrivePV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colHarddriveType" prefWidth="178.0" text="Type">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="type" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colHarddriveCapacity" prefWidth="232.0" text="Capacity">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="capacity" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
@@ -210,67 +355,262 @@
 
        <TableView id="Monitor" fx:id="tvMonitor" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="224.0" text="Name " />
-               <TableColumn prefWidth="162.0" text="Brand" />
-               <TableColumn prefWidth="176.0" text="Price" />
-               <TableColumn prefWidth="210.0" text="Performance value" />
-               <TableColumn prefWidth="247.0" text="Size" />
+               <TableColumn fx:id="colMonitorName" prefWidth="224.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMonitorBrand" prefWidth="162.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMonitorPrice" prefWidth="176.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMonitorPV" prefWidth="210.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMonitorSize" prefWidth="247.0" text="Size">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="size" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
        <TableView id="Motherboard" fx:id="tvMotherboard" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="175.0" text="Name " />
-               <TableColumn prefWidth="189.0" text="Brand" />
-               <TableColumn prefWidth="202.0" text="Price" />
-               <TableColumn prefWidth="212.0" text="Performance value" />
-               <TableColumn prefWidth="241.0" text="Type" />
+               <TableColumn fx:id="MotherboardName" prefWidth="175.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="MotherboardBrand" prefWidth="189.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="MotherboardPrice" prefWidth="202.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="MotherboardPV" prefWidth="212.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="MotherboardType" prefWidth="241.0" text="Type">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="type" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
        <TableView id="Mouse" fx:id="tvMouse" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="175.0" text="Name " />
-               <TableColumn prefWidth="133.0" text="Brand" />
-               <TableColumn prefWidth="160.0" text="Price" />
-               <TableColumn prefWidth="192.0" text="Performance value" />
-               <TableColumn prefWidth="181.0" text="Type" />
-               <TableColumn prefWidth="178.0" text="Wireless" />
+
+               <TableColumn fx:id="colMouseName" prefWidth="175.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+
+               <TableColumn fx:id="colMouseBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMousePrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMousePV" prefWidth="192.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMouseType" prefWidth="181.0" text="Type">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="type" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colMouseWireless" prefWidth="178.0" text="Wireless">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="wireless" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
        <TableView id="PSU" fx:id="tvPSU" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="216.0" text="Name " />
-               <TableColumn prefWidth="181.0" text="Brand" />
-               <TableColumn prefWidth="194.0" text="Price" />
-               <TableColumn prefWidth="225.0" text="Performance value" />
-               <TableColumn prefWidth="203.0" text="Watt" />
+               <TableColumn fx:id="PSUName" prefWidth="216.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="PSUBrand" prefWidth="181.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="PSUPrice" prefWidth="194.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="PSUPV" prefWidth="225.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="PSUWatt" prefWidth="203.0" text="Watt">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="watt" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
        <TableView id="RAM" fx:id="tvRAM" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="175.0" text="Name" />
-               <TableColumn prefWidth="133.0" text="Brand" />
-               <TableColumn prefWidth="160.0" text="Price" />
-               <TableColumn prefWidth="141.0" text="Performance value" />
-               <TableColumn prefWidth="178.0" text="Capacity" />
-               <TableColumn prefWidth="232.0" text="Memory speed " />
+               <TableColumn fx:id="RAMName" prefWidth="175.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="RAMBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="RAMPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="RAMPV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="RAMCapacity" prefWidth="178.0" text="Capacity">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="capacity" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="RAMMemorySpeed" prefWidth="232.0" text="Memory speed ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="memorySpeed" />
+                   </cellValueFactory>
+               </TableColumn>
            </columns>
        </TableView>
 
        <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
            <columns>
-               <TableColumn prefWidth="175.0" text="Name " />
-               <TableColumn prefWidth="133.0" text="Brand" />
-               <TableColumn prefWidth="160.0" text="Price" />
-               <TableColumn prefWidth="141.0" text="Performance value" />
-               <TableColumn prefWidth="178.0" text="Surround" />
-               <TableColumn prefWidth="232.0" text="Bassboost" />
+               <TableColumn fx:id="SoundcardName" prefWidth="175.0" text="Name ">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="SoundcardBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="SoundcardPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="SoundcardPV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="SoundcardSurround" prefWidth="178.0" text="Surround">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="surround" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="SoundcardBassBoost" prefWidth="232.0" text="Bassboost">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="bassBoost" />
+                   </cellValueFactory>
+               </TableColumn>
+
            </columns>
        </TableView>
       <Button layoutX="51.0" layoutY="576.0" mnemonicParsing="false" onAction="#adminLoginFromBtn" text="Admin Login" />
+      <Button layoutX="786.0" layoutY="91.0" mnemonicParsing="false" onAction="#addComponent" text="Add component" />
+      <Button layoutX="786.0" layoutY="144.0" mnemonicParsing="false" onAction="#deleteComponent" text="Delete component" />
+      <VBox layoutX="240.0" layoutY="144.0" prefHeight="262.0" prefWidth="102.0" spacing="5.0" style="-fx-border-color: black;">
+         <children>
+            <Label text="Computer case" />
+            <Label text="CPU" />
+            <Label text="GPU" />
+            <Label text="Hard drive" />
+            <Label text="Motherboard" />
+            <Label text="RAM" />
+            <Label text="Soundcard" />
+            <Label text="PSU" />
+            <Label text="Monitor" />
+            <Label text="Mouse" />
+            <Label text="Keybaord" />
+         </children>
+      </VBox>
+      <VBox layoutX="352.0" layoutY="144.0" prefHeight="262.0" prefWidth="198.0" spacing="5.0">
+         <children>
+            <Label fx:id="lblComputerCase" prefHeight="18.0" prefWidth="193.0" text="Computer case" />
+            <Label fx:id="lblCPU" prefHeight="18.0" prefWidth="194.0" text="CPU" />
+            <Label fx:id="lblGPU" prefHeight="18.0" prefWidth="195.0" text="GPU" />
+            <Label fx:id="lblHardDrive" prefHeight="18.0" prefWidth="190.0" text="Hard drive" />
+            <Label fx:id="lblMotherBoard" prefHeight="18.0" prefWidth="191.0" text="Motherboard" />
+            <Label fx:id="lblRAM" prefHeight="18.0" prefWidth="190.0" text="RAM" />
+            <Label fx:id="lblSoundcard" prefHeight="18.0" prefWidth="195.0" text="Soundcard" />
+            <Label fx:id="lblPSU" prefHeight="18.0" prefWidth="196.0" text="PSU" />
+            <Label fx:id="lblMonitor" prefHeight="18.0" prefWidth="200.0" text="Monitor" />
+            <Label fx:id="lblMouse" prefHeight="18.0" prefWidth="195.0" text="Mouse" />
+            <Label fx:id="lblKeyboard" prefHeight="18.0" prefWidth="195.0" text="Keybaord" />
+         </children>
+      </VBox>
+      <Button layoutX="786.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveConfiguration" text="Save configuration" />
 
    </children>
 </AnchorPane>
