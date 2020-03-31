@@ -5,13 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="932.0" style="-fx-background-color: #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1222.0" style="-fx-background-color: #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
       <Button layoutX="577.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeToViewConfigurations" text="&lt;- View configurations" />
       <Label layoutX="215.0" layoutY="62.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
@@ -118,90 +121,156 @@
       </VBox>
       <MenuBar fx:id="menubarEditConfig" prefHeight="31.0" prefWidth="177.0" style="-fx-border-color: black;">
         <menus>
-          <Menu fx:id="loginAdmin" mnemonicParsing="false" onAction="#adminLogin" text="Log in admin" />
-          <Menu fx:id="getHelp" mnemonicParsing="false" onAction="#showHelp" text="Help" />
+          <Menu mnemonicParsing="false" text="Menu">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#adminLogin" text="Admin login" />
+                  <MenuItem mnemonicParsing="false" text="Help" />
+               </items></Menu>
         </menus>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </MenuBar>
       <TableView fx:id="tableviewMyConfig" layoutX="215.0" layoutY="91.0" prefHeight="368.0" prefWidth="520.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
       </TableView>
-      <Button fx:id="btnRemoveComp" layoutX="215.0" layoutY="459.0" mnemonicParsing="false" onAction="#removeComponent" text="Remove component" />
-      <Button fx:id="btnSaveConfig" layoutX="560.0" layoutY="473.0" mnemonicParsing="false" onAction="#saveConfig" text="Save configuration">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <TableView id="Computercase" fx:id="twComputercase" layoutX="200.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Computercase" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="CPU" fx:id="twCPU" layoutX="431.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="CPU" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="GPU" fx:id="twGPU" layoutX="669.0" layoutY="530.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="79.19997864961624" text="GPU" />
-          <TableColumn prefWidth="71.20001220703125" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="Hard drive" fx:id="twHardDrive" layoutX="14.0" layoutY="606.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Hard drive" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="Motherboard" fx:id="twMotherboard" layoutX="250.0" layoutY="643.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Motherboard" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="RAM" fx:id="twRAM" layoutX="477.0" layoutY="643.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="RAM" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="Soundcard" fx:id="twSoundcard" layoutX="694.0" layoutY="643.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Soundcard" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="PSU" fx:id="twPSU" layoutX="724.0" layoutY="418.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="PSU" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="Monitor" fx:id="twMonitor" layoutX="715.0" layoutY="202.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Monitor" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="Mouse" fx:id="twMouse" layoutX="715.0" layoutY="62.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Mouse" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <TableView id="Keyboard" fx:id="twKeyboard" layoutX="400.0" layoutY="-9.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Keyboard" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+
+       <TableView id="Computercase" fx:id="tvComputercase" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="175.0" text="Name " />
+               <TableColumn prefWidth="133.0" text="Brand" />
+               <TableColumn prefWidth="160.0" text="Price" />
+               <TableColumn prefWidth="141.0" text="Performance value" />
+               <TableColumn prefWidth="178.0" text="Dimension" />
+               <TableColumn prefWidth="232.0" text="Color" />
+           </columns>
+       </TableView>
+
+       <!-- TableView CPU -->
+
+       <!-- TableView GPU -->
+
+       <TableView id="Hard drive" fx:id="tvHarddrive" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="175.0" text="Name " />
+               <TableColumn prefWidth="133.0" text="Brand" />
+               <TableColumn prefWidth="160.0" text="Price" />
+               <TableColumn prefWidth="141.0" text="Performance value" />
+               <TableColumn prefWidth="178.0" text="Type" />
+               <TableColumn prefWidth="232.0" text="Capacity" />
+           </columns>
+       </TableView>
+
+       <TableView id="Keyboard" fx:id="tvKeyboard" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+
+               <TableColumn fx:id="colKeyboardName" prefWidth="175.0" text="Name">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colKeyboardBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colKeyboardPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colKeyboardPV" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colKeyboardType" prefWidth="154.0" text="Type">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="type" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colKeyboardLanguage" prefWidth="133.0" text="Language">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="language" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colKeyboardWireless" prefWidth="123.0" text="Wireless">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="wireless" />
+                   </cellValueFactory>
+               </TableColumn>
+
+           </columns>
+       </TableView>
+
+       <TableView id="Monitor" fx:id="tvMonitor" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="224.0" text="Name " />
+               <TableColumn prefWidth="162.0" text="Brand" />
+               <TableColumn prefWidth="176.0" text="Price" />
+               <TableColumn prefWidth="210.0" text="Performance value" />
+               <TableColumn prefWidth="247.0" text="Size" />
+           </columns>
+       </TableView>
+
+       <TableView id="Motherboard" fx:id="tvMotherboard" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="175.0" text="Name " />
+               <TableColumn prefWidth="189.0" text="Brand" />
+               <TableColumn prefWidth="202.0" text="Price" />
+               <TableColumn prefWidth="212.0" text="Performance value" />
+               <TableColumn prefWidth="241.0" text="Type" />
+           </columns>
+       </TableView>
+
+       <TableView id="Mouse" fx:id="tvMouse" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="175.0" text="Name " />
+               <TableColumn prefWidth="133.0" text="Brand" />
+               <TableColumn prefWidth="160.0" text="Price" />
+               <TableColumn prefWidth="192.0" text="Performance value" />
+               <TableColumn prefWidth="181.0" text="Type" />
+               <TableColumn prefWidth="178.0" text="Wireless" />
+           </columns>
+       </TableView>
+
+       <TableView id="PSU" fx:id="tvPSU" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="216.0" text="Name " />
+               <TableColumn prefWidth="181.0" text="Brand" />
+               <TableColumn prefWidth="194.0" text="Price" />
+               <TableColumn prefWidth="225.0" text="Performance value" />
+               <TableColumn prefWidth="203.0" text="Watt" />
+           </columns>
+       </TableView>
+
+       <TableView id="RAM" fx:id="tvRAM" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="175.0" text="Name" />
+               <TableColumn prefWidth="133.0" text="Brand" />
+               <TableColumn prefWidth="160.0" text="Price" />
+               <TableColumn prefWidth="141.0" text="Performance value" />
+               <TableColumn prefWidth="178.0" text="Capacity" />
+               <TableColumn prefWidth="232.0" text="Memory speed " />
+           </columns>
+       </TableView>
+
+       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn prefWidth="175.0" text="Name " />
+               <TableColumn prefWidth="133.0" text="Brand" />
+               <TableColumn prefWidth="160.0" text="Price" />
+               <TableColumn prefWidth="141.0" text="Performance value" />
+               <TableColumn prefWidth="178.0" text="Surround" />
+               <TableColumn prefWidth="232.0" text="Bassboost" />
+           </columns>
+       </TableView>
+      <Button layoutX="51.0" layoutY="576.0" mnemonicParsing="false" onAction="#adminLoginFromBtn" text="Admin Login" />
+
    </children>
 </AnchorPane>

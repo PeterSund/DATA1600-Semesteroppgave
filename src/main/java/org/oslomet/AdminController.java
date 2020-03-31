@@ -109,7 +109,6 @@ public class AdminController implements Initializable {
     }
 
     public void showTableView(String component) {
-
         for (TableView tv : tableViewArray) {
             if (tv.getId().equals(component)) {
                 tv.setVisible(true);
