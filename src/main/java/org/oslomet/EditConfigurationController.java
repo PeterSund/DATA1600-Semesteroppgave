@@ -81,43 +81,73 @@ public class EditConfigurationController implements Initializable {
     private Button btnSaveConfig;
 
     @FXML
-    private TableView<?> twComputercase;
+    private TableView<?> tvMouse;
 
     @FXML
-    private TableView<?> twCPU;
+    private TableView<?> tvCPU;
 
     @FXML
-    private TableView<?> twGPU;
+    private TableView<?> tvGPU;
 
     @FXML
-    private TableView<?> twHardDrive;
+    private TableView<?> tvHarddrive;
 
     @FXML
-    private TableView<?> twMotherboard;
+    private TableView<?> tvMotherboard;
 
     @FXML
-    private TableView<?> twRAM;
+    private TableView<?> tvRAM;
 
     @FXML
-    private TableView<?> twSoundcard;
+    private TableView<?> tvSoundcard;
 
     @FXML
-    private TableView<?> twPSU;
+    private TableView<?> tvPSU;
 
     @FXML
-    private TableView<?> twMonitor;
+    private TableView<?> tvMonitor;
 
     @FXML
-    private TableView<?> twMouse;
+    private TableView<?> tvComputercase;
 
     @FXML
-    private TableView<?> twKeyboard;
+    private TableView<?> tvKeyboard;
 
     public List<TableView> tableViewArray = new ArrayList<>();
 
-    @FXML
-    void adminLogin(ActionEvent event) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewArray.add(tvComputercase);
+        //tableViewArray.add(tvCPU);
+        //tableViewArray.add(tvGPU);
+        tableViewArray.add(tvHarddrive);
+        tableViewArray.add(tvKeyboard);
+        tableViewArray.add(tvMonitor);
+        tableViewArray.add(tvMotherboard);
+        tableViewArray.add(tvMouse);
+        tableViewArray.add(tvPSU);
+        tableViewArray.add(tvRAM);
+        tableViewArray.add(tvSoundcard);
+    }
 
+    @FXML
+    void adminLogin(ActionEvent event) throws IOException {
+        System.out.println("knapp");
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+        window.setScene(viewConfScene);
+        window.show();
+    }
+
+    @FXML
+    void adminLoginFromBtn(ActionEvent event) throws IOException {
+        System.out.println("knapp");
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+        window.setScene(viewConfScene);
+        window.show();
     }
 
     @FXML
@@ -163,6 +193,8 @@ public class EditConfigurationController implements Initializable {
                 tv.setVisible(false);
             }
         }
+
+
     }
 
     @FXML
@@ -195,20 +227,23 @@ public class EditConfigurationController implements Initializable {
         Context.addToArray(txt1.getText());
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        tableViewArray.add(twComputercase);
-        tableViewArray.add(twCPU);
-        tableViewArray.add(twGPU);
-        tableViewArray.add(twHardDrive);
-        tableViewArray.add(twKeyboard);
-        tableViewArray.add(twMonitor);
-        tableViewArray.add(twMotherboard);
-        tableViewArray.add(twMouse);
-        tableViewArray.add(twPSU);
-        tableViewArray.add(twRAM);
-        tableViewArray.add(twSoundcard);
+    public void editText() {
+
     }
+
+    public void editPrice() {
+
+    }
+
+    public void editPerformanceValue() {
+
+    }
+
+    public void editBooleanAttribute() {
+
+    }
+
+
 }
 
 
