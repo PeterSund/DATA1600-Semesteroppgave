@@ -69,7 +69,7 @@ public class AdminController implements Initializable {
     private TableView<?> tvCPU;
 
     @FXML
-    private TableView<?> tvHardDrive;
+    private TableView<?> tvHarddrive;
 
     @FXML
     private TableView<?> tvMotherboard;
@@ -128,6 +128,19 @@ public class AdminController implements Initializable {
 
     }
 
+    public void editFrequency() {
+
+    }
+
+    public void editCores() {
+
+    }
+
+    public void editMemorySpeed() {
+
+    }
+
+
     public void showTableView(String component) {
 
         for (TableView tv : tableViewArray) {
@@ -158,7 +171,7 @@ public class AdminController implements Initializable {
         /*tableViewArray.add(tvComputercase);
         tableViewArray.add(tvCPU);
         //tableViewArray.add(tvGPU);
-        tableViewArray.add(tvHardDrive);
+        tableViewArray.add(tvHarddrive);
         tableViewArray.add(tvKeyboard);
         tableViewArray.add(tvMonitor);
         tableViewArray.add(tvMotherboard);
