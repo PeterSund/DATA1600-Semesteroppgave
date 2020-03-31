@@ -163,9 +163,8 @@ public class AdminController implements Initializable {
         GridPane grid = AdminDialog.addComponentGridPane();
 
         if(activeTableviewID.equals("Computercase")) {
-            Dialog output = ComputerCaseRegistry.createComponent(addComponentDialog, grid);
-            String <Optional> test = output.getResult();
-            System.out.print(test);
+            ComputerCaseRegistry.createComponent(addComponentDialog, grid);
+
         }
 
         if(activeTableviewID.equals("CPU")) {
