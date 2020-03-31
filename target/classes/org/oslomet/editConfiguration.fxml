@@ -203,12 +203,6 @@
                    </cellValueFactory>
                </TableColumn>
 
-               <TableColumn fx:id="colCPUMemory" prefWidth="232.0" text="Memory">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="memory" />
-                   </cellValueFactory>
-               </TableColumn>
-
                <TableColumn fx:id="colCPUFrequency" prefWidth="232.0" text="Frequency">
                    <cellValueFactory>
                        <PropertyValueFactory property="frequency" />
@@ -597,17 +591,17 @@
       </VBox>
       <VBox layoutX="352.0" layoutY="144.0" prefHeight="262.0" prefWidth="198.0" spacing="5.0">
          <children>
-            <Label fx:id="lblComputerCase" prefHeight="18.0" prefWidth="193.0" text="Computer case" />
-            <Label fx:id="lblCPU" prefHeight="18.0" prefWidth="194.0" text="CPU" />
-            <Label fx:id="lblGPU" prefHeight="18.0" prefWidth="195.0" text="GPU" />
-            <Label fx:id="lblHardDrive" prefHeight="18.0" prefWidth="190.0" text="Hard drive" />
-            <Label fx:id="lblMotherBoard" prefHeight="18.0" prefWidth="191.0" text="Motherboard" />
-            <Label fx:id="lblRAM" prefHeight="18.0" prefWidth="190.0" text="RAM" />
-            <Label fx:id="lblSoundcard" prefHeight="18.0" prefWidth="195.0" text="Soundcard" />
-            <Label fx:id="lblPSU" prefHeight="18.0" prefWidth="196.0" text="PSU" />
-            <Label fx:id="lblMonitor" prefHeight="18.0" prefWidth="200.0" text="Monitor" />
-            <Label fx:id="lblMouse" prefHeight="18.0" prefWidth="195.0" text="Mouse" />
-            <Label fx:id="lblKeyboard" prefHeight="18.0" prefWidth="195.0" text="Keybaord" />
+            <Label fx:id="lblComputerCase" prefHeight="18.0" prefWidth="193.0" />
+            <Label fx:id="lblCPU" prefHeight="18.0" prefWidth="194.0" />
+            <Label fx:id="lblGPU" prefHeight="18.0" prefWidth="195.0" />
+            <Label fx:id="lblHardDrive" prefHeight="18.0" prefWidth="190.0" />
+            <Label fx:id="lblMotherBoard" prefHeight="18.0" prefWidth="191.0" />
+            <Label fx:id="lblRAM" prefHeight="18.0" prefWidth="190.0" />
+            <Label fx:id="lblSoundcard" prefHeight="18.0" prefWidth="195.0" />
+            <Label fx:id="lblPSU" prefHeight="18.0" prefWidth="196.0" />
+            <Label fx:id="lblMonitor" prefHeight="18.0" prefWidth="200.0" />
+            <Label fx:id="lblMouse" prefHeight="18.0" prefWidth="195.0" />
+            <Label fx:id="lblKeyboard" prefHeight="18.0" prefWidth="195.0" />
          </children>
       </VBox>
       <Button layoutX="786.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveConfiguration" text="Save configuration" />

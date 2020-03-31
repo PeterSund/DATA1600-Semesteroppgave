@@ -15,15 +15,15 @@ public class MouseModel extends ComponentModel {
     }
 
     //Getters/Setters
-    public String type() {
+    public String getType() {
         return type.get();
     }
 
-    public void type(String type) {
+    public void setType(String type) {
         this.type.set(type);
     }
 
-    public boolean wireless() {
+    public boolean isWireless() {
         return wireless.get();
     }
     public void setWireless(boolean wireless) {
