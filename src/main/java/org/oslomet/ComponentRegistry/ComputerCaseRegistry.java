@@ -18,51 +18,6 @@ public class ComputerCaseRegistry implements RegistryMethods {
         tv.setItems(computerCaseArray);
     }
 
-    //Creates component
-    public static ComputerCaseModel createComponent(Dialog addComponentDialog, GridPane grid) {
-
-        addComponentDialog.setHeaderText("Create new computer-case component");
-
-        TextField name = new TextField();
-        name.setPromptText("Name");
-        TextField brand = new TextField();
-        brand.setPromptText("Brand");
-        TextField price = new TextField();
-        price.setPromptText("Price");
-        TextField performanceValue = new TextField();
-        performanceValue.setPromptText("Performance-value");
-        TextField dimensions = new TextField();
-        dimensions.setPromptText("H x L x D");
-        TextField color = new TextField();
-        color.setPromptText("Color");
-
-        grid.add(name, 1, 0);
-        grid.add(brand, 1,1);
-        grid.add(price, 1,2);
-        grid.add(performanceValue, 1,3);
-
-        grid.add(new Label("Dimensions (HxLxD):"), 0, 4);
-        grid.add(dimensions, 1,4);
-        grid.add(new Label("Color:"), 0, 5);
-        grid.add(color, 1,5);
-        addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
-
-        String info =  name.getText() + ", " + brand.getText() + "," + price.getText() + ", " + performanceValue.getText() + ", "
-                + dimensions.getText() + ", " + color.getText() + "\n";
-        System.out.print(info);
-
-        double priceDouble = Double.parseDouble(price.getText());
-        double pvDouble = Double.parseDouble(performanceValue.getText());
-
-        ComputerCaseModel obj = new ComputerCaseModel(name.getText(), brand.getText(), priceDouble, pvDouble,
-                 dimensions.getText(), color.getText());
-
-        addComponent(obj);
-        return obj;
-    }
-
-
     //Add component to array
     public static void addComponent(ComputerCaseModel computerCase) {
         computerCaseArray.add(computerCase);

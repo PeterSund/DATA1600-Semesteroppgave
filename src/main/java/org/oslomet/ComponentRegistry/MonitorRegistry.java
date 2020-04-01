@@ -18,47 +18,6 @@ public class MonitorRegistry implements RegistryMethods  {
         tv.setItems(monitorArray);
     }
 
-    //Creates component
-    public static MonitorModel createComponent(Dialog addComponentDialog, GridPane grid) {
-        addComponentDialog.setHeaderText("Create new monitor component");
-
-        TextField name = new TextField();
-        name.setPromptText("Name");
-        TextField brand = new TextField();
-        brand.setPromptText("Brand");
-        TextField price = new TextField();
-        price.setPromptText("Price");
-        TextField performanceValue = new TextField();
-        performanceValue.setPromptText("Performance-value");
-        TextField size = new TextField();
-        size.setPromptText("Size (inches)");
-
-
-        grid.add(name, 1, 0);
-        grid.add(brand, 1,1);
-        grid.add(price, 1,2);
-        grid.add(performanceValue, 1,3);
-
-        grid.add(new Label("Size):"), 0, 4);
-        grid.add(size, 1,4);
-        addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
-
-        double priceDouble = Double.parseDouble(price.getText());
-        double pvDouble = Double.parseDouble(performanceValue.getText());
-
-        int sizeInt = Integer.parseInt(size.getText());
-
-        String info =  name.getText() + ", " + brand.getText() + "," + price.getText() + ", " + performanceValue.getText() + ", "
-                + sizeInt + "\n";
-        System.out.print(info);
-
-        MonitorModel obj = new MonitorModel(name.getText(), brand.getText(), priceDouble, pvDouble, sizeInt);
-
-        return obj;
-
-    }
-
     //Add component to array
     public static void addComponent(MonitorModel monitor) {
         monitorArray.add(monitor);
