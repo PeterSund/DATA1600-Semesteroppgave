@@ -33,4 +33,12 @@ public class HarddriveModel extends ComponentModel {
         this.capacity.set(capacity);
     }
 
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getCapacity();
+    }
+
 }

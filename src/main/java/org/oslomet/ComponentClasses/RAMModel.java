@@ -32,4 +32,12 @@ public class RAMModel extends ComponentModel {
     public void setMemorySpeed(double memorySpeed) {
         this.memorySpeed.set(memorySpeed);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getCapacity() + ", " + this.getMemorySpeed();
+    }
 }

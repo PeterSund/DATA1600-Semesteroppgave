@@ -28,4 +28,12 @@ public class ComputerCaseModel extends ComponentModel {
     public void setColor(String color) {
         this.color.set(color);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getDimensions() + ", " + this.getColor();
+    }
 }

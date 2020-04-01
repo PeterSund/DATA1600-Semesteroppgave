@@ -41,4 +41,19 @@ public class KeyboardModel extends ComponentModel {
     public void setWireless(boolean wireless) {
         this.wireless.set(wireless);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+
+        String output = this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getLanguage();
+
+        if(wireless.getValue()) {
+            output += ", " + this.isWireless();
+        }
+        return output;
+    }
+
 }

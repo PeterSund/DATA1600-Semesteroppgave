@@ -21,5 +21,13 @@ public class GPUModel extends ComponentModel {
     public int getMemory() {return memory.get(); }
 
     public void setMemory(int memory) {this.memory.set(memory); }
+
+    public String toString() {
+        return this.getName();
     }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", " + this.getMemory();
+    }
+}
 

@@ -30,4 +30,22 @@ public class SoundCardModel extends ComponentModel {
     public void setBassBoost(boolean bassBoost) {
         this.bassBoost.set(bassBoost);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+
+        String output = this.getBrand() + " " + this.getName();
+
+        if(surround.getValue()) {
+            output += ", " + this.isSurround();
+        }
+        if(bassBoost.getValue())  {
+            output += ", " + this.isBassBoost();
+        }
+        return output;
+    }
+
 }
