@@ -2,20 +2,20 @@ package org.oslomet;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.GridPane;
-import org.oslomet.ComponentClasses.CPUModel;
-import org.oslomet.ComponentClasses.KeyboardModel;
+import javafx.stage.Stage;
 import org.oslomet.ComponentRegistry.*;
-import org.oslomet.ComputerClasses.ComputerRegistry;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
@@ -148,6 +148,15 @@ public class AdminController implements Initializable {
 
     }
 
+    @FXML
+    void changeToEditConfigurations(ActionEvent event) throws IOException {
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+        window.setScene(viewConfScene);
+        window.show();
+    }
+
     private String isVisible() {
         for (TableView tv : tableViewArray) {
             if (tv.isVisible()) {
@@ -157,54 +166,9 @@ public class AdminController implements Initializable {
         return null; //Trenger exeption
     }
 
-    public void createComponent() {
+    public void generateDialogAddComponent() {
         String activeTableviewID = isVisible();
-        Dialog addComponentDialog = AdminDialog.addComponentDialog();
-        GridPane grid = AdminDialog.addComponentGridPane();
-
-        if(activeTableviewID.equals("Computercase")) {
-            ComputerCaseRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("CPU")) {
-            CPURegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("GPU")) {
-            GPURegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("Hard drive")) {
-            HardDriveRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("Motherboard")) {
-            MotherboardRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("RAM")) {
-            RAMRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("Soundcard")) {
-            SoundCardRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("PSU")) {
-            PSURegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("Monitor")) {
-            MonitorRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("Mouse")) {
-            MouseRegistry.createComponent(addComponentDialog, grid);
-        }
-
-        if(activeTableviewID.equals("Keyboard")) {
-            MouseRegistry.createComponent(addComponentDialog, grid);
-        }
+        GenerateDialogBox.selectDialogToGenerate(activeTableviewID);
     }
 
 
@@ -229,9 +193,6 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        KeyboardRegistry.attachTableView(tvKeyboard);
-        KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);
-        KeyboardRegistry.addComponent(testKey);
         tableViewArray.add(tvComputercase);
         tableViewArray.add(tvCPU);
         tableViewArray.add(tvGPU);
@@ -245,5 +206,18 @@ public class AdminController implements Initializable {
         tableViewArray.add(tvSoundcard);
         tableViewArray.add(tvMouse);
         tableViewArray.add(tvKeyboard);
+
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+        CPURegistry.attachTableView(tvCPU);
+        GPURegistry.attachTableView(tvGPU);
+        HardDriveRegistry.attachTableView(tvHarddrive);
+        KeyboardRegistry.attachTableView(tvKeyboard);
+        MonitorRegistry.attachTableView(tvMonitor);
+        MotherboardRegistry.attachTableView(tvMotherboard);
+        SoundCardRegistry.attachTableView(tvSoundcard);
+        RAMRegistry.attachTableView(tvRAM);
+        PSURegistry.attachTableView(tvPSU);
+        MouseRegistry.attachTableView(tvMouse);
+
     }
 }
