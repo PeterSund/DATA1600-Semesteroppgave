@@ -164,47 +164,46 @@ public class AdminController implements Initializable {
 
         if(activeTableviewID.equals("Computercase")) {
             ComputerCaseRegistry.createComponent(addComponentDialog, grid);
-
         }
 
         if(activeTableviewID.equals("CPU")) {
-            CPURegistry.createComponent();
+            CPURegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("GPU")) {
-            GPURegistry.createComponent();
+            GPURegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("Hard drive")) {
-            HardDriveRegistry.createComponent();
+            HardDriveRegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("Motherboard")) {
-            MotherboardRegistry.createComponent();
+            MotherboardRegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("RAM")) {
-            RAMRegistry.createComponent();
+            RAMRegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("Soundcard")) {
-            SoundCardRegistry.createComponent();
+            SoundCardRegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("PSU")) {
-            PSURegistry.createComponent();
+            PSURegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("Monitor")) {
-            MonitorRegistry.createComponent();
+            MonitorRegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("Mouse")) {
-            MouseRegistry.createComponent();
+            MouseRegistry.createComponent(addComponentDialog, grid);
         }
 
         if(activeTableviewID.equals("Keyboard")) {
-            MouseRegistry.createComponent();
+            MouseRegistry.createComponent(addComponentDialog, grid);
         }
     }
 

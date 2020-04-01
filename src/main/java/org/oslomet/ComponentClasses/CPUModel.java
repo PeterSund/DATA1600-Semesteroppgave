@@ -18,6 +18,16 @@ public class CPUModel extends ComponentModel {
     }
 
     //Getters/Setters
+    /*
+    public int setClockSpeed2(clockSpeed) {
+        boolean isValidInput = true;
+        if (!isValidInput) {
+            throw new Exception("Clockspeed er feil..");
+        }
+    }
+
+     */
+
     public int getClockSpeed() {return clockSpeed.get(); }
 
     public void setClockSpeed(int clockSpeed) {this.clockSpeed.set(clockSpeed); }

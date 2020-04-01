@@ -19,7 +19,7 @@ public class ComputerCaseRegistry implements RegistryMethods {
     }
 
     //Creates component
-    public static void createComponent(Dialog addComponentDialog, GridPane grid) {
+    public static ComputerCaseModel createComponent(Dialog addComponentDialog, GridPane grid) {
 
         addComponentDialog.setHeaderText("Create new computer-case component");
 
@@ -49,19 +49,17 @@ public class ComputerCaseRegistry implements RegistryMethods {
         addComponentDialog.showAndWait();
 
         String info =  name.getText() + ", " + brand.getText() + "," + price.getText() + ", " + performanceValue.getText() + ", "
-                + dimensions.getText() + ", " + color.getText();
+                + dimensions.getText() + ", " + color.getText() + "\n";
         System.out.print(info);
 
-        String innPrice = price.getText();
-        double priceDouble = Double.parseDouble(innPrice);
+        double priceDouble = Double.parseDouble(price.getText());
+        double pvDouble = Double.parseDouble(performanceValue.getText());
 
-        String innPV = performanceValue.getText();
-        double pvDouble = Double.parseDouble(innPV);
-
-        ComputerCaseModel test = new ComputerCaseModel(name.getText(), brand.getText(), priceDouble, pvDouble,
+        ComputerCaseModel obj = new ComputerCaseModel(name.getText(), brand.getText(), priceDouble, pvDouble,
                  dimensions.getText(), color.getText());
 
-        addComponent(test);
+        addComponent(obj);
+        return obj;
     }
 
 
