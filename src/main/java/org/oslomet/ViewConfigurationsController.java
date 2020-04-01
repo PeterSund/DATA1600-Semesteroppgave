@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 
 import java.io.IOException;
@@ -92,4 +93,20 @@ public class ViewConfigurationsController implements Initializable {
     void getLastConf(ActionEvent event) throws IOException {
         lbl1.setText(Context.getObj());
     }
+
+    /*
+    public void editConfig(ActionEvent event) throws IOException {
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
+
+        EditConfigurationController editConfigurationController = new EditConfigurationController();
+        ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
+        editConfigurationController.setComputer(selectedComputer);
+
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+        window.setScene(viewConfScene);
+        window.show();
+        }
+     */
+
 }
