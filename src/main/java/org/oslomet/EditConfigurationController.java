@@ -22,54 +22,11 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableView;
 import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 
 public class EditConfigurationController implements Initializable {
-
-    ComputerRegistry configs = new ComputerRegistry();
-
-    @FXML
-    private Button btnComputerCase;
-
-    @FXML
-    private Button btnCPU;
-
-    @FXML
-    private Button btnGPU;
-
-    @FXML
-    private Button btnHarddrive;
-
-    @FXML
-    private Button btnMotherboard;
-
-    @FXML
-    private Button btnRAM;
-
-    @FXML
-    private Button btnSoundcard;
-
-    @FXML
-    private Button btnPSU;
-
-    @FXML
-    private Button btnMonitor;
-
-    @FXML
-    private Button btnMouse;
-
-    @FXML
-    private Button btnKeyboard;
-
-    @FXML
-    private MenuBar menubarEditConfig;
-
-    @FXML
-    private Menu loginAdmin;
-
-    @FXML
-    private Menu getHelp;
 
     @FXML
     private TableView<?> tableviewMyConfig;
@@ -113,13 +70,56 @@ public class EditConfigurationController implements Initializable {
     @FXML
     private TableView<?> tvKeyboard;
 
+    @FXML
+    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard;
+
+    private ComputerModel computer = new ComputerModel(null, null, null, null, null, null, null, null, null, null, null, null, 0,0);
+
     public List<TableView> tableViewArray = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+        CPURegistry.attachTableView(tvCPU);
+        GPURegistry.attachTableView(tvGPU);
+        HardDriveRegistry.attachTableView(tvHarddrive);
+        KeyboardRegistry.attachTableView(tvKeyboard);
+        MonitorRegistry.attachTableView(tvMonitor);
+        MotherboardRegistry.attachTableView(tvMotherboard);
+        SoundCardRegistry.attachTableView(tvSoundcard);
+        RAMRegistry.attachTableView(tvRAM);
+        PSURegistry.attachTableView(tvPSU);
+        MouseRegistry.attachTableView(tvMouse);
+
+        ComputerCaseModel computerCase = new ComputerCaseModel("My computer case", "CompCases inc", 400, 5, "20x20x10", "Blue");
+        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 3.2, 4);
+        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4, 512);
+        HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
+        KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
+        KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);
+        MonitorModel monitor = new MonitorModel("Monitor", "Hans", 10.5, 5.5, 21);
+        MotherboardModel motherboard = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");
+        SoundCardModel sc1 = new SoundCardModel("SC1", "Logitech", 499, 20, true, true);
+        RAMModel RAM1 = new RAMModel("RAM1", "Acer", 1000, 25, 300, 400);
+        PSUModel PSU1 = new PSUModel("PSU1", "Dell", 200, 400, 500);
+        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 0, "Gaming", true);
+
+        ComputerCaseRegistry.addComponent(computerCase);
+        CPURegistry.addComponent(cpu);
+        GPURegistry.addComponent(gpu);
+        HardDriveRegistry.addComponent(hdd);
+        KeyboardRegistry.addComponent(keyboard);
+        KeyboardRegistry.addComponent(testKey);
+        MonitorRegistry.addComponent(monitor);
+        MotherboardRegistry.addComponent(motherboard);
+        SoundCardRegistry.addComponent(sc1);
+        RAMRegistry.addComponent(RAM1);
+        PSURegistry.addComponent(PSU1);
+        MouseRegistry.addComponent(Mouse1);
+
         tableViewArray.add(tvComputercase);
-        //tableViewArray.add(tvCPU);
-        //tableViewArray.add(tvGPU);
+        tableViewArray.add(tvCPU);
+        tableViewArray.add(tvGPU);
         tableViewArray.add(tvHarddrive);
         tableViewArray.add(tvKeyboard);
         tableViewArray.add(tvMonitor);
@@ -128,60 +128,17 @@ public class EditConfigurationController implements Initializable {
         tableViewArray.add(tvPSU);
         tableViewArray.add(tvRAM);
         tableViewArray.add(tvSoundcard);
+
     }
 
+    //Change table view
     @FXML
-    void adminLogin(ActionEvent event) throws IOException {
-        System.out.println("knapp");
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
-        window.setScene(viewConfScene);
-        window.show();
+    void showComponent(ActionEvent event) {
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1,component.length()-1);
+        showTableView(component);
     }
-
-    @FXML
-    void adminLoginFromBtn(ActionEvent event) throws IOException {
-        System.out.println("knapp");
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
-        window.setScene(viewConfScene);
-        window.show();
-    }
-
-    @FXML
-    void removeComponent(ActionEvent event) {
-        ComputerCaseModel case1 = new ComputerCaseModel("Case", "Hans", 20.0, 20.0, "qwd","blue");
-        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 3.2, 4);
-        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4, 512);
-        HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
-        KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
-        MonitorModel monitor = new MonitorModel("Monitor", "Hans", 10.5, 5.5, 21);
-        MotherboardModel motherboard = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");
-        SoundCardModel sc1 = new SoundCardModel("SC1", "Logitech", 499, 20, true, true);
-        RAMModel RAM1 = new RAMModel("RAM1", "Acer", 1000, 25, 300, 400);
-        PSUModel PSU1 = new PSUModel("PSU1", "Dell", 200, 400, 500);
-        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 0, "Gaming", true);
-
-        ComputerModel testPC = new ComputerModel("TestPC", case1, cpu, gpu, RAM1, hdd, motherboard, PSU1, sc1, keyboard, monitor, Mouse1, 100.5, 100);
-
-        configs.addComputer(testPC);
-
-
-    }
-
-    @FXML
-    void saveConfig(ActionEvent event) throws IOException {
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
-        window.setScene(viewConfScene);
-        window.show();
-
-    }
-
-
 
     public void showTableView(String component) {
 
@@ -193,26 +150,9 @@ public class EditConfigurationController implements Initializable {
                 tv.setVisible(false);
             }
         }
-
-
     }
 
-    @FXML
-    void showComponent(ActionEvent event) {
-        String component = event.getSource().toString();
-        component = component.split("]")[1];
-        component = component.substring(1,component.length()-1);
-        showTableView(component);
-    }
-
-    @FXML
-    void showHelp(ActionEvent event) throws IOException {
-    }
-
-    @FXML
-    private TextField txt1;
-
-    //Change view
+    //Change view to View Configurations
     @FXML
     void changeToViewConfigurations(ActionEvent event) throws IOException {
         Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
@@ -222,27 +162,114 @@ public class EditConfigurationController implements Initializable {
         window.show();
     }
 
+    //Change view to Admin
     @FXML
-    void addToArray(ActionEvent event) throws IOException {
-        Context.addToArray(txt1.getText());
+    void adminLoginFromBtn(ActionEvent event) throws IOException {
+        System.out.println("knapp");
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+        window.setScene(viewConfScene);
+        window.show();
     }
 
-    public void editText() {
+    //Returns the table view that is visible
+    private TableView isVisible() {
+        for (TableView tv : tableViewArray) {
+            if (tv.isVisible()) {
+                return tv;
+            }
+        }
+        return null; //Trenger exeption
+    }
+
+    //Add component
+    @FXML
+    void addComponent(ActionEvent event) {
+        TableView currentTableView = isVisible();
+        ComponentModel component = (ComponentModel) currentTableView.getSelectionModel().getSelectedItem();
+
+        if (component == null) {
+            System.out.println("Choose a component!");
+        }
+
+        else if (currentTableView.getId().equals("Computercase")) {
+            lblComputerCase.setText(component.getName()); //ToString?
+            computer.setComputerCase((ComputerCaseModel) component);
+        }
+
+        else if (currentTableView.getId().equals("CPU")) {
+            lblCPU.setText(component.getName()); //ToString?
+            computer.setCpu((CPUModel) component);
+        }
+
+        else if (currentTableView.getId().equals("GPU")) {
+            lblGPU.setText(component.getName()); //ToString?
+            computer.setGpu((GPUModel) component);
+        }
+
+        else if (currentTableView.getId().equals("RAM")) {
+            lblRAM.setText(component.getName()); //ToString?
+            computer.setRam((RAMModel) component);
+        }
+
+        else if (currentTableView.getId().equals("Hard drive")) {
+            lblHardDrive.setText(component.getName()); //ToString?
+            computer.setHardDrive((HarddriveModel) component);
+        }
+
+        else if (currentTableView.getId().equals("Motherboard")) {
+            lblMotherBoard.setText(component.getName()); //ToString?
+            computer.setMotherboard((MotherboardModel) component);
+        }
+
+        else if (currentTableView.getId().equals("PSU")) {
+            lblPSU.setText(component.getName()); //ToString?
+            computer.setPsu((PSUModel) component);
+        }
+
+        else if (currentTableView.getId().equals("Soundcard")) {
+            lblSoundcard.setText(component.getName()); //ToString?
+            computer.setSoundCard((SoundCardModel) component);
+        }
+
+        else if (currentTableView.getId().equals("Keyboard")) {
+            lblKeyboard.setText(component.getName()); //ToString?
+            computer.setKeyboard((KeyboardModel) component);
+        }
+
+        else if (currentTableView.getId().equals("Monitor")) {
+            lblMonitor.setText(component.getName()); //ToString?
+            computer.setMonitor((MonitorModel) component);
+        }
+
+        else if (currentTableView.getId().equals("Mouse")) {
+            lblMouse.setText(component.getName()); //ToString?
+            computer.setMouse((MouseModel) component);
+        }
 
     }
 
-    public void editPrice() {
+    //Delete component
+    @FXML
+    void deleteComponent(ActionEvent event) {
 
     }
 
-    public void editPerformanceValue() {
+    @FXML
+    void saveConfiguration(ActionEvent event) {
+        if ( !(computer.getComputerCase()==null) && !(computer.getCpu()==null) && !(computer.getGpu()==null) && !(computer.getRam()==null)
+                && !(computer.getHardDrive()==null) && !(computer.getMotherboard()==null) && !(computer.getPsu()==null)
+                && !(computer.getSoundCard()==null) && !(computer.getKeyboard()==null) && !(computer.getMonitor()==null) && !(computer.getMouse()==null)) {
 
+            //Send computer to ViewConfigurations array
+            computer.setConfigName("Computer 1");
+            System.out.println(computer.getConfigName() + " is saved");
+        }
+        else {
+            System.out.println("Please select all parts for the computer");
+        }
     }
-
-    public void editBooleanAttribute() {
-
-    }
-
 
 }
 
