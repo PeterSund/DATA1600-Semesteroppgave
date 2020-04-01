@@ -4,6 +4,7 @@ module org.oslomet {
 
     opens org.oslomet to javafx.fxml, javafx.base;
     opens org.oslomet.ComponentClasses to javafx.base;
+    opens org.oslomet.ComputerClasses to javafx.base;
 
     exports org.oslomet;
 }

@@ -129,6 +129,11 @@ public class EditConfigurationController implements Initializable {
         tableViewArray.add(tvRAM);
         tableViewArray.add(tvSoundcard);
 
+        for (TableView tv : tableViewArray) {
+            tv.setVisible(false);
+        }
+        tvComputercase.setVisible(true);
+
     }
 
     //Change table view
@@ -260,6 +265,8 @@ public class EditConfigurationController implements Initializable {
         if ( !(computer.getComputerCase()==null) && !(computer.getCpu()==null) && !(computer.getGpu()==null) && !(computer.getRam()==null)
                 && !(computer.getHardDrive()==null) && !(computer.getMotherboard()==null) && !(computer.getPsu()==null)
                 && !(computer.getSoundCard()==null) && !(computer.getKeyboard()==null) && !(computer.getMonitor()==null) && !(computer.getMouse()==null)) {
+
+            computer.setConfigName("Computer 1");
 
             //Send computer to ViewConfigurations array
             ComputerRegistry.addComputer(computer);
