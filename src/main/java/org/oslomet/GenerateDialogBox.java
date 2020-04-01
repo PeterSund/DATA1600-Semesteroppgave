@@ -2,8 +2,8 @@ package org.oslomet;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import org.oslomet.ComponentClasses.RAMModel;
-import org.oslomet.ComponentRegistry.RAMRegistry;
+import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComponentRegistry.*;
 
 
 public class GenerateDialogBox {
@@ -62,7 +62,7 @@ public class GenerateDialogBox {
 
     //TextFields for template dialog-box
     private static TextField name = new TextField();
-    private static TextField brand= new TextField();
+    private static TextField brand = new TextField();
     private static TextField price = new TextField();
     private static TextField performanceValue = new TextField();
 
@@ -126,6 +126,13 @@ public class GenerateDialogBox {
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
 
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+
+        ComputerCaseModel test = new ComputerCaseModel(name.getText(), brand.getText(), pri, per, dimensions.getText(),color.getText());
+        ComputerCaseRegistry.addComponent(test);
+
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -144,6 +151,15 @@ public class GenerateDialogBox {
 
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+        int clock = Integer.parseInt(clockSpeed.getText());
+        int mem = Integer.parseInt(cores.getText());
+
+        CPUModel test = new CPUModel(name.getText(), brand.getText(), pri, per, clock,10.0, mem);
+        CPURegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -161,6 +177,15 @@ public class GenerateDialogBox {
         grid.add(memory, 1,5);
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+        int clock = Integer.parseInt(clockSpeed.getText());
+        int mem = Integer.parseInt(memory.getText());
+
+        GPUModel test = new GPUModel(name.getText(), brand.getText(), pri, per, clock, mem);
+        GPURegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -178,6 +203,13 @@ public class GenerateDialogBox {
         grid.add(capacity, 1,5);
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+        int cap = Integer.parseInt(capacity.getText());
+        HarddriveModel test = new HarddriveModel(name.getText(), brand.getText(), pri, per, type.getText(), cap);
+        HardDriveRegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -199,6 +231,12 @@ public class GenerateDialogBox {
         grid.add(wireless, 1, 6);
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+        KeyboardModel test = new KeyboardModel(name.getText(), brand.getText(), pri, per, type.getText(), language.getText(), true);
+        KeyboardRegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -212,6 +250,17 @@ public class GenerateDialogBox {
         grid.add(size, 1,4);
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+
+        int siz = Integer.parseInt(size.getText());
+
+        MonitorModel test = new MonitorModel(name.getText(), brand.getText(), pri, per, siz);
+        MonitorRegistry.addComponent(test);
+
+
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -226,6 +275,13 @@ public class GenerateDialogBox {
 
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+        MotherboardModel test = new MotherboardModel(name.getText(), brand.getText(), pri, per, type.getText());
+
+        MotherboardRegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -244,6 +300,12 @@ public class GenerateDialogBox {
 
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+        MouseModel test = new MouseModel(name.getText(), brand.getText(), pri, per, type.getText(), true);
+        MouseRegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -259,6 +321,15 @@ public class GenerateDialogBox {
 
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+
+        int what = Integer.parseInt(watt.getText());
+
+        PSUModel test = new PSUModel(name.getText(), brand.getText(), pri, per, what);
+        PSURegistry.addComponent(test);
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -279,7 +350,14 @@ public class GenerateDialogBox {
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
 
-        RAMModel test = new RAMModel(name.getText(), brand.getText(), 10, 10, 10, 10);
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+
+        int cap = Integer.parseInt(capacity.getText());
+        double mem = Double.parseDouble(memorySpeed.getText());
+
+        RAMModel test = new RAMModel(name.getText(), brand.getText(), pri, per, cap, mem);
         RAMRegistry.addComponent(test);
     }
 
@@ -290,7 +368,7 @@ public class GenerateDialogBox {
         TextField surround = new TextField();
         surround.setPromptText("Surround");
         TextField bassboost = new TextField();
-        bassboost.setPromptText("Bassbost");
+        bassboost.setPromptText("Bassboost");
 
         grid.add(new Label("Surround: "), 0, 4);
         grid.add(surround, 1,4);
@@ -299,5 +377,12 @@ public class GenerateDialogBox {
 
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
+
+        //TEST
+        double pri = Double.parseDouble(price.getText());
+        double per = Double.parseDouble(performanceValue.getText());
+
+        SoundCardModel test = new SoundCardModel(name.getText(), brand.getText(), pri, per, true, true);
+        SoundCardRegistry.addComponent(test);
     }
 }
