@@ -7,6 +7,10 @@ public interface RegistryMethods {
     static void attachTableView() {
     }
 
+    static void createComponent() {
+
+    }
+
     static void addComponent() {
     }
 
