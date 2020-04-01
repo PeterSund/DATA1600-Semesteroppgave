@@ -282,15 +282,10 @@ public class EditConfigurationController implements Initializable {
             System.out.println("Please select all parts for the computer");
         }
     }
-/*
+
     public void setComputer(ComputerModel computerEdited) {
         computer = computerEdited;
     }
-
- */
-
-
-
 }
 
 

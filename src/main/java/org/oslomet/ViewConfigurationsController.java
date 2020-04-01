@@ -94,7 +94,7 @@ public class ViewConfigurationsController implements Initializable {
         lbl1.setText(Context.getObj());
     }
 
-    /*
+
     public void editConfig(ActionEvent event) throws IOException {
         Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
 
@@ -107,6 +107,5 @@ public class ViewConfigurationsController implements Initializable {
         window.setScene(viewConfScene);
         window.show();
         }
-     */
 
 }
