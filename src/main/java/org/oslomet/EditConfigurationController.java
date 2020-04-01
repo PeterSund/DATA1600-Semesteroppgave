@@ -165,7 +165,6 @@ public class EditConfigurationController implements Initializable {
     //Change view to Admin
     @FXML
     void adminLoginFromBtn(ActionEvent event) throws IOException {
-        System.out.println("knapp");
         Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
         Scene viewConfScene = new Scene(viewConfParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
@@ -257,15 +256,21 @@ public class EditConfigurationController implements Initializable {
     }
 
     @FXML
-    void saveConfiguration(ActionEvent event) {
+    void saveConfiguration(ActionEvent event) throws IOException {
         if ( !(computer.getComputerCase()==null) && !(computer.getCpu()==null) && !(computer.getGpu()==null) && !(computer.getRam()==null)
                 && !(computer.getHardDrive()==null) && !(computer.getMotherboard()==null) && !(computer.getPsu()==null)
                 && !(computer.getSoundCard()==null) && !(computer.getKeyboard()==null) && !(computer.getMonitor()==null) && !(computer.getMouse()==null)) {
 
             //Send computer to ViewConfigurations array
-            computer.setConfigName("Computer 1");
-            System.out.println(computer.getConfigName() + " is saved");
+            ComputerRegistry.addComputer(computer);
+
+            Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
+            Scene viewConfScene = new Scene(viewConfParent);
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+            window.setScene(viewConfScene);
+            window.show();
         }
+
         else {
             System.out.println("Please select all parts for the computer");
         }
