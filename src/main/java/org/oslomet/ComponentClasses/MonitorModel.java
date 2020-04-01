@@ -22,4 +22,12 @@ public class MonitorModel extends ComponentModel {
     public void setSize(int size) {
         this.size.set(size);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getSize();
+    }
 }

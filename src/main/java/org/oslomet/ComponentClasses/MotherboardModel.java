@@ -21,4 +21,12 @@ public class MotherboardModel extends ComponentModel {
     public void setType(String type) {
         this.type.set(type);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getType();
+    }
 }

@@ -40,5 +40,14 @@ public class CPUModel extends ComponentModel {
 
     public void setCores(int cores) {this.cores.set(cores); }
 
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", " + this.getFrequency() +
+                ", " + this.getCores();
+    }
+
 }
 

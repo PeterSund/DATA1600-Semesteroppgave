@@ -20,4 +20,12 @@ public class PSUModel extends ComponentModel {
     public void setWatt(int watt) {
         this.watt.set(watt);
     }
+
+    public String toString() {
+        return this.getName();
+    }
+
+    public String toStringForConfig() {
+        return this.getBrand() + " " + this.getName() + ", " + this.getWatt();
+    }
 }
