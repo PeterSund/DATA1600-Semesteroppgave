@@ -71,7 +71,7 @@ public class EditConfigurationController implements Initializable {
     private TableView<?> tvKeyboard;
 
     @FXML
-    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard;
+    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName;
 
     private ComputerModel computer;
 
@@ -199,58 +199,58 @@ public class EditConfigurationController implements Initializable {
         }
 
         else if (currentTableView.getId().equals("Computercase")) {
-            lblComputerCase.setText(component.getName()); //ToString?
+            lblComputerCase.setText(((ComputerCaseModel) component).toStringForConfig());
             computer.setComputerCase((ComputerCaseModel) component);
         }
 
         else if (currentTableView.getId().equals("CPU")) {
             computer.setCpu((CPUModel) component);
-            lblCPU.setText(component.getName()); //ToString?
+            lblCPU.setText(((CPUModel) component).toStringForConfig());
 
         }
 
         else if (currentTableView.getId().equals("GPU")) {
-            lblGPU.setText(component.getName()); //ToString?
+            lblGPU.setText(((GPUModel) component).toStringForConfig());
             computer.setGpu((GPUModel) component);
         }
 
         else if (currentTableView.getId().equals("RAM")) {
-            lblRAM.setText(component.getName()); //ToString?
+            lblRAM.setText(((RAMModel) component).toStringForConfig());
             computer.setRam((RAMModel) component);
         }
 
         else if (currentTableView.getId().equals("Hard drive")) {
-            lblHardDrive.setText(component.getName()); //ToString?
+            lblHardDrive.setText(((HarddriveModel) component).toStringForConfig());
             computer.setHardDrive((HarddriveModel) component);
         }
 
         else if (currentTableView.getId().equals("Motherboard")) {
-            lblMotherBoard.setText(component.getName()); //ToString?
+            lblMotherBoard.setText(((MotherboardModel) component).toStringForConfig());
             computer.setMotherboard((MotherboardModel) component);
         }
 
         else if (currentTableView.getId().equals("PSU")) {
-            lblPSU.setText(component.getName()); //ToString?
+            lblPSU.setText(((PSUModel) component).toStringForConfig());
             computer.setPsu((PSUModel) component);
         }
 
         else if (currentTableView.getId().equals("Soundcard")) {
-            lblSoundcard.setText(component.getName()); //ToString?
+            lblSoundcard.setText(((SoundCardModel) component).toStringForConfig());
             computer.setSoundCard((SoundCardModel) component);
         }
 
         else if (currentTableView.getId().equals("Keyboard")) {
-            lblKeyboard.setText(component.getName()); //ToString?
+            lblKeyboard.setText(((KeyboardModel) component).toStringForConfig());
             computer.setKeyboard((KeyboardModel) component);
         }
 
         else if (currentTableView.getId().equals("Monitor")) {
-            lblMonitor.setText(component.getName()); //ToString?
+            lblMonitor.setText(((MonitorModel) component).toStringForConfig());
             computer.setMonitor((MonitorModel) component);
         }
 
         else if (currentTableView.getId().equals("Mouse")) {
-            lblMouse.setText(component.getName()); //ToString?
+            lblMouse.setText(((MouseModel) component).toStringForConfig());
             computer.setMouse((MouseModel) component);
         }
 
@@ -268,10 +268,17 @@ public class EditConfigurationController implements Initializable {
                 && !(computer.getHardDrive()==null) && !(computer.getMotherboard()==null) && !(computer.getPsu()==null)
                 && !(computer.getSoundCard()==null) && !(computer.getKeyboard()==null) && !(computer.getMonitor()==null) && !(computer.getMouse()==null)) {
 
-            computer.setConfigName("Computer 1");
+            //Adds new computer to computer registry OR replaces computer in registry if it already exists
+            int computerIndex = ComputerRegistry.findComputer(computer);
 
-            //Send computer to ViewConfigurations array
-            ComputerRegistry.addComputer(computer);
+            if (computerIndex < 0) {
+                ComputerRegistry.addComputer(computer);
+            }
+
+            else {
+                ComputerRegistry.replaceComputer(computer, computerIndex);
+            }
+
 
             Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
             Scene viewConfScene = new Scene(viewConfParent);
@@ -291,17 +298,24 @@ public class EditConfigurationController implements Initializable {
     }
 
     public void showComputer() {
-        lblComputerCase.setText(computer.getComputerCase().toStringForConfig());
-        lblCPU.setText(computer.getCpu().toString());
-        lblGPU.setText(computer.getCpu().toString());
-        lblHardDrive.setText(computer.getHardDrive().toStringForConfig());
-        lblMotherBoard.setText(computer.getMotherboard().toString());
-        lblRAM.setText(computer.getRam().toString());
-        lblSoundcard.setText(computer.getSoundCard().toString());
-        lblPSU.setText(computer.getPsu().toString());
-        lblMonitor.setText(computer.getMonitor().toString());
-        lblMouse.setText(computer.getMouse().toString());
-        lblKeyboard.setText(computer.getKeyboard().toString());
+
+        //Shows computer's components only if the computer is not a new computer
+        if (computer.getComputerCase() != null) {
+            lblComputerCase.setText(computer.getComputerCase().toStringForConfig());
+            lblCPU.setText(computer.getCpu().toStringForConfig());
+            lblGPU.setText(computer.getCpu().toStringForConfig());
+            lblHardDrive.setText(computer.getHardDrive().toStringForConfig());
+            lblMotherBoard.setText(computer.getMotherboard().toStringForConfig());
+            lblRAM.setText(computer.getRam().toStringForConfig());
+            lblSoundcard.setText(computer.getSoundCard().toStringForConfig());
+            lblPSU.setText(computer.getPsu().toStringForConfig());
+            lblMonitor.setText(computer.getMonitor().toStringForConfig());
+            lblMouse.setText(computer.getMouse().toStringForConfig());
+            lblKeyboard.setText(computer.getKeyboard().toStringForConfig());
+        }
+
+        lblName.setText(computer.getConfigName());
+
     }
 
 }

@@ -15,8 +15,10 @@ import org.oslomet.ComputerClasses.ComputerRegistry;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ViewConfigurationsController implements Initializable {
@@ -158,18 +160,33 @@ public class ViewConfigurationsController implements Initializable {
          */
     }
 
+    //Create new computer
     @FXML
     void newConf(ActionEvent event) throws IOException {
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
 
-        EditConfigurationController editConfigurationController = new EditConfigurationController();
-        ComputerModel newComputer = new ComputerModel(null, null, null, null, null, null, null, null, null, null, null, null, 0,0);
-        editConfigurationController.setComputer(newComputer);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("editConfiguration.fxml"));
+        Parent root = loader.load();
+        EditConfigurationController editConfigurationController = loader.getController();
 
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
-        window.setScene(viewConfScene);
-        window.show();
+        //Create input dialog to set computer name
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Choose name1");
+        dialog.setHeaderText("Choose name2");
+        Optional<String> computerNameFromDialog = dialog.showAndWait();
+        String computerName;
+
+        if (computerNameFromDialog.isPresent()) {
+            computerName = computerNameFromDialog.get();
+
+            ComputerModel newComputer = new ComputerModel(computerName, null, null, null, null, null, null, null, null, null, null, null, 0,0);
+            editConfigurationController.setComputer(newComputer);
+
+            Scene viewConfScene = new Scene(root);
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            window.setScene(viewConfScene);
+            window.show();
+        }
+
     }
 
 

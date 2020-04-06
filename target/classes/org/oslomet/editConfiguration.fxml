@@ -599,6 +599,8 @@
          </children>
       </VBox>
       <Button layoutX="786.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveConfiguration" text="Save configuration" />
+      <Label layoutX="246.0" layoutY="108.0" text="Name" />
+      <Label fx:id="lblName" layoutX="291.0" layoutY="108.0" />
 
    </children>
 </AnchorPane>
