@@ -73,7 +73,7 @@ public class EditConfigurationController implements Initializable {
     @FXML
     private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard;
 
-    private ComputerModel computer = new ComputerModel(null, null, null, null, null, null, null, null, null, null, null, null, 0,0);
+    private ComputerModel computer;
 
     public List<TableView> tableViewArray = new ArrayList<>();
 
@@ -203,8 +203,9 @@ public class EditConfigurationController implements Initializable {
         }
 
         else if (currentTableView.getId().equals("CPU")) {
-            lblCPU.setText(component.getName()); //ToString?
             computer.setCpu((CPUModel) component);
+            lblCPU.setText(component.getName()); //ToString?
+
         }
 
         else if (currentTableView.getId().equals("GPU")) {
@@ -285,7 +286,23 @@ public class EditConfigurationController implements Initializable {
 
     public void setComputer(ComputerModel computerEdited) {
         computer = computerEdited;
+        showComputer();
     }
+
+    public void showComputer() {
+        lblComputerCase.setText(computer.getComputerCase().toStringForConfig());
+        lblCPU.setText(computer.getCpu().toString());
+        lblGPU.setText(computer.getCpu().toString());
+        lblHardDrive.setText(computer.getHardDrive().toStringForConfig());
+        lblMotherBoard.setText(computer.getMotherboard().toString());
+        lblRAM.setText(computer.getRam().toString());
+        lblSoundcard.setText(computer.getSoundCard().toString());
+        lblPSU.setText(computer.getPsu().toString());
+        lblMonitor.setText(computer.getMonitor().toString());
+        lblMouse.setText(computer.getMouse().toString());
+        lblKeyboard.setText(computer.getKeyboard().toString());
+    }
+
 }
 
 
