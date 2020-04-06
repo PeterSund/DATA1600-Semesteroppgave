@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="515.0" prefWidth="767.0" style="-fx-background-color: #D2D2D2#D2D2D2 #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.ViewConfigurationsController">
    <children>
-      <Button fx:id="btnEditConfig" layoutX="49.0" layoutY="383.0" mnemonicParsing="false" onAction="#changePrimaryController" text="Edit configuration" />
+      <Button fx:id="btnEditConfig" layoutX="49.0" layoutY="383.0" mnemonicParsing="false" onAction="#editConfig" text="Edit configuration" />
       <Label layoutX="283.0" layoutY="24.0" prefHeight="34.0" prefWidth="259.0" text="My configurations">
          <font>
             <Font size="28.0" />
@@ -123,5 +123,6 @@
             <Font size="17.0" />
          </font>
       </Button>
+      <Button layoutX="332.0" layoutY="383.0" mnemonicParsing="false" onAction="#newConf" text="New configuration" />
    </children>
 </AnchorPane>
