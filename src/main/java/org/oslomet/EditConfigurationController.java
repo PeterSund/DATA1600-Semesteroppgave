@@ -91,9 +91,9 @@ public class EditConfigurationController implements Initializable {
         PSURegistry.attachTableView(tvPSU);
         MouseRegistry.attachTableView(tvMouse);
 
-        ComputerCaseModel computerCase = new ComputerCaseModel("My computer case", "CompCases inc", 400, 5, "20x20x10", "Blue");
-        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5.4, 4);
-        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4.4, 512);
+        ComputerCaseModel computerCase = new ComputerCaseModel("MyComputerCase", "CompCasesInc", 400, 5, "20x20x10", "Blue");
+        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5.0, 4);
+        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4.0, 512);
         HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
         KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
         KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);
@@ -101,8 +101,9 @@ public class EditConfigurationController implements Initializable {
         MotherboardModel motherboard = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");
         SoundCardModel sc1 = new SoundCardModel("SC1", "Logitech", 499, 20, true, true);
         RAMModel RAM1 = new RAMModel("RAM1", "Acer", 1000, 25, 300, 400);
-        PSUModel PSU1 = new PSUModel("PSU1", "Dell", 200, 400, 500);
-        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 0, "Gaming", true);
+        PSUModel PSU1 = new PSUModel("Psu1", "Dell", 200, 40, 500);
+        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 1, "Gaming", true);
+
 
         ComputerCaseRegistry.addComponent(computerCase);
         CPURegistry.addComponent(cpu);

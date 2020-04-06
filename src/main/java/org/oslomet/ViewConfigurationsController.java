@@ -25,9 +25,9 @@ public class ViewConfigurationsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ComputerRegistry.attachTableView(tableviewMyConfigs);
 
-        ComputerCaseModel computerCase = new ComputerCaseModel("My computer case", "CompCases inc", 400, 5, "20x20x10", "Blue");
-        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 3.2, 4);
-        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4, 512);
+        ComputerCaseModel computerCase = new ComputerCaseModel("MyComputerCase", "CompCasesInc", 400, 5, "20x20x10", "Blue");
+        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5.0, 4);
+        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4.0, 512);
         HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
         KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
         KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);
@@ -35,14 +35,14 @@ public class ViewConfigurationsController implements Initializable {
         MotherboardModel motherboard = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");
         SoundCardModel sc1 = new SoundCardModel("SC1", "Logitech", 499, 20, true, true);
         RAMModel RAM1 = new RAMModel("RAM1", "Acer", 1000, 25, 300, 400);
-        PSUModel PSU1 = new PSUModel("PSU1", "Dell", 200, 400, 500);
-        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 0, "Gaming", true);
+        PSUModel PSU1 = new PSUModel("Psu1", "Dell", 200, 40, 500);
+        MouseModel Mouse1 = new MouseModel("Mouse1", "Logitech", 300, 1, "Gaming", true);
 
         ComputerModel demoComputer = new ComputerModel("Demo Computer", computerCase, cpu, gpu, RAM1, hdd, motherboard,PSU1, sc1, testKey,monitor, Mouse1, 10000, 100);
         ComputerRegistry.addComputer(demoComputer);
 
-        ComputerCaseModel computerCase2 = new ComputerCaseModel("My computer case", "CompCases inc", 400, 5, "20x20x10", "Blue");
-        CPUModel cpu2 = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 3.2, 4);
+        ComputerCaseModel computerCase2 = new ComputerCaseModel("MyComputerCase", "CompCaseInc", 400, 5, "20x20x10", "Blue");
+        CPUModel cpu2 = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 4);
         GPUModel gpu2 = new GPUModel("GPU", "Hans", 50.0, 10.0, 4, 512);
         HarddriveModel hdd2 = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
         KeyboardModel keyboard2 = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
@@ -51,8 +51,8 @@ public class ViewConfigurationsController implements Initializable {
         MotherboardModel motherboard2 = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");
         SoundCardModel sc2 = new SoundCardModel("SC1", "Logitech", 499, 20, true, true);
         RAMModel RAM2 = new RAMModel("RAM1", "Acer", 1000, 25, 300, 400);
-        PSUModel PSU2 = new PSUModel("PSU1", "Dell", 200, 400, 500);
-        MouseModel Mouse2 = new MouseModel("Another mouse", "Logitech", 300, 0, "Gaming", true);
+        PSUModel PSU2 = new PSUModel("PSU1", "Dell", 200, 40, 500);
+        MouseModel Mouse2 = new MouseModel("AnotherMouse", "Logitech", 300, 1, "Gaming", true);
 
         ComputerModel demoComputer2 = new ComputerModel("Demo Computer 2", computerCase2, cpu2, gpu2, RAM2, hdd2, motherboard2,PSU2, sc2, testKey2,monitor2, Mouse2, 10000, 100);
         ComputerRegistry.addComputer(demoComputer2);
