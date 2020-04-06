@@ -60,7 +60,7 @@ public class AdminInputValidation {
         return !language.isBlank() && language.matches("[A-Z]*[a-z]*");
     }
 
-    static boolean size(int size) {
+    public static boolean size(int size) {
         return size > 0 && size  <= MAX_SIZE_MONITOR;
     }
 

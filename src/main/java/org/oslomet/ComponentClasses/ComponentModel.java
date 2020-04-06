@@ -19,15 +19,15 @@ public class ComponentModel {
         }
 
         if(!AdminInputValidation.brand(brand)) {
-            throw new InvalidBrandException();
+            throw new InvalidBrandException("Brand cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
         }
 
         if(!AdminInputValidation.price(price)) {
-            throw new InvalidPriceException();
+            throw new InvalidPriceException("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE);
         }
 
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new InvalidPerformanceValueException();
+            throw new InvalidPerformanceValueException("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE);
         }
 
         this.name = new SimpleStringProperty(name);
@@ -54,7 +54,7 @@ public class ComponentModel {
 
     public void setBrand(String brand) {
         if(!AdminInputValidation.brand(brand)) {
-            throw new InvalidBrandException();
+            throw new InvalidBrandException("Brand cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
         }
         this.brand.set(brand);
     }
@@ -65,11 +65,10 @@ public class ComponentModel {
 
     public final void setPrice(double price) {
         if (!AdminInputValidation.price(price)) {
-            throw new InvalidPriceException();
+            throw new InvalidPriceException("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE);
         }
         this.price.set(price);
     }
-
 
     public double getPerformanceValue() {
         return performanceValue.get();
@@ -77,7 +76,7 @@ public class ComponentModel {
 
     public void setPerformanceValue(double performanceValue) {
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new InvalidPerformanceValueException();
+            throw new InvalidPerformanceValueException("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE);
         }
         this.performanceValue.set(performanceValue);
     }
