@@ -4,6 +4,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
+import org.oslomet.ExceptionClasses.*;
+
 
 
 public class GenerateDialogBox {
@@ -66,6 +68,12 @@ public class GenerateDialogBox {
     private static TextField price = new TextField();
     private static TextField performanceValue = new TextField();
 
+    //Labels for displaying error in templae dialog-box
+    private static Label nameErrorLbl = new Label();
+    private static Label brandErrorLbl = new Label();
+    private static Label priceErrorLbl = new Label();
+    private static Label performanceValueErrorLbl = new Label();
+
     //Clear input text when dialog is opened
     public static void clearTextFields() {
         name.clear();
@@ -73,6 +81,14 @@ public class GenerateDialogBox {
         price.clear();
         performanceValue.clear();
     }
+
+    public static void clearErrorLabels() {
+        nameErrorLbl.setText("");
+        brandErrorLbl.setText("");
+        priceErrorLbl.setText("");
+        performanceValueErrorLbl.setText("");
+    }
+
 
     //Template dialog-box
     public static Dialog addComponentDialog() {
@@ -95,6 +111,12 @@ public class GenerateDialogBox {
         grid.add(brand, 1,1);
         grid.add(price, 1,2);
         grid.add(performanceValue, 1,3);
+
+        grid.add(nameErrorLbl, 2, 0);
+        grid.add(brandErrorLbl, 2, 1);
+        grid.add(priceErrorLbl, 2,2);
+        grid.add(performanceValueErrorLbl, 2, 3);
+
 
         name.setPromptText("Name");
         brand.setPromptText("Brand");
@@ -223,7 +245,7 @@ public class GenerateDialogBox {
         TextField wireless = new TextField();
         wireless.setPromptText("Wireless");
 
-        grid.add(new Label("Type):"), 0, 4);
+        grid.add(new Label("Type:"), 0, 4);
         grid.add(type, 1, 4);
         grid.add(new Label("Language:"), 0, 5);
         grid.add(language, 1, 5);
@@ -246,40 +268,77 @@ public class GenerateDialogBox {
         TextField size = new TextField();
         size.setPromptText("Size (inches)");
 
-        grid.add(new Label("Size):"), 0, 4);
-        grid.add(size, 1,4);
+        Label sizeErrorLlb = new Label("");
+        grid.add(new Label("Size:"), 0, 4);
+        grid.add(sizeErrorLlb, 2, 4);
+        grid.add(size, 1, 4);
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                sizeErrorLlb.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                int sizeInt = 0;
+                    try {
+                        priceDouble = Double.parseDouble(price.getText());
+                    } catch (NumberFormatException nfe) {
+                        priceErrorLbl.setText("Price must be a number");
+                    }
+                    try {
+                        pvDouble = Double.parseDouble(performanceValue.getText());
+                    } catch (NumberFormatException nfe) {
+                        performanceValueErrorLbl.setText("Performancevalue must be a number");
+                    }
+                    try {
+                        sizeInt = Integer.parseInt(size.getText());
+                    } catch (NumberFormatException nfe) {
+                        sizeErrorLlb.setText("Size must be a number");
+                    }
 
-        int siz = Integer.parseInt(size.getText());
+                MonitorModel test1 = new MonitorModel(name.getText(), brand.getText(), priceDouble, pvDouble, sizeInt);
+                MonitorRegistry.addComponent(test1);
+                createObject = true;
 
-        MonitorModel test = new MonitorModel(name.getText(), brand.getText(), pri, per, siz);
-        MonitorRegistry.addComponent(test);
+                }
 
-
+            catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidSizeException ise) {
+                sizeErrorLlb.setText(ise.getMessage());
+            }
+        }
     }
+
+
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateMotherboardComponentDialog(Dialog addComponentDialog, GridPane grid) {
         addComponentDialog.setHeaderText("Create new motherboard component");
 
-        TextField type = new TextField();
-        type.setPromptText("Type");
+        ComboBox type = new ComboBox();
+        type.getItems().addAll("ATX", "mini-ATX", "BMX");
+        type.setValue("ATX");
+        String typeString = type.getValue().toString();
         grid.add(new Label("Type:"), 0, 4);
         grid.add(type, 1,4);
-
-
+        
         addComponentDialog.getDialogPane().setContent(grid);
         addComponentDialog.showAndWait();
 
         //TEST
         double pri = Double.parseDouble(price.getText());
         double per = Double.parseDouble(performanceValue.getText());
-        MotherboardModel test = new MotherboardModel(name.getText(), brand.getText(), pri, per, type.getText());
+        MotherboardModel test = new MotherboardModel(name.getText(), brand.getText(), pri, per, typeString);
 
         MotherboardRegistry.addComponent(test);
     }
