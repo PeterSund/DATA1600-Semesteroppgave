@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class ComponentModel {
 
     private transient SimpleStringProperty name, brand;
-    private  transient SimpleDoubleProperty price, performanceValue;
+    private transient SimpleDoubleProperty price, performanceValue;
 
     //Constructor
     public ComponentModel(String name, String brand, double price, double performanceValue) {

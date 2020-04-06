@@ -337,11 +337,11 @@ public class GenerateDialogBox {
         addComponentDialog.setHeaderText("Create new RAM component");
 
         TextField capacity = new TextField();
-        capacity.setPromptText("Capacity (MB)");
+        capacity.setPromptText("Memory (MB)");
         TextField memorySpeed = new TextField();
         memorySpeed.setPromptText("Memoryspeed (MHz)");
 
-        grid.add(new Label("Capacity:"), 0, 4);
+        grid.add(new Label("Memory:"), 0, 4);
         grid.add(capacity, 1,4);
         grid.add(new Label("Memoryspeed (MHz): "), 0, 5);
         grid.add(memorySpeed, 1,5);

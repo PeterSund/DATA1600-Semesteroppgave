@@ -511,9 +511,9 @@
                    </cellValueFactory>
                </TableColumn>
 
-               <TableColumn fx:id="RAMCapacity" prefWidth="178.0" text="Capacity">
+               <TableColumn fx:id="RAMMemory" prefWidth="178.0" text="Memory">
                    <cellValueFactory>
-                       <PropertyValueFactory property="capacity" />
+                       <PropertyValueFactory property="memory" />
                    </cellValueFactory>
                </TableColumn>
 

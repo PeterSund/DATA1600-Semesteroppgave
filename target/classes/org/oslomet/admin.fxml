@@ -303,9 +303,9 @@
                 </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="RAMCapacity" onEditCommit="#editCapacity" prefWidth="178.0" text="Capacity">
+            <TableColumn fx:id="RAMMemory" onEditCommit="#editMemory" prefWidth="178.0" text="Memory">
                 <cellValueFactory>
-                    <PropertyValueFactory property="capacity" />
+                    <PropertyValueFactory property="memory" />
                 </cellValueFactory>
             </TableColumn>
 
