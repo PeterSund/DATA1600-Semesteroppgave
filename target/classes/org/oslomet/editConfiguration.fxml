@@ -203,12 +203,6 @@
                    </cellValueFactory>
                </TableColumn>
 
-               <TableColumn fx:id="colCPUFrequency" prefWidth="232.0" text="Frequency">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="frequency" />
-                   </cellValueFactory>
-               </TableColumn>
-
                <TableColumn fx:id="colCPUCores" prefWidth="232.0" text="Cores">
                    <cellValueFactory>
                        <PropertyValueFactory property="cores" />
