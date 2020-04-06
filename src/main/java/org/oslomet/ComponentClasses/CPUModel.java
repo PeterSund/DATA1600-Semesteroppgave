@@ -11,6 +11,12 @@ public class CPUModel extends ComponentModel {
     //Constructor
     public CPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int cores) {
         super(name, brand, price, performanceValue);
+        if(!AdminInputValidation.clockSpeed(clockSpeed)) {
+            throw new IllegalArgumentException();
+        }
+        if(!AdminInputValidation.cores(cores)) {
+            throw new IllegalArgumentException();
+        }
         this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.cores = new SimpleIntegerProperty(cores);
 
@@ -29,12 +35,22 @@ public class CPUModel extends ComponentModel {
 
     public double getClockSpeed() {return clockSpeed.get(); }
 
-    public void setClockSpeed(double clockSpeed) {this.clockSpeed.set(clockSpeed); }
+    public void setClockSpeed(double clockSpeed) {
+        if(!AdminInputValidation.clockSpeed(clockSpeed)) {
+            throw new IllegalArgumentException();
+        }
+        this.clockSpeed.set(clockSpeed);
+    }
 
 
     public int getCores() {return cores.get(); }
 
-    public void setCores(int cores) {this.cores.set(cores); }
+    public void setCores(int cores) {
+        if(!AdminInputValidation.cores(cores)) {
+            throw new IllegalArgumentException();
+        }
+        this.cores.set(cores);
+    }
 
     public String toString() {
         return this.getName();

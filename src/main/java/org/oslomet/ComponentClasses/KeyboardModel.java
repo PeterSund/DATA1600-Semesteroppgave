@@ -12,6 +12,9 @@ public class KeyboardModel extends ComponentModel {
     public KeyboardModel(String name, String brand, double price, double performanceValue,
                          String type, String language, boolean wireless) {
         super(name, brand, price, performanceValue);
+        if(!AdminInputValidation.language(language)) {
+            throw new IllegalArgumentException();
+        }
         this.type = new SimpleStringProperty(type);
         this.language = new SimpleStringProperty(language);
         this.wireless = new SimpleBooleanProperty(wireless);
@@ -31,6 +34,9 @@ public class KeyboardModel extends ComponentModel {
     }
 
     public void setLanguage(String language) {
+        if(!AdminInputValidation.language(language)) {
+            throw new IllegalArgumentException();
+        }
         this.language.set(language);
     }
 

@@ -10,6 +10,9 @@ public class PSUModel extends ComponentModel {
     //Constructor
     public PSUModel(String name, String brand, double price, double performanceValue, int watt) {
         super(name, brand, price, performanceValue);
+        if(!AdminInputValidation.watt(watt)) {
+            throw new IllegalArgumentException();
+        }
         this.watt = new SimpleIntegerProperty(watt);
     }
 
@@ -18,6 +21,9 @@ public class PSUModel extends ComponentModel {
         return watt.get();
     }
     public void setWatt(int watt) {
+        if(!AdminInputValidation.watt(watt)) {
+            throw new IllegalArgumentException();
+        }
         this.watt.set(watt);
     }
 

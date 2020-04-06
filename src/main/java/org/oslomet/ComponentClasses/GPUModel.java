@@ -5,24 +5,40 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class GPUModel extends ComponentModel {
 
-    private SimpleIntegerProperty memory;
     private SimpleDoubleProperty clockSpeed;
+    private SimpleIntegerProperty memory;
 
     //Constructor
     public GPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int memory) {
         super(name, brand, price, performanceValue);
+        if(!AdminInputValidation.clockSpeed(clockSpeed)) {
+            throw new IllegalArgumentException();
+        }
+        if(!AdminInputValidation.memory(memory)) {
+            throw new IllegalArgumentException();
+        }
         this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.memory = new SimpleIntegerProperty(memory);
-
     }
+
     //Setters/Setters
     public double getClockSpeed() {return clockSpeed.get(); }
 
-    public void setClockSpeed(double clockSpeed) {this.clockSpeed.set(clockSpeed); }
+    public void setClockSpeed(double clockSpeed) {
+        if(!AdminInputValidation.clockSpeed(clockSpeed)) {
+            throw new IllegalArgumentException();
+        }
+        this.clockSpeed.set(clockSpeed);
+    }
 
     public int getMemory() {return memory.get(); }
 
-    public void setMemory(int memory) {this.memory.set(memory); }
+    public void setMemory(int memory) {
+        if(!AdminInputValidation.memory(memory)) {
+            throw new IllegalArgumentException();
+        }
+        this.memory.set(memory);
+    }
 
     public String toString() {
         return this.getName();

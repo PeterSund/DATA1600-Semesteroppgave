@@ -7,22 +7,31 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class RAMModel extends ComponentModel {
 
-    private SimpleIntegerProperty capacity;
+    private SimpleIntegerProperty memory;
     private SimpleDoubleProperty memorySpeed;
 
     //Constructor
-    public RAMModel(String name, String brand, double price, double performanceValue, int capacity, double memorySpeed) {
+    public RAMModel(String name, String brand, double price, double performanceValue, int memory, double memorySpeed) {
         super(name, brand, price, performanceValue);
-        this.capacity = new SimpleIntegerProperty(capacity);
+        if(!AdminInputValidation.memory(memory)) {
+            throw new IllegalArgumentException();
+        }
+        if(!AdminInputValidation.memorySpeed(memorySpeed)) {
+            throw  new IllegalArgumentException();
+        }
+        this.memory = new SimpleIntegerProperty(memory);
         this.memorySpeed = new SimpleDoubleProperty(memorySpeed);
     }
 
-    public int getCapacity() {
-        return capacity.get();
+    public int getMemory() {
+        return memory.get();
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity.set(capacity);
+    public void setMemory(int memory) {
+        if(!AdminInputValidation.memory(memory)) {
+            throw new IllegalArgumentException();
+        }
+        this.memory.set(memory);
     }
 
     public double getMemorySpeed() {
@@ -30,6 +39,9 @@ public class RAMModel extends ComponentModel {
     }
 
     public void setMemorySpeed(double memorySpeed) {
+        if(!AdminInputValidation.memorySpeed(memorySpeed)) {
+            throw  new IllegalArgumentException();
+        }
         this.memorySpeed.set(memorySpeed);
     }
 
@@ -38,6 +50,6 @@ public class RAMModel extends ComponentModel {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getCapacity() + ", " + this.getMemorySpeed();
+        return this.getBrand() + " " + this.getName() + ", " + this.getMemory() + ", " + this.getMemorySpeed();
     }
 }

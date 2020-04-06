@@ -11,6 +11,9 @@ public class MonitorModel extends ComponentModel {
     //Constructor
     public MonitorModel(String name, String brand, double price, double performanceValue, int size) {
         super(name, brand, price, performanceValue);
+        if(!AdminInputValidation.size(size)) {
+            throw new IllegalArgumentException();
+        }
         this.size = new SimpleIntegerProperty(size);
     }
 
@@ -20,6 +23,9 @@ public class MonitorModel extends ComponentModel {
     }
 
     public void setSize(int size) {
+        if(!AdminInputValidation.size(size)) {
+            throw new IllegalArgumentException();
+        }
         this.size.set(size);
     }
 

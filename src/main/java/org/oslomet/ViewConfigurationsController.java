@@ -25,11 +25,11 @@ public class ViewConfigurationsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ComputerRegistry.attachTableView(tableviewMyConfigs);
 
-        ComputerCaseModel computerCase = new ComputerCaseModel("MyComputerCase", "CompCasesInc", 400, 5, "20x20x10", "Blue");
+        ComputerCaseModel computerCase = new ComputerCaseModel("MyComp", "Comp", 400, 5, "20x20x10", "Blue");
         CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5.0, 4);
         GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4.0, 512);
         HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
-        KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
+        KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "Norsk", true);
         KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);
         MonitorModel monitor = new MonitorModel("Monitor", "Hans", 10.5, 5.5, 21);
         MotherboardModel motherboard = new MotherboardModel("Motherboard", "Hans", 12.0, 10.0, "ATX");

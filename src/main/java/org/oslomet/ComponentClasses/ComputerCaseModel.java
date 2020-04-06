@@ -9,6 +9,12 @@ public class ComputerCaseModel extends ComponentModel {
     //Constructor
     public ComputerCaseModel(String name, String brand, double price, double performanceValue, String dimensions, String color) {
         super(name, brand, price, performanceValue);
+        if(!AdminInputValidation.dimensions(dimensions)) {
+            throw new IllegalCallerException();
+        }
+        if(!AdminInputValidation.color(color)) {
+            throw new IllegalArgumentException();
+        }
         this.dimensions = new SimpleStringProperty(dimensions);
         this.color = new SimpleStringProperty(color);
     }
@@ -18,6 +24,9 @@ public class ComputerCaseModel extends ComponentModel {
     }
 
     public void setDimensions(String dimensions) {
+        if(!AdminInputValidation.dimensions(dimensions)) {
+            throw new IllegalArgumentException();
+        }
         this.dimensions.set(dimensions);
     }
 
@@ -26,6 +35,9 @@ public class ComputerCaseModel extends ComponentModel {
     }
 
     public void setColor(String color) {
+        if(!AdminInputValidation.color(color)) {
+            throw new IllegalArgumentException();
+        }
         this.color.set(color);
     }
 
