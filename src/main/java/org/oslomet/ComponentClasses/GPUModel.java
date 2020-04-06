@@ -2,6 +2,9 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import org.oslomet.ExceptionClasses.InvalidClockSpeedException;
+import org.oslomet.ExceptionClasses.InvalidMemoryException;
+
 
 public class GPUModel extends ComponentModel {
 
@@ -12,10 +15,10 @@ public class GPUModel extends ComponentModel {
     public GPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int memory) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new IllegalArgumentException();
+            throw new InvalidClockSpeedException();
         }
         if(!AdminInputValidation.memory(memory)) {
-            throw new IllegalArgumentException();
+            throw new InvalidMemoryException();
         }
         this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.memory = new SimpleIntegerProperty(memory);
@@ -26,7 +29,7 @@ public class GPUModel extends ComponentModel {
 
     public void setClockSpeed(double clockSpeed) {
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new IllegalArgumentException();
+            throw new InvalidClockSpeedException();
         }
         this.clockSpeed.set(clockSpeed);
     }
@@ -35,7 +38,7 @@ public class GPUModel extends ComponentModel {
 
     public void setMemory(int memory) {
         if(!AdminInputValidation.memory(memory)) {
-            throw new IllegalArgumentException();
+            throw new InvalidMemoryException();
         }
         this.memory.set(memory);
     }

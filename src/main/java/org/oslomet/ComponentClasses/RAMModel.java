@@ -4,6 +4,8 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ExceptionClasses.InvalidMemoryException;
+import org.oslomet.ExceptionClasses.InvalidMemorySpeedException;
 
 public class RAMModel extends ComponentModel {
 
@@ -14,10 +16,10 @@ public class RAMModel extends ComponentModel {
     public RAMModel(String name, String brand, double price, double performanceValue, int memory, double memorySpeed) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.memory(memory)) {
-            throw new IllegalArgumentException();
+            throw new InvalidMemoryException();
         }
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new IllegalArgumentException();
+            throw  new InvalidMemorySpeedException();
         }
         this.memory = new SimpleIntegerProperty(memory);
         this.memorySpeed = new SimpleDoubleProperty(memorySpeed);
@@ -29,7 +31,7 @@ public class RAMModel extends ComponentModel {
 
     public void setMemory(int memory) {
         if(!AdminInputValidation.memory(memory)) {
-            throw new IllegalArgumentException();
+            throw new InvalidMemoryException();
         }
         this.memory.set(memory);
     }
@@ -40,7 +42,7 @@ public class RAMModel extends ComponentModel {
 
     public void setMemorySpeed(double memorySpeed) {
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new IllegalArgumentException();
+            throw  new InvalidMemorySpeedException();
         }
         this.memorySpeed.set(memorySpeed);
     }

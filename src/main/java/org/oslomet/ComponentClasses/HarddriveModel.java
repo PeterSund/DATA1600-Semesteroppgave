@@ -2,6 +2,7 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ExceptionClasses.InvalidCapacityException;
 
 public class HarddriveModel extends ComponentModel {
 
@@ -12,7 +13,7 @@ public class HarddriveModel extends ComponentModel {
     public HarddriveModel(String name, String brand, double price, double performanceValue, String type, int capacity) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.capacity(capacity)) {
-            throw new IllegalArgumentException();
+            throw new InvalidCapacityException();
         }
         this.type = new SimpleStringProperty(type);
         this.capacity = new SimpleIntegerProperty(capacity);
@@ -34,7 +35,7 @@ public class HarddriveModel extends ComponentModel {
 
     public void setCapacity(int capacity) {
         if(!AdminInputValidation.capacity(capacity)) {
-            throw new IllegalArgumentException();
+            throw new InvalidCapacityException();
         }
         this.capacity.set(capacity);
     }

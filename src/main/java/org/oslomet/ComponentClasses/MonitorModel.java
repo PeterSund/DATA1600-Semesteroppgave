@@ -3,6 +3,7 @@ package org.oslomet.ComponentClasses;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ExceptionClasses.InvalidSizeException;
 
 public class MonitorModel extends ComponentModel {
 
@@ -12,7 +13,7 @@ public class MonitorModel extends ComponentModel {
     public MonitorModel(String name, String brand, double price, double performanceValue, int size) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.size(size)) {
-            throw new IllegalArgumentException();
+            throw new InvalidSizeException();
         }
         this.size = new SimpleIntegerProperty(size);
     }
@@ -24,7 +25,7 @@ public class MonitorModel extends ComponentModel {
 
     public void setSize(int size) {
         if(!AdminInputValidation.size(size)) {
-            throw new IllegalArgumentException();
+            throw new InvalidSizeException();
         }
         this.size.set(size);
     }

@@ -2,6 +2,8 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import org.oslomet.ExceptionClasses.InvalidClockSpeedException;
+import org.oslomet.ExceptionClasses.InvalidCoresException;
 
 public class CPUModel extends ComponentModel {
 
@@ -12,32 +14,21 @@ public class CPUModel extends ComponentModel {
     public CPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int cores) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new IllegalArgumentException();
+            throw new InvalidClockSpeedException();
         }
         if(!AdminInputValidation.cores(cores)) {
-            throw new IllegalArgumentException();
+            throw new InvalidCoresException();
         }
         this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.cores = new SimpleIntegerProperty(cores);
 
     }
 
-    //Getters/Setters
-    /*
-    public int setClockSpeed2(clockSpeed) {
-        boolean isValidInput = true;
-        if (!isValidInput) {
-            throw new Exception("Clockspeed er feil..");
-        }
-    }
-
-     */
-
     public double getClockSpeed() {return clockSpeed.get(); }
 
     public void setClockSpeed(double clockSpeed) {
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new IllegalArgumentException();
+            throw new InvalidClockSpeedException();
         }
         this.clockSpeed.set(clockSpeed);
     }
@@ -47,7 +38,7 @@ public class CPUModel extends ComponentModel {
 
     public void setCores(int cores) {
         if(!AdminInputValidation.cores(cores)) {
-            throw new IllegalArgumentException();
+            throw new InvalidCoresException();
         }
         this.cores.set(cores);
     }

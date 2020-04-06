@@ -2,6 +2,7 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ExceptionClasses.InvalidLanguageException;
 
 public class KeyboardModel extends ComponentModel {
 
@@ -13,7 +14,7 @@ public class KeyboardModel extends ComponentModel {
                          String type, String language, boolean wireless) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.language(language)) {
-            throw new IllegalArgumentException();
+            throw new InvalidLanguageException();
         }
         this.type = new SimpleStringProperty(type);
         this.language = new SimpleStringProperty(language);
@@ -35,7 +36,7 @@ public class KeyboardModel extends ComponentModel {
 
     public void setLanguage(String language) {
         if(!AdminInputValidation.language(language)) {
-            throw new IllegalArgumentException();
+            throw new InvalidLanguageException();
         }
         this.language.set(language);
     }

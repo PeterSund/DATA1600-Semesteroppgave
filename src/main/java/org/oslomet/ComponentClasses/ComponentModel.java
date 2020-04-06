@@ -2,6 +2,10 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ExceptionClasses.InvalidBrandException;
+import org.oslomet.ExceptionClasses.InvalidNameException;
+import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
+import org.oslomet.ExceptionClasses.InvalidPriceException;
 
 public class ComponentModel {
 
@@ -11,19 +15,19 @@ public class ComponentModel {
     //Constructor
     public ComponentModel(String name, String brand, double price, double performanceValue) {
         if(!AdminInputValidation.name(name)) {
-            throw new IllegalArgumentException();
+            throw new InvalidNameException();
         }
 
         if(!AdminInputValidation.brand(brand)) {
-            throw new IllegalArgumentException();
+            throw new InvalidBrandException();
         }
 
         if(!AdminInputValidation.price(price)) {
-            throw new IllegalArgumentException();
+            throw new InvalidPriceException();
         }
 
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new IllegalArgumentException();
+            throw new InvalidPerformanceValueException();
         }
 
         this.name = new SimpleStringProperty(name);
@@ -39,7 +43,7 @@ public class ComponentModel {
 
     public void setName(String name) {
         if(!AdminInputValidation.name(name)) {
-            throw new IllegalArgumentException();
+            throw new InvalidNameException();
         }
         this.name.set(name);
     }
@@ -50,7 +54,7 @@ public class ComponentModel {
 
     public void setBrand(String brand) {
         if(!AdminInputValidation.brand(brand)) {
-            throw new IllegalArgumentException();
+            throw new InvalidBrandException();
         }
         this.brand.set(brand);
     }
@@ -61,7 +65,7 @@ public class ComponentModel {
 
     public final void setPrice(double price) {
         if (!AdminInputValidation.price(price)) {
-            throw new IllegalArgumentException();
+            throw new InvalidPriceException();
         }
         this.price.set(price);
     }
@@ -73,7 +77,7 @@ public class ComponentModel {
 
     public void setPerformanceValue(double performanceValue) {
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new IllegalArgumentException();
+            throw new InvalidPerformanceValueException();
         }
         this.performanceValue.set(performanceValue);
     }

@@ -3,6 +3,7 @@ package org.oslomet.ComponentClasses;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import org.oslomet.ExceptionClasses.InvalidWattException;
 
 public class PSUModel extends ComponentModel {
     private SimpleIntegerProperty watt;
@@ -11,7 +12,7 @@ public class PSUModel extends ComponentModel {
     public PSUModel(String name, String brand, double price, double performanceValue, int watt) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.watt(watt)) {
-            throw new IllegalArgumentException();
+            throw new InvalidWattException();
         }
         this.watt = new SimpleIntegerProperty(watt);
     }
@@ -22,7 +23,7 @@ public class PSUModel extends ComponentModel {
     }
     public void setWatt(int watt) {
         if(!AdminInputValidation.watt(watt)) {
-            throw new IllegalArgumentException();
+            throw new InvalidWattException();
         }
         this.watt.set(watt);
     }
