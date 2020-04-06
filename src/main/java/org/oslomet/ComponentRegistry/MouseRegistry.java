@@ -9,6 +9,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.MouseModel;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 public class MouseRegistry implements RegistryMethods  {
     //Initialize array
     private static ObservableList<MouseModel> mouseArray = FXCollections.observableArrayList();
@@ -29,6 +36,32 @@ public class MouseRegistry implements RegistryMethods  {
             }
         }
     }
+
+    public ObservableList<MouseModel> filterByName(String name) {
+        return mouseArray.stream().filter(mm -> mm.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<MouseModel> filterByBrand(String brand) {
+        return mouseArray.stream().filter(mm -> mm.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<MouseModel> filterByPrice(double price) {
+        return mouseArray.stream().
+                filter(mm -> mm.getPrice() == price).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<MouseModel> filterByPerformanceValue(double performanceValue) {
+        return mouseArray.stream().
+                filter(mm -> mm.getPerformanceValue() == performanceValue).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
 }
+
+
+
+
 
 

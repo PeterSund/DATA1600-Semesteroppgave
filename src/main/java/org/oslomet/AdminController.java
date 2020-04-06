@@ -8,12 +8,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.oslomet.ComponentRegistry.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.DirectoryStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -21,6 +24,7 @@ import java.util.ResourceBundle;
 public class AdminController implements Initializable {
 
     public List<TableView> tableViewArray = new ArrayList<>();
+    public List<ChoiceBox> cbArray = new ArrayList<>();
 
     @FXML
     private Button btnLogOut;
@@ -149,6 +153,16 @@ public class AdminController implements Initializable {
     }
 
     @FXML
+    private TextField txtFilter;
+
+    @FXML
+    private ChoiceBox<?> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
+            cbFilterRAM, cbFilterSoundcard, cbFilterPSU, cbFilterMonitor, cbFilterMouse, cbFilterKeyboard;
+
+    @FXML
+    private Button btnFilter;
+
+    @FXML
     void changeToEditConfigurations(ActionEvent event) throws IOException {
         Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
         Scene viewConfScene = new Scene(viewConfParent);
@@ -189,6 +203,19 @@ public class AdminController implements Initializable {
         component = component.split("]")[1];
         component = component.substring(1,component.length()-1);
         showTableView(component);
+        showFilter(component);
+
+    }
+
+    public void showFilter(String component) {
+        for (ChoiceBox cb : cbArray) {
+            if (cb.getId().equals(component)) {
+                cb.setVisible(true);
+            }
+            else {
+                cb.setVisible(false);
+            }
+        }
     }
 
     @Override
@@ -205,7 +232,6 @@ public class AdminController implements Initializable {
         tableViewArray.add(tvRAM);
         tableViewArray.add(tvSoundcard);
         tableViewArray.add(tvMouse);
-        tableViewArray.add(tvKeyboard);
 
         ComputerCaseRegistry.attachTableView(tvComputercase);
         CPURegistry.attachTableView(tvCPU);
@@ -218,6 +244,20 @@ public class AdminController implements Initializable {
         RAMRegistry.attachTableView(tvRAM);
         PSURegistry.attachTableView(tvPSU);
         MouseRegistry.attachTableView(tvMouse);
+
+        cbArray.add(cbFilterComputerCase);
+        cbArray.add(cbFilterCPU);
+        cbArray.add(cbFilterGPU);
+        cbArray.add(cbFilterHarddrive);
+        cbArray.add(cbFilterKeyboard);
+        cbArray.add(cbFilterPSU);
+        cbArray.add(cbFilterMonitor);
+        cbArray.add(cbFilterMotherboard);
+        cbArray.add(cbFilterMouse);
+        cbArray.add(cbFilterRAM);
+        cbArray.add(cbFilterSoundcard);
+        cbArray.add(cbFilterMouse);
+
 
     }
 }

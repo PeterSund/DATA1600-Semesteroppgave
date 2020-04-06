@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.cell.TextFieldTableCell?>
-
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <AnchorPane prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
-   <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" text="Log out" onAction="#changeToEditConfigurations"/>
-   <Button fx:id="btnCPU" onAction="#showComponent" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="CPU" />
-   <Button fx:id="btnGPU" onAction="#showComponent" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="GPU" />
-   <Button fx:id="btnHarddrive" onAction="#showComponent" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
-   <Button fx:id="btnMotherboard" onAction="#showComponent" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
-   <Button fx:id="btnRAM" layoutX="30.0" onAction="#showComponent" layoutY="230.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="RAM" />
-   <Button fx:id="btnSoundcard" onAction="#showComponent" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
-   <Button fx:id="btnPSU" onAction="#showComponent" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="PSU" />
-   <Button fx:id="btnMonitor" onAction="#showComponent" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
-   <Button fx:id="btnMouse" onAction="#showComponent" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
-   <Button fx:id="btnComputercase" onAction="#showComponent" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" text="Computercase" />
-   <Button fx:id="btnKeyboard" onAction="#showComponent" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
+   <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" onAction="#changeToEditConfigurations" text="Log out" />
+   <Button fx:id="btnCPU" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="CPU" />
+   <Button fx:id="btnGPU" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="GPU" />
+   <Button fx:id="btnHarddrive" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
+   <Button fx:id="btnMotherboard" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
+   <Button fx:id="btnRAM" layoutX="30.0" layoutY="230.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="RAM" />
+   <Button fx:id="btnSoundcard" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
+   <Button fx:id="btnPSU" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="PSU" />
+   <Button fx:id="btnMonitor" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
+   <Button fx:id="btnMouse" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
+   <Button fx:id="btnComputercase" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" onAction="#showComponent" text="Computercase" />
+   <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
 
-   <Button fx:id="btnAddComponent" onAction="#generateDialogAddComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" text="Add Component" />
-   <Button fx:id="btnLoadComponent" onAction="#showComponent" layoutX="922.0" layoutY="400.0" mnemonicParsing="false" text="Load components" />
-   <Button fx:id="btnSaveComponent" onAction="#showComponent" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" text="Save components" />
+   <Button fx:id="btnAddComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" text="Add Component" />
+   <Button fx:id="btnLoadComponent" layoutX="922.0" layoutY="400.0" mnemonicParsing="false" onAction="#showComponent" text="Load components" />
+   <Button fx:id="btnSaveComponent" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" onAction="#showComponent" text="Save components" />
 
       <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
         <columns>
 
-           <TableColumn fx:id="colComputercaseName" onEditCommit="#editText" prefWidth="175.0" text="Name" >
+           <TableColumn fx:id="colComputercaseName" onEditCommit="#editText" prefWidth="175.0" text="Name">
               <cellValueFactory>
                  <PropertyValueFactory property="name" />
               </cellValueFactory>
               <cellFactory>
-                 <TextFieldTableCell fx:factory="forTableColumn"/>
+                 <TextFieldTableCell fx:factory="forTableColumn" />
               </cellFactory>
            </TableColumn>
 
-          <TableColumn fx:id="colComputercaseBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand" >
+          <TableColumn fx:id="colComputercaseBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
              <cellValueFactory>
                 <PropertyValueFactory property="brand" />
              </cellValueFactory>
              <cellFactory>
-                <TextFieldTableCell fx:factory="forTableColumn"/>
+                <TextFieldTableCell fx:factory="forTableColumn" />
              </cellFactory>
           </TableColumn>
 
-            <TableColumn fx:id="colComputercasePrice"  onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+            <TableColumn fx:id="colComputercasePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
                <cellValueFactory>
                   <PropertyValueFactory property="price" />
                </cellValueFactory>
@@ -64,7 +68,7 @@
                   <PropertyValueFactory property="dimensions" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -73,7 +77,7 @@
                  <PropertyValueFactory property="color" />
               </cellValueFactory>
               <cellFactory>
-                 <TextFieldTableCell fx:factory="forTableColumn"/>
+                 <TextFieldTableCell fx:factory="forTableColumn" />
               </cellFactory>
            </TableColumn>
 
@@ -82,12 +86,12 @@
 
       <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn fx:id="colCPUName" onEditCommit="#editText"  prefWidth="175.0" text="Name">
+            <TableColumn fx:id="colCPUName" onEditCommit="#editText" prefWidth="175.0" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="name" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -96,7 +100,7 @@
                   <PropertyValueFactory property="brand" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -129,12 +133,12 @@
 
        <TableView id="GPU" fx:id="tvGPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
            <columns>
-               <TableColumn fx:id="colGPUName" onEditCommit="#editText"  prefWidth="175.0" text="Name">
+               <TableColumn fx:id="colGPUName" onEditCommit="#editText" prefWidth="175.0" text="Name">
                    <cellValueFactory>
                        <PropertyValueFactory property="name" />
                    </cellValueFactory>
                    <cellFactory>
-                       <TextFieldTableCell fx:factory="forTableColumn"/>
+                       <TextFieldTableCell fx:factory="forTableColumn" />
                    </cellFactory>
                </TableColumn>
 
@@ -143,7 +147,7 @@
                        <PropertyValueFactory property="brand" />
                    </cellValueFactory>
                    <cellFactory>
-                       <TextFieldTableCell fx:factory="forTableColumn"/>
+                       <TextFieldTableCell fx:factory="forTableColumn" />
                    </cellFactory>
                </TableColumn>
 
@@ -182,7 +186,7 @@
                   <PropertyValueFactory property="name" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -191,7 +195,7 @@
                   <PropertyValueFactory property="brand" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -201,22 +205,22 @@
                </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colHarddrivePV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value" >
+            <TableColumn fx:id="colHarddrivePV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
                <cellValueFactory>
                   <PropertyValueFactory property="performanceValue" />
                </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colHarddriveType" onEditCommit="#editText" prefWidth="178.0" text="Type" >
+            <TableColumn fx:id="colHarddriveType" onEditCommit="#editText" prefWidth="178.0" text="Type">
                <cellValueFactory>
                   <PropertyValueFactory property="type" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colHarddriveCapacity" onEditCommit="#editCapacity" prefWidth="232.0" text="Capacity" >
+            <TableColumn fx:id="colHarddriveCapacity" onEditCommit="#editCapacity" prefWidth="232.0" text="Capacity">
                <cellValueFactory>
                   <PropertyValueFactory property="capacity" />
                </cellValueFactory>
@@ -233,7 +237,7 @@
                     <PropertyValueFactory property="name" />
                 </cellValueFactory>
                 <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
 
@@ -242,7 +246,7 @@
                     <PropertyValueFactory property="brand" />
                 </cellValueFactory>
                 <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
 
@@ -263,7 +267,7 @@
                     <PropertyValueFactory property="type" />
                 </cellValueFactory>
                 <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
 
@@ -278,7 +282,7 @@
                     <PropertyValueFactory property="name" />
                 </cellValueFactory>
                 <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
 
@@ -287,7 +291,7 @@
                     <PropertyValueFactory property="brand" />
                 </cellValueFactory>
                 <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
 
@@ -326,7 +330,7 @@
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -335,7 +339,7 @@
                     <PropertyValueFactory property="brand" />
                 </cellValueFactory>
                 <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn"/>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
 
@@ -374,7 +378,7 @@
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -383,7 +387,7 @@
                      <PropertyValueFactory property="brand" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -416,7 +420,7 @@
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -425,7 +429,7 @@
                      <PropertyValueFactory property="brand" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -458,7 +462,7 @@
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -468,7 +472,7 @@
                      <PropertyValueFactory property="brand" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -489,7 +493,7 @@
                      <PropertyValueFactory property="type" />
                  </cellValueFactory>
                  <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn"/>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
                  </cellFactory>
              </TableColumn>
 
@@ -510,16 +514,16 @@
                   <PropertyValueFactory property="name" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colKeyboardBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand" >
+            <TableColumn fx:id="colKeyboardBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
                <cellValueFactory>
                   <PropertyValueFactory property="brand" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -540,7 +544,7 @@
                   <PropertyValueFactory property="type" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -549,7 +553,7 @@
                   <PropertyValueFactory property="language" />
                </cellValueFactory>
                <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn"/>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
 
@@ -561,5 +565,159 @@
 
          </columns>
       </TableView>
+      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" promptText="Search" />
+      <ChoiceBox fx:id="cbFilterComputerCase" id="Computercase" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+       <items>
+           <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Name" />
+               <String fx:value="Brand" />
+               <String fx:value="Price" />
+               <String fx:value="Performance Value" />
+               <String fx:value="Dimension" />
+               <String fx:value="Color" />
+           </FXCollections>
+       </items>
+      </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterCPU" id="CPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="speed" />
+                   <String fx:value="Cores" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterGPU" id="GPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Clock speed" />
+                   <String fx:value="Memory" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterHarddrive" id="Hard drive" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Type" />
+                   <String fx:value="Capacity" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterMotherboard" id="Motherboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Type" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterRAM" id="RAM" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Capacity" />
+                   <String fx:value="Memory speed" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterSoundcard" id="Soundcard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Surround" />
+                   <String fx:value="Bass boost" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterPSU" id="PSU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Watt" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterMonitor" id="Monitor" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Size" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterMouse" id="Mouse" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Type" />
+                   <String fx:value="Wireless" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+       <ChoiceBox fx:id="cbFilterKeyboard" id="Keyboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Name" />
+                   <String fx:value="Brand" />
+                   <String fx:value="Price" />
+                   <String fx:value="Performance Value" />
+                   <String fx:value="Type" />
+                   <String fx:value="Language" />
+                   <String fx:value="Wireless" />
+               </FXCollections>
+           </items>
+       </ChoiceBox>
+
+      <Button fx:id="btnFilter" layoutX="634.0" layoutY="89.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" text="Filter" />
    </children>
 </AnchorPane>
