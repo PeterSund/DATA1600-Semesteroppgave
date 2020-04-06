@@ -71,7 +71,7 @@ public class EditConfigurationController implements Initializable {
     private TableView<?> tvKeyboard;
 
     @FXML
-    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName;
+    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice;
 
     private ComputerModel computer;
 
@@ -201,57 +201,67 @@ public class EditConfigurationController implements Initializable {
         else if (currentTableView.getId().equals("Computercase")) {
             lblComputerCase.setText(((ComputerCaseModel) component).toStringForConfig());
             computer.setComputerCase((ComputerCaseModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("CPU")) {
             computer.setCpu((CPUModel) component);
             lblCPU.setText(((CPUModel) component).toStringForConfig());
-
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("GPU")) {
             lblGPU.setText(((GPUModel) component).toStringForConfig());
             computer.setGpu((GPUModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("RAM")) {
             lblRAM.setText(((RAMModel) component).toStringForConfig());
             computer.setRam((RAMModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("Hard drive")) {
             lblHardDrive.setText(((HarddriveModel) component).toStringForConfig());
             computer.setHardDrive((HarddriveModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("Motherboard")) {
             lblMotherBoard.setText(((MotherboardModel) component).toStringForConfig());
             computer.setMotherboard((MotherboardModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("PSU")) {
             lblPSU.setText(((PSUModel) component).toStringForConfig());
             computer.setPsu((PSUModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("Soundcard")) {
             lblSoundcard.setText(((SoundCardModel) component).toStringForConfig());
             computer.setSoundCard((SoundCardModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("Keyboard")) {
             lblKeyboard.setText(((KeyboardModel) component).toStringForConfig());
             computer.setKeyboard((KeyboardModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("Monitor")) {
             lblMonitor.setText(((MonitorModel) component).toStringForConfig());
             computer.setMonitor((MonitorModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
         else if (currentTableView.getId().equals("Mouse")) {
             lblMouse.setText(((MouseModel) component).toStringForConfig());
             computer.setMouse((MouseModel) component);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
         }
 
     }
@@ -264,6 +274,8 @@ public class EditConfigurationController implements Initializable {
 
     @FXML
     void saveConfiguration(ActionEvent event) throws IOException {
+
+        //Checks that user has chosen all components for the computer
         if ( !(computer.getComputerCase()==null) && !(computer.getCpu()==null) && !(computer.getGpu()==null) && !(computer.getRam()==null)
                 && !(computer.getHardDrive()==null) && !(computer.getMotherboard()==null) && !(computer.getPsu()==null)
                 && !(computer.getSoundCard()==null) && !(computer.getKeyboard()==null) && !(computer.getMonitor()==null) && !(computer.getMouse()==null)) {
@@ -292,8 +304,8 @@ public class EditConfigurationController implements Initializable {
         }
     }
 
-    public void setComputer(ComputerModel computerEdited) {
-        computer = computerEdited;
+    public void setComputer(ComputerModel userComputer) {
+        computer = userComputer;
         showComputer();
     }
 
@@ -315,8 +327,32 @@ public class EditConfigurationController implements Initializable {
         }
 
         lblName.setText(computer.getConfigName());
+        lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
 
     }
+
+    //Calculates and returns the total price of the computer
+    public double calculateTotalPrice() {
+
+        double totalPrice = 0;
+
+        totalPrice += computer.getComputerCase() != null ? computer.getComputerCase().getPrice() : 0;
+        totalPrice += computer.getCpu() != null ? computer.getCpu().getPrice() : 0;
+        totalPrice += computer.getGpu() != null ? computer.getGpu().getPrice() : 0;
+        totalPrice += computer.getHardDrive() != null ? computer.getHardDrive().getPrice() : 0;
+        totalPrice += computer.getMotherboard() != null ? computer.getMotherboard().getPrice() : 0;
+        totalPrice += computer.getRam() != null ? computer.getRam().getPrice() : 0;
+        totalPrice += computer.getSoundCard() != null ? computer.getSoundCard().getPrice() : 0;
+        totalPrice += computer.getPsu() != null ? computer.getPsu().getPrice() : 0;
+        totalPrice += computer.getMonitor() != null ? computer.getMonitor().getPrice() : 0;
+        totalPrice += computer.getMouse() != null ? computer.getMouse().getPrice() : 0;
+        totalPrice += computer.getKeyboard() != null ? computer.getKeyboard().getPrice() : 0;
+
+        computer.setTotalPrice(totalPrice);
+        return totalPrice;
+    }
+
+   
 
 }
 
