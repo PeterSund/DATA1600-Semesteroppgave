@@ -71,7 +71,8 @@ public class EditConfigurationController implements Initializable {
     private TableView<?> tvKeyboard;
 
     @FXML
-    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard, lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice;
+    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard,
+            lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice, lblTotalPerformanceValue;
 
     private ComputerModel computer;
 
@@ -202,66 +203,77 @@ public class EditConfigurationController implements Initializable {
             lblComputerCase.setText(((ComputerCaseModel) component).toStringForConfig());
             computer.setComputerCase((ComputerCaseModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("CPU")) {
             computer.setCpu((CPUModel) component);
             lblCPU.setText(((CPUModel) component).toStringForConfig());
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("GPU")) {
             lblGPU.setText(((GPUModel) component).toStringForConfig());
             computer.setGpu((GPUModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("RAM")) {
             lblRAM.setText(((RAMModel) component).toStringForConfig());
             computer.setRam((RAMModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("Hard drive")) {
             lblHardDrive.setText(((HarddriveModel) component).toStringForConfig());
             computer.setHardDrive((HarddriveModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("Motherboard")) {
             lblMotherBoard.setText(((MotherboardModel) component).toStringForConfig());
             computer.setMotherboard((MotherboardModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("PSU")) {
             lblPSU.setText(((PSUModel) component).toStringForConfig());
             computer.setPsu((PSUModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("Soundcard")) {
             lblSoundcard.setText(((SoundCardModel) component).toStringForConfig());
             computer.setSoundCard((SoundCardModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("Keyboard")) {
             lblKeyboard.setText(((KeyboardModel) component).toStringForConfig());
             computer.setKeyboard((KeyboardModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("Monitor")) {
             lblMonitor.setText(((MonitorModel) component).toStringForConfig());
             computer.setMonitor((MonitorModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
         else if (currentTableView.getId().equals("Mouse")) {
             lblMouse.setText(((MouseModel) component).toStringForConfig());
             computer.setMouse((MouseModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
         }
 
     }
@@ -328,7 +340,7 @@ public class EditConfigurationController implements Initializable {
 
         lblName.setText(computer.getConfigName());
         lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
-
+        lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
     }
 
     //Calculates and returns the total price of the computer
@@ -350,6 +362,27 @@ public class EditConfigurationController implements Initializable {
 
         computer.setTotalPrice(totalPrice);
         return totalPrice;
+    }
+
+    //Calculates and returns the total performance value of the computer
+    public double calculateTotalPerformanceValue() {
+
+        double totalPerformanceValue = 0;
+
+        totalPerformanceValue += computer.getComputerCase() != null ? computer.getComputerCase().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getCpu() != null ? computer.getCpu().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getGpu() != null ? computer.getGpu().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getHardDrive() != null ? computer.getHardDrive().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getMotherboard() != null ? computer.getMotherboard().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getRam() != null ? computer.getRam().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getSoundCard() != null ? computer.getSoundCard().getPerformanceValue(): 0;
+        totalPerformanceValue += computer.getPsu() != null ? computer.getPsu().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getMonitor() != null ? computer.getMonitor().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getMouse() != null ? computer.getMouse().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getKeyboard() != null ? computer.getKeyboard().getPerformanceValue() : 0;
+
+        computer.setTotalPerformanceValue(totalPerformanceValue);
+        return totalPerformanceValue;
     }
 
    
