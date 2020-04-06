@@ -118,12 +118,6 @@
                </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colCPUFrequency" onEditCommit="#editFrequency" prefWidth="232.0" text="Frequency">
-               <cellValueFactory>
-                  <PropertyValueFactory property="frequency" />
-               </cellValueFactory>
-            </TableColumn>
-
             <TableColumn fx:id="colCPUCores" onEditCommit="#editCores" prefWidth="232.0" text="Cores">
                <cellValueFactory>
                   <PropertyValueFactory property="cores" />

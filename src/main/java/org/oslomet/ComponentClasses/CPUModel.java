@@ -5,14 +5,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class CPUModel extends ComponentModel {
 
-    private SimpleIntegerProperty clockSpeed, cores;
-    private SimpleDoubleProperty frequency;
+    private SimpleIntegerProperty cores;
+    private SimpleDoubleProperty clockSpeed;
 
     //Constructor
-    public CPUModel(String name, String brand, double price, double performanceValue, int clockSpeed, double frequency, int cores) {
+    public CPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int cores) {
         super(name, brand, price, performanceValue);
-        this.clockSpeed = new SimpleIntegerProperty(clockSpeed);
-        this.frequency = new SimpleDoubleProperty(frequency);
+        this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.cores = new SimpleIntegerProperty(cores);
 
     }
@@ -28,13 +27,10 @@ public class CPUModel extends ComponentModel {
 
      */
 
-    public int getClockSpeed() {return clockSpeed.get(); }
+    public double getClockSpeed() {return clockSpeed.get(); }
 
-    public void setClockSpeed(int clockSpeed) {this.clockSpeed.set(clockSpeed); }
+    public void setClockSpeed(double clockSpeed) {this.clockSpeed.set(clockSpeed); }
 
-    public double getFrequency() {return frequency.get(); }
-
-    public void setFrequency(int frequency) {this.frequency.set(frequency); }
 
     public int getCores() {return cores.get(); }
 
@@ -45,8 +41,7 @@ public class CPUModel extends ComponentModel {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", " + this.getFrequency() +
-                ", " + this.getCores();
+        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", "  +  ", " + this.getCores();
     }
 
 }

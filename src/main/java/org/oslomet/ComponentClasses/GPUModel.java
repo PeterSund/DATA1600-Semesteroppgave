@@ -1,22 +1,24 @@
 package org.oslomet.ComponentClasses;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class GPUModel extends ComponentModel {
 
-    private SimpleIntegerProperty clockSpeed, memory;
+    private SimpleIntegerProperty memory;
+    private SimpleDoubleProperty clockSpeed;
 
     //Constructor
-    public GPUModel(String name, String brand, double price, double performanceValue, int clockSpeed, int memory) {
+    public GPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int memory) {
         super(name, brand, price, performanceValue);
-        this.clockSpeed = new SimpleIntegerProperty(clockSpeed);
+        this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.memory = new SimpleIntegerProperty(memory);
 
     }
     //Setters/Setters
-    public int getClockSpeed() {return clockSpeed.get(); }
+    public double getClockSpeed() {return clockSpeed.get(); }
 
-    public void setClockSpeed(int clockSpeed) {this.clockSpeed.set(clockSpeed); }
+    public void setClockSpeed(double clockSpeed) {this.clockSpeed.set(clockSpeed); }
 
     public int getMemory() {return memory.get(); }
 

@@ -92,8 +92,8 @@ public class EditConfigurationController implements Initializable {
         MouseRegistry.attachTableView(tvMouse);
 
         ComputerCaseModel computerCase = new ComputerCaseModel("My computer case", "CompCases inc", 400, 5, "20x20x10", "Blue");
-        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5, 3.2, 4);
-        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4, 512);
+        CPUModel cpu = new CPUModel("CPU", "Hans", 40.0, 20.0, 5.4, 4);
+        GPUModel gpu = new GPUModel("GPU", "Hans", 50.0, 10.0, 4.4, 512);
         HarddriveModel hdd = new HarddriveModel("HDD", "Hans",100.0, 14.0, "SSD", 400);
         KeyboardModel keyboard = new KeyboardModel("Keys", "Hans", 20.0, 1.0, "Office", "NOR", true);
         KeyboardModel testKey = new KeyboardModel("Tast", "ZakaBiz", 200.50, 10.5, "Dritbra", "Norsk", true);

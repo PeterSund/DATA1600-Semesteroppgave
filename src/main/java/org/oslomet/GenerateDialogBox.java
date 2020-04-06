@@ -158,7 +158,7 @@ public class GenerateDialogBox {
         int clock = Integer.parseInt(clockSpeed.getText());
         int mem = Integer.parseInt(cores.getText());
 
-        CPUModel test = new CPUModel(name.getText(), brand.getText(), pri, per, clock,10.0, mem);
+        CPUModel test = new CPUModel(name.getText(), brand.getText(), pri, per, clock, mem);
         CPURegistry.addComponent(test);
     }
 
