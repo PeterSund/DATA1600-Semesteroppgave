@@ -40,10 +40,10 @@ public class SoundCardModel extends ComponentModel {
         String output = this.getBrand() + " " + this.getName();
 
         if(surround.getValue()) {
-            output += ", " + this.isSurround();
+            output += ", Surround";
         }
         if(bassBoost.getValue())  {
-            output += ", " + this.isBassBoost();
+            output += ", Bass boost";
         }
         return output;
     }

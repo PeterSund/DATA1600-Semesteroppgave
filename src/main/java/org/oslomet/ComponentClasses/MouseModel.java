@@ -39,7 +39,7 @@ public class MouseModel extends ComponentModel {
         String output = this.getBrand() + " " + this.getName() + ", " + this.getType();
 
         if(wireless.getValue()) {
-           output += ", " + this.isWireless();
+           output += ", Wireless";
          }
         return output;
     }
