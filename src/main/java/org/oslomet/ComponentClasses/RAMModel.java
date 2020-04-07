@@ -16,10 +16,10 @@ public class RAMModel extends ComponentModel {
     public RAMModel(String name, String brand, double price, double performanceValue, int memory, double memorySpeed) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.memory(memory)) {
-            throw new InvalidMemoryException();
+            throw new InvalidMemoryException("Memory cannot be blank, must be greater then 0 and an even number");
         }
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new InvalidMemorySpeedException();
+            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be greater then 0");
         }
         this.memory = new SimpleIntegerProperty(memory);
         this.memorySpeed = new SimpleDoubleProperty(memorySpeed);
@@ -31,7 +31,7 @@ public class RAMModel extends ComponentModel {
 
     public void setMemory(int memory) {
         if(!AdminInputValidation.memory(memory)) {
-            throw new InvalidMemoryException();
+            throw new InvalidMemoryException("Memory cannot be blank, must be greater then 0 and an even number");
         }
         this.memory.set(memory);
     }
@@ -42,7 +42,7 @@ public class RAMModel extends ComponentModel {
 
     public void setMemorySpeed(double memorySpeed) {
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new InvalidMemorySpeedException();
+            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be greater then 0");
         }
         this.memorySpeed.set(memorySpeed);
     }

@@ -15,7 +15,7 @@ public class ComponentModel {
     //Constructor
     public ComponentModel(String name, String brand, double price, double performanceValue) {
         if(!AdminInputValidation.name(name)) {
-            throw new InvalidNameException();
+            throw new InvalidNameException("Name cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
         }
 
         if(!AdminInputValidation.brand(brand)) {
@@ -43,7 +43,7 @@ public class ComponentModel {
 
     public void setName(String name) {
         if(!AdminInputValidation.name(name)) {
-            throw new InvalidNameException();
+            throw new InvalidNameException("Name cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
         }
         this.name.set(name);
     }

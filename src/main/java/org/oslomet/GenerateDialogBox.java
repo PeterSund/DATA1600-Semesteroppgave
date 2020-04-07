@@ -96,7 +96,7 @@ public class GenerateDialogBox {
         dialog.setTitle("Create new component");
 
         ButtonType add = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(add, ButtonType.CANCEL);
+        dialog.getDialogPane().getButtonTypes().addAll(add, ButtonType.CLOSE);
         return dialog;
     }
 
@@ -141,20 +141,57 @@ public class GenerateDialogBox {
         TextField color = new TextField();
         color.setPromptText("Color");
 
+        Label dimensionsErrorLbl = new Label("");
+        grid.add(dimensionsErrorLbl, 2, 4);
+        Label colorErrorLbl = new Label("");
+        grid.add(colorErrorLbl,2,5);
+
         grid.add(new Label("Dimensions (HxLxD):"), 0, 4);
         grid.add(dimensions, 1,4);
         grid.add(new Label("Color:"), 0, 5);
         grid.add(color, 1,5);
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
 
-        ComputerCaseModel test = new ComputerCaseModel(name.getText(), brand.getText(), pri, per, dimensions.getText(),color.getText());
-        ComputerCaseRegistry.addComponent(test);
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                colorErrorLbl.setText("");
+                dimensionsErrorLbl.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
 
+                ComputerCaseRegistry.addComponent(new ComputerCaseModel(name.getText(), brand.getText(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
+                createObject = true;
+
+            }
+
+            catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidDimensionsException ide) {
+                dimensionsErrorLbl.setText(ide.getMessage());
+            } catch (InvalidColorException ise) {
+                colorErrorLbl.setText(ise.getMessage());
+            }
+        }
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -166,22 +203,69 @@ public class GenerateDialogBox {
         TextField cores = new TextField();
         cores.setPromptText("No. cores");
 
+
+        Label clockspeedErrorLbl = new Label("");
+        grid.add(clockspeedErrorLbl, 2, 4);
+        Label coresErrorLbl = new Label("");
+        grid.add(coresErrorLbl,2,5);
+
         grid.add(new Label("Clockspeed:"), 0, 4);
         grid.add(clockSpeed, 1,4);
         grid.add(new Label("No. cores:"), 0, 5);
         grid.add(cores, 1,5);
 
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
-        int clock = Integer.parseInt(clockSpeed.getText());
-        int mem = Integer.parseInt(cores.getText());
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                clockspeedErrorLbl.setText("");
+                coresErrorLbl.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                double clockSpeedDouble = 0;
+                int coresInt = 0;
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+                try {
+                    clockSpeedDouble = Double.parseDouble(clockSpeed.getText());
+                } catch (NumberFormatException nfe) {
+                    clockspeedErrorLbl.setText("Clockspeed must be a number");
+                }
+                try {
+                    coresInt = Integer.parseInt(cores.getText());
+                } catch (NumberFormatException nfe) {
+                    coresErrorLbl.setText("Cores must be a number");
+                }
 
-        CPUModel test = new CPUModel(name.getText(), brand.getText(), pri, per, clock, mem);
-        CPURegistry.addComponent(test);
+                CPURegistry.addComponent(new CPUModel(name.getText(), brand.getText(), priceDouble, pvDouble, clockSpeedDouble, coresInt));
+                createObject = true;
+            }
+
+            catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidClockSpeedException icse) {
+                clockspeedErrorLbl.setText(icse.getMessage());
+            } catch (InvalidCoresException ice) {
+                coresErrorLbl.setText(ice.getMessage());
+            }
+        }
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -193,57 +277,152 @@ public class GenerateDialogBox {
         TextField memory = new TextField();
         memory.setPromptText("Memory (MB)");
 
-        grid.add(new Label("Clockspeed):"), 0, 4);
+        Label clockSpeedErrorLbl = new Label("");
+        grid.add(clockSpeedErrorLbl, 2, 4);
+        Label memoryErrorLbl = new Label("");
+        grid.add(memoryErrorLbl,2,5);
+
+        grid.add(new Label("Memory clockspeed):"), 0, 4);
         grid.add(clockSpeed, 1,4);
         grid.add(new Label("Memory:"), 0, 5);
         grid.add(memory, 1,5);
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
-        int clock = Integer.parseInt(clockSpeed.getText());
-        int mem = Integer.parseInt(memory.getText());
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                clockSpeedErrorLbl.setText("");
+                memoryErrorLbl.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                double clockSpeedDouble = 0;
+                int memoryInt = 0;
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+                try {
+                    clockSpeedDouble = Double.parseDouble(clockSpeed.getText());
+                } catch (NumberFormatException nfe) {
+                    clockSpeedErrorLbl.setText("Clockspeed speed must be a number");
+                }
+                try {
+                    memoryInt = Integer.parseInt(memory.getText());
+                } catch (NumberFormatException nfe) {
+                    memoryErrorLbl.setText("Memory must be a number");
+                }
 
-        GPUModel test = new GPUModel(name.getText(), brand.getText(), pri, per, clock, mem);
-        GPURegistry.addComponent(test);
+                GPURegistry.addComponent(new GPUModel(name.getText(), brand.getText(), priceDouble, pvDouble, clockSpeedDouble, memoryInt));
+                createObject = true;
+            }
+
+            catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidMemorySpeedException imse) {
+                clockSpeedErrorLbl.setText(imse.getMessage());
+            } catch (InvalidMemoryException ime) {
+                memoryErrorLbl.setText(ime.getMessage());
+            }
+        }
     }
+
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateHardDriveComponentDialog (Dialog addComponentDialog, GridPane grid) {
         addComponentDialog.setHeaderText("Create new Hard-drive component");
 
-        TextField type = new TextField();
-        type.setPromptText("Type (HDD/SSD/other)");
+        ComboBox type = new ComboBox();
+        type.getItems().addAll("HDD", "SSD");
+        type.setValue("HDD");
         TextField capacity = new TextField();
         capacity.setPromptText("Capacity (GB)");
 
-        grid.add(new Label("Type):"), 0, 4);
-        grid.add(type, 1,4);
-        grid.add(new Label("Capacity:"), 0, 5);
-        grid.add(capacity, 1,5);
-        addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
+        Label typeErrorLBl = new Label("");
+        grid.add(typeErrorLBl, 2, 4);
+        Label capacityErrorLbl = new Label("");
+        grid.add(capacityErrorLbl, 2, 5);
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
-        int cap = Integer.parseInt(capacity.getText());
-        HarddriveModel test = new HarddriveModel(name.getText(), brand.getText(), pri, per, type.getText(), cap);
-        HardDriveRegistry.addComponent(test);
+
+        grid.add(new Label("Type):"), 0, 4);
+        grid.add(type, 1, 4);
+        grid.add(new Label("Capacity:"), 0, 5);
+        grid.add(capacity, 1, 5);
+        addComponentDialog.getDialogPane().setContent(grid);
+
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                typeErrorLBl.setText("");
+                capacityErrorLbl.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                int capacityInt = 0;
+                String typeString = type.getValue().toString();
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+                try {
+                    capacityInt = Integer.parseInt(capacity.getText());
+                } catch (NumberFormatException nfe) {
+                    capacityErrorLbl.setText("Memory must be a number");
+                }
+
+                HardDriveRegistry.addComponent(new HarddriveModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, capacityInt));
+                createObject = true;
+            } catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidCapacityException ice) {
+                capacityErrorLbl.setText(ice.getMessage());
+            }
+        }
     }
+
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateKeyboardComponentDialog(Dialog addComponentDialog, GridPane grid) {
         addComponentDialog.setHeaderText("Create new keyboard component");
 
-        TextField type = new TextField();
-        type.setPromptText("Type");
+        ComboBox type = new ComboBox();
+        type.getItems().addAll("Office", "Gaming", "Mechanical");
+        type.setPromptText("Select");
+
+
         TextField language = new TextField();
         language.setPromptText("Language");
-        TextField wireless = new TextField();
-        wireless.setPromptText("Wireless");
+        ComboBox wireless = new ComboBox();
+        wireless.getItems().addAll("Yes", "No");
+
+        Label languageErrorLbl = new Label("");
+        grid.add(languageErrorLbl, 2, 5);
 
         grid.add(new Label("Type:"), 0, 4);
         grid.add(type, 1, 4);
@@ -252,14 +431,54 @@ public class GenerateDialogBox {
         grid.add(new Label("Wireless:"), 0, 6);
         grid.add(wireless, 1, 6);
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
-        KeyboardModel test = new KeyboardModel(name.getText(), brand.getText(), pri, per, type.getText(), language.getText(), true);
-        KeyboardRegistry.addComponent(test);
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                languageErrorLbl.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                boolean wirelessBoolean;
+                String wireslessString = type.getValue().toString();
+                String typeString = type.getValue().toString();
+
+                if (wireslessString.equals("Yes")) {
+                    wirelessBoolean = true;
+                } else {
+                    wirelessBoolean = false;
+                }
+
+                    try {
+                        priceDouble = Double.parseDouble(price.getText());
+                    } catch (NumberFormatException nfe) {
+                        priceErrorLbl.setText("Price must be a number");
+                    }
+                    try {
+                        pvDouble = Double.parseDouble(performanceValue.getText());
+                    } catch (NumberFormatException nfe) {
+                        performanceValueErrorLbl.setText("Performancevalue must be a number");
+                    }
+
+                    KeyboardRegistry.addComponent(new KeyboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, language.getText(), wirelessBoolean));
+                    createObject = true;
+
+            } catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidLanguageException ile) {
+                languageErrorLbl.setText(ile.getMessage());
+            }
+        }
     }
+
+
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateMonitorComponentDialog(Dialog addComponentDialog, GridPane grid) {
@@ -269,8 +488,8 @@ public class GenerateDialogBox {
         size.setPromptText("Size (inches)");
 
         Label sizeErrorLlb = new Label("");
-        grid.add(new Label("Size:"), 0, 4);
         grid.add(sizeErrorLlb, 2, 4);
+        grid.add(new Label("Size:"), 0, 4);
         grid.add(size, 1, 4);
         addComponentDialog.getDialogPane().setContent(grid);
 
@@ -299,8 +518,7 @@ public class GenerateDialogBox {
                         sizeErrorLlb.setText("Size must be a number");
                     }
 
-                MonitorModel test1 = new MonitorModel(name.getText(), brand.getText(), priceDouble, pvDouble, sizeInt);
-                MonitorRegistry.addComponent(test1);
+                MonitorRegistry.addComponent(new MonitorModel(name.getText(), brand.getText(), priceDouble, pvDouble, sizeInt));
                 createObject = true;
 
                 }
@@ -326,31 +544,62 @@ public class GenerateDialogBox {
         addComponentDialog.setHeaderText("Create new motherboard component");
 
         ComboBox type = new ComboBox();
-        type.getItems().addAll("ATX", "mini-ATX", "BMX");
+        type.getItems().addAll("ATX", "mini-ATX", "E-ATX");
         type.setValue("ATX");
-        String typeString = type.getValue().toString();
+
+
         grid.add(new Label("Type:"), 0, 4);
-        grid.add(type, 1,4);
-        
+        grid.add(type, 1, 4);
+
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
-        MotherboardModel test = new MotherboardModel(name.getText(), brand.getText(), pri, per, typeString);
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                double priceDouble = 0;
+                double pvDouble = 0;
+                String typeString = type.getValue().toString();
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
 
-        MotherboardRegistry.addComponent(test);
+                MotherboardRegistry.addComponent(new MotherboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString));
+                createObject = true;
+
+            } catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            }
+        }
     }
+
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateMouseComponentDialog(Dialog addComponentDialog, GridPane grid) {
         addComponentDialog.setHeaderText("Create new mouse component");
 
-        TextField type = new TextField();
-        type.setPromptText("Type");
-        TextField wireless = new TextField();
-        wireless.setPromptText("Wireless");
+        ComboBox type = new ComboBox();
+        type.getItems().addAll("Office", "Gaming");
+        type.setValue("Office");
+        String typeString = type.getValue().toString();
+
+        ComboBox wireless = new ComboBox();
+        wireless.getItems().addAll("Yes", "No");
+        wireless.setValue("Yes");
 
         grid.add(new Label("Type:"), 0, 4);
         grid.add(type, 1,4);
@@ -358,13 +607,46 @@ public class GenerateDialogBox {
         grid.add(wireless, 1,5);
 
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
-        MouseModel test = new MouseModel(name.getText(), brand.getText(), pri, per, type.getText(), true);
-        MouseRegistry.addComponent(test);
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                double priceDouble = 0;
+                double pvDouble = 0;
+                boolean wirelessBoolean;
+                String wireslessString = type.getValue().toString();
+
+                if (wireslessString.equals("Yes")) {
+                    wirelessBoolean = true;
+                } else {
+                    wirelessBoolean = false;
+                }
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+
+                MouseRegistry.addComponent(new MouseModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, wirelessBoolean));
+                createObject = true;
+
+            } catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            }
+        }
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
@@ -374,60 +656,144 @@ public class GenerateDialogBox {
         TextField watt = new TextField();
         watt.setPromptText("Watt");
 
+        Label wattErrorLbl = new Label("");
+        grid.add(wattErrorLbl, 2,4);
+
         grid.add(new Label("Watt: "), 0, 4);
         grid.add(watt, 1,4);
 
 
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                double priceDouble = 0;
+                double pvDouble = 0;
+                int wattInt = 0;
 
-        int what = Integer.parseInt(watt.getText());
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+                try {
+                    wattInt = Integer.parseInt(watt.getText());
+                } catch (NumberFormatException nfe) {
+                    wattErrorLbl.setText("Watt must be a number");
+                }
 
-        PSUModel test = new PSUModel(name.getText(), brand.getText(), pri, per, what);
-        PSURegistry.addComponent(test);
+                PSURegistry.addComponent(new PSUModel(name.getText(), brand.getText(), priceDouble, pvDouble, wattInt));
+                createObject = true;
+
+            } catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidWattException iwe) {
+                wattErrorLbl.setText(iwe.getMessage());
+            }
+        }
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateRAMComponentDialog(Dialog addComponentDialog, GridPane grid) {
         addComponentDialog.setHeaderText("Create new RAM component");
 
-        TextField capacity = new TextField();
-        capacity.setPromptText("Memory (MB)");
+        TextField memory = new TextField();
+        memory.setPromptText("Memory (MB)");
         TextField memorySpeed = new TextField();
         memorySpeed.setPromptText("Memoryspeed (MHz)");
 
+        Label memoryErrorLbl = new Label("");
+        grid.add(memoryErrorLbl, 2, 4);
+        Label memoryspeedErrorLbl = new Label("");
+        grid.add(memoryspeedErrorLbl, 2, 5);
+
+
         grid.add(new Label("Memory:"), 0, 4);
-        grid.add(capacity, 1,4);
+        grid.add(memory, 1, 4);
         grid.add(new Label("Memoryspeed (MHz): "), 0, 5);
-        grid.add(memorySpeed, 1,5);
+        grid.add(memorySpeed, 1, 5);
 
 
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                memoryErrorLbl.setText("");
+                memoryspeedErrorLbl.setText("");
+                double priceDouble = 0;
+                double pvDouble = 0;
+                int memoryInt = 0;
+                double memorySpeedDouble = 0;
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+                try {
+                    memoryInt = Integer.parseInt(memory.getText());
+                } catch (NumberFormatException nfe) {
+                    memoryErrorLbl.setText("Memory must be a number");
+                }
+                try {
+                    memorySpeedDouble = Double.parseDouble(memorySpeed.getText());
+                } catch (NumberFormatException nfe) {
+                    memoryspeedErrorLbl.setText("Memoryspeed must be a number");
+                }
 
-        int cap = Integer.parseInt(capacity.getText());
-        double mem = Double.parseDouble(memorySpeed.getText());
+                RAMRegistry.addComponent(new RAMModel(name.getText(), brand.getText(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));
+                createObject = true;
 
-        RAMModel test = new RAMModel(name.getText(), brand.getText(), pri, per, cap, mem);
-        RAMRegistry.addComponent(test);
+            }
+
+            catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            } catch (InvalidMemoryException ime) {
+                memoryErrorLbl.setText(ime.getMessage());
+            } catch (InvalidMemorySpeedException imse) {
+                memoryspeedErrorLbl.setText(imse.getMessage());
+            }
+        }
     }
 
     //Generate dialog window for adding component. Method modifies the template dialog-box.
     public static void generateSoundCardComponentDialog(Dialog addComponentDialog, GridPane grid) {
         addComponentDialog.setHeaderText("Create new soundcard component");
 
-        TextField surround = new TextField();
-        surround.setPromptText("Surround");
-        TextField bassboost = new TextField();
-        bassboost.setPromptText("Bassboost");
+        ComboBox surround = new ComboBox();
+        surround.getItems().addAll("Yes", "No");
+        surround.setValue("Yes");
+
+        ComboBox bassboost = new ComboBox();
+        bassboost.getItems().addAll("Yes", "No");
+        bassboost.setValue("Yes");
 
         grid.add(new Label("Surround: "), 0, 4);
         grid.add(surround, 1,4);
@@ -435,13 +801,54 @@ public class GenerateDialogBox {
         grid.add(bassboost, 1,5);
 
         addComponentDialog.getDialogPane().setContent(grid);
-        addComponentDialog.showAndWait();
 
-        //TEST
-        double pri = Double.parseDouble(price.getText());
-        double per = Double.parseDouble(performanceValue.getText());
 
-        SoundCardModel test = new SoundCardModel(name.getText(), brand.getText(), pri, per, true, true);
-        SoundCardRegistry.addComponent(test);
+        boolean createObject = false;
+        while (!createObject) {
+            addComponentDialog.showAndWait();
+            try {
+                clearErrorLabels();
+                double priceDouble = 0;
+                double pvDouble = 0;
+                boolean surroundBoolean, bassboostBolean;
+                String surroundString = surround.getValue().toString();
+                String bassboostString = bassboost.getValue().toString();
+
+                if (surroundString.equals("Yes")) {
+                    surroundBoolean = true;
+                } else {
+                    surroundBoolean = false;
+                }
+
+                if (bassboostString.equals("Yes")) {
+                    bassboostBolean = true;
+                } else {
+                    bassboostBolean = false;
+                }
+
+                try {
+                    priceDouble = Double.parseDouble(price.getText());
+                } catch (NumberFormatException nfe) {
+                    priceErrorLbl.setText("Price must be a number");
+                }
+                try {
+                    pvDouble = Double.parseDouble(performanceValue.getText());
+                } catch (NumberFormatException nfe) {
+                    performanceValueErrorLbl.setText("Performancevalue must be a number");
+                }
+
+                SoundCardRegistry.addComponent(new SoundCardModel(name.getText(), brand.getText(), priceDouble, pvDouble, surroundBoolean, bassboostBolean));
+                createObject = true;
+
+            } catch (InvalidNameException ine) {
+                nameErrorLbl.setText(ine.getMessage());
+            } catch (InvalidBrandException ibe) {
+                brandErrorLbl.setText(ibe.getMessage());
+            } catch (InvalidPriceException ipe) {
+                priceErrorLbl.setText(ipe.getMessage());
+            } catch (InvalidPerformanceValueException ipve) {
+                performanceValueErrorLbl.setText(ipve.getMessage());
+            }
+        }
     }
 }

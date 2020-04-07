@@ -15,10 +15,10 @@ public class GPUModel extends ComponentModel {
     public GPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int memory) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException();
+            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED);
         }
         if(!AdminInputValidation.memory(memory)) {
-            throw new InvalidMemoryException();
+            throw new InvalidMemoryException("Memory cannot be blank, must be greater then 0 and an even number");
         }
         this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.memory = new SimpleIntegerProperty(memory);
@@ -29,7 +29,7 @@ public class GPUModel extends ComponentModel {
 
     public void setClockSpeed(double clockSpeed) {
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException();
+            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED);
         }
         this.clockSpeed.set(clockSpeed);
     }
@@ -38,7 +38,7 @@ public class GPUModel extends ComponentModel {
 
     public void setMemory(int memory) {
         if(!AdminInputValidation.memory(memory)) {
-            throw new InvalidMemoryException();
+            throw new InvalidMemoryException("Memory cannot be blank, must be greater then 0 and an even number");
         }
         this.memory.set(memory);
     }

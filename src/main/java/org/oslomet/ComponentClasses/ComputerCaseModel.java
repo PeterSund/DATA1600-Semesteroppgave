@@ -12,10 +12,10 @@ public class ComputerCaseModel extends ComponentModel {
     public ComputerCaseModel(String name, String brand, double price, double performanceValue, String dimensions, String color) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.dimensions(dimensions)) {
-            throw new InvalidDimensionsException();
+            throw new InvalidDimensionsException("Dimensions cannot be blank and must be in input-format HxLxD");
         }
         if(!AdminInputValidation.color(color)) {
-            throw new InvalidColorException();
+            throw new InvalidColorException("Color cannot be blank and must be entered with a capital first letters. Only letters allowed");
         }
         this.dimensions = new SimpleStringProperty(dimensions);
         this.color = new SimpleStringProperty(color);
@@ -27,7 +27,7 @@ public class ComputerCaseModel extends ComponentModel {
 
     public void setDimensions(String dimensions) {
         if(!AdminInputValidation.dimensions(dimensions)) {
-            throw new InvalidDimensionsException();
+            throw new InvalidDimensionsException("Dimensions cannot be blank and must be in input-format HxLxD");
         }
         this.dimensions.set(dimensions);
     }
@@ -38,7 +38,7 @@ public class ComputerCaseModel extends ComponentModel {
 
     public void setColor(String color) {
         if(!AdminInputValidation.color(color)) {
-            throw new InvalidColorException();
+            throw new InvalidColorException("Color cannot be blank and must be entered with a capital first letters. Only letters allowed");
         }
         this.color.set(color);
     }

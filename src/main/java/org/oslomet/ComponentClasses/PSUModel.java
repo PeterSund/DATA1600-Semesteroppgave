@@ -12,7 +12,7 @@ public class PSUModel extends ComponentModel {
     public PSUModel(String name, String brand, double price, double performanceValue, int watt) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.watt(watt)) {
-            throw new InvalidWattException();
+            throw new InvalidWattException("Watt cannot be blank and must be between 0 and " + AdminInputValidation.MAX_WATT);
         }
         this.watt = new SimpleIntegerProperty(watt);
     }
@@ -23,7 +23,7 @@ public class PSUModel extends ComponentModel {
     }
     public void setWatt(int watt) {
         if(!AdminInputValidation.watt(watt)) {
-            throw new InvalidWattException();
+            throw new InvalidWattException("Watt cannot be blank and must be between 0 and " + AdminInputValidation.MAX_WATT);
         }
         this.watt.set(watt);
     }

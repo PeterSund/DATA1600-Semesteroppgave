@@ -14,7 +14,7 @@ public class KeyboardModel extends ComponentModel {
                          String type, String language, boolean wireless) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.language(language)) {
-            throw new InvalidLanguageException();
+            throw new InvalidLanguageException("Language cannot be blank and must contain only letters with a capital first letter");
         }
         this.type = new SimpleStringProperty(type);
         this.language = new SimpleStringProperty(language);
@@ -36,7 +36,7 @@ public class KeyboardModel extends ComponentModel {
 
     public void setLanguage(String language) {
         if(!AdminInputValidation.language(language)) {
-            throw new InvalidLanguageException();
+            throw new InvalidLanguageException("Language cannot be blank and must contain only letters with a capital first letter");
         }
         this.language.set(language);
     }

@@ -13,7 +13,7 @@ public class HarddriveModel extends ComponentModel {
     public HarddriveModel(String name, String brand, double price, double performanceValue, String type, int capacity) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.capacity(capacity)) {
-            throw new InvalidCapacityException();
+            throw new InvalidCapacityException("Capacity cannot be blank and must be between 0 and " + AdminInputValidation.MAX_CAPACITY);
         }
         this.type = new SimpleStringProperty(type);
         this.capacity = new SimpleIntegerProperty(capacity);
@@ -35,7 +35,7 @@ public class HarddriveModel extends ComponentModel {
 
     public void setCapacity(int capacity) {
         if(!AdminInputValidation.capacity(capacity)) {
-            throw new InvalidCapacityException();
+            throw new InvalidCapacityException("Capacity cannot be blank and must be between 0 and " + AdminInputValidation.MAX_CAPACITY);
         }
         this.capacity.set(capacity);
     }
