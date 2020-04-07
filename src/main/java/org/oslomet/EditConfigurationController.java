@@ -74,9 +74,15 @@ public class EditConfigurationController implements Initializable {
     private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard,
             lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice, lblTotalPerformanceValue;
 
+    @FXML
+    private Button btnDeleteComputerCase, btnDeleteCPU, btnDeleteGPU, btnDeleteHardDrive, btnDeleteMotherBoard,
+            btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard;
+
     private ComputerModel computer;
 
     public List<TableView> tableViewArray = new ArrayList<>();
+
+    public List<Button> buttonDeleteArray = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -131,10 +137,28 @@ public class EditConfigurationController implements Initializable {
         tableViewArray.add(tvRAM);
         tableViewArray.add(tvSoundcard);
 
+        buttonDeleteArray.add(btnDeleteComputerCase);
+        buttonDeleteArray.add(btnDeleteCPU);
+        buttonDeleteArray.add(btnDeleteGPU);
+        buttonDeleteArray.add(btnDeleteHardDrive);
+        buttonDeleteArray.add(btnDeleteMotherBoard);
+        buttonDeleteArray.add(btnDeleteRAM);
+        buttonDeleteArray.add(btnDeleteSoundCard);
+        buttonDeleteArray.add(btnDeletePSU);
+        buttonDeleteArray.add(btnDeleteMonitor);
+        buttonDeleteArray.add(btnDeleteMouse);
+        buttonDeleteArray.add(btnDeleteKeyboard);
+
+
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
         }
         tvComputercase.setVisible(true);
+
+        for (Button btn : buttonDeleteArray) {
+            btn.setVisible(false);
+        }
+
 
     }
 
@@ -204,6 +228,7 @@ public class EditConfigurationController implements Initializable {
             computer.setComputerCase((ComputerCaseModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteComputerCase.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("CPU")) {
@@ -211,6 +236,7 @@ public class EditConfigurationController implements Initializable {
             lblCPU.setText(((CPUModel) component).toStringForConfig());
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteCPU.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("GPU")) {
@@ -218,6 +244,7 @@ public class EditConfigurationController implements Initializable {
             computer.setGpu((GPUModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteGPU.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("RAM")) {
@@ -225,6 +252,7 @@ public class EditConfigurationController implements Initializable {
             computer.setRam((RAMModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteRAM.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("Hard drive")) {
@@ -232,6 +260,7 @@ public class EditConfigurationController implements Initializable {
             computer.setHardDrive((HarddriveModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteHardDrive.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("Motherboard")) {
@@ -239,6 +268,7 @@ public class EditConfigurationController implements Initializable {
             computer.setMotherboard((MotherboardModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteMotherBoard.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("PSU")) {
@@ -246,6 +276,7 @@ public class EditConfigurationController implements Initializable {
             computer.setPsu((PSUModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeletePSU.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("Soundcard")) {
@@ -253,6 +284,7 @@ public class EditConfigurationController implements Initializable {
             computer.setSoundCard((SoundCardModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteSoundCard.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("Keyboard")) {
@@ -260,6 +292,7 @@ public class EditConfigurationController implements Initializable {
             computer.setKeyboard((KeyboardModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteKeyboard.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("Monitor")) {
@@ -267,6 +300,7 @@ public class EditConfigurationController implements Initializable {
             computer.setMonitor((MonitorModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteMonitor.setVisible(true);
         }
 
         else if (currentTableView.getId().equals("Mouse")) {
@@ -274,6 +308,7 @@ public class EditConfigurationController implements Initializable {
             computer.setMouse((MouseModel) component);
             lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
             lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+            btnDeleteMouse.setVisible(true);
         }
 
     }
@@ -282,6 +317,86 @@ public class EditConfigurationController implements Initializable {
     @FXML
     void deleteComponent(ActionEvent event) {
 
+        String buttonPressed = event.getSource().toString().split("id")[1].substring(1).split(",")[0];
+
+
+        if (buttonPressed.equals("ComputerCase")) {
+            computer.setComputerCase(null);
+            lblComputerCase.setText("");
+            btnDeleteComputerCase.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("CPU")) {
+            computer.setCpu(null);
+            lblCPU.setText("");
+            btnDeleteCPU.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("GPU")) {
+            computer.setGpu(null);
+            lblGPU.setText("");
+            btnDeleteGPU.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("HardDrive")) {
+            computer.setHardDrive(null);
+            lblHardDrive.setText("");
+            btnDeleteHardDrive.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("MotherBoard")) {
+            computer.setMotherboard(null);
+            lblMotherBoard.setText("");
+            btnDeleteMotherBoard.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("RAM")) {
+            computer.setRam(null);
+            lblRAM.setText("");
+            btnDeleteRAM.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("SoundCard")) {
+            computer.setSoundCard(null);
+            lblSoundcard.setText("");
+            btnDeleteSoundCard.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("PSU")) {
+            computer.setPsu(null);
+            lblPSU.setText("");
+            btnDeletePSU.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("Monitor")) {
+            computer.setMonitor(null);
+            lblMonitor.setText("");
+            btnDeleteMonitor.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("Mouse")) {
+            computer.setMouse(null);
+            lblMouse.setText("");
+            btnDeleteMouse.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
+        else if (buttonPressed.equals("Keyboard")) {
+            computer.setKeyboard(null);
+            lblKeyboard.setText("");
+            btnDeleteKeyboard.setVisible(false);
+            lblTotalPrice.setText(String.valueOf(calculateTotalPrice()));
+            lblTotalPerformanceValue.setText(String.valueOf(calculateTotalPerformanceValue()));
+        }
     }
 
     @FXML

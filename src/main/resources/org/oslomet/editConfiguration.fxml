@@ -16,7 +16,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1222.0" style="-fx-background-color: #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
       <Button layoutX="577.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeToViewConfigurations" text="&lt;- View configurations" />
-      <Label layoutX="215.0" layoutY="62.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
+      <Label layoutX="211.0" layoutY="24.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
          <font>
             <Font size="23.0" />
          </font>
@@ -585,7 +585,7 @@
             <Label text="Total performance value" />
          </children>
       </VBox>
-      <VBox layoutX="398.0" layoutY="144.0" prefHeight="262.0" prefWidth="198.0" spacing="5.0" style="-fx-padding: 10;">
+      <VBox layoutX="398.0" layoutY="144.0" prefHeight="262.0" prefWidth="198.0" spacing="5.0" style="-fx-padding: 10; -fx-border-color: black;">
          <children>
              <Label fx:id="lblComputerCase" prefHeight="18.0" prefWidth="193.0" />
              <Label fx:id="lblCPU" prefHeight="18.0" prefWidth="194.0" />
@@ -605,6 +605,65 @@
       <Button layoutX="786.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveConfiguration" text="Save configuration" />
       <Label layoutX="246.0" layoutY="108.0" text="Name: " />
       <Label fx:id="lblName" layoutX="291.0" layoutY="108.0" />
+      <VBox layoutX="596.0" layoutY="134.0" prefHeight="290.0" prefWidth="100.0" style="-fx-border-color: black; -fx-padding: 0;">
+         <children>
+            <Button id="ComputerCase" fx:id="btnDeleteComputerCase" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="CPU" fx:id="btnDeleteCPU" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="GPU" fx:id="btnDeleteGPU" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="HardDrive" fx:id="btnDeleteHardDrive" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="MotherBoard" fx:id="btnDeleteMotherBoard" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="RAM" fx:id="btnDeleteRAM" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="SoundCard" fx:id="btnDeleteSoundCard" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="PSU" fx:id="btnDeletePSU" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="Monitor" fx:id="btnDeleteMonitor" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button id="Mouse" fx:id="btnDeleteMouse" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+             <Button id="Keyboard" fx:id="btnDeleteKeyboard" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </Button>
+         </children>
+      </VBox>
 
    </children>
 </AnchorPane>
