@@ -3,6 +3,8 @@ package org.oslomet.ComputerClasses;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
+import org.oslomet.ComponentClasses.ComputerCaseModel;
+
 import java.io.Serializable;
 
 public class ComputerRegistry {
@@ -36,5 +38,22 @@ public class ComputerRegistry {
     //Replaces computer in the array with a new compuer in the position of a given index
     public static void replaceComputer(ComputerModel inputComputer, int index) {
         computerArray.set(index, inputComputer);
+    }
+
+    //Deletes a computer from the array
+    public static void deleteComputer(ComputerModel inputComputer) {
+        computerArray.remove(inputComputer);
+    }
+
+    //Checks if a computer name is already in use
+    public static Boolean computerNameExists(String computerName) {
+
+        for (ComputerModel computer : computerArray) {
+            if (computer.getConfigName().equals(computerName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
