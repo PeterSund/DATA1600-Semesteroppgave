@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
@@ -9,8 +11,6 @@
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <AnchorPane prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
    <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" onAction="#changeToEditConfigurations" text="Log out" />
@@ -565,8 +565,8 @@
 
          </columns>
       </TableView>
-      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" promptText="Search" />
-      <ChoiceBox fx:id="cbFilterComputerCase" id="Computercase" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
+      <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
        <items>
            <FXCollections fx:factory="observableArrayList">
@@ -580,7 +580,7 @@
        </items>
       </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterCPU" id="CPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="CPU" fx:id="cbFilterCPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -594,7 +594,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterGPU" id="GPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="GPU" fx:id="cbFilterGPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -608,7 +608,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterHarddrive" id="Hard drive" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Hard drive" fx:id="cbFilterHarddrive" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -622,7 +622,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterMotherboard" id="Motherboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Motherboard" fx:id="cbFilterMotherboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -635,7 +635,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterRAM" id="RAM" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="RAM" fx:id="cbFilterRAM" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -649,7 +649,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterSoundcard" id="Soundcard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Soundcard" fx:id="cbFilterSoundcard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -663,7 +663,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterPSU" id="PSU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="PSU" fx:id="cbFilterPSU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -676,7 +676,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterMonitor" id="Monitor" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Monitor" fx:id="cbFilterMonitor" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -689,7 +689,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterMouse" id="Mouse" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Mouse" fx:id="cbFilterMouse" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -703,7 +703,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox fx:id="cbFilterKeyboard" id="Keyboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Keyboard" fx:id="cbFilterKeyboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">

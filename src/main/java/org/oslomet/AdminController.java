@@ -1,5 +1,7 @@
 package org.oslomet;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.ComponentModel;
+import org.oslomet.ComponentClasses.MouseModel;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
@@ -100,7 +103,7 @@ public class AdminController implements Initializable {
     private TableView<?> tvMonitor;
 
     @FXML
-    private TableView<?> tvMouse;
+    private TableView<MouseModel> tvMouse;
 
     @FXML
     private TableView<?> tvKeyboard;
@@ -200,8 +203,40 @@ public class AdminController implements Initializable {
     private TextField txtFilter;
 
     @FXML
-    private ChoiceBox<?> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
+    private ChoiceBox<String> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
             cbFilterRAM, cbFilterSoundcard, cbFilterPSU, cbFilterMonitor, cbFilterMouse, cbFilterKeyboard;
+
+    private MouseRegistry mr = new MouseRegistry();
+
+    @FXML
+    private void updateMouseList() { MouseRegistry.attachTableView(tvMouse);}
+
+    @FXML
+    private void txtFilterEntered() { filter();}
+
+    private void filter() {
+        if(txtFilter.getText().isBlank()) {
+            updateMouseList();
+            return;
+        }
+
+        ObservableList<MouseModel> result = null;
+        switch (cbFilterMouse.getValue().toString()) {
+            case "Name" : result = mr.filterByName(txtFilter.getText()); break;
+            case "Brand" : result = mr.filterByBrand(txtFilter.getText()); break;
+            case "Price" : result = mr.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
+            case "Performance value" : result = mr.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Type" : result = mr.filterByType(txtFilter.getText()); break;
+            case "Wireless" : result = mr.filterByWireless(Boolean.parseBoolean((txtFilter.getText()))); break;
+        }
+
+        if(result == null) {
+            tvMouse.setItems(FXCollections.observableArrayList());
+        } else {
+            tvMouse.setItems(result);
+        }
+    }
+
 
     @FXML
     private Button btnFilter;
