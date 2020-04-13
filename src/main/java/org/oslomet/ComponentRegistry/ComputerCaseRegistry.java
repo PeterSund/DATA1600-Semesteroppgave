@@ -9,6 +9,7 @@ import javafx.util.Pair;
 import org.oslomet.ComponentClasses.ComputerCaseModel;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class ComputerCaseRegistry implements RegistryMethods {
 
@@ -30,6 +31,37 @@ public class ComputerCaseRegistry implements RegistryMethods {
                 computerCaseArray.remove(computerCase);
             }
         }
+    }
+
+    public ObservableList<ComputerCaseModel> filterByName(String name) {
+        return computerCaseArray.stream().filter(cc -> cc.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<ComputerCaseModel> filterByBrand(String brand) {
+        return computerCaseArray.stream().filter(cc -> cc.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<ComputerCaseModel> filterByPrice(double price) {
+        return computerCaseArray.stream().
+                filter(cc -> cc.getPrice() == price).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<ComputerCaseModel> filterByPerformanceValue(double performanceValue) {
+        return computerCaseArray.stream().
+                filter(cc -> cc.getPerformanceValue() == performanceValue).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<ComputerCaseModel> filterByDimension(String dimension) {
+        return computerCaseArray.stream().filter(cc -> cc.getDimensions().
+                toLowerCase().matches(String.format("%s%s%s", ".*", dimension.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<ComputerCaseModel> filterByColor(String color) {
+        return computerCaseArray.stream().filter(cc -> cc.getColor().
+                toLowerCase().matches(String.format("%s%s%s", ".*", color.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 }
 

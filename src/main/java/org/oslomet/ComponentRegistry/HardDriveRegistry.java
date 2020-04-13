@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.GPUModel;
 import org.oslomet.ComponentClasses.HarddriveModel;
 
+import java.util.stream.Collectors;
+
 public class HardDriveRegistry implements RegistryMethods {
 
     //Initialize array
@@ -31,5 +33,36 @@ public class HardDriveRegistry implements RegistryMethods {
                 hardDriveArray.remove(hardDrive);
             }
         }
+    }
+
+    public ObservableList<HarddriveModel> filterByName(String name) {
+        return hardDriveArray.stream().filter(hd -> hd.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<HarddriveModel> filterByBrand(String brand) {
+        return hardDriveArray.stream().filter(hd -> hd.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<HarddriveModel> filterByPrice(double price) {
+        return hardDriveArray.stream().
+                filter(hd -> hd.getPrice() == price).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<HarddriveModel> filterByPerformanceValue(double performanceValue) {
+        return hardDriveArray.stream().
+                filter(hd -> hd.getPerformanceValue() == performanceValue).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<HarddriveModel> filterByType(String type) {
+        return hardDriveArray.stream().filter(hd -> hd.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<HarddriveModel> filterByCapacity(int capacity) {
+        return hardDriveArray.stream().
+                filter(gpu -> gpu.getCapacity() == capacity).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 }

@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.SoundCardModel;
 
+import java.util.stream.Collectors;
+
 public class SoundCardRegistry implements RegistryMethods  {
     //Initialize array
     private static ObservableList<SoundCardModel> soundCardArray = FXCollections.observableArrayList();
@@ -28,6 +30,27 @@ public class SoundCardRegistry implements RegistryMethods  {
                 soundCardArray.remove(soundCard);
             }
         }
+    }
+
+    public ObservableList<SoundCardModel> filterByName(String name) {
+        return soundCardArray.stream().filter(sc -> sc.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<SoundCardModel> filterByBrand(String brand) {
+        return soundCardArray.stream().filter(sc -> sc.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<SoundCardModel> filterByPrice(double price) {
+        return soundCardArray.stream().
+                filter(sc -> sc.getPrice() == price).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<SoundCardModel> filterByPerformanceValue(double performanceValue) {
+        return soundCardArray.stream().
+                filter(r -> r.getPerformanceValue() == performanceValue).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 }
 

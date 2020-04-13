@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.GPUModel;
 
+import java.util.stream.Collectors;
+
 public class GPURegistry implements RegistryMethods {
 
     //Initialize array
@@ -31,6 +33,37 @@ public class GPURegistry implements RegistryMethods {
                 gpuArray.remove(gpu);
             }
         }
+    }
+
+    public ObservableList<GPUModel> filterByName(String name) {
+        return gpuArray.stream().filter(gpu -> gpu.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<GPUModel> filterByBrand(String brand) {
+        return gpuArray.stream().filter(gpu -> gpu.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<GPUModel> filterByPrice(double price) {
+        return gpuArray.stream().
+                filter(cpu -> cpu.getPrice() == price).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<GPUModel> filterByPerformanceValue(double performanceValue) {
+        return gpuArray.stream().
+                filter(gpu -> gpu.getPerformanceValue() == performanceValue).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<GPUModel> filterByClockSpeed(double clockSpeed) {
+        return gpuArray.stream().
+                filter(gpu -> gpu.getPerformanceValue() == clockSpeed).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<GPUModel> filterByMemory(int memory) {
+        return gpuArray.stream().
+                filter(gpu -> gpu.getMemory() == memory).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 }
 

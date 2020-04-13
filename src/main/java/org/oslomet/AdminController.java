@@ -206,15 +206,15 @@ public class AdminController implements Initializable {
     private ChoiceBox<String> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
             cbFilterRAM, cbFilterSoundcard, cbFilterPSU, cbFilterMonitor, cbFilterMouse, cbFilterKeyboard;
 
-    private MouseRegistry mr = new MouseRegistry();
+    private MouseRegistry mouseRegistry = new MouseRegistry();
 
     @FXML
     private void updateMouseList() { MouseRegistry.attachTableView(tvMouse);}
 
     @FXML
-    private void txtFilterEntered() { filter();}
+    private void txtFilterMouseEntered() { filterMouse();}
 
-    private void filter() {
+    private void filterMouse() {
         if(txtFilter.getText().isBlank()) {
             updateMouseList();
             return;
@@ -222,12 +222,12 @@ public class AdminController implements Initializable {
 
         ObservableList<MouseModel> result = null;
         switch (cbFilterMouse.getValue().toString()) {
-            case "Name" : result = mr.filterByName(txtFilter.getText()); break;
-            case "Brand" : result = mr.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = mr.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = mr.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
-            case "Type" : result = mr.filterByType(txtFilter.getText()); break;
-            case "Wireless" : result = mr.filterByWireless(Boolean.parseBoolean((txtFilter.getText()))); break;
+            case "Name" : result = mouseRegistry.filterByName(txtFilter.getText()); break;
+            case "Brand" : result = mouseRegistry.filterByBrand(txtFilter.getText()); break;
+            case "Price" : result = mouseRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
+            case "Performance value" : result = mouseRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Type" : result = mouseRegistry.filterByType(txtFilter.getText()); break;
+            case "Wireless" : result = mouseRegistry.filterByWireless(Boolean.parseBoolean((txtFilter.getText()))); break;
         }
 
         if(result == null) {
@@ -236,10 +236,6 @@ public class AdminController implements Initializable {
             tvMouse.setItems(result);
         }
     }
-
-
-    @FXML
-    private Button btnFilter;
 
     @FXML
     void changeToEditConfigurations(ActionEvent event) throws IOException {
