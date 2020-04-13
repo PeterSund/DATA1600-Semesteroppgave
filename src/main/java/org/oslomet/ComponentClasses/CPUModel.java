@@ -13,8 +13,8 @@ import java.io.Serializable;
 
 public class CPUModel extends ComponentModel implements Serializable {
 
-    private SimpleIntegerProperty cores;
-    private SimpleDoubleProperty clockSpeed;
+    private transient SimpleIntegerProperty cores;
+    private transient SimpleDoubleProperty clockSpeed;
 
     //Constructor
     public CPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int cores) {

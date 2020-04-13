@@ -1,13 +1,19 @@
 package org.oslomet.ComponentClasses;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidCapacityException;
 
-public class HarddriveModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-    private SimpleStringProperty type;
-    private SimpleIntegerProperty capacity;
+public class HarddriveModel extends ComponentModel implements Serializable {
+
+    private transient SimpleStringProperty type;
+    private transient SimpleIntegerProperty capacity;
 
     //Constructor
     public HarddriveModel(String name, String brand, double price, double performanceValue, String type, int capacity) {
@@ -54,6 +60,23 @@ public class HarddriveModel extends ComponentModel {
         formattedComponent += ";Type: " + getType();
         formattedComponent += ";Capacity: " + getCapacity();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeUTF(getType());
+        s.writeInt(getCapacity());
+
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        String type = s.readUTF();
+        int capacity = s.readInt();
+
+        this.type = new SimpleStringProperty();
+        this.capacity = new SimpleIntegerProperty();
+
+        setType(type);
+        setCapacity(capacity);
     }
 
 }

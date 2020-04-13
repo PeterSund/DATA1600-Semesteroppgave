@@ -7,10 +7,15 @@ import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidMemoryException;
 import org.oslomet.ExceptionClasses.InvalidMemorySpeedException;
 
-public class RAMModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-    private SimpleIntegerProperty memory;
-    private SimpleDoubleProperty memorySpeed;
+public class RAMModel extends ComponentModel implements Serializable {
+
+    private transient SimpleIntegerProperty memory;
+    private transient SimpleDoubleProperty memorySpeed;
 
     //Constructor
     public RAMModel(String name, String brand, double price, double performanceValue, int memory, double memorySpeed) {
@@ -61,5 +66,21 @@ public class RAMModel extends ComponentModel {
         formattedComponent += ";Memory: " + getMemory();
         formattedComponent += ";Memory speed: " + getMemorySpeed();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeInt(getMemory());
+        s.writeDouble(getMemorySpeed());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        int memory = s.readInt();
+        double memorySpeed = s.readDouble();
+
+        this.memory = new SimpleIntegerProperty();
+        this.memorySpeed = new SimpleDoubleProperty();
+
+        setMemory(memory);
+        setMemorySpeed(memorySpeed);
     }
 }

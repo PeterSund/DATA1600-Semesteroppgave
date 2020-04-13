@@ -5,8 +5,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidWattException;
 
-public class PSUModel extends ComponentModel {
-    private SimpleIntegerProperty watt;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class PSUModel extends ComponentModel implements Serializable {
+    private transient SimpleIntegerProperty watt;
 
     //Constructor
     public PSUModel(String name, String brand, double price, double performanceValue, int watt) {
@@ -41,5 +46,17 @@ public class PSUModel extends ComponentModel {
         formattedComponent += formatComponentForTxtFile();
         formattedComponent += ";Watt: " + getWatt();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeInt(getWatt());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        int watt = s.readInt();
+
+        this.watt = new SimpleIntegerProperty();
+
+        setWatt(watt);
     }
 }

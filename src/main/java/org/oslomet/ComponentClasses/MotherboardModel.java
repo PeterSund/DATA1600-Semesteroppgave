@@ -1,11 +1,17 @@
 package org.oslomet.ComponentClasses;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class MotherboardModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-    private SimpleStringProperty type;
+public class MotherboardModel extends ComponentModel implements Serializable {
+
+    private transient SimpleStringProperty type;
 
     //Constructor
     public MotherboardModel(String name, String brand, double price, double performanceValue, String type) {
@@ -35,5 +41,17 @@ public class MotherboardModel extends ComponentModel {
         formattedComponent += formatComponentForTxtFile();
         formattedComponent += ";Type: " + getType();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeUTF(getType());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        String type = s.readUTF();
+
+        this.type = new SimpleStringProperty();
+
+        setType(type);
     }
 }

@@ -3,10 +3,15 @@ package org.oslomet.ComponentClasses;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class MouseModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-    private SimpleStringProperty type;
-    private SimpleBooleanProperty wireless;
+public class MouseModel extends ComponentModel implements Serializable {
+
+    private transient SimpleStringProperty type;
+    private transient SimpleBooleanProperty wireless;
 
     public MouseModel(String name, String brand, double price, double performanceValue, String type, boolean wireless) {
         super(name, brand, price, performanceValue);
@@ -50,5 +55,22 @@ public class MouseModel extends ComponentModel {
         formattedComponent += ";Type: " + getType();
         formattedComponent += isWireless() ? ";Wireless: Yes" : ";Wireless: No";
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeUTF(getType());
+        s.writeBoolean(isWireless());
+
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        String type = s.readUTF();
+        boolean wireless = s.readBoolean();
+
+        this.type = new SimpleStringProperty();
+        this.wireless = new SimpleBooleanProperty();
+
+        setType(type);
+        setWireless(wireless);
     }
 }

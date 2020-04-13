@@ -5,9 +5,14 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidSizeException;
 
-public class MonitorModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-    private SimpleIntegerProperty size;
+public class MonitorModel extends ComponentModel implements Serializable {
+
+    private transient SimpleIntegerProperty size;
 
     //Constructor
     public MonitorModel(String name, String brand, double price, double performanceValue, int size) {
@@ -43,5 +48,18 @@ public class MonitorModel extends ComponentModel {
         formattedComponent += formatComponentForTxtFile();
         formattedComponent += ";Size: " + getSize();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeInt(getSize());
+
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        int size = s.readInt();
+
+        this.size = new SimpleIntegerProperty();
+
+        setSize(size);
     }
 }
