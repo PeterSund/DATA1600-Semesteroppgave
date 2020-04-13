@@ -5,9 +5,14 @@ import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidColorException;
 import org.oslomet.ExceptionClasses.InvalidDimensionsException;
 
-public class ComputerCaseModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-    private SimpleStringProperty dimensions, color;
+public class ComputerCaseModel extends ComponentModel implements Serializable {
+
+    private transient SimpleStringProperty dimensions, color;
 
     //Constructor
     public ComputerCaseModel(String name, String brand, double price, double performanceValue, String dimensions, String color) {
@@ -58,5 +63,21 @@ public class ComputerCaseModel extends ComponentModel {
         formattedComponent += ";Dimensions: " + getDimensions();
         formattedComponent += ";Color: " + getColor();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeUTF(getDimensions());
+        s.writeUTF(getColor());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+       String dimensions = s.readUTF();
+       String color = s.readUTF();
+
+       this.dimensions = new SimpleStringProperty();
+       this.color = new SimpleStringProperty();
+
+       setDimensions(dimensions);
+       setColor(color);
     }
 }

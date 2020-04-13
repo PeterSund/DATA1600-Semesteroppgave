@@ -1,13 +1,20 @@
 package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
 import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
 import org.oslomet.ExceptionClasses.InvalidPriceException;
 
-public class ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class ComponentModel implements Serializable {
 
     private transient SimpleStringProperty name, brand;
     private transient SimpleDoubleProperty price, performanceValue;
@@ -89,4 +96,27 @@ public class ComponentModel {
         return formattedComponent;
     }
 
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeUTF(getName());
+        s.writeUTF(getName());
+        s.writeDouble(getPrice());
+        s.writeDouble(getPerformanceValue());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        String name = s.readUTF();
+        String brand = s.readUTF();
+        double price = s.readDouble();
+        double performanceValue = s.readDouble();
+
+        this.name = new SimpleStringProperty();
+        this.brand = new SimpleStringProperty();
+        this.price = new SimpleDoubleProperty();
+        this.performanceValue = new SimpleDoubleProperty();
+
+        setName(name);
+        setBrand(brand);
+        setPrice(price);
+        setPerformanceValue(performanceValue);
+    }
 }

@@ -2,10 +2,16 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidClockSpeedException;
 import org.oslomet.ExceptionClasses.InvalidCoresException;
 
-public class CPUModel extends ComponentModel {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class CPUModel extends ComponentModel implements Serializable {
 
     private SimpleIntegerProperty cores;
     private SimpleDoubleProperty clockSpeed;
@@ -57,6 +63,22 @@ public class CPUModel extends ComponentModel {
         formattedComponent += ";Cores: " + getCores();
         formattedComponent += ";Clock speed: " + getClockSpeed();
         return formattedComponent;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.writeInt(getCores());
+        s.writeDouble(getClockSpeed());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        int cores = s.readInt();
+        double clockSpeed = s.readDouble();
+
+        this.cores = new SimpleIntegerProperty();
+        this.clockSpeed = new SimpleDoubleProperty();
+
+        setCores(cores);
+        setClockSpeed(clockSpeed);
     }
 
 }
