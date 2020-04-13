@@ -7,12 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.oslomet.ComponentClasses.ComponentModel;
 import org.oslomet.ComponentRegistry.*;
+import org.oslomet.ExceptionClasses.InvalidBrandException;
+import org.oslomet.ExceptionClasses.InvalidNameException;
+import org.oslomet.ExceptionClasses.InvalidPriceException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -104,15 +105,58 @@ public class AdminController implements Initializable {
     @FXML
     private TableView<?> tvKeyboard;
 
-    public void editText() {
+    public void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {
+        try {
+            event.getRowValue().setName(event.getNewValue());
 
+        } catch(InvalidNameException ine) {
+            System.out.print(ine.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editPrice() {
+    public void editBrand(TableColumn.CellEditEvent<ComponentModel, String> event) {
+        try {
+            event.getRowValue().setBrand(event.getNewValue());
+
+        } catch(InvalidBrandException ibe) {
+            System.out.print(ibe.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+/*
+    public void editType(TableColumn.CellEditEvent<? extends ComponentModel, String> event) {
+        try {
+            event.getRowValue().setType(event.getNewValue());
+
+        } catch(InvalidNameException ine) {
+            System.out.print(ine.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+    }
+
+ */
+
+
+
+    public void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
+        try {
+            Double value = event.getNewValue();
+            ComponentModel row = event.getRowValue();
+            row.setPrice(value);
+        } catch (InvalidPriceException ipe) {
+            System.out.print(ipe.getMessage());
+        }
+        tableViewVisble().refresh();
 
     }
 
     public void editPerformanceValue() {
+
+    }
+
+    public void editText() {
 
     }
 
@@ -175,6 +219,15 @@ public class AdminController implements Initializable {
         for (TableView tv : tableViewArray) {
             if (tv.isVisible()) {
                 return tv.getId();
+            }
+        }
+        return null; //Trenger exeption
+    }
+
+    private TableView<?> tableViewVisble() {
+        for (TableView tv : tableViewArray) {
+            if (tv.isVisible()) {
+                return tv;
             }
         }
         return null; //Trenger exeption

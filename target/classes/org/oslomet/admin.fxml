@@ -33,7 +33,7 @@
       <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
         <columns>
 
-           <TableColumn fx:id="colComputercaseName" onEditCommit="#editText" prefWidth="175.0" text="Name">
+           <TableColumn fx:id="colComputercaseName" onEditCommit="#editName" prefWidth="175.0" text="Name">
               <cellValueFactory>
                  <PropertyValueFactory property="name" />
               </cellValueFactory>
@@ -42,7 +42,7 @@
               </cellFactory>
            </TableColumn>
 
-          <TableColumn fx:id="colComputercaseBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+          <TableColumn fx:id="colComputercaseBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
              <cellValueFactory>
                 <PropertyValueFactory property="brand" />
              </cellValueFactory>
@@ -86,7 +86,7 @@
 
       <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
-            <TableColumn fx:id="colCPUName" onEditCommit="#editText" prefWidth="175.0" text="Name">
+            <TableColumn fx:id="colCPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="name" />
                </cellValueFactory>
@@ -95,7 +95,7 @@
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colCPUBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+            <TableColumn fx:id="colCPUBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                <cellValueFactory>
                   <PropertyValueFactory property="brand" />
                </cellValueFactory>
@@ -133,7 +133,7 @@
 
        <TableView id="GPU" fx:id="tvGPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
            <columns>
-               <TableColumn fx:id="colGPUName" onEditCommit="#editText" prefWidth="175.0" text="Name">
+               <TableColumn fx:id="colGPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
                        <PropertyValueFactory property="name" />
                    </cellValueFactory>
@@ -142,7 +142,7 @@
                    </cellFactory>
                </TableColumn>
 
-               <TableColumn fx:id="colGPUBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+               <TableColumn fx:id="colGPUBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                    <cellValueFactory>
                        <PropertyValueFactory property="brand" />
                    </cellValueFactory>
@@ -181,7 +181,7 @@
       <TableView id="Hard drive" fx:id="tvHarddrive" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-            <TableColumn fx:id="colHarddriveName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
+            <TableColumn fx:id="colHarddriveName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
                <cellValueFactory>
                   <PropertyValueFactory property="name" />
                </cellValueFactory>
@@ -190,7 +190,7 @@
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colHarddriveBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+            <TableColumn fx:id="colHarddriveBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                <cellValueFactory>
                   <PropertyValueFactory property="brand" />
                </cellValueFactory>
@@ -232,7 +232,7 @@
       <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-            <TableColumn fx:id="MotherboardName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
+            <TableColumn fx:id="MotherboardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
                 <cellValueFactory>
                     <PropertyValueFactory property="name" />
                 </cellValueFactory>
@@ -241,7 +241,7 @@
                 </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="MotherboardBrand" onEditCommit="#editText" prefWidth="189.0" text="Brand">
+            <TableColumn fx:id="MotherboardBrand" onEditCommit="#editBrand" prefWidth="189.0" text="Brand">
                 <cellValueFactory>
                     <PropertyValueFactory property="brand" />
                 </cellValueFactory>
@@ -277,7 +277,7 @@
       <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-            <TableColumn fx:id="RAMName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
+            <TableColumn fx:id="RAMName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
                 <cellValueFactory>
                     <PropertyValueFactory property="name" />
                 </cellValueFactory>
@@ -286,7 +286,7 @@
                 </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="RAMBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+            <TableColumn fx:id="RAMBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                 <cellValueFactory>
                     <PropertyValueFactory property="brand" />
                 </cellValueFactory>
@@ -325,7 +325,7 @@
       <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-             <TableColumn fx:id="SoundcardName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
+             <TableColumn fx:id="SoundcardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
                  <cellValueFactory>
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
@@ -334,7 +334,7 @@
                  </cellFactory>
              </TableColumn>
 
-            <TableColumn fx:id="SoundcardBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+            <TableColumn fx:id="SoundcardBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                 <cellValueFactory>
                     <PropertyValueFactory property="brand" />
                 </cellValueFactory>
@@ -373,7 +373,7 @@
       <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-             <TableColumn fx:id="PSUName" onEditCommit="#editText" prefWidth="216.0" text="Name ">
+             <TableColumn fx:id="PSUName" onEditCommit="#editName" prefWidth="216.0" text="Name ">
                  <cellValueFactory>
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
@@ -382,7 +382,7 @@
                  </cellFactory>
              </TableColumn>
 
-             <TableColumn fx:id="PSUBrand" onEditCommit="#editText" prefWidth="181.0" text="Brand">
+             <TableColumn fx:id="PSUBrand" onEditCommit="#editBrand" prefWidth="181.0" text="Brand">
                  <cellValueFactory>
                      <PropertyValueFactory property="brand" />
                  </cellValueFactory>
@@ -415,7 +415,7 @@
       <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-             <TableColumn fx:id="colMonitorName" onEditCommit="#editText" prefWidth="224.0" text="Name ">
+             <TableColumn fx:id="colMonitorName" onEditCommit="#editName" prefWidth="224.0" text="Name ">
                  <cellValueFactory>
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
@@ -424,7 +424,7 @@
                  </cellFactory>
              </TableColumn>
 
-             <TableColumn fx:id="colMonitorBrand" onEditCommit="#editText" prefWidth="162.0" text="Brand">
+             <TableColumn fx:id="colMonitorBrand" onEditCommit="#editBrand" prefWidth="162.0" text="Brand">
                  <cellValueFactory>
                      <PropertyValueFactory property="brand" />
                  </cellValueFactory>
@@ -457,7 +457,7 @@
       <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-             <TableColumn fx:id="colMouseName" onEditCommit="#editText" prefWidth="175.0" text="Name ">
+             <TableColumn fx:id="colMouseName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
                  <cellValueFactory>
                      <PropertyValueFactory property="name" />
                  </cellValueFactory>
@@ -467,7 +467,7 @@
              </TableColumn>
 
 
-             <TableColumn fx:id="colMouseBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+             <TableColumn fx:id="colMouseBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                  <cellValueFactory>
                      <PropertyValueFactory property="brand" />
                  </cellValueFactory>
@@ -509,7 +509,7 @@
       <TableView id="Keyboard" fx:id="tvKeyboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
-            <TableColumn fx:id="colKeyboardName" onEditCommit="#editText" prefWidth="175.0" text="Name">
+            <TableColumn fx:id="colKeyboardName" onEditCommit="#editName" prefWidth="175.0" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="name" />
                </cellValueFactory>
@@ -518,7 +518,7 @@
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colKeyboardBrand" onEditCommit="#editText" prefWidth="133.0" text="Brand">
+            <TableColumn fx:id="colKeyboardBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
                <cellValueFactory>
                   <PropertyValueFactory property="brand" />
                </cellValueFactory>
