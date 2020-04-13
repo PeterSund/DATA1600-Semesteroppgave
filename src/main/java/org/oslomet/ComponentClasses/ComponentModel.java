@@ -80,4 +80,13 @@ public class ComponentModel {
         }
         this.performanceValue.set(performanceValue);
     }
+
+    public String formatComponentForTxtFile() {
+        String formattedComponent = ";Name: " + getName();
+        formattedComponent += ";Brand: " + getBrand();
+        formattedComponent += ";Price: " + getPrice();
+        formattedComponent += ";Performance value: " + getPerformanceValue();
+        return formattedComponent;
+    }
+
 }

@@ -35,4 +35,11 @@ public class PSUModel extends ComponentModel {
     public String toStringForConfig() {
         return this.getBrand() + " " + this.getName() + ", " + this.getWatt();
     }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "PSU";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Watt: " + getWatt();
+        return formattedComponent;
+    }
 }

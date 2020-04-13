@@ -48,4 +48,12 @@ public class SoundCardModel extends ComponentModel {
         return output;
     }
 
+    public String toStringForTxtFile() {
+        String formattedComponent = "Sound card";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += isSurround() ? ";Surround: Yes" : ";Surround: No";
+        formattedComponent += isBassBoost() ? ";Bass boost: Yes" : ";Bass boost: No";
+        return formattedComponent;
+    }
+
 }

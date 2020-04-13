@@ -29,4 +29,11 @@ public class MotherboardModel extends ComponentModel {
     public String toStringForConfig() {
         return this.getBrand() + " " + this.getName() + ", " + this.getType();
     }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "Motherboard";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Type: " + getType();
+        return formattedComponent;
+    }
 }

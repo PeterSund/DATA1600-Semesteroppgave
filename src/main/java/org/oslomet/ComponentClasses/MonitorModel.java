@@ -37,4 +37,11 @@ public class MonitorModel extends ComponentModel {
     public String toStringForConfig() {
         return this.getBrand() + " " + this.getName() + ", " + this.getSize();
     }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "Monitor";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Size: " + getSize();
+        return formattedComponent;
+    }
 }

@@ -206,4 +206,24 @@ public class ComputerModel {
     public void setTotalPerformanceValue(double totalPerformanceValue) {
         this.totalPerformanceValue.set(totalPerformanceValue);
     }
+
+    public String formatComputerForFile() {
+        String formattedComputer = "";
+        formattedComputer += "Configuration name;" + getConfigName();
+        formattedComputer += "\nPrice;" + getTotalPrice();
+        formattedComputer += "\nPerformance value;" + getTotalPerformanceValue();
+        formattedComputer += "\nComputer case;" + getComputerCase().toStringForTxtFile();
+        formattedComputer += "\nCPU;" + getCpu().toStringForTxtFile();
+        formattedComputer += "\nGPU;" + getGpu().toStringForTxtFile();
+        formattedComputer += "\nRAM;" + getRam().toStringForTxtFile();
+        formattedComputer += "\nHard drive;" + getHardDrive().toStringForTxtFile();
+        formattedComputer += "\nMotherboard;" + getMotherboard().toStringForTxtFile();
+        formattedComputer += "\nPSU;" + getPsu().toStringForTxtFile();
+        formattedComputer += "\nSound card;" + getSoundCard().toStringForTxtFile();
+        formattedComputer += "\nMonitor;" + getMonitor().toStringForTxtFile();
+        formattedComputer += "\nKeyboard;" + getKeyboard().toStringForTxtFile();
+        formattedComputer += "\nMouse;" + getMouse().toStringForTxtFile();
+
+        return formattedComputer;
+    }
 }

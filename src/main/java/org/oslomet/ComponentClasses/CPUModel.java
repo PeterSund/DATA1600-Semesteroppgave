@@ -51,5 +51,13 @@ public class CPUModel extends ComponentModel {
         return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", "  +  ", " + this.getCores();
     }
 
+    public String toStringForTxtFile() {
+        String formattedComponent = "CPU";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Cores: " + getCores();
+        formattedComponent += ";Clock speed: " + getClockSpeed();
+        return formattedComponent;
+    }
+
 }
 

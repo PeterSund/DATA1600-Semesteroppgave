@@ -50,5 +50,13 @@ public class GPUModel extends ComponentModel {
     public String toStringForConfig() {
         return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", " + this.getMemory();
     }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "GPU";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Clock speed: " + getClockSpeed();
+        formattedComponent += ";Memory: " + getMemory();
+        return formattedComponent;
+    }
 }
 

@@ -43,4 +43,12 @@ public class MouseModel extends ComponentModel {
          }
         return output;
     }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "Mouse";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Type: " + getType();
+        formattedComponent += isWireless() ? ";Wireless: Yes" : ";Wireless: No";
+        return formattedComponent;
+    }
 }

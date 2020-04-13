@@ -63,4 +63,13 @@ public class KeyboardModel extends ComponentModel {
         return output;
     }
 
+    public String toStringForTxtFile() {
+        String formattedComponent = "Keyboard";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Type: " + getType();
+        formattedComponent += ";Language: " + getLanguage();
+        formattedComponent += isWireless() ? ";Wireless: Yes" : ";Wireless: No";
+        return formattedComponent;
+    }
+
 }

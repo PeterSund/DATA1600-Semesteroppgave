@@ -54,4 +54,12 @@ public class RAMModel extends ComponentModel {
     public String toStringForConfig() {
         return this.getBrand() + " " + this.getName() + ", " + this.getMemory() + ", " + this.getMemorySpeed();
     }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "RAM";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Memory: " + getMemory();
+        formattedComponent += ";Memory speed: " + getMemorySpeed();
+        return formattedComponent;
+    }
 }

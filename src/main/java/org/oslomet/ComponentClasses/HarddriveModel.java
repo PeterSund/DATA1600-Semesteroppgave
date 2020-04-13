@@ -48,4 +48,12 @@ public class HarddriveModel extends ComponentModel {
         return this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getCapacity();
     }
 
+    public String toStringForTxtFile() {
+        String formattedComponent = "Hard drive";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Type: " + getType();
+        formattedComponent += ";Capacity: " + getCapacity();
+        return formattedComponent;
+    }
+
 }

@@ -1,5 +1,6 @@
 package org.oslomet.ComponentClasses;
 
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidColorException;
 import org.oslomet.ExceptionClasses.InvalidDimensionsException;
@@ -49,5 +50,13 @@ public class ComputerCaseModel extends ComponentModel {
 
     public String toStringForConfig() {
         return this.getBrand() + " " + this.getName() + ", " + this.getDimensions() + ", " + this.getColor();
+    }
+
+    public String toStringForTxtFile() {
+        String formattedComponent = "Computer case";
+        formattedComponent += formatComponentForTxtFile();
+        formattedComponent += ";Dimensions: " + getDimensions();
+        formattedComponent += ";Color: " + getColor();
+        return formattedComponent;
     }
 }
