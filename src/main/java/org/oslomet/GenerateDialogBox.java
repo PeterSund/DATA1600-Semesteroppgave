@@ -5,6 +5,7 @@ import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.*;
+import javax.swing.JButton;
 
 
 
@@ -96,7 +97,9 @@ public class GenerateDialogBox {
         dialog.setTitle("Create new component");
 
         ButtonType add = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(add, ButtonType.CLOSE);
+        ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        dialog.getDialogPane().getButtonTypes().addAll(add, cancel);
+
         return dialog;
     }
 
