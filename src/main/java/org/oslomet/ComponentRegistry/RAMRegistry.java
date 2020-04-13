@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.RAMModel;
 
+import java.util.stream.Collectors;
+
 public class RAMRegistry implements RegistryMethods  {
     //Initialize array
     private static ObservableList<RAMModel> ramArray = FXCollections.observableArrayList();
@@ -28,6 +30,37 @@ public class RAMRegistry implements RegistryMethods  {
                 ramArray.remove(ram);
             }
         }
+    }
+
+    public ObservableList<RAMModel> filterByName(String name) {
+        return ramArray.stream().filter(r -> r.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<RAMModel> filterByBrand(String brand) {
+        return ramArray.stream().filter(r -> r.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<RAMModel> filterByPrice(double price) {
+        return ramArray.stream().
+                filter(r -> r.getPrice() == price).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<RAMModel> filterByPerformanceValue(double performanceValue) {
+        return ramArray.stream().
+                filter(r -> r.getPerformanceValue() == performanceValue).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<RAMModel> filterByMemory(int memory) {
+        return ramArray.stream().
+                filter(r -> r.getMemory() == memory).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    public ObservableList<RAMModel> filterByMemorySpeed(double memorySpeed) {
+        return ramArray.stream().
+                filter(r -> r.getPerformanceValue() == memorySpeed).
+                collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 }
 
