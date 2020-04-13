@@ -212,17 +212,17 @@ public class ComputerModel {
         formattedComputer += "Configuration name;" + getConfigName();
         formattedComputer += "\nPrice;" + getTotalPrice();
         formattedComputer += "\nPerformance value;" + getTotalPerformanceValue();
-        formattedComputer += "\nComputer case;" + getComputerCase().toStringForTxtFile();
-        formattedComputer += "\nCPU;" + getCpu().toStringForTxtFile();
-        formattedComputer += "\nGPU;" + getGpu().toStringForTxtFile();
-        formattedComputer += "\nRAM;" + getRam().toStringForTxtFile();
-        formattedComputer += "\nHard drive;" + getHardDrive().toStringForTxtFile();
-        formattedComputer += "\nMotherboard;" + getMotherboard().toStringForTxtFile();
-        formattedComputer += "\nPSU;" + getPsu().toStringForTxtFile();
-        formattedComputer += "\nSound card;" + getSoundCard().toStringForTxtFile();
-        formattedComputer += "\nMonitor;" + getMonitor().toStringForTxtFile();
-        formattedComputer += "\nKeyboard;" + getKeyboard().toStringForTxtFile();
-        formattedComputer += "\nMouse;" + getMouse().toStringForTxtFile();
+        formattedComputer += "\n" + getComputerCase().toStringForTxtFile();
+        formattedComputer += "\n" + getCpu().toStringForTxtFile();
+        formattedComputer += "\n" + getGpu().toStringForTxtFile();
+        formattedComputer += "\n" + getRam().toStringForTxtFile();
+        formattedComputer += "\n" + getHardDrive().toStringForTxtFile();
+        formattedComputer += "\n" + getMotherboard().toStringForTxtFile();
+        formattedComputer += "\n" + getPsu().toStringForTxtFile();
+        formattedComputer += "\n" + getSoundCard().toStringForTxtFile();
+        formattedComputer += "\n" + getMonitor().toStringForTxtFile();
+        formattedComputer += "\n" + getKeyboard().toStringForTxtFile();
+        formattedComputer += "\n" + getMouse().toStringForTxtFile();
 
         return formattedComputer;
     }

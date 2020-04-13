@@ -118,11 +118,16 @@
         </columns>
       </TableView>
       <Button fx:id="btnDeleteConfig" layoutX="185.0" layoutY="383.0" mnemonicParsing="false" onAction="#deleteConfig" text="Delete configuration" />
-      <Button fx:id="btnSaveConfigs" layoutX="535.0" layoutY="435.0" mnemonicParsing="false" onAction="#saveConfigs" text="Save configurations">
+      <Button fx:id="btnSaveConfig" layoutX="535.0" layoutY="435.0" mnemonicParsing="false" onAction="#saveConfig" text="Save configuration">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
       <Button layoutX="332.0" layoutY="383.0" mnemonicParsing="false" onAction="#newConf" text="New configuration" />
+      <Button fx:id="btnOpenConfig" layoutX="355.0" layoutY="435.0" mnemonicParsing="false" onAction="#openConfig" text="Open configuration">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
