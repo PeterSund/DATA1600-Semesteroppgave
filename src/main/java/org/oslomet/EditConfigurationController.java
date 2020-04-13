@@ -451,6 +451,18 @@ public class EditConfigurationController implements Initializable {
             lblMonitor.setText(computer.getMonitor().toStringForConfig());
             lblMouse.setText(computer.getMouse().toStringForConfig());
             lblKeyboard.setText(computer.getKeyboard().toStringForConfig());
+
+            btnDeleteComputerCase.setVisible(true);
+            btnDeleteCPU.setVisible(true);
+            btnDeleteGPU.setVisible(true);
+            btnDeleteHardDrive.setVisible(true);
+            btnDeleteMotherBoard.setVisible(true);
+            btnDeleteRAM.setVisible(true);
+            btnDeleteSoundCard.setVisible(true);
+            btnDeletePSU.setVisible(true);
+            btnDeleteMonitor.setVisible(true);
+            btnDeleteMouse.setVisible(true);
+            btnDeleteKeyboard.setVisible(true);
         }
 
         lblName.setText(computer.getConfigName());
