@@ -94,7 +94,7 @@ public class ViewConfigurationsController implements Initializable {
     private Button btnDeleteConfig;
 
     @FXML
-    private Button btnSaveConfigs;
+    private Button btnSaveConfig, btnOpenConfig;
 
     @FXML
     void adminLogin(ActionEvent event) {
@@ -116,7 +116,7 @@ public class ViewConfigurationsController implements Initializable {
     }
 
     @FXML
-    void saveConfigs(ActionEvent event) throws IOException {
+    void saveConfig(ActionEvent event) throws IOException {
 
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
@@ -129,6 +129,11 @@ public class ViewConfigurationsController implements Initializable {
             String formattedComputer = selectedComputer.formatComputerForFile();
             FileSaverTxt.writeFile(savedFilepath, formattedComputer);
         }
+    }
+
+    @FXML
+    void openConfig() throws IOException {
+        ComputerRegistry.readFromFile();
     }
 
     @FXML
