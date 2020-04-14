@@ -36,6 +36,10 @@ public class HardDriveRegistry implements RegistryMethods {
         }
     }
 
+    public static ObservableList returnArray() {
+        return hardDriveArray;
+    }
+
     public ObservableList<HarddriveModel> filterByName(String name) {
         return hardDriveArray.stream().filter(hd -> hd.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

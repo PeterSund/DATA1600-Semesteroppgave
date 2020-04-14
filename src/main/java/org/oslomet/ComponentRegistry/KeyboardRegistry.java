@@ -35,6 +35,10 @@ public class KeyboardRegistry implements RegistryMethods {
         }
     }
 
+    public static ObservableList returnArray() {
+        return keyboardArray;
+    }
+
     public ObservableList<KeyboardModel> filterByName(String name) {
         return keyboardArray.stream().filter(k -> k.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

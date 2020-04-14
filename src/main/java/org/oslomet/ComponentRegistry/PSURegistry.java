@@ -33,6 +33,10 @@ public class PSURegistry implements RegistryMethods  {
         }
     }
 
+    public static ObservableList returnArray() {
+        return psuArray;
+    }
+
     public ObservableList<PSUModel> filterByName(String name) {
         return psuArray.stream().filter(psu -> psu.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

@@ -34,6 +34,10 @@ public class ComputerCaseRegistry implements RegistryMethods {
         }
     }
 
+    public static ObservableList returnArray() {
+        return computerCaseArray;
+    }
+
     public ObservableList<ComputerCaseModel> filterByName(String name) {
         return computerCaseArray.stream().filter(cc -> cc.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

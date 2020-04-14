@@ -33,6 +33,10 @@ public class SoundCardRegistry implements RegistryMethods  {
         }
     }
 
+    public static ObservableList returnArray() {
+        return soundCardArray;
+    }
+
     public ObservableList<SoundCardModel> filterByName(String name) {
         return soundCardArray.stream().filter(sc -> sc.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

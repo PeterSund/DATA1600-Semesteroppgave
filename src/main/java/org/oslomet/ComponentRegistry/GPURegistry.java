@@ -36,6 +36,10 @@ public class GPURegistry implements RegistryMethods {
         }
     }
 
+    public static ObservableList returnArray() {
+        return gpuArray;
+    }
+
     public ObservableList<GPUModel> filterByName(String name) {
         return gpuArray.stream().filter(gpu -> gpu.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
