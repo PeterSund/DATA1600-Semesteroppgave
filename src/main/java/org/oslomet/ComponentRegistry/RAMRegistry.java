@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.RAMModel;
 
 import java.util.stream.Collectors;
@@ -61,6 +62,17 @@ public class RAMRegistry implements RegistryMethods  {
         return ramArray.stream().
                 filter(r -> r.getPerformanceValue() == memorySpeed).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static RAMModel ramExists(String ramName) {
+
+        for (RAMModel ram : ramArray) {
+            if (ram.getName().equals(ramName)) {
+                return ram;
+            }
+        }
+
+        return null;
     }
 }
 

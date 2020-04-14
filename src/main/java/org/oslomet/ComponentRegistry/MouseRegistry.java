@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.MouseModel;
 
 import java.io.IOException;
@@ -65,6 +66,17 @@ public class MouseRegistry implements RegistryMethods  {
     public ObservableList<MouseModel> filterByWireless(boolean wireless) {
         return mouseArray.stream().filter(mm -> mm.isWireless() == wireless).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static MouseModel mouseExists(String mouseName) {
+
+        for (MouseModel mouse : mouseArray) {
+            if (mouse.getName().equals(mouseName)) {
+                return mouse;
+            }
+        }
+
+        return null;
     }
 
 }

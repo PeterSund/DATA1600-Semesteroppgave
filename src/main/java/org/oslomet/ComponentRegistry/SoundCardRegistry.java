@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.SoundCardModel;
 
 import java.util.stream.Collectors;
@@ -51,6 +52,17 @@ public class SoundCardRegistry implements RegistryMethods  {
         return soundCardArray.stream().
                 filter(r -> r.getPerformanceValue() == performanceValue).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static SoundCardModel soundCardExists(String soundCardName) {
+
+        for (SoundCardModel soundCard : soundCardArray) {
+            if (soundCard.getName().equals(soundCardName)) {
+                return soundCard;
+            }
+        }
+
+        return null;
     }
 }
 

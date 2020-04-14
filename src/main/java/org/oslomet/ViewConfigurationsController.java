@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.ComponentRegistry.MonitorRegistry;
+import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.ExceptionClasses.*;
@@ -70,6 +70,18 @@ public class ViewConfigurationsController implements Initializable {
         ComputerModel demoComputer2 = new ComputerModel("Demo Computer 2", computerCase2, cpu2, gpu2, RAM2, hdd2, motherboard2,PSU2, sc2, testKey2,monitor2, Mouse2, 10000, 100);
         ComputerRegistry.addComputer(demoComputer2);
 
+        ComputerCaseRegistry.addComponent(computerCase);
+        CPURegistry.addComponent(cpu);
+        GPURegistry.addComponent(gpu);
+        HardDriveRegistry.addComponent(hdd);
+        KeyboardRegistry.addComponent(keyboard);
+        KeyboardRegistry.addComponent(testKey);
+        MonitorRegistry.addComponent(monitor);
+        MotherboardRegistry.addComponent(motherboard);
+        SoundCardRegistry.addComponent(sc1);
+        RAMRegistry.addComponent(RAM1);
+        PSURegistry.addComponent(PSU1);
+        MouseRegistry.addComponent(Mouse1);
     }
 
     @FXML

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.MotherboardModel;
 import org.oslomet.ComponentClasses.PSUModel;
 
@@ -64,5 +65,16 @@ public class MotherboardRegistry implements RegistryMethods {
         return motherboardArray.stream().filter(mb -> mb.getBrand().
                 toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static MotherboardModel motherBoardExists(String motherBoardName) {
+
+        for (MotherboardModel motherBoard : motherboardArray) {
+            if (motherBoard.getName().equals(motherBoardName)) {
+                return motherBoard;
+            }
+        }
+
+        return null;
     }
 }

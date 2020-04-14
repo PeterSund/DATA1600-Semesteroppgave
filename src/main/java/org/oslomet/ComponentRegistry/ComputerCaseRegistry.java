@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.ComputerCaseModel;
 
 import java.util.Optional;
@@ -62,6 +63,17 @@ public class ComputerCaseRegistry implements RegistryMethods {
         return computerCaseArray.stream().filter(cc -> cc.getColor().
                 toLowerCase().matches(String.format("%s%s%s", ".*", color.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static ComputerCaseModel computerCaseExists(String computerCaseName) {
+
+        for (ComputerCaseModel computerCase : computerCaseArray) {
+            if (computerCase.getName().equals(computerCaseName)) {
+                return computerCase;
+            }
+        }
+
+        return null;
     }
 }
 

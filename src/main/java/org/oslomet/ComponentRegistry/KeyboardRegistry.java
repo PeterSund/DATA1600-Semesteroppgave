@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.HarddriveModel;
 import org.oslomet.ComponentClasses.KeyboardModel;
 
@@ -63,5 +64,16 @@ public class KeyboardRegistry implements RegistryMethods {
         return keyboardArray.stream().filter(k -> k.getBrand().
                 toLowerCase().matches(String.format("%s%s%s", ".*", language.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static KeyboardModel keyBoardExists(String keyboardName) {
+
+        for (KeyboardModel keyboard : keyboardArray) {
+            if (keyboard.getName().equals(keyboardName)) {
+                return keyboard;
+            }
+        }
+
+        return null;
     }
 }

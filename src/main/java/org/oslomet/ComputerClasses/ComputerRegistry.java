@@ -3,9 +3,8 @@ package org.oslomet.ComputerClasses;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
-import org.oslomet.ComponentClasses.CPUModel;
-import org.oslomet.ComponentClasses.ComputerCaseModel;
-import org.oslomet.ComponentRegistry.CPURegistry;
+import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComponentRegistry.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerTxt;
 
@@ -69,45 +68,62 @@ public class ComputerRegistry {
     public static void readFromFile() throws IOException {
         ArrayList<String> computerFromFile = FileOpenerTxt.readFile(FileChooser.openFile());
 
-        //IF computer name exists
-
-        //IF computer name does not exist
         String computerName = computerFromFile.get(0).split(DELIMITER)[1];
-        String computerCase = computerFromFile.get(3).split(DELIMITER)[1].split(":")[1].strip();
-        String computerCPU = computerFromFile.get(4).split(DELIMITER)[1].split(":")[1].strip();
-        String computerGPU = computerFromFile.get(5).split(DELIMITER)[1].split(":")[1].strip();
-        String computerRAM = computerFromFile.get(6).split(DELIMITER)[1].split(":")[1].strip();
-        String computerHardDrive = computerFromFile.get(7).split(DELIMITER)[1].split(":")[1].strip();
-        String computerMotherBoard = computerFromFile.get(8).split(DELIMITER)[1].split(":")[1].strip();
-        String computerPSU = computerFromFile.get(9).split(DELIMITER)[1].split(":")[1].strip();
-        String computerSoundCard = computerFromFile.get(10).split(DELIMITER)[1].split(":")[1].strip();
-        String computerMonitor = computerFromFile.get(11).split(DELIMITER)[1].split(":")[1].strip();
-        String computerKeyboard = computerFromFile.get(12).split(DELIMITER)[1].split(":")[1].strip();
-        String computerMouse = computerFromFile.get(13).split(DELIMITER)[1].split(":")[1].strip();
+        String computerCaseName = computerFromFile.get(3).split(DELIMITER)[1].split(":")[1].strip();
+        String computerCPUName = computerFromFile.get(4).split(DELIMITER)[1].split(":")[1].strip();
+        String computerGPUName = computerFromFile.get(5).split(DELIMITER)[1].split(":")[1].strip();
+        String computerRAMName = computerFromFile.get(6).split(DELIMITER)[1].split(":")[1].strip();
+        String computerHardDriveName = computerFromFile.get(7).split(DELIMITER)[1].split(":")[1].strip();
+        String computerMotherBoardName = computerFromFile.get(8).split(DELIMITER)[1].split(":")[1].strip();
+        String computerPSUName = computerFromFile.get(9).split(DELIMITER)[1].split(":")[1].strip();
+        String computerSoundCardName = computerFromFile.get(10).split(DELIMITER)[1].split(":")[1].strip();
+        String computerMonitorName = computerFromFile.get(11).split(DELIMITER)[1].split(":")[1].strip();
+        String computerKeyboardName = computerFromFile.get(12).split(DELIMITER)[1].split(":")[1].strip();
+        String computerMouseName = computerFromFile.get(13).split(DELIMITER)[1].split(":")[1].strip();
 
-        System.out.println(computerName);
-        System.out.println(computerCase);
-        System.out.println(computerCPU);
-        System.out.println(computerGPU);
-        System.out.println(computerRAM);
-        System.out.println(computerHardDrive);
-        System.out.println(computerMotherBoard);
-        System.out.println(computerPSU);
-        System.out.println(computerSoundCard);
-        System.out.println(computerMonitor);
-        System.out.println(computerKeyboard);
-        System.out.println(computerMouse);
+        ComputerCaseModel computerCase = ComputerCaseRegistry.computerCaseExists(computerCaseName);
+        CPUModel cpu = CPURegistry.cpuExists(computerCPUName);
+        GPUModel gpu = GPURegistry.gpuExists(computerGPUName);
+        RAMModel ram = RAMRegistry.ramExists(computerRAMName);
+        HarddriveModel hardDrive = HardDriveRegistry.hardDriveExists(computerHardDriveName);
+        MotherboardModel motherBoard = MotherboardRegistry.motherBoardExists(computerMotherBoardName);
+        PSUModel psu = PSURegistry.psuExists(computerPSUName);
+        SoundCardModel soundCard = SoundCardRegistry.soundCardExists(computerSoundCardName);
+        MonitorModel monitor = MonitorRegistry.monitorExists(computerMonitorName);
+        KeyboardModel keyboard = KeyboardRegistry.keyBoardExists(computerKeyboardName);
+        MouseModel mouse = MouseRegistry.mouseExists(computerMouseName);
 
-        /*CPUModel cpu = CPURegistry.cpuExists(computerCPU);
+        ComputerModel computer = new ComputerModel(computerName, null, null, null, null,
+                null, null, null, null, null, null, null,
+                0, 0);
 
+        if (computerCase != null) {
+            computer.setComputerCase(computerCase);
+        }
         if (cpu != null) {
-            System.out.println(cpu.toStringForConfig());
+            computer.setCpu(cpu);
         }
+        if (gpu != null) {
+            //
+        }
+
+        //If computer name does exist
+        if (computerNameExists(computerName)) {
+
+        }
+
+        //If computer name does not exist
         else {
-            System.out.print("Could not find CPU");
+
         }
+
+
+      
+
+
+
         
-         */
+
 
     }
 }

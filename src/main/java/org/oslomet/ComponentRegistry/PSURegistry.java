@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.PSUModel;
 
 import java.util.stream.Collectors;
@@ -56,5 +57,16 @@ public class PSURegistry implements RegistryMethods  {
         return psuArray.stream().
                 filter(psu -> psu.getWatt() == watt).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static PSUModel psuExists(String psuName) {
+
+        for (PSUModel psu : psuArray) {
+            if (psu.getName().equals(psuName)) {
+                return psu;
+            }
+        }
+
+        return null;
     }
 }

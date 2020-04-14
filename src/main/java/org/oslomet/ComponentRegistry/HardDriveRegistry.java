@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.GPUModel;
 import org.oslomet.ComponentClasses.HarddriveModel;
 
@@ -64,5 +65,16 @@ public class HardDriveRegistry implements RegistryMethods {
         return hardDriveArray.stream().
                 filter(gpu -> gpu.getCapacity() == capacity).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static HarddriveModel hardDriveExists(String hardDriveName) {
+
+        for (HarddriveModel hardDrive : hardDriveArray) {
+            if (hardDrive.getName().equals(hardDriveName)) {
+                return hardDrive;
+            }
+        }
+
+        return null;
     }
 }

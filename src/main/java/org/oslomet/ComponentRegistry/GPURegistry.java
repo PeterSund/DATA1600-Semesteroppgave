@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.GPUModel;
 
 import java.util.stream.Collectors;
@@ -64,6 +65,17 @@ public class GPURegistry implements RegistryMethods {
         return gpuArray.stream().
                 filter(gpu -> gpu.getMemory() == memory).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static GPUModel gpuExists(String gpuName) {
+
+        for (GPUModel gpu : gpuArray) {
+            if (gpu.getName().equals(gpuName)) {
+                return gpu;
+            }
+        }
+
+        return null;
     }
 }
 

@@ -64,4 +64,15 @@ public class CPURegistry implements RegistryMethods {
                 filter(cpu -> cpu.getCores() == cores).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
+
+    public static CPUModel cpuExists(String cpuName) {
+
+        for (CPUModel cpu : cpuArray) {
+            if (cpu.getName().equals(cpuName)) {
+                return cpu;
+            }
+        }
+
+        return null;
+    }
 }

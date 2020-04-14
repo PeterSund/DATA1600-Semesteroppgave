@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.KeyboardModel;
 import org.oslomet.ComponentClasses.MonitorModel;
 
@@ -63,5 +64,16 @@ public class MonitorRegistry implements RegistryMethods {
         return monitorArray.stream().
                 filter(m -> m.getSize() == size).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public static MonitorModel monitorExists(String monitorName) {
+
+        for (MonitorModel monitor : monitorArray) {
+            if (monitor.getName().equals(monitorName)) {
+                return monitor;
+            }
+        }
+
+        return null;
     }
 }
