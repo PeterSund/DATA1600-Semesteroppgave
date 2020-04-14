@@ -9,9 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
 
+import java.io.Serializable;
 import java.util.stream.Collectors;
 
-public class CPURegistry implements RegistryMethods {
+public class CPURegistry implements RegistryMethods, Serializable {
 
     //Initialize array
     private static ObservableList<CPUModel> cpuArray = FXCollections.observableArrayList();
@@ -32,6 +33,10 @@ public class CPURegistry implements RegistryMethods {
                 cpuArray.remove(cpu);
             }
         }
+    }
+
+    public static ObservableList returnArray() {
+        return cpuArray;
     }
 
     public ObservableList<CPUModel> filterByName(String name) {

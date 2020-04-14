@@ -13,6 +13,9 @@
 
 <AnchorPane prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
+
+       <Button fx:id="btnSave" layoutX="1000.0" layoutY="20.0" mnemonicParsing="false" onAction="#saveObj" text="Save" />
+
    <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" onAction="#changeToEditConfigurations" text="Log out" />
    <Button fx:id="btnCPU" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="CPU" />
    <Button fx:id="btnGPU" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="GPU" />

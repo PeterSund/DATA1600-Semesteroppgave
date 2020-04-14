@@ -60,7 +60,6 @@ public class MouseModel extends ComponentModel implements Serializable {
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.writeUTF(getType());
         s.writeBoolean(isWireless());
-
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {

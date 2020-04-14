@@ -38,6 +38,10 @@ public class MouseRegistry implements RegistryMethods  {
         }
     }
 
+    public static ObservableList returnArray() {
+        return mouseArray;
+    }
+
     public ObservableList<MouseModel> filterByName(String name) {
         return mouseArray.stream().filter(mm -> mm.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

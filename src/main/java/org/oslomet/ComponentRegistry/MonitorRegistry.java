@@ -36,6 +36,10 @@ public class MonitorRegistry implements RegistryMethods {
         }
     }
 
+    public static ObservableList returnArray() {
+        return monitorArray;
+    }
+
     public ObservableList<MonitorModel> filterByName(String name) {
         return monitorArray.stream().filter(m -> m.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

@@ -16,10 +16,13 @@ import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
 import org.oslomet.ExceptionClasses.InvalidPriceException;
+import org.oslomet.FileHandling.FileChooser;
+import org.oslomet.FileHandling.FileSaverJobj;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.DirectoryStream;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -106,6 +109,13 @@ public class AdminController implements Initializable {
 
     @FXML
     private TableView<KeyboardModel> tvKeyboard;
+
+    CPURegistry test = new CPURegistry();
+
+    public void saveObj() throws IOException {
+        Path path = FileChooser.saveFile();
+        FileSaverJobj.saveJobj(test, path);
+    }
 
     public void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {
         try {

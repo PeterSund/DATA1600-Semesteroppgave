@@ -33,6 +33,10 @@ public class RAMRegistry implements RegistryMethods  {
         }
     }
 
+    public static ObservableList returnArray() {
+        return ramArray;
+    }
+
     public ObservableList<RAMModel> filterByName(String name) {
         return ramArray.stream().filter(r -> r.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),

@@ -37,6 +37,10 @@ public class MotherboardRegistry implements RegistryMethods {
         }
     }
 
+    public static ObservableList returnArray() {
+        return motherboardArray;
+    }
+
     public ObservableList<MotherboardModel> filterByName(String name) {
         return motherboardArray.stream().filter(mb -> mb.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
