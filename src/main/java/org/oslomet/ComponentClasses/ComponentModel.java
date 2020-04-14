@@ -98,7 +98,7 @@ public class ComponentModel implements Serializable {
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.writeUTF(getName());
-        s.writeUTF(getName());
+        s.writeUTF(getBrand());
         s.writeDouble(getPrice());
         s.writeDouble(getPerformanceValue());
     }

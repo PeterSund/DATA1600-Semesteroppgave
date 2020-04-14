@@ -115,13 +115,14 @@ public class AdminController implements Initializable {
 
     public void saveObj() throws IOException {
         Path path = FileChooser.saveFile();
-        FileSaverJobj.saveJobj(test, path);
+        ArrayList arrayLists = ComponentsRegistry.addAllComponentsArraysToArray();
+        FileSaverJobj.saveJobj(arrayLists, path);
     }
 
     public void openObj() throws IOException {
         Path path = FileChooser.openFile();
-        ObservableList<CPUModel> list = FileOpenerJobj.openJobj(path);
-        CPURegistry.addCPUFromJobjToArray(list);
+        FileOpenerJobj.openJobj(path);
+
     }
 
     public void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {

@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class CPURegistry implements RegistryMethods, Serializable {
@@ -36,12 +38,16 @@ public class CPURegistry implements RegistryMethods, Serializable {
         }
     }
 
-    public void removeAll() {
+    public static void removeAll() {
         cpuArray.clear();
     }
 
-    public static ObservableList returnArray() {
-        return cpuArray;
+    public static ArrayList returnArray() {
+        ArrayList cpuList = new ArrayList();
+        for (CPUModel cpu : cpuArray) {
+            cpuList.add(cpu);
+        }
+        return cpuList;
     }
 
     public ObservableList<CPUModel> filterByName(String name) {
@@ -94,8 +100,9 @@ public class CPURegistry implements RegistryMethods, Serializable {
         }
     }
 
-    public static  void addCPUFromJobjToArray(ObservableList<CPUModel> list) {
+    public static  void addCPUFromJobjToArray(ArrayList<CPUModel> list) {
         for (CPUModel cpu : list) {
+            System.out.print(cpu);
             cpuArray.add(cpu);
         }
     }
