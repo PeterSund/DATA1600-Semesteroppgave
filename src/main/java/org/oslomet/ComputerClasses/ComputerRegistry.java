@@ -64,8 +64,51 @@ public class ComputerRegistry {
         return false;
     }
 
+    //Calculates and returns the total price of the computer
+    public static double calculateTotalPrice(ComputerModel computer) {
+
+        double totalPrice = 0;
+
+        totalPrice += computer.getComputerCase() != null ? computer.getComputerCase().getPrice() : 0;
+        totalPrice += computer.getCpu() != null ? computer.getCpu().getPrice() : 0;
+        totalPrice += computer.getGpu() != null ? computer.getGpu().getPrice() : 0;
+        totalPrice += computer.getHardDrive() != null ? computer.getHardDrive().getPrice() : 0;
+        totalPrice += computer.getMotherboard() != null ? computer.getMotherboard().getPrice() : 0;
+        totalPrice += computer.getRam() != null ? computer.getRam().getPrice() : 0;
+        totalPrice += computer.getSoundCard() != null ? computer.getSoundCard().getPrice() : 0;
+        totalPrice += computer.getPsu() != null ? computer.getPsu().getPrice() : 0;
+        totalPrice += computer.getMonitor() != null ? computer.getMonitor().getPrice() : 0;
+        totalPrice += computer.getMouse() != null ? computer.getMouse().getPrice() : 0;
+        totalPrice += computer.getKeyboard() != null ? computer.getKeyboard().getPrice() : 0;
+
+        computer.setTotalPrice(totalPrice);
+        return totalPrice;
+    }
+
+    //Calculates and returns the total performance value of the computer
+    public static double calculateTotalPerformanceValue(ComputerModel computer) {
+
+        double totalPerformanceValue = 0;
+
+        totalPerformanceValue += computer.getComputerCase() != null ? computer.getComputerCase().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getCpu() != null ? computer.getCpu().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getGpu() != null ? computer.getGpu().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getHardDrive() != null ? computer.getHardDrive().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getMotherboard() != null ? computer.getMotherboard().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getRam() != null ? computer.getRam().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getSoundCard() != null ? computer.getSoundCard().getPerformanceValue(): 0;
+        totalPerformanceValue += computer.getPsu() != null ? computer.getPsu().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getMonitor() != null ? computer.getMonitor().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getMouse() != null ? computer.getMouse().getPerformanceValue() : 0;
+        totalPerformanceValue += computer.getKeyboard() != null ? computer.getKeyboard().getPerformanceValue() : 0;
+
+        computer.setTotalPerformanceValue(totalPerformanceValue);
+        return totalPerformanceValue;
+    }
+
+
     //Add computer from file
-    public static void readFromFile() throws IOException {
+    public static ComputerModel readFromFile() throws IOException {
         ArrayList<String> computerFromFile = FileOpenerTxt.readFile(FileChooser.openFile());
 
         String computerName = computerFromFile.get(0).split(DELIMITER)[1];
@@ -104,26 +147,33 @@ public class ComputerRegistry {
             computer.setCpu(cpu);
         }
         if (gpu != null) {
-            //
+            computer.setGpu(gpu);
+        }
+        if (ram != null) {
+            computer.setRam(ram);
+        }
+        if (hardDrive != null) {
+            computer.setHardDrive(hardDrive);
+        }
+        if (motherBoard != null) {
+            computer.setMotherboard(motherBoard);
+        }
+        if (psu != null) {
+            computer.setPsu(psu);
+        }
+        if (soundCard != null) {
+            computer.setSoundCard(soundCard);
+        }
+        if (monitor != null) {
+            computer.setMonitor(monitor);
+        }
+        if (keyboard != null) {
+            computer.setKeyboard(keyboard);
+        }
+        if (mouse != null) {
+            computer.setMouse(mouse);
         }
 
-        //If computer name does exist
-        if (computerNameExists(computerName)) {
-
-        }
-
-        //If computer name does not exist
-        else {
-
-        }
-
-
-      
-
-
-
-        
-
-
+        return computer;
     }
 }
