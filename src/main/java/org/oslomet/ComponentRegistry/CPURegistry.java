@@ -13,9 +13,10 @@ import java.io.Serializable;
 import java.util.stream.Collectors;
 
 public class CPURegistry implements RegistryMethods, Serializable {
+    private static final long serialVersionUID = 1;
 
     //Initialize array
-    private static ObservableList<CPUModel> cpuArray = FXCollections.observableArrayList();
+    private transient static ObservableList<CPUModel> cpuArray = FXCollections.observableArrayList();
 
     public static void attachTableView(TableView tv) {
         tv.setItems(cpuArray);
@@ -33,6 +34,10 @@ public class CPURegistry implements RegistryMethods, Serializable {
                 cpuArray.remove(cpu);
             }
         }
+    }
+
+    public void removeAll() {
+        cpuArray.clear();
     }
 
     public static ObservableList returnArray() {
@@ -79,5 +84,19 @@ public class CPURegistry implements RegistryMethods, Serializable {
         }
 
         return null;
+    }
+
+    public static void printArray() {
+        int tall = 0;
+        for(CPUModel obj : cpuArray) {
+            tall += 1;
+            System.out.print(tall + obj.toStringForConfig() + "\n");
+        }
+    }
+
+    public static  void addCPUFromJobjToArray(ObservableList<CPUModel> list) {
+        for (CPUModel cpu : list) {
+            cpuArray.add(cpu);
+        }
     }
 }
