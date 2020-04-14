@@ -565,7 +565,7 @@
 
          </columns>
       </TableView>
-      <TextField fx:id="txtFilterCc" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterCcEntered" promptText="Search" />
+
       <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
        <items>
@@ -717,15 +717,8 @@
                </FXCollections>
            </items>
        </ChoiceBox>
-      <TextField fx:id="txtFilterCPU" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterCPUEntered" promptText="Search" />
-      <TextField fx:id="txtFilterGPU" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterGPUEntered" promptText="Search" />
-      <TextField fx:id="txtFilterHarddrive" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterHarddriveEntered" promptText="Search" />
-      <TextField fx:id="txtFilterMotherboard" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterMotherboardEntered" promptText="Search" />
-      <TextField fx:id="txtFilterRAM" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterRAMEntered" promptText="Search" />
-      <TextField fx:id="txtFilterSoundcard" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterSoundcardEntered" promptText="Search" />
-      <TextField fx:id="txtFilterPSU" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterPSUEntered" promptText="Search" />
-      <TextField fx:id="txtFilterMonitor" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterMonitorEntered" promptText="Search" />
-      <TextField fx:id="txtFilterMouse" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterMouseEntered" promptText="Search" />
-      <TextField fx:id="txtFilterKeyboard" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterKeyboardEntered" promptText="Search" />
+
+      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
+
    </children>
 </AnchorPane>

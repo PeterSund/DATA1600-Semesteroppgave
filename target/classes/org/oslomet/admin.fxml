@@ -565,7 +565,7 @@
 
          </columns>
       </TableView>
-      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
+
       <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
        <items>
@@ -643,7 +643,7 @@
                    <String fx:value="Brand" />
                    <String fx:value="Price" />
                    <String fx:value="Performance Value" />
-                   <String fx:value="Capacity" />
+                   <String fx:value="Memory" />
                    <String fx:value="Memory speed" />
                </FXCollections>
            </items>
@@ -718,6 +718,7 @@
            </items>
        </ChoiceBox>
 
-      <Button fx:id="btnFilter" layoutX="634.0" layoutY="89.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="70.0" text="Filter" />
+      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
+
    </children>
 </AnchorPane>
