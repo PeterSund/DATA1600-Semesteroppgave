@@ -9,7 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.RAMModel;
+import org.oslomet.ComponentClasses.SoundCardModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class RAMRegistry implements RegistryMethods  {
@@ -33,8 +35,12 @@ public class RAMRegistry implements RegistryMethods  {
         }
     }
 
-    public static ObservableList returnArray() {
-        return ramArray;
+    public static ArrayList returnArray() {
+        ArrayList ramList = new ArrayList();
+        for (RAMModel ram : ramArray) {
+            ramList.add(ram);
+        }
+        return ramList;
     }
 
     public ObservableList<RAMModel> filterByName(String name) {

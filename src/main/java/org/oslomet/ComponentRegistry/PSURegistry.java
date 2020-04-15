@@ -9,7 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.PSUModel;
+import org.oslomet.ComponentClasses.RAMModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class PSURegistry implements RegistryMethods  {
@@ -33,8 +35,12 @@ public class PSURegistry implements RegistryMethods  {
         }
     }
 
-    public static ObservableList returnArray() {
-        return psuArray;
+    public static ArrayList returnArray() {
+        ArrayList psuList = new ArrayList();
+        for (PSUModel psu : psuArray) {
+            psuList.add(psu);
+        }
+        return psuList;
     }
 
     public ObservableList<PSUModel> filterByName(String name) {

@@ -11,6 +11,7 @@ import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.MotherboardModel;
 import org.oslomet.ComponentClasses.PSUModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class MotherboardRegistry implements RegistryMethods {
@@ -37,9 +38,14 @@ public class MotherboardRegistry implements RegistryMethods {
         }
     }
 
-    public static ObservableList returnArray() {
-        return motherboardArray;
+    public static ArrayList returnArray() {
+        ArrayList motherboardList = new ArrayList();
+        for (MotherboardModel motherboard : motherboardArray) {
+            motherboardList.add(motherboard);
+        }
+        return motherboardList;
     }
+
 
     public ObservableList<MotherboardModel> filterByName(String name) {
         return motherboardArray.stream().filter(mb -> mb.getName().
