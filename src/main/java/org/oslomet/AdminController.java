@@ -641,6 +641,17 @@ public class AdminController implements Initializable {
         cbArray.add(cbFilterSoundcard);
         cbArray.add(cbFilterMouse);
 
+        for (TableView tv : tableViewArray) {
+            tv.setVisible(false);
+        }
+        tvComputercase.setVisible(true);
+
+        for (ChoiceBox cb : cbArray) {
+            cb.setVisible(false);
+        }
+        cbFilterComputerCase.setVisible(true);
+
+
 
     }
 }

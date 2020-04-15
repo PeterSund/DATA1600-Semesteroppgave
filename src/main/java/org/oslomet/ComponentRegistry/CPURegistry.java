@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CPURegistry implements RegistryMethods, Serializable {
-    private static final long serialVersionUID = 1;
+    //private static final long serialVersionUID = 1;
 
     //Initialize array
     private transient static ObservableList<CPUModel> cpuArray = FXCollections.observableArrayList();
