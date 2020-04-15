@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.ComputerCaseModel;
 import org.oslomet.ComponentClasses.GPUModel;
 import org.oslomet.ComponentClasses.HarddriveModel;
 
@@ -37,6 +38,10 @@ public class HardDriveRegistry implements RegistryMethods {
         }
     }
 
+    public static void removeAll() {
+        hardDriveArray.clear();
+    }
+
     public static ArrayList returnArray() {
 
         ArrayList hardDriveList = new ArrayList();
@@ -44,6 +49,12 @@ public class HardDriveRegistry implements RegistryMethods {
             hardDriveArray.add(hardDrive);
         }
         return hardDriveList;
+    }
+
+    public static  void addHardDriveFromJobjToArray(ArrayList<HarddriveModel> list) {
+        for (HarddriveModel hardDrive : list) {
+            hardDriveArray.add(hardDrive);
+        }
     }
 
     public ObservableList<HarddriveModel> filterByName(String name) {

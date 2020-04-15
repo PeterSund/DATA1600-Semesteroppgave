@@ -36,12 +36,22 @@ public class KeyboardRegistry implements RegistryMethods {
         }
     }
 
+    public static void removeAll() {
+        keyboardArray.clear();
+    }
+
     public static ArrayList returnArray() {
         ArrayList keyBoardList = new ArrayList();
         for (KeyboardModel keyBoard : keyboardArray) {
             keyboardArray.add(keyBoard);
         }
         return keyBoardList;
+    }
+
+    public static  void addKeyboardFromJobjToArray(ArrayList<KeyboardModel> list) {
+        for (KeyboardModel keyboard : list) {
+            keyboardArray.add(keyboard);
+        }
     }
 
     public ObservableList<KeyboardModel> filterByName(String name) {

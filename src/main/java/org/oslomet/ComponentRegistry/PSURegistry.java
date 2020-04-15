@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.MouseModel;
 import org.oslomet.ComponentClasses.PSUModel;
 import org.oslomet.ComponentClasses.RAMModel;
 
@@ -35,12 +36,22 @@ public class PSURegistry implements RegistryMethods  {
         }
     }
 
+    public static void removeAll() {
+        psuArray.clear();
+    }
+
     public static ArrayList returnArray() {
         ArrayList psuList = new ArrayList();
         for (PSUModel psu : psuArray) {
             psuList.add(psu);
         }
         return psuList;
+    }
+
+    public static  void addPSUFromJobjToArray(ArrayList<PSUModel> list) {
+        for (PSUModel psu : list) {
+            psuArray.add(psu);
+        }
     }
 
     public ObservableList<PSUModel> filterByName(String name) {

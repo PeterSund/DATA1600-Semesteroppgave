@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.PSUModel;
 import org.oslomet.ComponentClasses.RAMModel;
 import org.oslomet.ComponentClasses.SoundCardModel;
 
@@ -35,6 +36,10 @@ public class RAMRegistry implements RegistryMethods  {
         }
     }
 
+    public static void removeAll() {
+        ramArray.clear();
+    }
+
     public static ArrayList returnArray() {
         ArrayList ramList = new ArrayList();
         for (RAMModel ram : ramArray) {
@@ -42,6 +47,13 @@ public class RAMRegistry implements RegistryMethods  {
         }
         return ramList;
     }
+
+    public static void addRAMFromJobjToArray(ArrayList<RAMModel> list) {
+        for (RAMModel ram : list) {
+            ramArray.add(ram);
+        }
+    }
+
 
     public ObservableList<RAMModel> filterByName(String name) {
         return ramArray.stream().filter(r -> r.getName().

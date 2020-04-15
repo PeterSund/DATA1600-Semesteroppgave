@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.PSUModel;
 import org.oslomet.ComponentClasses.SoundCardModel;
 
 import java.util.ArrayList;
@@ -34,6 +35,10 @@ public class SoundCardRegistry implements RegistryMethods  {
         }
     }
 
+    public static void removeAll() {
+        soundCardArray.clear();
+    }
+
     public static ArrayList returnArray() {
         ArrayList soundCardList = new ArrayList();
         for (SoundCardModel soundCard : soundCardArray) {
@@ -41,6 +46,13 @@ public class SoundCardRegistry implements RegistryMethods  {
         }
         return soundCardList;
     }
+
+    public static  void addSoundcardFromJobjToArray(ArrayList<SoundCardModel> list) {
+        for (SoundCardModel soundcard : list) {
+            soundCardArray.add(soundcard);
+        }
+    }
+
 
     public ObservableList<SoundCardModel> filterByName(String name) {
         return soundCardArray.stream().filter(sc -> sc.getName().

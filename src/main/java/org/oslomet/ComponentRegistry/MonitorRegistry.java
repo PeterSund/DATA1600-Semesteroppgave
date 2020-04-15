@@ -38,12 +38,22 @@ public class MonitorRegistry implements RegistryMethods {
         }
     }
 
+    public static void removeAll() {
+        monitorArray.clear();
+    }
+
     public static ArrayList returnArray() {
         ArrayList monitorList = new ArrayList();
         for (MonitorModel monitor : monitorArray) {
             monitorArray.add(monitor);
         }
         return monitorList;
+    }
+
+    public static  void addMonitorFromJobjToArray(ArrayList<MonitorModel> list) {
+        for (MonitorModel monitor : list) {
+            monitorArray.add(monitor);
+        }
     }
 
     public ObservableList<MonitorModel> filterByName(String name) {

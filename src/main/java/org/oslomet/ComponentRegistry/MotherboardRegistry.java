@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.MonitorModel;
 import org.oslomet.ComponentClasses.MotherboardModel;
 import org.oslomet.ComponentClasses.PSUModel;
 
@@ -44,6 +45,16 @@ public class MotherboardRegistry implements RegistryMethods {
             motherboardList.add(motherboard);
         }
         return motherboardList;
+    }
+
+    public static void removeAll() {
+        motherboardArray.clear();
+    }
+
+    public static  void addMotherboardFromJobjToArray(ArrayList<MotherboardModel> list) {
+        for (MotherboardModel motherboard : list) {
+            motherboardArray.add(motherboard);
+        }
     }
 
 

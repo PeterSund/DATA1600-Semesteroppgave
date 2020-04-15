@@ -35,6 +35,10 @@ public class ComputerCaseRegistry implements RegistryMethods {
         }
     }
 
+    public static void removeAll() {
+        computerCaseArray.clear();
+    }
+
     public static ArrayList returnArray() {
 
         ArrayList computerCaseList = new ArrayList();
@@ -43,6 +47,14 @@ public class ComputerCaseRegistry implements RegistryMethods {
         }
         return computerCaseList;
     }
+
+    public static  void addComputerCaseFromJobjToArray(ArrayList<ComputerCaseModel> list) {
+        for (ComputerCaseModel computerCase : list) {
+            computerCaseArray.add(computerCase);
+        }
+    }
+
+
 
     public ObservableList<ComputerCaseModel> filterByName(String name) {
         return computerCaseArray.stream().filter(cc -> cc.getName().

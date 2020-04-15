@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.MotherboardModel;
 import org.oslomet.ComponentClasses.MouseModel;
 import org.oslomet.ComponentClasses.PSUModel;
 
@@ -40,6 +41,10 @@ public class MouseRegistry implements RegistryMethods  {
         }
     }
 
+    public static void removeAll() {
+        mouseArray.clear();
+    }
+
     public static ArrayList returnArray() {
         ArrayList mouseList = new ArrayList();
         for (MouseModel mouse : mouseArray) {
@@ -48,7 +53,13 @@ public class MouseRegistry implements RegistryMethods  {
         return mouseList;
     }
 
-    public ObservableList<MouseModel> filterByName(String name) {
+    public static  void addMouseFromJobjToArray(ArrayList<MouseModel> list) {
+        for (MouseModel mouse : list) {
+            mouseArray.add(mouse);
+        }
+    }
+
+        public ObservableList<MouseModel> filterByName(String name) {
         return mouseArray.stream().filter(mm -> mm.getName().
                 toLowerCase().matches(String.format("%s%s%s", ".*", name.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
