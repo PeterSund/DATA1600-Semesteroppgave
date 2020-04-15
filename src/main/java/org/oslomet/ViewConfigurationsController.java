@@ -158,46 +158,20 @@ public class ViewConfigurationsController implements Initializable {
     @FXML
     void newConf(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("editConfiguration.fxml"));
-        Parent root = loader.load();
-        EditConfigurationController editConfigurationController = loader.getController();
+        ComputerNameDialog cnd = new ComputerNameDialog();
+        String name = cnd.display();
 
-        //Create input dialog to set computer name
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setHeaderText("Choose name");
-
-        String computerName;
-        Optional<String> computerNameFromDialog;
-        
-        boolean correctName = false;
-        while (!correctName) {
-            
-            computerNameFromDialog = dialog.showAndWait();
-            
-            if (computerNameFromDialog.isPresent()) {
-                if (!ComputerRegistry.computerNameExists(dialog.getResult())) {
-                    correctName = true;
-                    computerName = computerNameFromDialog.get();
-
-                    ComputerModel newComputer = new ComputerModel(computerName, null, null, null, null, null, null, null, null, null, null, null, 0,0);
-                    editConfigurationController.setComputer(newComputer);
-
-                    Scene viewConfScene = new Scene(root);
-                    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
-                    window.setScene(viewConfScene);
-                    window.show();
-                }
-
-                else {
-                    System.err.println("Please choose name that has not been used before");
-                }
-            }
-            else {
-                break;
-            }
-
+        if (name != null) {
+            ComputerModel newComputer = new ComputerModel(name, null, null, null, null, null, null, null, null, null, null, null, 0,0);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editConfiguration.fxml"));
+            Parent root = loader.load();
+            EditConfigurationController editConfigurationController = loader.getController();
+            editConfigurationController.setComputer(newComputer);
+            Scene viewConfScene = new Scene(root);
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            window.setScene(viewConfScene);
+            window.show();
         }
-
 
     }
     
