@@ -11,6 +11,7 @@ import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.HarddriveModel;
 import org.oslomet.ComponentClasses.KeyboardModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class KeyboardRegistry implements RegistryMethods {
@@ -35,8 +36,12 @@ public class KeyboardRegistry implements RegistryMethods {
         }
     }
 
-    public static ObservableList returnArray() {
-        return keyboardArray;
+    public static ArrayList returnArray() {
+        ArrayList keyBoardList = new ArrayList();
+        for (KeyboardModel keyBoard : keyboardArray) {
+            keyboardArray.add(keyBoard);
+        }
+        return keyBoardList;
     }
 
     public ObservableList<KeyboardModel> filterByName(String name) {

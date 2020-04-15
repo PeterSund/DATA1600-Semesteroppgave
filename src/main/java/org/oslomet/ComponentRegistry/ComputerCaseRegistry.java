@@ -9,6 +9,7 @@ import javafx.util.Pair;
 import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.ComputerCaseModel;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -34,8 +35,13 @@ public class ComputerCaseRegistry implements RegistryMethods {
         }
     }
 
-    public static ObservableList returnArray() {
-        return computerCaseArray;
+    public static ArrayList returnArray() {
+
+        ArrayList computerCaseList = new ArrayList();
+        for (ComputerCaseModel computerCase : computerCaseArray) {
+            computerCaseList.add(computerCase);
+        }
+        return computerCaseList;
     }
 
     public ObservableList<ComputerCaseModel> filterByName(String name) {

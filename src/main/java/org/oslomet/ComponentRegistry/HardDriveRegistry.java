@@ -11,6 +11,7 @@ import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.GPUModel;
 import org.oslomet.ComponentClasses.HarddriveModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class HardDriveRegistry implements RegistryMethods {
@@ -36,8 +37,13 @@ public class HardDriveRegistry implements RegistryMethods {
         }
     }
 
-    public static ObservableList returnArray() {
-        return hardDriveArray;
+    public static ArrayList returnArray() {
+
+        ArrayList hardDriveList = new ArrayList();
+        for (HarddriveModel hardDrive : hardDriveArray) {
+            hardDriveArray.add(hardDrive);
+        }
+        return hardDriveList;
     }
 
     public ObservableList<HarddriveModel> filterByName(String name) {

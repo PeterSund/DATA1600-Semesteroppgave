@@ -8,9 +8,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.HarddriveModel;
 import org.oslomet.ComponentClasses.KeyboardModel;
 import org.oslomet.ComponentClasses.MonitorModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class MonitorRegistry implements RegistryMethods {
@@ -36,8 +38,12 @@ public class MonitorRegistry implements RegistryMethods {
         }
     }
 
-    public static ObservableList returnArray() {
-        return monitorArray;
+    public static ArrayList returnArray() {
+        ArrayList monitorList = new ArrayList();
+        for (MonitorModel monitor : monitorArray) {
+            monitorArray.add(monitor);
+        }
+        return monitorList;
     }
 
     public ObservableList<MonitorModel> filterByName(String name) {
