@@ -12,6 +12,7 @@ public class ComponentsRegistry {
     private static ArrayList<ArrayList> allComponents = new ArrayList<>();
 
     public static ArrayList addAllComponentsArraysToArray() {
+        allComponents.clear();
         allComponents.add(ComputerCaseRegistry.returnArray());
         allComponents.add(CPURegistry.returnArray());
         allComponents.add(GPURegistry.returnArray());

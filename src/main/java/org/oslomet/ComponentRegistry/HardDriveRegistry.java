@@ -46,7 +46,7 @@ public class HardDriveRegistry implements RegistryMethods {
 
         ArrayList hardDriveList = new ArrayList();
         for (HarddriveModel hardDrive : hardDriveArray) {
-            hardDriveArray.add(hardDrive);
+            hardDriveList.add(hardDrive);
         }
         return hardDriveList;
     }

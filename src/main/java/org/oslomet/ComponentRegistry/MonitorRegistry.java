@@ -45,7 +45,7 @@ public class MonitorRegistry implements RegistryMethods {
     public static ArrayList returnArray() {
         ArrayList monitorList = new ArrayList();
         for (MonitorModel monitor : monitorArray) {
-            monitorArray.add(monitor);
+            monitorList.add(monitor);
         }
         return monitorList;
     }

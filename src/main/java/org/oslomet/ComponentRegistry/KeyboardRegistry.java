@@ -43,7 +43,7 @@ public class KeyboardRegistry implements RegistryMethods {
     public static ArrayList returnArray() {
         ArrayList keyBoardList = new ArrayList();
         for (KeyboardModel keyBoard : keyboardArray) {
-            keyboardArray.add(keyBoard);
+            keyBoardList.add(keyBoard);
         }
         return keyBoardList;
     }

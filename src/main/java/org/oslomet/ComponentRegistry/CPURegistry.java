@@ -91,18 +91,10 @@ public class CPURegistry implements RegistryMethods, Serializable {
 
         return null;
     }
-
-    public static void printArray() {
-        int tall = 0;
-        for(CPUModel obj : cpuArray) {
-            tall += 1;
-            System.out.print(tall + obj.toStringForConfig() + "\n");
-        }
-    }
+    
 
     public static  void addCPUFromJobjToArray(ArrayList<CPUModel> list) {
         for (CPUModel cpu : list) {
-            System.out.print(cpu);
             cpuArray.add(cpu);
         }
     }

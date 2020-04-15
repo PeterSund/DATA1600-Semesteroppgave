@@ -21,7 +21,6 @@ public class FileSaverJobj extends FileChooser implements Serializable {
         try (OutputStream os = Files.newOutputStream(filePath);
              ObjectOutputStream out = new ObjectOutputStream(os))
         {
-            System.out.print(registry.size());
             out.writeObject(new ArrayList<> (registry));
         }
     }
