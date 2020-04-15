@@ -18,11 +18,11 @@ public class ComponentsRegistry {
         //allComponents.add(HardDriveRegistry.returnArray());
         //allComponents.add(KeyboardRegistry.returnArray());
         //allComponents.add(MonitorRegistry.returnArray());
-        //allComponents.add(MotherboardRegistry.returnArray());
-        //allComponents.add(MouseRegistry.returnArray());
-        //allComponents.add(PSURegistry.returnArray());
-        //allComponents.add(RAMRegistry.returnArray());
-        //allComponents.add(SoundCardRegistry.returnArray());
+        allComponents.add(MotherboardRegistry.returnArray());
+        allComponents.add(MouseRegistry.returnArray());
+        allComponents.add(PSURegistry.returnArray());
+        allComponents.add(RAMRegistry.returnArray());
+        allComponents.add(SoundCardRegistry.returnArray());
         return allComponents;
     }
 

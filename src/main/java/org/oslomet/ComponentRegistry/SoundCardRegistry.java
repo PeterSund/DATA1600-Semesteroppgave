@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.SoundCardModel;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class SoundCardRegistry implements RegistryMethods  {
@@ -33,8 +34,12 @@ public class SoundCardRegistry implements RegistryMethods  {
         }
     }
 
-    public static ObservableList returnArray() {
-        return soundCardArray;
+    public static ArrayList returnArray() {
+        ArrayList soundCardList = new ArrayList();
+        for (SoundCardModel soundCard : soundCardArray) {
+            soundCardList.add(soundCard);
+        }
+        return soundCardList;
     }
 
     public ObservableList<SoundCardModel> filterByName(String name) {

@@ -9,9 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.MouseModel;
+import org.oslomet.ComponentClasses.PSUModel;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,8 +40,12 @@ public class MouseRegistry implements RegistryMethods  {
         }
     }
 
-    public static ObservableList returnArray() {
-        return mouseArray;
+    public static ArrayList returnArray() {
+        ArrayList mouseList = new ArrayList();
+        for (MouseModel mouse : mouseArray) {
+            mouseList.add(mouse);
+        }
+        return mouseList;
     }
 
     public ObservableList<MouseModel> filterByName(String name) {
