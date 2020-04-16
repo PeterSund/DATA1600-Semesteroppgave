@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComponentDialogs.CPUDialog;
+import org.oslomet.ComponentDialogs.MonitorDialog;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
@@ -22,7 +24,6 @@ import org.oslomet.FileHandling.FileSaverJobj;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -565,7 +566,55 @@ public class AdminController implements Initializable {
 
     public void generateDialogAddComponent() {
         String activeTableviewID = isVisible();
-        GenerateDialogBox.selectDialogToGenerate(activeTableviewID);
+
+        switch (activeTableviewID) {
+            case "Computercase":
+                //createComputerCaseComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "CPU":
+                CPUDialog cpuDialog = new CPUDialog();
+                cpuDialog.display();
+                break;
+
+            case "GPU":
+                //generateGPUComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "Hard drive":
+                //generateHardDriveComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "Motherboard":
+                //generateMotherboardComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "RAM":
+                //generateRAMComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "Soundcard":
+                //generateSoundCardComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "PSU":
+                //generatePSUComponentDialog(addComponentDialog, grid);
+                break;
+
+            case "Monitor":
+                MonitorDialog monitorDialog = new MonitorDialog();
+                monitorDialog.display();
+                break;
+
+            case "Mouse":
+                break;
+
+            case "Keyboard":
+                //generateKeyboardComponentDialog(addComponentDialog, grid);
+                break;
+        }
+
+       //GenerateDialogBox.selectDialogToGenerate(activeTableviewID);
     }
 
 
