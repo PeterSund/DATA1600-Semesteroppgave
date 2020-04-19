@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -186,105 +187,6 @@ public class EditConfigurationController implements Initializable {
         return null; //Trenger exeption
     }
 
-    //Add component
-    @FXML
-    void addComponent(ActionEvent event) {
-        TableView currentTableView = isVisible();
-        ComponentModel component = (ComponentModel) currentTableView.getSelectionModel().getSelectedItem();
-
-        if (component == null) {
-            System.out.println("Choose a component!");
-        }
-
-        else if (currentTableView.getId().equals("Computercase")) {
-            lblComputerCase.setText(((ComputerCaseModel) component).toStringForConfig());
-            computer.setComputerCase((ComputerCaseModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteComputerCase.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("CPU")) {
-            computer.setCpu((CPUModel) component);
-            lblCPU.setText(((CPUModel) component).toStringForConfig());
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteCPU.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("GPU")) {
-            lblGPU.setText(((GPUModel) component).toStringForConfig());
-            computer.setGpu((GPUModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteGPU.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("RAM")) {
-            lblRAM.setText(((RAMModel) component).toStringForConfig());
-            computer.setRam((RAMModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteRAM.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("Hard drive")) {
-            lblHardDrive.setText(((HarddriveModel) component).toStringForConfig());
-            computer.setHardDrive((HarddriveModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteHardDrive.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("Motherboard")) {
-            lblMotherBoard.setText(((MotherboardModel) component).toStringForConfig());
-            computer.setMotherboard((MotherboardModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteMotherBoard.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("PSU")) {
-            lblPSU.setText(((PSUModel) component).toStringForConfig());
-            computer.setPsu((PSUModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeletePSU.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("Soundcard")) {
-            lblSoundcard.setText(((SoundCardModel) component).toStringForConfig());
-            computer.setSoundCard((SoundCardModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteSoundCard.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("Keyboard")) {
-            lblKeyboard.setText(((KeyboardModel) component).toStringForConfig());
-            computer.setKeyboard((KeyboardModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteKeyboard.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("Monitor")) {
-            lblMonitor.setText(((MonitorModel) component).toStringForConfig());
-            computer.setMonitor((MonitorModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteMonitor.setVisible(true);
-        }
-
-        else if (currentTableView.getId().equals("Mouse")) {
-            lblMouse.setText(((MouseModel) component).toStringForConfig());
-            computer.setMouse((MouseModel) component);
-            lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
-            lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
-            btnDeleteMouse.setVisible(true);
-        }
-
-    }
 
     //Delete component
     @FXML
@@ -441,6 +343,105 @@ public class EditConfigurationController implements Initializable {
         lblName.setText(computer.getConfigName());
         lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
         lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+    }
+
+    @FXML
+    void addComponent(MouseEvent event) {
+
+        TableView currentTableView = isVisible();
+
+        if (currentTableView.getSelectionModel().getSelectedItem() != null && event.getClickCount() == 2) {
+
+            ComponentModel component = (ComponentModel) currentTableView.getSelectionModel().getSelectedItem();
+
+            if (currentTableView.getId().equals("Computercase")) {
+                lblComputerCase.setText(((ComputerCaseModel) component).toStringForConfig());
+                computer.setComputerCase((ComputerCaseModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteComputerCase.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("CPU")) {
+                computer.setCpu((CPUModel) component);
+                lblCPU.setText(((CPUModel) component).toStringForConfig());
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteCPU.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("GPU")) {
+                lblGPU.setText(((GPUModel) component).toStringForConfig());
+                computer.setGpu((GPUModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteGPU.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("RAM")) {
+                lblRAM.setText(((RAMModel) component).toStringForConfig());
+                computer.setRam((RAMModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteRAM.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("Hard drive")) {
+                lblHardDrive.setText(((HarddriveModel) component).toStringForConfig());
+                computer.setHardDrive((HarddriveModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteHardDrive.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("Motherboard")) {
+                lblMotherBoard.setText(((MotherboardModel) component).toStringForConfig());
+                computer.setMotherboard((MotherboardModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteMotherBoard.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("PSU")) {
+                lblPSU.setText(((PSUModel) component).toStringForConfig());
+                computer.setPsu((PSUModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeletePSU.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("Soundcard")) {
+                lblSoundcard.setText(((SoundCardModel) component).toStringForConfig());
+                computer.setSoundCard((SoundCardModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteSoundCard.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("Keyboard")) {
+                lblKeyboard.setText(((KeyboardModel) component).toStringForConfig());
+                computer.setKeyboard((KeyboardModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteKeyboard.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("Monitor")) {
+                lblMonitor.setText(((MonitorModel) component).toStringForConfig());
+                computer.setMonitor((MonitorModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteMonitor.setVisible(true);
+            }
+
+            else if (currentTableView.getId().equals("Mouse")) {
+                lblMouse.setText(((MouseModel) component).toStringForConfig());
+                computer.setMouse((MouseModel) component);
+                lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+                lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+                btnDeleteMouse.setVisible(true);
+            }
+        }
     }
 
 
