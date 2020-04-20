@@ -14,6 +14,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComponentDialogs.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
@@ -22,7 +23,6 @@ import org.oslomet.FileHandling.FileSaverJobj;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -821,7 +821,62 @@ public class AdminController implements Initializable {
 
     public void generateDialogAddComponent() {
         String activeTableviewID = isVisible();
-        GenerateDialogBox.selectDialogToGenerate(activeTableviewID);
+
+        switch (activeTableviewID) {
+            case "Computercase":
+                ComputerCaseDialog computerCaseDialog = new ComputerCaseDialog();
+                computerCaseDialog.display();
+                break;
+
+            case "CPU":
+                CPUDialog cpuDialog = new CPUDialog();
+                cpuDialog.display();
+                break;
+
+            case "GPU":
+                GPUDialog gpuDialog = new GPUDialog();
+                gpuDialog.display();
+                break;
+
+            case "Hard drive":
+                HardDriveDialog hardDriveDialog = new HardDriveDialog();
+                hardDriveDialog.display();
+                break;
+
+            case "Motherboard":
+                MotherBoardDialog motherBoardDialog = new MotherBoardDialog();
+                motherBoardDialog.display();
+                break;
+
+            case "RAM":
+                RAMDialog ramDialog = new RAMDialog();
+                ramDialog.display();
+                break;
+
+            case "Soundcard":
+                SoundCardDialog soundCardDialog = new SoundCardDialog();
+                soundCardDialog.display();
+                break;
+
+            case "PSU":
+                PSUDialog psuDialog = new PSUDialog();
+                psuDialog.display();
+                break;
+
+            case "Monitor":
+                MonitorDialog monitorDialog = new MonitorDialog();
+                monitorDialog.display();
+                break;
+
+            case "Mouse":
+                MouseDialog mouseDialog = new MouseDialog();
+                mouseDialog.display();
+
+            case "Keyboard":
+                KeyboardDialog keyboardDialog = new KeyboardDialog();
+                keyboardDialog.display();
+                break;
+        }
     }
 
 
