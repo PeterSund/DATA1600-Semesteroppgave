@@ -32,7 +32,7 @@ public class KeyboardDialog {
     public void display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Mother board");
+        window.setTitle("Keyboard");
         window.setMinWidth(600);
         window.setMinHeight(300);
 
@@ -41,7 +41,7 @@ public class KeyboardDialog {
         gridPane.add(new Label("Type:"), 0, 4);
         gridPane.add(type, 1, 4);
         type.getItems().addAll("Office", "Gaming", "Mechanical");
-        type.setPromptText("Select");
+        type.setValue("Office");
 
         gridPane.add(language, 1, 5);
         gridPane.add(new Label("Language:"), 0, 5);
@@ -51,6 +51,7 @@ public class KeyboardDialog {
         gridPane.add(new Label("Wireless:"), 0, 6);
         gridPane.add(wireless, 1, 6);
         wireless.getItems().addAll("Yes", "No");
+        wireless.setValue("Yes");
 
         gridPane.add(btnSubmit, 0, 7);
         gridPane.add(btnCancel, 1, 7);

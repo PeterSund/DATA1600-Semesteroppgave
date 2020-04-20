@@ -871,6 +871,7 @@ public class AdminController implements Initializable {
             case "Mouse":
                 MouseDialog mouseDialog = new MouseDialog();
                 mouseDialog.display();
+                break;
 
             case "Keyboard":
                 KeyboardDialog keyboardDialog = new KeyboardDialog();
