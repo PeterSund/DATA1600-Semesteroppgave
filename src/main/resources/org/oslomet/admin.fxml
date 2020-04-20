@@ -569,7 +569,7 @@
          </columns>
       </TableView>
 
-      <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+      <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
        <items>
            <FXCollections fx:factory="observableArrayList">
@@ -583,7 +583,7 @@
        </items>
       </ChoiceBox>
 
-       <ChoiceBox id="CPU" fx:id="cbFilterCPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="CPU" fx:id="cbFilterCPU" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -597,7 +597,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="GPU" fx:id="cbFilterGPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="GPU" fx:id="cbFilterGPU" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -611,7 +611,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Hard drive" fx:id="cbFilterHarddrive" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Hard drive" fx:id="cbFilterHarddrive" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -625,7 +625,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Motherboard" fx:id="cbFilterMotherboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Motherboard" fx:id="cbFilterMotherboard" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -638,7 +638,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="RAM" fx:id="cbFilterRAM" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="RAM" fx:id="cbFilterRAM" layoutX="466.0" value="Name" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -652,7 +652,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Soundcard" fx:id="cbFilterSoundcard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Soundcard" fx:id="cbFilterSoundcard" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -666,7 +666,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="PSU" fx:id="cbFilterPSU" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="PSU" fx:id="cbFilterPSU" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -679,7 +679,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Monitor" fx:id="cbFilterMonitor" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Monitor" fx:id="cbFilterMonitor" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -692,7 +692,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Mouse" fx:id="cbFilterMouse" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Mouse" fx:id="cbFilterMouse" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -706,7 +706,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Keyboard" fx:id="cbFilterKeyboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
+       <ChoiceBox id="Keyboard" fx:id="cbFilterKeyboard" value="Name" layoutX="466.0" layoutY="89.0" prefWidth="150.0">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
