@@ -82,6 +82,13 @@ public class AdminController implements Initializable {
 
         final ObservableList<String> optionsHarddriveComboBox = FXCollections.observableArrayList("SSD", "HDD");
         final ObservableList<String> optionsMotherboardCombobox = FXCollections.observableArrayList("ATX", "mini-ATX", "e-ATX");
+        final ObservableList<String> optionsSurroundCombobox = FXCollections.observableArrayList("Yes", "No");
+        final ObservableList<String> optionsBassBoostCombobox = FXCollections.observableArrayList("Yes", "No", "Mega");
+        final ObservableList<String> optionsMouseTypeCombobox = FXCollections.observableArrayList("Office", "Gaming", "Travel");
+        final ObservableList<String> optionsMouseWirelessCombobox = FXCollections.observableArrayList("Yes", "No");
+        final ObservableList<String> optionsKeyboardTypeCombobox = FXCollections.observableArrayList("Office", "Gaming", "Mechanical");
+        final ObservableList<String> optionsKeyboardWirelessCombobox = FXCollections.observableArrayList("Yes", "No");
+
 
 
         colComputercasePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
@@ -107,6 +114,8 @@ public class AdminController implements Initializable {
         colRAMMemory.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
         colSoundcardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colSoundcardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colSoundcardSurround.setCellFactory(ComboBoxTableCell.forTableColumn(optionsSurroundCombobox));
+        colSoundcardBassBoost.setCellFactory(ComboBoxTableCell.forTableColumn(optionsBassBoostCombobox));
         colPSUPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colPSUPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colPSUWatt.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
@@ -115,12 +124,12 @@ public class AdminController implements Initializable {
         colMonitorSize.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
         colMousePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colMousePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colMouseType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsMouseTypeCombobox));
+        colMouseWireless.setCellFactory(ComboBoxTableCell.forTableColumn(optionsMouseWirelessCombobox));
         colKeyboardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colKeyboardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
-
-
-
-
+        colKeyboardType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardTypeCombobox));
+        colKeyboardWireless.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardWirelessCombobox));
 
     }
 
@@ -164,6 +173,9 @@ public class AdminController implements Initializable {
     private TableColumn<SoundCardModel, Double> colSoundcardPrice, colSoundcardPV;
 
     @FXML
+    private TableColumn<SoundCardModel, String> colSoundcardSurround, colSoundcardBassBoost;
+
+    @FXML
     private TableColumn<PSUModel, Double> colPSUPrice, colPSUPV;
 
     @FXML
@@ -179,7 +191,13 @@ public class AdminController implements Initializable {
     private TableColumn<MouseModel, Double> colMousePrice, colMousePV;
 
     @FXML
+    private TableColumn<MouseModel, String> colMouseType, colMouseWireless;
+
+    @FXML
     private TableColumn<KeyboardModel, Double> colKeyboardPrice, colKeyboardPV;
+
+    @FXML
+    private TableColumn<KeyboardModel, String> colKeyboardType, colKeyboardWireless;
 
     public List<TableView> tableViewArray = new ArrayList<>();
     public List<ChoiceBox> cbArray = new ArrayList<>();
@@ -301,13 +319,6 @@ public class AdminController implements Initializable {
         tableViewVisble().refresh();
     }
 
-
-    public void editText() {
-
-    }
-
-
-
     public void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
@@ -354,6 +365,18 @@ public class AdminController implements Initializable {
         tableViewVisble().refresh();
     }
 
+    public void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setCores(event.getNewValue());
+            }
+
+        } catch (InvalidCoresException ice) {
+            System.out.print(ice.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+
     public void editGPUClockSpeed(TableColumn.CellEditEvent<GPUModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
@@ -362,46 +385,6 @@ public class AdminController implements Initializable {
 
         } catch (InvalidClockSpeedException icse) {
             System.out.print(icse.getMessage());
-        }
-        tableViewVisble().refresh();
-    }
-
-
-    public void editHarddriveType(TableColumn.CellEditEvent<HarddriveModel, String> event) {
-        event.getRowValue().setType(event.getNewValue());
-        tableViewVisble().refresh();
-    }
-
-    public void editMotherboardType(TableColumn.CellEditEvent<MotherboardModel, String> event) {
-        event.getRowValue().setType(event.getNewValue());
-        tableViewVisble().refresh();
-    }
-
-    public void editBooleanAttribute() {
-
-    }
-
-    public void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
-        try {
-            if(StringToIntConv.wasSuccessful()) {
-                event.getRowValue().setSize(event.getNewValue());
-            }
-
-        } catch (InvalidSizeException ize) {
-            System.out.print(ize.getMessage());
-        }
-        tableViewVisble().refresh();
-
-    }
-
-    public void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
-        try {
-            if(StringToIntConv.wasSuccessful()) {
-                event.getRowValue().setMemory(event.getNewValue());
-            }
-
-        } catch (InvalidMemoryException ime) {
-            System.out.print(ime.getMessage());
         }
         tableViewVisble().refresh();
     }
@@ -418,15 +401,9 @@ public class AdminController implements Initializable {
         tableViewVisble().refresh();
     }
 
-    public void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
-        try {
-            if(StringToIntConv.wasSuccessful()) {
-                event.getRowValue().setWatt(event.getNewValue());
-            }
 
-        } catch (InvalidWattException iwe) {
-            System.out.print(iwe.getMessage());
-        }
+    public void editHarddriveType(TableColumn.CellEditEvent<HarddriveModel, String> event) {
+        event.getRowValue().setType(event.getNewValue());
         tableViewVisble().refresh();
     }
 
@@ -442,14 +419,20 @@ public class AdminController implements Initializable {
         tableViewVisble().refresh();
     }
 
-    public void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
+
+    public void editMotherboardType(TableColumn.CellEditEvent<MotherboardModel, String> event) {
+        event.getRowValue().setType(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
-                event.getRowValue().setCores(event.getNewValue());
+                event.getRowValue().setMemory(event.getNewValue());
             }
 
-        } catch (InvalidCoresException ice) {
-            System.out.print(ice.getMessage());
+        } catch (InvalidMemoryException ime) {
+            System.out.print(ime.getMessage());
         }
         tableViewVisble().refresh();
     }
@@ -463,6 +446,67 @@ public class AdminController implements Initializable {
         } catch (InvalidPerformanceValueException ipe) {
             System.out.print(ipe.getMessage());
         }
+        tableViewVisble().refresh();
+    }
+
+
+    public void editSurround(TableColumn.CellEditEvent<SoundCardModel, String> event) {
+        event.getRowValue().setSurround(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editBassBoost(TableColumn.CellEditEvent<SoundCardModel, String> event) {
+        event.getRowValue().setBassBoost(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setWatt(event.getNewValue());
+            }
+
+        } catch (InvalidWattException iwe) {
+            System.out.print(iwe.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+
+    public void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setSize(event.getNewValue());
+            }
+
+        } catch (InvalidSizeException ize) {
+            System.out.print(ize.getMessage());
+        }
+        tableViewVisble().refresh();
+
+    }
+
+    public void editMouseType(TableColumn.CellEditEvent<MouseModel, String> event) {
+        event.getRowValue().setType(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editMouseWireless(TableColumn.CellEditEvent<MouseModel, String> event) {
+        event.getRowValue().setWireless(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editKeyboardType(TableColumn.CellEditEvent<KeyboardModel, String> event) {
+        event.getRowValue().setType(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editKeyboardLanguage(TableColumn.CellEditEvent<KeyboardModel, String> event) {
+        event.getRowValue().setLanguage(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editKeyboardWireless(TableColumn.CellEditEvent<KeyboardModel, String> event) {
+        event.getRowValue().setWireless(event.getNewValue());
         tableViewVisble().refresh();
     }
 

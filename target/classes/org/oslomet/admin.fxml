@@ -361,7 +361,7 @@
                 </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colSoundcardSurround" onEditCommit="#editBooleanAttribute" prefWidth="178.0" text="Surround">
+            <TableColumn fx:id="colSoundcardSurround" onEditCommit="#editSurround" prefWidth="178.0" text="Surround">
                 <cellValueFactory>
                     <PropertyValueFactory property="surround" />
                 </cellValueFactory>
@@ -370,7 +370,7 @@
                 </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colSoundcardBassBoost" onEditCommit="#editBooleanAttribute" prefWidth="232.0" text="Bassboost">
+            <TableColumn fx:id="colSoundcardBassBoost" onEditCommit="#editBassBoost" prefWidth="232.0" text="Bassboost">
                 <cellValueFactory>
                     <PropertyValueFactory property="bassBoost" />
                 </cellValueFactory>
@@ -500,7 +500,7 @@
                  </cellValueFactory>
              </TableColumn>
 
-             <TableColumn fx:id="colMouseType" onEditCommit="#editText" prefWidth="181.0" text="Type">
+             <TableColumn fx:id="colMouseType" onEditCommit="#editMouseType" prefWidth="181.0" text="Type">
                  <cellValueFactory>
                      <PropertyValueFactory property="type" />
                  </cellValueFactory>
@@ -509,7 +509,7 @@
                  </cellFactory>
              </TableColumn>
 
-             <TableColumn fx:id="colMouseWireless" onEditCommit="#editBooleanAttribute" prefWidth="178.0" text="Wireless">
+             <TableColumn fx:id="colMouseWireless" onEditCommit="#editMouseWireless" prefWidth="178.0" text="Wireless">
                  <cellValueFactory>
                      <PropertyValueFactory property="wireless" />
                  </cellValueFactory>
@@ -554,7 +554,7 @@
                </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colKeyboardType" onEditCommit="#editText" prefWidth="154.0" text="Type">
+            <TableColumn fx:id="colKeyboardType" onEditCommit="#editKeyboardType" prefWidth="154.0" text="Type">
                <cellValueFactory>
                   <PropertyValueFactory property="type" />
                </cellValueFactory>
@@ -563,7 +563,7 @@
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colKeyboardLanguage" onEditCommit="#editText" prefWidth="133.0" text="Language">
+            <TableColumn fx:id="colKeyboardLanguage" onEditCommit="#editKeyboardLanguage" prefWidth="133.0" text="Language">
                <cellValueFactory>
                   <PropertyValueFactory property="language" />
                </cellValueFactory>
@@ -572,7 +572,7 @@
                </cellFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colKeyboardWireless" onEditCommit="#editBooleanAttribute" prefWidth="123.0" text="Wireless">
+            <TableColumn fx:id="colKeyboardWireless" onEditCommit="#editKeyboardWireless" prefWidth="123.0" text="Wireless">
                <cellValueFactory>
                   <PropertyValueFactory property="wireless" />
                </cellValueFactory>
