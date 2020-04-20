@@ -3,61 +3,63 @@ package org.oslomet.ComponentDialogs;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.oslomet.ComponentClasses.MonitorModel;
-import org.oslomet.ComponentRegistry.MonitorRegistry;
-import org.oslomet.ExceptionClasses.*;
+import org.oslomet.ComponentClasses.MotherboardModel;
+import org.oslomet.ComponentRegistry.MotherboardRegistry;
+import org.oslomet.ExceptionClasses.InvalidBrandException;
+import org.oslomet.ExceptionClasses.InvalidNameException;
+import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
+import org.oslomet.ExceptionClasses.InvalidPriceException;
 
-import static org.oslomet.GenerateDialogBox.addComponentGridPane;
+public class MotherBoardDialog {
 
-public class MonitorDialog {
     DialogTemplate dialogTemplate = new DialogTemplate();
+
+    //Combo boxes
+    ComboBox type = new ComboBox();
 
     //Buttons
     Button btnSubmit = new Button("Submit");
     Button btnCancel = new Button("Cancel");
 
-    //Text fields
-    TextField size = new TextField();
-
-    //Labels
-    Label sizeErrorLlb = new Label("");
-
     public void display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("CPU");
+        window.setTitle("Mother board");
         window.setMinWidth(600);
         window.setMinHeight(300);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(sizeErrorLlb, 2, 4);
-        gridPane.add(new Label("Size:"), 0, 4);
-        gridPane.add(size, 1, 4);
-        size.setPromptText("Size (inches)");
+        type.getItems().addAll("ATX", "mini-ATX", "E-ATX");
+        type.setValue("ATX");
+        gridPane.add(new Label("Type:"), 0, 4);
+        gridPane.add(type, 1, 4);
 
-        gridPane.add(btnSubmit, 0, 5);
-        gridPane.add(btnCancel, 1, 5);
-        btnSubmit.setOnAction(e -> submitMonitor(window));
+        gridPane.add(btnSubmit, 0, 6);
+        gridPane.add(btnCancel, 1, 6);
+
+        gridPane.setAlignment(Pos.CENTER);
+
         btnCancel.setOnAction(e -> window.close());
+        btnSubmit.setOnAction(e -> submitMotherBoard(window));
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
         window.showAndWait();
     }
 
-    private void submitMonitor(Stage window) {
+    private void submitMotherBoard(Stage window) {
+
         try {
             dialogTemplate.clearErrorLabels();
-            sizeErrorLlb.setText("");
             double priceDouble = 0;
             double pvDouble = 0;
-            int sizeInt = 0;
+            String typeString = type.getValue().toString();
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
@@ -68,18 +70,11 @@ public class MonitorDialog {
             } catch (NumberFormatException nfe) {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
-            try {
-                sizeInt = Integer.parseInt(size.getText());
-            } catch (NumberFormatException nfe) {
-                sizeErrorLlb.setText("Size must be a number");
-            }
 
-            MonitorRegistry.addComponent(new MonitorModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, sizeInt));
+            MotherboardRegistry.addComponent(new MotherboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, typeString));
             window.close();
 
-        }
-
-        catch (InvalidNameException ine) {
+        } catch (InvalidNameException ine) {
             dialogTemplate.setNameErrorLblName(ine.getMessage());
         } catch (InvalidBrandException ibe) {
             dialogTemplate.setBrandErrorLblName(ibe.getMessage());
@@ -87,8 +82,7 @@ public class MonitorDialog {
             dialogTemplate.setPriceErrorLbl(ipe.getMessage());
         } catch (InvalidPerformanceValueException ipve) {
             dialogTemplate.setPerformanceValueErrorLbl(ipve.getMessage());
-        } catch (InvalidSizeException ise) {
-            sizeErrorLlb.setText(ise.getMessage());
         }
+
     }
 }

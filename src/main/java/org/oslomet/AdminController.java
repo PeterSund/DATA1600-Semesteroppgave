@@ -588,7 +588,8 @@ public class AdminController implements Initializable {
                 break;
 
             case "Motherboard":
-                //generateMotherboardComponentDialog(addComponentDialog, grid);
+                MotherBoardDialog motherBoardDialog = new MotherBoardDialog();
+                motherBoardDialog.display();
                 break;
 
             case "RAM":
