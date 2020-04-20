@@ -593,15 +593,18 @@ public class AdminController implements Initializable {
                 break;
 
             case "RAM":
-                //generateRAMComponentDialog(addComponentDialog, grid);
+                RAMDialog ramDialog = new RAMDialog();
+                ramDialog.display();
                 break;
 
             case "Soundcard":
-                //generateSoundCardComponentDialog(addComponentDialog, grid);
+                SoundCardDialog soundCardDialog = new SoundCardDialog();
+                soundCardDialog.display();
                 break;
 
             case "PSU":
-                //generatePSUComponentDialog(addComponentDialog, grid);
+                PSUDialog psuDialog = new PSUDialog();
+                psuDialog.display();
                 break;
 
             case "Monitor":
@@ -610,14 +613,14 @@ public class AdminController implements Initializable {
                 break;
 
             case "Mouse":
-                break;
+                MouseDialog mouseDialog = new MouseDialog();
+                mouseDialog.display();
 
             case "Keyboard":
-                //generateKeyboardComponentDialog(addComponentDialog, grid);
+                KeyboardDialog keyboardDialog = new KeyboardDialog();
+                keyboardDialog.display();
                 break;
         }
-
-       //GenerateDialogBox.selectDialogToGenerate(activeTableviewID);
     }
 
 
