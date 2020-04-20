@@ -1,8 +1,6 @@
 package org.oslomet.ComponentDialogs;
 
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,20 +9,22 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.CPUModel;
+import org.oslomet.ComponentClasses.GPUModel;
 import org.oslomet.ComponentRegistry.CPURegistry;
+import org.oslomet.ComponentRegistry.GPURegistry;
 import org.oslomet.ExceptionClasses.*;
 
-public class CPUDialog {
+public class GPUDialog {
 
     DialogTemplate dialogTemplate = new DialogTemplate();
 
-    //TextFields for CPU dialog-box
+    //TextFields for GPU dialog-box
     private TextField clockSpeed = new TextField();
-    private TextField cores = new TextField();
+    private TextField memory = new TextField();
 
-    //Labels for displaying error in CPU dialog-box
-    private Label coresErrorLbl = new Label("");
-    private Label clockspeedErrorLbl = new Label("");
+    //Labels for displaying error in GPU dialog-box
+    private Label clockSpeedErrorLbl = new Label("");
+    private Label memoryErrorLbl = new Label("");
 
     //Buttons
     private Button btnSubmit = new Button("Submit");
@@ -33,21 +33,21 @@ public class CPUDialog {
     public void display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("CPU");
+        window.setTitle("GPU");
         window.setMinWidth(600);
         window.setMinHeight(300);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(clockspeedErrorLbl, 2, 4);
-        gridPane.add(new Label("No. cores:"), 0, 5);
-        gridPane.add(cores, 1,5);
-        cores.setPromptText("No. cores");
-
-        gridPane.add(coresErrorLbl,2,5);
         gridPane.add(new Label("Clockspeed:"), 0, 4);
         gridPane.add(clockSpeed, 1,4);
+        gridPane.add(clockSpeedErrorLbl, 2, 4);
         clockSpeed.setPromptText("Clockspeed (GHz)");
+
+        gridPane.add(new Label("Memory:"), 0, 5);
+        gridPane.add(memory, 1,5);
+        gridPane.add(memoryErrorLbl,2,5);
+        memory.setPromptText("Memory (MB)");
 
         gridPane.add(btnSubmit, 0, 6);
         gridPane.add(btnCancel, 1, 6);
@@ -55,21 +55,21 @@ public class CPUDialog {
         gridPane.setAlignment(Pos.CENTER);
 
         btnCancel.setOnAction(e -> window.close());
-        btnSubmit.setOnAction(e -> submitCPU(window));
+        btnSubmit.setOnAction(e -> submitGPU(window));
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
         window.showAndWait();
     }
 
-    private void submitCPU(Stage window) {
+    private void submitGPU(Stage window) {
         dialogTemplate.clearErrorLabels();
-        clockspeedErrorLbl.setText("");
-        coresErrorLbl.setText("");
+        clockSpeedErrorLbl.setText("");
+        memoryErrorLbl.setText("");
         double priceDouble = 0;
         double pvDouble = 0;
         double clockSpeedDouble = 0;
-        int coresInt = 0;
+        int memoryInt = 0;
 
         try {
             try {
@@ -85,15 +85,15 @@ public class CPUDialog {
             try {
                 clockSpeedDouble = Double.parseDouble(clockSpeed.getText());
             } catch (NumberFormatException nfe) {
-                clockspeedErrorLbl.setText("Clockspeed must be a number");
+                clockSpeedErrorLbl.setText("Clockspeed must be a number");
             }
             try {
-                coresInt = Integer.parseInt(cores.getText());
+                memoryInt = Integer.parseInt(memory.getText());
             } catch (NumberFormatException nfe) {
-                coresErrorLbl.setText("Cores must be a number");
+                memoryErrorLbl.setText("Memory must be a number");
             }
 
-            CPURegistry.addComponent(new CPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, coresInt));
+            GPURegistry.addComponent(new GPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, memoryInt));
             window.close();
         }
 
@@ -106,12 +106,10 @@ public class CPUDialog {
         } catch (InvalidPerformanceValueException ipve) {
             dialogTemplate.setPerformanceValueErrorLbl(ipve.getMessage());
         } catch (InvalidClockSpeedException icse) {
-            clockspeedErrorLbl.setText(icse.getMessage());
-        } catch (InvalidCoresException ice) {
-            coresErrorLbl.setText(ice.getMessage());
+            clockSpeedErrorLbl.setText(icse.getMessage());
+        } catch (InvalidMemoryException ice) {
+            memoryErrorLbl.setText(ice.getMessage());
         }
     }
 
 }
-
-

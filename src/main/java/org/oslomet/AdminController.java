@@ -12,8 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.ComponentDialogs.CPUDialog;
-import org.oslomet.ComponentDialogs.MonitorDialog;
+import org.oslomet.ComponentDialogs.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
@@ -569,7 +568,8 @@ public class AdminController implements Initializable {
 
         switch (activeTableviewID) {
             case "Computercase":
-                //createComputerCaseComponentDialog(addComponentDialog, grid);
+                ComputerCaseDialog computerCaseDialog = new ComputerCaseDialog();
+                computerCaseDialog.display();
                 break;
 
             case "CPU":
@@ -578,11 +578,13 @@ public class AdminController implements Initializable {
                 break;
 
             case "GPU":
-                //generateGPUComponentDialog(addComponentDialog, grid);
+                GPUDialog gpuDialog = new GPUDialog();
+                gpuDialog.display();
                 break;
 
             case "Hard drive":
-                //generateHardDriveComponentDialog(addComponentDialog, grid);
+                HardDriveDialog hardDriveDialog = new HardDriveDialog();
+                hardDriveDialog.display();
                 break;
 
             case "Motherboard":

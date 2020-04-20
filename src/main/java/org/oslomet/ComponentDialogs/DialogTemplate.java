@@ -84,4 +84,19 @@ public class DialogTemplate {
         performanceValueErrorLbl.setText(performanceValue);
     }
 
+    //Clear input text when dialog is opened
+    public void clearTextFields() {
+        name.clear();
+        brand.clear();
+        price.clear();
+        performanceValue.clear();
+    }
+
+    public void clearErrorLabels() {
+        nameErrorLbl.setText("");
+        brandErrorLbl.setText("");
+        priceErrorLbl.setText("");
+        performanceValueErrorLbl.setText("");
+    }
+
 }
