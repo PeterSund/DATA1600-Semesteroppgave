@@ -80,6 +80,10 @@ public class AdminController implements Initializable {
         }
         cbFilterComputerCase.setVisible(true);
 
+        final ObservableList<String> optionsHarddriveComboBox = FXCollections.observableArrayList("SSD", "HDD");
+        final ObservableList<String> optionsMotherboardCombobox = FXCollections.observableArrayList("ATX", "mini-ATX", "e-ATX");
+
+
         colComputercasePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colComputercasePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colCPUPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
@@ -93,8 +97,10 @@ public class AdminController implements Initializable {
         colHarddrivePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colHarddrivePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colHarddriveCapacity.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colHarddriveType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsHarddriveComboBox));
         colMotherboardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colMotherboardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colMotherboardType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsMotherboardCombobox));
         colRAMPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colRAMPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colRAMMemorySpeed.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
@@ -112,10 +118,9 @@ public class AdminController implements Initializable {
         colKeyboardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colKeyboardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
 
-        ObservableList<String> options = FXCollections.observableArrayList("SSD", "HDD");
-        final ComboBox cb = new ComboBox(options);
 
-        colHarddriveType.setCellFactory(ComboBoxTableCell.forTableColumn());
+
+
 
     }
 
@@ -145,6 +150,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private TableColumn<MotherboardModel, Double> colMotherboardPrice, colMotherboardPV;
+
+    @FXML
+    private TableColumn<HarddriveModel, String> colMotherboardType;
 
     @FXML
     private TableColumn<RAMModel, Double> colRAMPrice, colRAMPV, colRAMMemorySpeed;
@@ -292,19 +300,11 @@ public class AdminController implements Initializable {
         }
         tableViewVisble().refresh();
     }
-/*
-    public void editType(TableColumn.CellEditEvent<? extends ComponentModel, String> event) {
-        try {
-            event.getRowValue().setType(event.getNewValue());
 
-        } catch(InvalidNameException ine) {
-            System.out.print(ine.getMessage());
-        }
-        tableViewVisble().refresh();
-    }
-    }
 
- */
+    public void editText() {
+
+    }
 
 
 
@@ -332,8 +332,49 @@ public class AdminController implements Initializable {
         tableViewVisble().refresh();
     }
 
-    public void editText() {
+    public void editComputerCaseDimensions(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
+        event.getRowValue().setDimensions(event.getNewValue());
+        tableViewVisble().refresh();
+    }
 
+    public void editComputerCaseColor(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
+        event.getRowValue().setColor(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editCPUClockSpeed(TableColumn.CellEditEvent<CPUModel, Double> event) {
+        try {
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setClockSpeed(event.getNewValue());
+            }
+
+        } catch (InvalidClockSpeedException icse) {
+            System.out.print(icse.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+
+    public void editGPUClockSpeed(TableColumn.CellEditEvent<GPUModel, Double> event) {
+        try {
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setClockSpeed(event.getNewValue());
+            }
+
+        } catch (InvalidClockSpeedException icse) {
+            System.out.print(icse.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+
+
+    public void editHarddriveType(TableColumn.CellEditEvent<HarddriveModel, String> event) {
+        event.getRowValue().setType(event.getNewValue());
+        tableViewVisble().refresh();
+    }
+
+    public void editMotherboardType(TableColumn.CellEditEvent<MotherboardModel, String> event) {
+        event.getRowValue().setType(event.getNewValue());
+        tableViewVisble().refresh();
     }
 
     public void editBooleanAttribute() {
@@ -351,30 +392,6 @@ public class AdminController implements Initializable {
         }
         tableViewVisble().refresh();
 
-    }
-
-    public void editClockSpeedCPU(TableColumn.CellEditEvent<CPUModel, Double> event) {
-        try {
-            if(StringToDoubleConv.wasSuccessful()) {
-                event.getRowValue().setClockSpeed(event.getNewValue());
-            }
-
-        } catch (InvalidClockSpeedException icse) {
-            System.out.print(icse.getMessage());
-        }
-        tableViewVisble().refresh();
-    }
-
-    public void editClockSpeedGPU(TableColumn.CellEditEvent<GPUModel, Double> event) {
-        try {
-            if(StringToDoubleConv.wasSuccessful()) {
-                event.getRowValue().setClockSpeed(event.getNewValue());
-            }
-
-        } catch (InvalidClockSpeedException icse) {
-            System.out.print(icse.getMessage());
-        }
-        tableViewVisble().refresh();
     }
 
     public void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {

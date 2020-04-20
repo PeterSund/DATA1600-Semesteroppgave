@@ -48,7 +48,7 @@ public class PSURegistry implements RegistryMethods  {
         return psuList;
     }
 
-    public static  void addPSUFromJobjToArray(ArrayList<PSUModel> list) {
+    public static void addPSUFromJobjToArray(ArrayList<PSUModel> list) {
         for (PSUModel psu : list) {
             psuArray.add(psu);
         }
