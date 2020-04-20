@@ -10,12 +10,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
-import org.oslomet.ExceptionClasses.InvalidBrandException;
-import org.oslomet.ExceptionClasses.InvalidNameException;
-import org.oslomet.ExceptionClasses.InvalidPriceException;
+import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerJobj;
 import org.oslomet.FileHandling.FileSaverJobj;
@@ -30,8 +30,156 @@ import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewArray.add(tvComputercase);
+        tableViewArray.add(tvCPU);
+        tableViewArray.add(tvGPU);
+        tableViewArray.add(tvHarddrive);
+        tableViewArray.add(tvKeyboard);
+        tableViewArray.add(tvPSU);
+        tableViewArray.add(tvMonitor);
+        tableViewArray.add(tvMotherboard);
+        tableViewArray.add(tvMouse);
+        tableViewArray.add(tvRAM);
+        tableViewArray.add(tvSoundcard);
+        tableViewArray.add(tvMouse);
+
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+        CPURegistry.attachTableView(tvCPU);
+        GPURegistry.attachTableView(tvGPU);
+        HardDriveRegistry.attachTableView(tvHarddrive);
+        KeyboardRegistry.attachTableView(tvKeyboard);
+        MonitorRegistry.attachTableView(tvMonitor);
+        MotherboardRegistry.attachTableView(tvMotherboard);
+        SoundCardRegistry.attachTableView(tvSoundcard);
+        RAMRegistry.attachTableView(tvRAM);
+        PSURegistry.attachTableView(tvPSU);
+        MouseRegistry.attachTableView(tvMouse);
+
+        cbArray.add(cbFilterComputerCase);
+        cbArray.add(cbFilterCPU);
+        cbArray.add(cbFilterGPU);
+        cbArray.add(cbFilterHarddrive);
+        cbArray.add(cbFilterKeyboard);
+        cbArray.add(cbFilterPSU);
+        cbArray.add(cbFilterMonitor);
+        cbArray.add(cbFilterMotherboard);
+        cbArray.add(cbFilterMouse);
+        cbArray.add(cbFilterRAM);
+        cbArray.add(cbFilterSoundcard);
+        cbArray.add(cbFilterMouse);
+
+        for (TableView tv : tableViewArray) {
+            tv.setVisible(false);
+        }
+        tvComputercase.setVisible(true);
+
+        for (ChoiceBox cb : cbArray) {
+            cb.setVisible(false);
+        }
+        cbFilterComputerCase.setVisible(true);
+
+        colComputercasePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colComputercasePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colCPUPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colCPUPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colCPUClockSpeed.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colCPUCores.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colGPUPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colGPUPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colGPUClockSpeed.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colGPUMemory.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colHarddrivePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colHarddrivePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colHarddriveCapacity.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colMotherboardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colMotherboardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colRAMPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colRAMPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colRAMMemorySpeed.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colRAMMemory.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colSoundcardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colSoundcardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colPSUPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colPSUPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colPSUWatt.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colMonitorPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colMonitorPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colMonitorSize.setCellFactory(TextFieldTableCell.forTableColumn(StringToIntConv));
+        colMousePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colMousePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colKeyboardPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+        colKeyboardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
+
+        ObservableList<String> options = FXCollections.observableArrayList("SSD", "HDD");
+        final ComboBox cb = new ComboBox(options);
+
+        colHarddriveType.setCellFactory(ComboBoxTableCell.forTableColumn());
+
+    }
+
+    @FXML
+    private TableColumn<ComputerCaseModel, Double> colComputercasePrice, colComputercasePV;
+
+    @FXML
+    private TableColumn<CPUModel, Double> colCPUPrice, colCPUPV, colCPUClockSpeed;
+
+    @FXML
+    private TableColumn<CPUModel, Integer> colCPUCores;
+
+    @FXML
+    private TableColumn<GPUModel, Double> colGPUPrice, colGPUPV,colGPUClockSpeed;
+
+    @FXML
+    private TableColumn<GPUModel, Integer> colGPUMemory;
+
+    @FXML
+    private TableColumn<HarddriveModel, Double> colHarddrivePrice, colHarddrivePV;
+
+    @FXML
+    private TableColumn<HarddriveModel, Integer> colHarddriveCapacity;
+
+    @FXML
+    private TableColumn<HarddriveModel, String> colHarddriveType;
+
+    @FXML
+    private TableColumn<MotherboardModel, Double> colMotherboardPrice, colMotherboardPV;
+
+    @FXML
+    private TableColumn<RAMModel, Double> colRAMPrice, colRAMPV, colRAMMemorySpeed;
+
+    @FXML
+    private TableColumn<RAMModel, Integer> colRAMMemory;
+
+    @FXML
+    private TableColumn<SoundCardModel, Double> colSoundcardPrice, colSoundcardPV;
+
+    @FXML
+    private TableColumn<PSUModel, Double> colPSUPrice, colPSUPV;
+
+    @FXML
+    private TableColumn<PSUModel, Integer> colPSUWatt;
+
+    @FXML
+    private TableColumn<MonitorModel, Double> colMonitorPrice, colMonitorPV;
+
+    @FXML
+    private TableColumn<MonitorModel, Integer> colMonitorSize;
+
+    @FXML
+    private TableColumn<MouseModel, Double> colMousePrice, colMousePV;
+
+    @FXML
+    private TableColumn<KeyboardModel, Double> colKeyboardPrice, colKeyboardPV;
+
     public List<TableView> tableViewArray = new ArrayList<>();
     public List<ChoiceBox> cbArray = new ArrayList<>();
+
+    private ConverterStringToNumber.IntegerStringConverter StringToIntConv
+            = new ConverterStringToNumber.IntegerStringConverter();
+    private ConverterStringToNumber.DoubleStringConverter StringToDoubleConv
+            = new ConverterStringToNumber.DoubleStringConverter();
 
     @FXML
     private Button btnLogOut;
@@ -162,18 +310,26 @@ public class AdminController implements Initializable {
 
     public void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
         try {
-            Double value = event.getNewValue();
-            ComponentModel row = event.getRowValue();
-            row.setPrice(value);
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setPrice(event.getNewValue());
+            }
+
         } catch (InvalidPriceException ipe) {
             System.out.print(ipe.getMessage());
         }
         tableViewVisble().refresh();
-
     }
 
-    public void editPerformanceValue() {
+    public void editPerformanceValue(TableColumn.CellEditEvent<ComponentModel, Double> event) {
+        try {
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setPerformanceValue(event.getNewValue());
+            }
 
+        } catch (InvalidPerformanceValueException ipe) {
+            System.out.print(ipe.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
     public void editText() {
@@ -184,36 +340,113 @@ public class AdminController implements Initializable {
 
     }
 
-    public void editSize() {
+    public void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setSize(event.getNewValue());
+            }
+
+        } catch (InvalidSizeException ize) {
+            System.out.print(ize.getMessage());
+        }
+        tableViewVisble().refresh();
 
     }
 
-    public void editClockSpeed() {
+    public void editClockSpeedCPU(TableColumn.CellEditEvent<CPUModel, Double> event) {
+        try {
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setClockSpeed(event.getNewValue());
+            }
 
+        } catch (InvalidClockSpeedException icse) {
+            System.out.print(icse.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editMemory() {
+    public void editClockSpeedGPU(TableColumn.CellEditEvent<GPUModel, Double> event) {
+        try {
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setClockSpeed(event.getNewValue());
+            }
 
+        } catch (InvalidClockSpeedException icse) {
+            System.out.print(icse.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editWatt() {
+    public void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setMemory(event.getNewValue());
+            }
 
+        } catch (InvalidMemoryException ime) {
+            System.out.print(ime.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editCapacity() {
+    public void editGPUMemory(TableColumn.CellEditEvent<GPUModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setMemory(event.getNewValue());
+            }
 
+        } catch (InvalidMemoryException ime) {
+            System.out.print(ime.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editFrequency() {
+    public void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setWatt(event.getNewValue());
+            }
 
+        } catch (InvalidWattException iwe) {
+            System.out.print(iwe.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editCores() {
+    public void editCapacity(TableColumn.CellEditEvent<HarddriveModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setCapacity(event.getNewValue());
+            }
 
+        } catch (InvalidCapacityException ice) {
+            System.out.print(ice.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
-    public void editMemorySpeed() {
+    public void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
+        try {
+            if(StringToIntConv.wasSuccessful()) {
+                event.getRowValue().setCores(event.getNewValue());
+            }
 
+        } catch (InvalidCoresException ice) {
+            System.out.print(ice.getMessage());
+        }
+        tableViewVisble().refresh();
+    }
+
+    public void editMemorySpeed(TableColumn.CellEditEvent<RAMModel, Double> event) {
+        try {
+            if(StringToDoubleConv.wasSuccessful()) {
+                event.getRowValue().setMemorySpeed(event.getNewValue());
+            }
+
+        } catch (InvalidPerformanceValueException ipe) {
+            System.out.print(ipe.getMessage());
+        }
+        tableViewVisble().refresh();
     }
 
     @FXML
@@ -257,6 +490,12 @@ public class AdminController implements Initializable {
     private void updateRAMList() { RAMRegistry.attachTableView(tvRAM);}
 
     private void updateSoundCardList() { SoundCardRegistry.attachTableView(tvSoundcard);}
+
+    @FXML
+    private void clearFilter() {
+        txtFilter.clear();
+        txtFilterEntered();
+    }
 
 
     @FXML
@@ -599,59 +838,5 @@ public class AdminController implements Initializable {
                 cb.setVisible(false);
             }
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        tableViewArray.add(tvComputercase);
-        tableViewArray.add(tvCPU);
-        tableViewArray.add(tvGPU);
-        tableViewArray.add(tvHarddrive);
-        tableViewArray.add(tvKeyboard);
-        tableViewArray.add(tvPSU);
-        tableViewArray.add(tvMonitor);
-        tableViewArray.add(tvMotherboard);
-        tableViewArray.add(tvMouse);
-        tableViewArray.add(tvRAM);
-        tableViewArray.add(tvSoundcard);
-        tableViewArray.add(tvMouse);
-
-        ComputerCaseRegistry.attachTableView(tvComputercase);
-        CPURegistry.attachTableView(tvCPU);
-        GPURegistry.attachTableView(tvGPU);
-        HardDriveRegistry.attachTableView(tvHarddrive);
-        KeyboardRegistry.attachTableView(tvKeyboard);
-        MonitorRegistry.attachTableView(tvMonitor);
-        MotherboardRegistry.attachTableView(tvMotherboard);
-        SoundCardRegistry.attachTableView(tvSoundcard);
-        RAMRegistry.attachTableView(tvRAM);
-        PSURegistry.attachTableView(tvPSU);
-        MouseRegistry.attachTableView(tvMouse);
-
-        cbArray.add(cbFilterComputerCase);
-        cbArray.add(cbFilterCPU);
-        cbArray.add(cbFilterGPU);
-        cbArray.add(cbFilterHarddrive);
-        cbArray.add(cbFilterKeyboard);
-        cbArray.add(cbFilterPSU);
-        cbArray.add(cbFilterMonitor);
-        cbArray.add(cbFilterMotherboard);
-        cbArray.add(cbFilterMouse);
-        cbArray.add(cbFilterRAM);
-        cbArray.add(cbFilterSoundcard);
-        cbArray.add(cbFilterMouse);
-
-        for (TableView tv : tableViewArray) {
-            tv.setVisible(false);
-        }
-        tvComputercase.setVisible(true);
-
-        for (ChoiceBox cb : cbArray) {
-            cb.setVisible(false);
-        }
-        cbFilterComputerCase.setVisible(true);
-
-
-
     }
 }
