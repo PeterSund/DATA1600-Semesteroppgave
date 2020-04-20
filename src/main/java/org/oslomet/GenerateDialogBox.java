@@ -443,15 +443,9 @@ public class GenerateDialogBox {
                 languageErrorLbl.setText("");
                 double priceDouble = 0;
                 double pvDouble = 0;
-                boolean wirelessBoolean;
-                String wireslessString = type.getValue().toString();
                 String typeString = type.getValue().toString();
+                String wirelessString = wireless.getValue().toString();
 
-                if (wireslessString.equals("Yes")) {
-                    wirelessBoolean = true;
-                } else {
-                    wirelessBoolean = false;
-                }
 
                     try {
                         priceDouble = Double.parseDouble(price.getText());
@@ -464,7 +458,7 @@ public class GenerateDialogBox {
                         performanceValueErrorLbl.setText("Performancevalue must be a number");
                     }
 
-                    KeyboardRegistry.addComponent(new KeyboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, language.getText(), wirelessBoolean));
+                    KeyboardRegistry.addComponent(new KeyboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, language.getText(), wirelessString));
                     createObject = true;
 
             } catch (InvalidNameException ine) {
@@ -618,14 +612,8 @@ public class GenerateDialogBox {
                 clearErrorLabels();
                 double priceDouble = 0;
                 double pvDouble = 0;
-                boolean wirelessBoolean;
                 String wireslessString = type.getValue().toString();
 
-                if (wireslessString.equals("Yes")) {
-                    wirelessBoolean = true;
-                } else {
-                    wirelessBoolean = false;
-                }
                 try {
                     priceDouble = Double.parseDouble(price.getText());
                 } catch (NumberFormatException nfe) {
@@ -637,7 +625,7 @@ public class GenerateDialogBox {
                     performanceValueErrorLbl.setText("Performancevalue must be a number");
                 }
 
-                MouseRegistry.addComponent(new MouseModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, wirelessBoolean));
+                MouseRegistry.addComponent(new MouseModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, wireslessString));
                 createObject = true;
 
             } catch (InvalidNameException ine) {
@@ -813,21 +801,8 @@ public class GenerateDialogBox {
                 clearErrorLabels();
                 double priceDouble = 0;
                 double pvDouble = 0;
-                boolean surroundBoolean, bassboostBolean;
                 String surroundString = surround.getValue().toString();
                 String bassboostString = bassboost.getValue().toString();
-
-                if (surroundString.equals("Yes")) {
-                    surroundBoolean = true;
-                } else {
-                    surroundBoolean = false;
-                }
-
-                if (bassboostString.equals("Yes")) {
-                    bassboostBolean = true;
-                } else {
-                    bassboostBolean = false;
-                }
 
                 try {
                     priceDouble = Double.parseDouble(price.getText());
@@ -840,7 +815,7 @@ public class GenerateDialogBox {
                     performanceValueErrorLbl.setText("Performancevalue must be a number");
                 }
 
-                SoundCardRegistry.addComponent(new SoundCardModel(name.getText(), brand.getText(), priceDouble, pvDouble, surroundBoolean, bassboostBolean));
+                SoundCardRegistry.addComponent(new SoundCardModel(name.getText(), brand.getText(), priceDouble, pvDouble, surroundString, bassboostString));
                 createObject = true;
 
             } catch (InvalidNameException ine) {

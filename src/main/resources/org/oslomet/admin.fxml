@@ -365,12 +365,18 @@
                 <cellValueFactory>
                     <PropertyValueFactory property="surround" />
                 </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
             </TableColumn>
 
             <TableColumn fx:id="colSoundcardBassBoost" onEditCommit="#editBooleanAttribute" prefWidth="232.0" text="Bassboost">
                 <cellValueFactory>
                     <PropertyValueFactory property="bassBoost" />
                 </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
             </TableColumn>
 
          </columns>
@@ -507,6 +513,9 @@
                  <cellValueFactory>
                      <PropertyValueFactory property="wireless" />
                  </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
              </TableColumn>
 
          </columns>
@@ -567,6 +576,9 @@
                <cellValueFactory>
                   <PropertyValueFactory property="wireless" />
                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
             </TableColumn>
 
          </columns>

@@ -84,6 +84,11 @@ public class KeyboardRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", language.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
+    public ObservableList<KeyboardModel> filterByWireless(String wireless) {
+        return keyboardArray.stream().filter(k -> k.getBrand().
+                toLowerCase().matches(String.format("%s%s%s", ".*", wireless.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
 
     public static KeyboardModel keyBoardExists(String keyboardName) {
 
