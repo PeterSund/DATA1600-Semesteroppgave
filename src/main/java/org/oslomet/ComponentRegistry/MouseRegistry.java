@@ -84,9 +84,10 @@ public class MouseRegistry implements RegistryMethods  {
                 toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<MouseModel> filterByWireless(boolean wireless) {
-        return mouseArray.stream().filter(mm -> mm.isWireless() == wireless).
-                collect(Collectors.toCollection(FXCollections::observableArrayList));
+    public ObservableList<MouseModel> filterByWireless(String wireless) {
+        return mouseArray.stream().filter(mm -> mm.getType().
+                toLowerCase().matches(String.format("%s%s%s", ".*", wireless.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
     public static MouseModel mouseExists(String mouseName) {

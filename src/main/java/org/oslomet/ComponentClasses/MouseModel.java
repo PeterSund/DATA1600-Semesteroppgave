@@ -10,13 +10,13 @@ import java.io.Serializable;
 
 public class MouseModel extends ComponentModel implements Serializable {
 
-    private transient SimpleStringProperty type;
-    private transient SimpleBooleanProperty wireless;
+    private transient SimpleStringProperty type, wireless;
 
-    public MouseModel(String name, String brand, double price, double performanceValue, String type, boolean wireless) {
+
+    public MouseModel(String name, String brand, double price, double performanceValue, String type, String wireless) {
         super(name, brand, price, performanceValue);
         this.type = new SimpleStringProperty(type);
-        this.wireless = new SimpleBooleanProperty(wireless);
+        this.wireless = new SimpleStringProperty(wireless);
     }
 
     //Getters/Setters
@@ -28,10 +28,10 @@ public class MouseModel extends ComponentModel implements Serializable {
         this.type.set(type);
     }
 
-    public boolean isWireless() {
+    public String getWireless() {
         return wireless.get();
     }
-    public void setWireless(boolean wireless) {
+    public void setWireless(String wireless) {
         this.wireless.set(wireless);
     }
 
@@ -40,12 +40,7 @@ public class MouseModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-
-        String output = this.getBrand() + " " + this.getName() + ", " + this.getType();
-
-        if(wireless.getValue()) {
-           output += ", Wireless";
-         }
+        String output = this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getWireless();
         return output;
     }
 
@@ -53,21 +48,21 @@ public class MouseModel extends ComponentModel implements Serializable {
         String formattedComponent = "Mouse";
         formattedComponent += formatComponentForTxtFile();
         formattedComponent += ";Type: " + getType();
-        formattedComponent += isWireless() ? ";Wireless: Yes" : ";Wireless: No";
+        formattedComponent += ";Wireless: " + getWireless();
         return formattedComponent;
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.writeUTF(getType());
-        s.writeBoolean(isWireless());
+        s.writeUTF(getWireless());
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
         String type = s.readUTF();
-        boolean wireless = s.readBoolean();
+        String wireless = s.readUTF();
 
         this.type = new SimpleStringProperty();
-        this.wireless = new SimpleBooleanProperty();
+        this.wireless = new SimpleStringProperty();
 
         setType(type);
         setWireless(wireless);

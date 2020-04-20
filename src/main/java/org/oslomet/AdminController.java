@@ -716,7 +716,7 @@ public class AdminController implements Initializable {
             case "Price" : result = mouseRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
             case "Performance value" : result = mouseRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
             case "Type" : result = mouseRegistry.filterByType(txtFilter.getText()); break;
-            case "Wireless" : result = mouseRegistry.filterByWireless(Boolean.parseBoolean((txtFilter.getText()))); break;
+            case "Wireless" : result = mouseRegistry.filterByWireless(txtFilter.getText()); break;
         }
 
         if(result == null) {

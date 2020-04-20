@@ -75,6 +75,18 @@ public class SoundCardRegistry implements RegistryMethods  {
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
+    public ObservableList<SoundCardModel> filterBySurround(String surround) {
+        return soundCardArray.stream().filter(sc -> sc.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", surround.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public ObservableList<SoundCardModel> filterByBassBoost(String bassBoost) {
+        return soundCardArray.stream().filter(sc -> sc.getName().
+                toLowerCase().matches(String.format("%s%s%s", ".*", bassBoost.toLowerCase(),
+                ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
     public static SoundCardModel soundCardExists(String soundCardName) {
 
         for (SoundCardModel soundCard : soundCardArray) {
