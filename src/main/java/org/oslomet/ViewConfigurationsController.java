@@ -16,6 +16,7 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
+import org.oslomet.Dialogs.ErrorDialog;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileSaverTxt;
@@ -73,7 +74,7 @@ public class ViewConfigurationsController implements Initializable {
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
         if (selectedComputer == null) {
-            System.out.print("Need to select a computer");
+            ErrorDialog.showErrorDialog("Need to select a computer");
         }
 
         else {
@@ -87,7 +88,7 @@ public class ViewConfigurationsController implements Initializable {
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
         if (selectedComputer == null) {
-            System.out.print("Need to select a computer");
+            ErrorDialog.showErrorDialog("Need to select a computer");
         }
 
         else {
@@ -114,11 +115,8 @@ public class ViewConfigurationsController implements Initializable {
             window.show();
         }
         catch (NullPointerException npe) {
-            System.err.print("Text file is corrupted and can't be opened!");
+            ErrorDialog.showErrorDialog("Text file is corrupted and can't be opened!");
         }
-
-
-
     }
 
     @FXML
@@ -149,7 +147,7 @@ public class ViewConfigurationsController implements Initializable {
 
         //Checks if user has selectet a computer
         if (selectedComputer == null) {
-            System.out.print("Need to select a computer!");
+            ErrorDialog.showErrorDialog("Need to select a computer!");
         }
 
         else {
@@ -162,7 +160,17 @@ public class ViewConfigurationsController implements Initializable {
         }
         
     }
-    
+
+    public void editConfigName(TableColumn.CellEditEvent<ComputerModel, String> event) {
+        try {
+            event.getRowValue().setConfigName(event.getNewValue());
+
+        } catch(InvalidConfigNameException icne) {
+            ErrorDialog.showErrorDialog(icne.getMessage());
+        }
+        tableviewMyConfigs.refresh();
+    }
+
     //Create new computer
     @FXML
     void newConf(ActionEvent event) throws IOException {

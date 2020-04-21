@@ -26,6 +26,7 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
+import org.oslomet.Dialogs.ErrorDialog;
 
 public class EditConfigurationController implements Initializable {
 
@@ -302,7 +303,7 @@ public class EditConfigurationController implements Initializable {
         }
 
         else {
-            System.out.println("Please select all parts for the computer");
+            ErrorDialog.showErrorDialog("Please select all parts for the computer");
         }
     }
 

@@ -407,7 +407,6 @@ public class AdminController implements Initializable {
             else {
                 ErrorDialog.showErrorDialog("CPU clockspeed must be a number");
             }
-
         } catch (InvalidClockSpeedException icse) {
             ErrorDialog.showErrorDialog(icse.getMessage());
         } catch (NullPointerException npe) {
