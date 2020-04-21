@@ -1019,10 +1019,11 @@ public class AdminController implements Initializable {
     }
 
     public void deleteComponent() {
+        DeleteComponentDialog deleteDialog = new DeleteComponentDialog();
         TableView activeTableview = tableViewVisible();
-        Object test = activeTableview.getSelectionModel().getSelectedItem();
-        if(test != null) {
-            if(DeleteComponentDialog.confirmDeleteDialog()) {
+        Object checkIfItemSelected = activeTableview.getSelectionModel().getSelectedItem();
+        if(checkIfItemSelected != null) {
+            if(deleteDialog.confirmDeleteDialog()) {
                 deleteSelectedComponent();
             }
         }

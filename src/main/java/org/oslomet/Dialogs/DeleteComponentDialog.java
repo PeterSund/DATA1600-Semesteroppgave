@@ -1,28 +1,50 @@
 package org.oslomet.Dialogs;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.oslomet.AdminController;
 
 import java.util.Optional;
 
 public class DeleteComponentDialog {
 
-    public static boolean confirmDeleteDialog() {
-        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete component?", yes, no);
-        alert.setTitle("Delete component");
+    private boolean deleteConfirmed = false;
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if(result.get() == ButtonType.OK) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public boolean confirmDeleteDialog() {
+        Stage window = new Stage();
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle("Confirm delete");
+        window.setMinWidth(600);
+        window.setMinHeight(300);
+
+        GridPane gridPane = new GridPane();
+
+        Button yes = new Button("Yes");
+        Button no = new Button("No");
+        gridPane.add(yes, 2,2);
+        gridPane.add(no, 3, 2);
+
+        gridPane.add(new Label("Are you sure you want to delete component?"),1,2);
+
+        gridPane.setAlignment(Pos.CENTER);
+
+        yes.setOnAction(e -> changeValueDeleteConfirmed(window));
+        no.setOnAction(e -> window.close());
+
+        Scene scene = new Scene(gridPane);
+        window.setScene(scene);
+        window.showAndWait();
+
+        return deleteConfirmed;
+    }
+
+    public void changeValueDeleteConfirmed(Stage window) {
+        window.close();
+        deleteConfirmed = true;
     }
 
     public static void noComponentSelected() {
