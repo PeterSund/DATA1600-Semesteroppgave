@@ -1,5 +1,7 @@
 package org.oslomet.ComponentClasses;
 
+import org.oslomet.ComputerClasses.ComputerRegistry;
+
 public class AdminInputValidation {
 
     public static final double MAX_PRICE = 99999;
@@ -13,6 +15,10 @@ public class AdminInputValidation {
     //Regex accepts all letters, digits and some special characters
     public static boolean name(String name) {
         return !name.isBlank() && name.matches("^[a-zA-Z0-9!#$%&'*+-/=?^_`{|};]+$");
+    }
+
+    public static boolean configName(String name) {
+        return !name.isBlank() && !ComputerRegistry.computerNameExists(name);
     }
 
     //Regex accepts all letters, digits and some special characters

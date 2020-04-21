@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ComponentClasses.*;
+import org.oslomet.ExceptionClasses.InvalidConfigNameException;
 
 public class ComputerModel {
 
@@ -48,6 +49,9 @@ public class ComputerModel {
     }
 
     public void setConfigName(String configName) {
+        if(!AdminInputValidation.configName(configName)) {
+            throw new InvalidConfigNameException("Configuration-name already exist or the input is blank");
+        }
         this.configName.set(configName);
     }
 

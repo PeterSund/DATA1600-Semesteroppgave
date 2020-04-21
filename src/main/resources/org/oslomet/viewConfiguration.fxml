@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -28,13 +29,16 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <TableView fx:id="tableviewMyConfigs" layoutX="49.0" layoutY="88.0" prefHeight="291.0" prefWidth="670.0">
+      <TableView fx:id="tableviewMyConfigs" editable="true" layoutX="49.0" layoutY="88.0" prefHeight="291.0" prefWidth="670.0">
         <columns>
 
-          <TableColumn fx:id="colConfigName" prefWidth="75.0" text="Config">
+          <TableColumn fx:id="colConfigName"  onEditCommit="#editConfigName" prefWidth="75.0" text="Config">
              <cellValueFactory>
                 <PropertyValueFactory property="configName" />
              </cellValueFactory>
+              <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+              </cellFactory>
           </TableColumn>
 
           <TableColumn fx:id="colTotalPrice" prefWidth="75.0" text="Total price">

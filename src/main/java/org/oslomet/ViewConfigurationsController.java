@@ -115,11 +115,8 @@ public class ViewConfigurationsController implements Initializable {
             window.show();
         }
         catch (NullPointerException npe) {
-            System.err.print("Text file is corrupted and can't be opened!");
+            ErrorDialog.showErrorDialog("Text file is corrupted and can't be opened!");
         }
-
-
-
     }
 
     @FXML
@@ -163,7 +160,17 @@ public class ViewConfigurationsController implements Initializable {
         }
         
     }
-    
+
+    public void editConfigName(TableColumn.CellEditEvent<ComputerModel, String> event) {
+        try {
+            event.getRowValue().setConfigName(event.getNewValue());
+
+        } catch(InvalidConfigNameException icne) {
+            ErrorDialog.showErrorDialog(icne.getMessage());
+        }
+        tableviewMyConfigs.refresh();
+    }
+
     //Create new computer
     @FXML
     void newConf(ActionEvent event) throws IOException {
