@@ -316,27 +316,46 @@ public class EditConfigurationController implements Initializable {
         //Shows computer's components only if the computer is not a new computer
         if (computer.getComputerCase() != null) {
             lblComputerCase.setText(computer.getComputerCase().toStringForConfig());
-            lblCPU.setText(computer.getCpu().toStringForConfig());
-            lblGPU.setText(computer.getCpu().toStringForConfig());
-            lblHardDrive.setText(computer.getHardDrive().toStringForConfig());
-            lblMotherBoard.setText(computer.getMotherboard().toStringForConfig());
-            lblRAM.setText(computer.getRam().toStringForConfig());
-            lblSoundcard.setText(computer.getSoundCard().toStringForConfig());
-            lblPSU.setText(computer.getPsu().toStringForConfig());
-            lblMonitor.setText(computer.getMonitor().toStringForConfig());
-            lblMouse.setText(computer.getMouse().toStringForConfig());
-            lblKeyboard.setText(computer.getKeyboard().toStringForConfig());
-
             btnDeleteComputerCase.setVisible(true);
+        }
+        if (computer.getCpu() != null) {
+            lblCPU.setText(computer.getCpu().toStringForConfig());
             btnDeleteCPU.setVisible(true);
+        }
+        if (computer.getGpu() != null) {
+            lblGPU.setText(computer.getGpu().toStringForConfig());
             btnDeleteGPU.setVisible(true);
+        }
+        if (computer.getHardDrive() != null) {
+            lblHardDrive.setText(computer.getHardDrive().toStringForConfig());
             btnDeleteHardDrive.setVisible(true);
+        }
+        if (computer.getMotherboard() != null) {
+            lblMotherBoard.setText(computer.getMotherboard().toStringForConfig());
             btnDeleteMotherBoard.setVisible(true);
-            btnDeleteRAM.setVisible(true);
-            btnDeleteSoundCard.setVisible(true);
+        }
+        if (computer.getPsu() != null) {
+            lblPSU.setText(computer.getPsu().toStringForConfig());
             btnDeletePSU.setVisible(true);
+        }
+        if (computer.getRam() != null) {
+            lblRAM.setText(computer.getRam().toStringForConfig());
+            btnDeleteRAM.setVisible(true);
+        }
+        if (computer.getSoundCard() != null) {
+            lblSoundcard.setText(computer.getSoundCard().toStringForConfig());
+            btnDeleteSoundCard.setVisible(true);
+        }
+        if (computer.getMonitor() != null) {
+            lblMonitor.setText(computer.getMonitor().toStringForConfig());
             btnDeleteMonitor.setVisible(true);
+        }
+        if (computer.getMouse() != null) {
+            lblMouse.setText(computer.getMouse().toStringForConfig());
             btnDeleteMouse.setVisible(true);
+        }
+        if (computer.getKeyboard() != null) {
+            lblKeyboard.setText(computer.getKeyboard().toStringForConfig());
             btnDeleteKeyboard.setVisible(true);
         }
 

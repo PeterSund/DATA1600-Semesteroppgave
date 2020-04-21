@@ -174,7 +174,6 @@ public class ComputerRegistry {
             if (mouse != null) {
                 computer.setMouse(mouse);
             }
-
             return computer;
         }
         catch (IndexOutOfBoundsException ioobe) {

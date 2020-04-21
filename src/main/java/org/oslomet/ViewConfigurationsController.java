@@ -102,19 +102,23 @@ public class ViewConfigurationsController implements Initializable {
 
         try {
             ComputerModel computerFromFile = ComputerRegistry.readFromFile();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("editConfiguration.fxml"));
             Parent root = loader.load();
             EditConfigurationController editConfigurationController = loader.getController();
 
             editConfigurationController.setComputer(computerFromFile);
             Scene viewConfScene = new Scene(root);
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
             window.setScene(viewConfScene);
             window.show();
         }
         catch (NullPointerException npe) {
-            System.out.print("Text file is corrupted and can't be opened!");
+            System.err.print("Text file is corrupted and can't be opened!");
         }
+
+
+
     }
 
     @FXML
