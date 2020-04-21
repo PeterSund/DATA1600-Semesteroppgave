@@ -302,13 +302,13 @@ public class AdminController implements Initializable {
     public List<Button> chooseComponentButtons = new ArrayList<Button>();
 
     public void saveObj() throws IOException {
-        Path path = FileChooser.saveFile();
+        Path path = FileChooser.saveJobjFile();
         ArrayList arrayLists = ComponentsRegistry.addAllComponentsArraysToArray();
         FileSaverJobj.saveJobj(arrayLists, path);
     }
 
     public void openObj() {
-        Path path = FileChooser.openFile();
+        Path path = FileChooser.openJobjFile();
         ThreadOpenJobj task = new ThreadOpenJobj(path);
         task.setOnSucceeded(this::threadDone);
         task.setOnFailed(this::threadFailed);
