@@ -31,11 +31,7 @@ public class CPURegistry implements RegistryMethods, Serializable {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(CPUModel cpu) {
-        for (CPUModel obj : cpuArray) {
-            if (obj.getName().equals(cpu.getName())) {
-                cpuArray.remove(cpu);
-            }
-        }
+        cpuArray.remove(cpu);
     }
 
     public static void removeAll() {

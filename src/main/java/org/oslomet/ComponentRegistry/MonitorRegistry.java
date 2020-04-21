@@ -31,11 +31,7 @@ public class MonitorRegistry implements RegistryMethods {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(MonitorModel monitor) {
-        for (MonitorModel obj : monitorArray) {
-            if (obj.getName().equals(monitor.getName())) {
-                monitorArray.remove(monitor);
-            }
-        }
+        monitorArray.remove(monitor);
     }
 
     public static void removeAll() {

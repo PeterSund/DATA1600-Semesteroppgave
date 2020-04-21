@@ -1,72 +1,65 @@
-package org.oslomet.ComponentDialogs;
+package org.oslomet.Dialogs;
 
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.oslomet.ComponentClasses.ComputerCaseModel;
-import org.oslomet.ComponentRegistry.ComputerCaseRegistry;
-import org.oslomet.ExceptionClasses.*;
+import org.oslomet.ComponentClasses.SoundCardModel;
+import org.oslomet.ComponentRegistry.SoundCardRegistry;
+import org.oslomet.ExceptionClasses.InvalidBrandException;
+import org.oslomet.ExceptionClasses.InvalidNameException;
+import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
+import org.oslomet.ExceptionClasses.InvalidPriceException;
 
-public class ComputerCaseDialog {
+public class SoundCardDialog {
 
     DialogTemplate dialogTemplate = new DialogTemplate();
 
-    //Textfields
-    TextField dimensions = new TextField();
-    TextField color = new TextField();
-
-    //Error labels
-    Label dimensionsErrorLbl = new Label("");
-    Label colorErrorLbl = new Label("");
+    //Combo boxes
+    ComboBox surround = new ComboBox();
+    ComboBox bassboost = new ComboBox();
 
     //Buttons
-    private Button btnSubmit = new Button("Submit");
-    private Button btnCancel = new Button("Cancel");
-
+    Button btnSubmit = new Button("Submit");
+    Button btnCancel = new Button("Cancel");
 
     public void display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Computer case");
+        window.setTitle("Sound card");
         window.setMinWidth(600);
         window.setMinHeight(300);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(new Label("Dimensions (HxLxD):"), 0, 4);
-        gridPane.add(dimensions, 1,4);
-        gridPane.add(dimensionsErrorLbl, 2, 4);
-        dimensions.setPromptText("H x L x D");
+        surround.getItems().addAll("Yes", "No");
+        surround.setValue("Yes");
 
-        gridPane.add(new Label("Color:"), 0, 5);
-        gridPane.add(color, 1,5);
-        gridPane.add(colorErrorLbl,2,5);
-        color.setPromptText("Color");
+        bassboost.getItems().addAll("Yes", "No", "Mega");
+        bassboost.setValue("Yes");
+
+        gridPane.add(new Label("Surround: "), 0, 4);
+        gridPane.add(surround, 1,4);
+        gridPane.add(new Label("Bassboost: "), 0, 5);
+        gridPane.add(bassboost, 1,5);
 
         gridPane.add(btnSubmit, 0, 6);
         gridPane.add(btnCancel, 1, 6);
-
-        gridPane.setAlignment(Pos.CENTER);
-
+        btnSubmit.setOnAction(e -> submitSoundCard(window));
         btnCancel.setOnAction(e -> window.close());
-        btnSubmit.setOnAction(e -> submitComputerCase(window));
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
         window.showAndWait();
     }
 
-    private void submitComputerCase(Stage window) {
+    private void submitSoundCard(Stage window) {
 
         try {
             dialogTemplate.clearErrorLabels();
-            colorErrorLbl.setText("");
-            dimensionsErrorLbl.setText("");
             double priceDouble = 0;
             double pvDouble = 0;
 
@@ -81,11 +74,10 @@ public class ComputerCaseDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            ComputerCaseRegistry.addComponent(new ComputerCaseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
+            SoundCardRegistry.addComponent(new SoundCardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, surround.getValue().toString(), bassboost.getValue().toString()));
             window.close();
-        }
 
-        catch (InvalidNameException ine) {
+        } catch (InvalidNameException ine) {
             dialogTemplate.setNameErrorLblName(ine.getMessage());
         } catch (InvalidBrandException ibe) {
             dialogTemplate.setBrandErrorLblName(ibe.getMessage());
@@ -93,11 +85,7 @@ public class ComputerCaseDialog {
             dialogTemplate.setPriceErrorLbl(ipe.getMessage());
         } catch (InvalidPerformanceValueException ipve) {
             dialogTemplate.setPerformanceValueErrorLbl(ipve.getMessage());
-        } catch (InvalidDimensionsException ide) {
-            dimensionsErrorLbl.setText(ide.getMessage());
-        } catch (InvalidColorException ise) {
-            colorErrorLbl.setText(ise.getMessage());
         }
     }
-
+    
 }

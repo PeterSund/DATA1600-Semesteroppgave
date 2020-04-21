@@ -34,11 +34,7 @@ public class MouseRegistry implements RegistryMethods  {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(MouseModel mouse) {
-        for (MouseModel obj : mouseArray) {
-            if (obj.getName().equals(mouse.getName())) {
-                mouseArray.remove(mouse);
-            }
-        }
+        mouseArray.remove(mouse);
     }
 
     public static void removeAll() {

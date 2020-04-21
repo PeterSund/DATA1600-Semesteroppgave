@@ -1,4 +1,4 @@
-package org.oslomet.ComponentDialogs;
+package org.oslomet.Dialogs;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

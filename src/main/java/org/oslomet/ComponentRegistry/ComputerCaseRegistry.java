@@ -28,11 +28,7 @@ public class ComputerCaseRegistry implements RegistryMethods {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(ComputerCaseModel computerCase) {
-        for(ComputerCaseModel obj : computerCaseArray) {
-            if(obj.getName().equals(computerCase.getName())) {
-                computerCaseArray.remove(computerCase);
-            }
-        }
+        computerCaseArray.remove(computerCase);
     }
 
     public static void removeAll() {

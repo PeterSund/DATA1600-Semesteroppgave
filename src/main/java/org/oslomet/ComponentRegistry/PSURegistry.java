@@ -29,11 +29,7 @@ public class PSURegistry implements RegistryMethods  {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(PSUModel psu) {
-        for (PSUModel obj : psuArray) {
-            if (obj.getName().equals(psu.getName())) {
-                psuArray.remove(psu);
-            }
-        }
+        psuArray.remove(psu);
     }
 
     public static void removeAll() {
