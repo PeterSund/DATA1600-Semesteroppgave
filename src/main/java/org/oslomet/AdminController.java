@@ -922,6 +922,7 @@ public class AdminController implements Initializable {
                 keyboardDialog.display();
                 break;
         }
+        clearFilter();
     }
 
 
