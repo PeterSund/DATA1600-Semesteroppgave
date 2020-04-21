@@ -322,8 +322,9 @@ public class AdminController implements Initializable {
     }
 
     private void threadFailed(WorkerStateEvent event) {
-        var e = event.getSource().getException();
-        System.out.print(e.toString());
+        var e = event.getSource().getException().getMessage();
+        ErrorDialog.showErrorDialog(e);
+        ap.setDisable(false);
     }
 
     public void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {

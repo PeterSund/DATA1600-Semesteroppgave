@@ -1,8 +1,10 @@
 package org.oslomet.FileHandling;
 
 import javafx.concurrent.Task;
+import org.oslomet.Dialogs.ErrorDialog;
 
 import java.io.File;
+import java.io.StreamCorruptedException;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
@@ -17,7 +19,7 @@ public class ThreadOpenJobj extends Task<Void> {
     @Override
     protected Void call() throws Exception {
         try {
-            Thread.sleep(6000);
+            Thread.sleep(4000);
             FileOpenerJobj.openJobj(path);
         }
         catch (InterruptedException e) {
