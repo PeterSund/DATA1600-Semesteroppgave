@@ -21,8 +21,10 @@
       </Label>
       <MenuBar fx:id="menubarEditConfig" layoutY="-1.0" prefHeight="31.0" prefWidth="177.0" style="-fx-border-color: black;">
          <menus>
-            <Menu fx:id="loginAdmin" mnemonicParsing="false" onAction="#adminLogin" text="Log in admin" />
-            <Menu fx:id="getHelp" mnemonicParsing="false" onAction="#showHelp" text="Help" />
+            <Menu fx:id="getHelp" mnemonicParsing="false" onAction="#showHelp" text="Help">
+               <graphic>
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#adminLogin" text="Admin Login" />
+               </graphic></Menu>
          </menus>
          <opaqueInsets>
             <Insets />

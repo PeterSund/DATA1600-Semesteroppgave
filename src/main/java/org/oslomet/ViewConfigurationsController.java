@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
+import org.oslomet.ComponentDialogs.LoginDialog;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
@@ -51,6 +52,9 @@ public class ViewConfigurationsController implements Initializable {
     private Menu loginAdmin;
 
     @FXML
+    private Button btnLogin;
+
+    @FXML
     private Menu getHelp;
 
     @FXML
@@ -63,7 +67,17 @@ public class ViewConfigurationsController implements Initializable {
     private Button btnSaveConfig, btnOpenConfig;
 
     @FXML
-    void adminLogin(ActionEvent event) {
+    void adminLogin(ActionEvent event) throws IOException {
+        LoginDialog loginDialog = new LoginDialog();
+        if(loginDialog.display()) {
+            Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
+            Scene viewConfScene = new Scene(viewConfParent);
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            window.setScene(viewConfScene);
+            window.show();
+        }
+
+
 
     }
 
