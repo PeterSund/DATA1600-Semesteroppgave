@@ -109,7 +109,7 @@ public class ComputerRegistry {
 
     //Add computer from file
     public static ComputerModel readFromFile() throws IOException {
-        ArrayList<String> computerFromFile = FileOpenerTxt.readFile(FileChooser.openFile());
+        ArrayList<String> computerFromFile = FileOpenerTxt.readFile(FileChooser.openTxtFile());
 
         try {
             String computerName = computerFromFile.get(0).split(DELIMITER)[1];

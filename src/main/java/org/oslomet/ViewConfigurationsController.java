@@ -91,7 +91,7 @@ public class ViewConfigurationsController implements Initializable {
         }
 
         else {
-            Path savedFilepath = FileChooser.saveFile();
+            Path savedFilepath = FileChooser.saveTxtFile();
             String formattedComputer = selectedComputer.formatComputerForFile();
             FileSaverTxt.writeFile(savedFilepath, formattedComputer);
         }
