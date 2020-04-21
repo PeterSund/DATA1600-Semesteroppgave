@@ -31,11 +31,7 @@ public class HardDriveRegistry implements RegistryMethods {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(HarddriveModel hardDrive) {
-        for (HarddriveModel obj : hardDriveArray) {
-            if (obj.getName().equals(hardDrive.getName())) {
-                hardDriveArray.remove(hardDrive);
-            }
-        }
+        hardDriveArray.remove(hardDrive);
     }
 
     public static void removeAll() {

@@ -29,11 +29,7 @@ public class RAMRegistry implements RegistryMethods  {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(RAMModel ram) {
-        for (RAMModel obj : ramArray) {
-            if (obj.getName().equals(ram.getName())) {
-                ramArray.remove(ram);
-            }
-        }
+        ramArray.remove(ram);
     }
 
     public static void removeAll() {

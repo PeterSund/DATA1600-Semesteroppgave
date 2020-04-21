@@ -1,26 +1,29 @@
-package org.oslomet.ComponentDialogs;
+package org.oslomet.Dialogs;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.oslomet.ComponentClasses.SoundCardModel;
-import org.oslomet.ComponentRegistry.SoundCardRegistry;
-import org.oslomet.ExceptionClasses.InvalidBrandException;
-import org.oslomet.ExceptionClasses.InvalidNameException;
-import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
-import org.oslomet.ExceptionClasses.InvalidPriceException;
+import org.oslomet.ComponentClasses.KeyboardModel;
+import org.oslomet.ComponentRegistry.KeyboardRegistry;
+import org.oslomet.ExceptionClasses.*;
 
-public class SoundCardDialog {
+public class KeyboardDialog {
 
     DialogTemplate dialogTemplate = new DialogTemplate();
 
-    //Combo boxes
-    ComboBox surround = new ComboBox();
-    ComboBox bassboost = new ComboBox();
+    //Text fields and combo boxes
+    ComboBox type = new ComboBox();
+    TextField language = new TextField();
+    ComboBox wireless = new ComboBox();
+
+    //Error labels
+    Label languageErrorLbl = new Label("");
 
     //Buttons
     Button btnSubmit = new Button("Submit");
@@ -29,37 +32,44 @@ public class SoundCardDialog {
     public void display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Sound card");
+        window.setTitle("Keyboard");
         window.setMinWidth(600);
         window.setMinHeight(300);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        surround.getItems().addAll("Yes", "No");
-        surround.setValue("Yes");
+        gridPane.add(new Label("Type:"), 0, 4);
+        gridPane.add(type, 1, 4);
+        type.getItems().addAll("Office", "Gaming", "Mechanical");
+        type.setValue("Office");
 
-        bassboost.getItems().addAll("Yes", "No", "Mega");
-        bassboost.setValue("Yes");
+        gridPane.add(language, 1, 5);
+        gridPane.add(new Label("Language:"), 0, 5);
+        gridPane.add(languageErrorLbl, 2, 5);
+        language.setPromptText("Language");
 
-        gridPane.add(new Label("Surround: "), 0, 4);
-        gridPane.add(surround, 1,4);
-        gridPane.add(new Label("Bassboost: "), 0, 5);
-        gridPane.add(bassboost, 1,5);
+        gridPane.add(new Label("Wireless:"), 0, 6);
+        gridPane.add(wireless, 1, 6);
+        wireless.getItems().addAll("Yes", "No");
+        wireless.setValue("Yes");
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
-        btnSubmit.setOnAction(e -> submitSoundCard(window));
+        gridPane.add(btnSubmit, 0, 7);
+        gridPane.add(btnCancel, 1, 7);
         btnCancel.setOnAction(e -> window.close());
+        btnSubmit.setOnAction(e -> submitKeyboard(window));
+
+        gridPane.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
         window.showAndWait();
     }
 
-    private void submitSoundCard(Stage window) {
+    private void submitKeyboard(Stage window) {
 
         try {
             dialogTemplate.clearErrorLabels();
+            languageErrorLbl.setText("");
             double priceDouble = 0;
             double pvDouble = 0;
 
@@ -74,7 +84,7 @@ public class SoundCardDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            SoundCardRegistry.addComponent(new SoundCardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, surround.getValue().toString(), bassboost.getValue().toString()));
+            KeyboardRegistry.addComponent(new KeyboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), language.getText(), wireless.getValue().toString()));
             window.close();
 
         } catch (InvalidNameException ine) {
@@ -85,7 +95,9 @@ public class SoundCardDialog {
             dialogTemplate.setPriceErrorLbl(ipe.getMessage());
         } catch (InvalidPerformanceValueException ipve) {
             dialogTemplate.setPerformanceValueErrorLbl(ipve.getMessage());
+        } catch (InvalidLanguageException ile) {
+            languageErrorLbl.setText(ile.getMessage());
         }
+
     }
-    
 }

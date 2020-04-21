@@ -29,11 +29,7 @@ public class KeyboardRegistry implements RegistryMethods {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(KeyboardModel keyboard) {
-        for (KeyboardModel obj : keyboardArray) {
-            if (obj.getName().equals(keyboard.getName())) {
-                keyboardArray.remove(keyboard);
-            }
-        }
+        keyboardArray.remove(keyboard);
     }
 
     public static void removeAll() {

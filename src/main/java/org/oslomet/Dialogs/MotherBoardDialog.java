@@ -1,4 +1,4 @@
-package org.oslomet.ComponentDialogs;
+package org.oslomet.Dialogs;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

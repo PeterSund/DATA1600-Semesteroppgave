@@ -14,7 +14,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.ComponentDialogs.*;
+import org.oslomet.Dialogs.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
@@ -304,9 +304,9 @@ public class AdminController implements Initializable {
             event.getRowValue().setName(event.getNewValue());
 
         } catch(InvalidNameException ine) {
-            System.out.print(ine.getMessage());
+            ErrorDialog.showErrorDialog(ine.getMessage());
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editBrand(TableColumn.CellEditEvent<ComponentModel, String> event) {
@@ -314,9 +314,9 @@ public class AdminController implements Initializable {
             event.getRowValue().setBrand(event.getNewValue());
 
         } catch(InvalidBrandException ibe) {
-            System.out.print(ibe.getMessage());
+            ErrorDialog.showErrorDialog(ibe.getMessage());
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
@@ -324,11 +324,16 @@ public class AdminController implements Initializable {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPrice(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("Price must be a number");
+            }
 
         } catch (InvalidPriceException ipe) {
-            System.out.print(ipe.getMessage());
+            ErrorDialog.showErrorDialog(ipe.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Price cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editPerformanceValue(TableColumn.CellEditEvent<ComponentModel, Double> event) {
@@ -336,21 +341,34 @@ public class AdminController implements Initializable {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPerformanceValue(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("Performancevalue must be a number");
+            }
 
         } catch (InvalidPerformanceValueException ipe) {
-            System.out.print(ipe.getMessage());
+            ErrorDialog.showErrorDialog(ipe.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Performancevalue cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editComputerCaseDimensions(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
-        event.getRowValue().setDimensions(event.getNewValue());
-        tableViewVisble().refresh();
+        try {
+            event.getRowValue().setDimensions(event.getNewValue());
+        } catch (InvalidDimensionsException ide) {
+            ErrorDialog.showErrorDialog(ide.getMessage());
+        }
+        tableViewVisible().refresh();
     }
 
     public void editComputerCaseColor(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
-        event.getRowValue().setColor(event.getNewValue());
-        tableViewVisble().refresh();
+        try {
+            event.getRowValue().setColor(event.getNewValue());
+        } catch (InvalidColorException ice) {
+            ErrorDialog.showErrorDialog(ice.getMessage());
+        }
+        tableViewVisible().refresh();
     }
 
     public void editCPUClockSpeed(TableColumn.CellEditEvent<CPUModel, Double> event) {
@@ -358,11 +376,16 @@ public class AdminController implements Initializable {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("CPU clockspeed must be a number");
+            }
 
         } catch (InvalidClockSpeedException icse) {
-            System.out.print(icse.getMessage());
+            ErrorDialog.showErrorDialog(icse.getMessage());
+        } catch (NullPointerException npe) {
+        ErrorDialog.showErrorDialog("CPU clockspeed cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
@@ -370,11 +393,16 @@ public class AdminController implements Initializable {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCores(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("No. cores must be a number");
+            }
 
         } catch (InvalidCoresException ice) {
-            System.out.print(ice.getMessage());
+            ErrorDialog.showErrorDialog(ice.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("No. cores cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editGPUClockSpeed(TableColumn.CellEditEvent<GPUModel, Double> event) {
@@ -382,11 +410,16 @@ public class AdminController implements Initializable {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("GPU clockspeed must be a number");
+            }
 
         } catch (InvalidClockSpeedException icse) {
-            System.out.print(icse.getMessage());
+            ErrorDialog.showErrorDialog(icse.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("GPU clockspeed cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editGPUMemory(TableColumn.CellEditEvent<GPUModel, Integer> event) {
@@ -394,17 +427,22 @@ public class AdminController implements Initializable {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("GPU memory must be a number");
+            }
 
         } catch (InvalidMemoryException ime) {
-            System.out.print(ime.getMessage());
+            ErrorDialog.showErrorDialog(ime.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("GPU memory cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
 
     public void editHarddriveType(TableColumn.CellEditEvent<HarddriveModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editCapacity(TableColumn.CellEditEvent<HarddriveModel, Integer> event) {
@@ -412,17 +450,22 @@ public class AdminController implements Initializable {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCapacity(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("Capacity must be a number");
+            }
 
         } catch (InvalidCapacityException ice) {
-            System.out.print(ice.getMessage());
+            ErrorDialog.showErrorDialog(ice.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Capacity cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
 
     public void editMotherboardType(TableColumn.CellEditEvent<MotherboardModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
@@ -430,11 +473,16 @@ public class AdminController implements Initializable {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("Memory must be a number");
+            }
 
         } catch (InvalidMemoryException ime) {
             System.out.print(ime.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Memory cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editMemorySpeed(TableColumn.CellEditEvent<RAMModel, Double> event) {
@@ -442,22 +490,27 @@ public class AdminController implements Initializable {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setMemorySpeed(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("Memoryspeed must be a number");
+            }
 
         } catch (InvalidPerformanceValueException ipe) {
-            System.out.print(ipe.getMessage());
+            ErrorDialog.showErrorDialog(ipe.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Memoryspeed cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
 
     public void editSurround(TableColumn.CellEditEvent<SoundCardModel, String> event) {
         event.getRowValue().setSurround(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editBassBoost(TableColumn.CellEditEvent<SoundCardModel, String> event) {
         event.getRowValue().setBassBoost(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
@@ -465,49 +518,62 @@ public class AdminController implements Initializable {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setWatt(event.getNewValue());
             }
+            else {
+                ErrorDialog.showErrorDialog("Watt must be a number");
+            }
 
         } catch (InvalidWattException iwe) {
-            System.out.print(iwe.getMessage());
+            ErrorDialog.showErrorDialog(iwe.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Watt cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setSize(event.getNewValue());
+            } else {
+                ErrorDialog.showErrorDialog("Size must be a number");
             }
 
         } catch (InvalidSizeException ize) {
-            System.out.print(ize.getMessage());
+            ErrorDialog.showErrorDialog(ize.getMessage());
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Size cannot be blank");
         }
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
 
     }
 
     public void editMouseType(TableColumn.CellEditEvent<MouseModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editMouseWireless(TableColumn.CellEditEvent<MouseModel, String> event) {
         event.getRowValue().setWireless(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editKeyboardType(TableColumn.CellEditEvent<KeyboardModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     public void editKeyboardLanguage(TableColumn.CellEditEvent<KeyboardModel, String> event) {
-        event.getRowValue().setLanguage(event.getNewValue());
-        tableViewVisble().refresh();
+        try {
+            event.getRowValue().setLanguage(event.getNewValue());
+        } catch (InvalidLanguageException ile) {
+            ErrorDialog.showErrorDialog(ile.getMessage());
+        }
+        tableViewVisible().refresh();
     }
 
     public void editKeyboardWireless(TableColumn.CellEditEvent<KeyboardModel, String> event) {
         event.getRowValue().setWireless(event.getNewValue());
-        tableViewVisble().refresh();
+        tableViewVisible().refresh();
     }
 
     @FXML
@@ -561,7 +627,7 @@ public class AdminController implements Initializable {
 
     @FXML
     private void txtFilterEntered() {
-        TableView currentTableView = tableViewVisble();
+        TableView currentTableView = tableViewVisible();
 
         if (currentTableView == tvComputercase) {
             filterComputerCase();
@@ -845,7 +911,7 @@ public class AdminController implements Initializable {
         window.show();
     }
 
-    private String isVisible() {
+    private String getActiveTableViewID() {
         for (TableView tv : tableViewArray) {
             if (tv.isVisible()) {
                 return tv.getId();
@@ -854,7 +920,7 @@ public class AdminController implements Initializable {
         return null; //Trenger exeption
     }
 
-    private TableView<?> tableViewVisble() {
+    private TableView<?> tableViewVisible() {
         for (TableView tv : tableViewArray) {
             if (tv.isVisible()) {
                 return tv;
@@ -864,7 +930,7 @@ public class AdminController implements Initializable {
     }
 
     public void generateDialogAddComponent() {
-        String activeTableviewID = isVisible();
+        String activeTableviewID = getActiveTableViewID();
 
         switch (activeTableviewID) {
             case "Computercase":
@@ -924,6 +990,72 @@ public class AdminController implements Initializable {
         }
         clearFilter();
     }
+
+    public void deleteComponent() {
+        TableView activeTableview = tableViewVisible();
+        Object test = activeTableview.getSelectionModel().getSelectedItem();
+        if(test != null) {
+            if(DeleteComponentDialog.confirmDeleteDialog()) {
+                deleteSelectedComponent();
+            }
+        }
+        else {
+            DeleteComponentDialog.noComponentSelected();
+        }
+    }
+
+    public void deleteSelectedComponent() {
+         TableView activeTableview = tableViewVisible();
+         String activeTableviewID = getActiveTableViewID();
+
+             switch (activeTableviewID) {
+                 case "Computercase":
+                     ComputerCaseRegistry.removeComponent((ComputerCaseModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "CPU":
+                     CPURegistry.removeComponent((CPUModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "GPU":
+                     GPURegistry.removeComponent((GPUModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "Hard drive":
+                     HardDriveRegistry.removeComponent((HarddriveModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "Motherboard":
+                     MotherboardRegistry.removeComponent((MotherboardModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "RAM":
+                     RAMRegistry.removeComponent((RAMModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "Soundcard":
+                     SoundCardRegistry.removeComponent((SoundCardModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "PSU":
+                     PSURegistry.removeComponent((PSUModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "Monitor":
+                     MonitorRegistry.removeComponent((MonitorModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "Mouse":
+                     MouseRegistry.removeComponent((MouseModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+
+                 case "Keyboard":
+                     KeyboardRegistry.removeComponent((KeyboardModel) activeTableview.getSelectionModel().getSelectedItem());
+                     break;
+                 }
+         activeTableview.refresh();
+     }
+
 
 
     public void showTableView(String component) {

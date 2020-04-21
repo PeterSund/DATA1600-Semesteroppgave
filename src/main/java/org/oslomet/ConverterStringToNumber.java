@@ -32,7 +32,6 @@ public class ConverterStringToNumber  {
                 conversionSuccessful = true;
                 return result;
             } catch (NumberFormatException e) {
-
                 conversionSuccessful = false;
                 return 0.0;
             }

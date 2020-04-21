@@ -30,11 +30,7 @@ public class GPURegistry implements RegistryMethods {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(GPUModel gpu) {
-        for (GPUModel obj : gpuArray) {
-            if (obj.getName().equals(gpu.getName())) {
-                gpuArray.remove(gpu);
-            }
-        }
+        gpuArray.remove(gpu);
     }
 
     public static ArrayList returnArray() {

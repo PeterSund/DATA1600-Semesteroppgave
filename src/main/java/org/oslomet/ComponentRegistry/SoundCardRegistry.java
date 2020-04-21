@@ -28,11 +28,7 @@ public class SoundCardRegistry implements RegistryMethods  {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(SoundCardModel soundCard) {
-        for (SoundCardModel obj : soundCardArray) {
-            if (obj.getName().equals(soundCard.getName())) {
-                soundCardArray.remove(soundCard);
-            }
-        }
+        soundCardArray.remove(soundCard);
     }
 
     public static void removeAll() {

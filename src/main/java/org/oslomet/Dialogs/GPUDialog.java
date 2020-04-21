@@ -1,4 +1,4 @@
-package org.oslomet.ComponentDialogs;
+package org.oslomet.Dialogs;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,9 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.GPUModel;
-import org.oslomet.ComponentRegistry.CPURegistry;
 import org.oslomet.ComponentRegistry.GPURegistry;
 import org.oslomet.ExceptionClasses.*;
 

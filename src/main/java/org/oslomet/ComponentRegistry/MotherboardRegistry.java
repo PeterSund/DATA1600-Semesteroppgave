@@ -32,11 +32,7 @@ public class MotherboardRegistry implements RegistryMethods {
 
     //Removes selected component from array by comparing names
     public static void removeComponent(MotherboardModel motherboard) {
-        for (MotherboardModel obj : motherboardArray) {
-            if (obj.getName().equals(motherboard.getName())) {
-                motherboardArray.remove(motherboard);
-            }
-        }
+        motherboardArray.remove(motherboard);
     }
 
     public static ArrayList returnArray() {
