@@ -2,6 +2,7 @@ package org.oslomet;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentDialogs.*;
@@ -20,11 +22,13 @@ import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerJobj;
 import org.oslomet.FileHandling.FileSaverJobj;
+import org.oslomet.FileHandling.ThreadOpenJobj;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -131,6 +135,7 @@ public class AdminController implements Initializable {
         colKeyboardType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardTypeCombobox));
         colKeyboardWireless.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardWirelessCombobox));
 
+        chooseComponentButtons = Arrays.asList(btnComputercase, btnCPU, btnGPU, btnHarddrive, btnKeyboard, btnMonitor, btnMotherboard, btnMouse, btnPSU, btnRAM, btnSoundcard);
     }
 
     @FXML
@@ -201,6 +206,8 @@ public class AdminController implements Initializable {
 
     public List<TableView> tableViewArray = new ArrayList<>();
     public List<ChoiceBox> cbArray = new ArrayList<>();
+
+
 
     private ConverterStringToNumber.IntegerStringConverter StringToIntConv
             = new ConverterStringToNumber.IntegerStringConverter();
@@ -285,7 +292,14 @@ public class AdminController implements Initializable {
     @FXML
     private TableView<KeyboardModel> tvKeyboard;
 
+    @FXML
+    private AnchorPane ap;
+
+    TableView current;
+
     CPURegistry test = new CPURegistry();
+
+    public List<Button> chooseComponentButtons = new ArrayList<Button>();
 
     public void saveObj() throws IOException {
         Path path = FileChooser.saveFile();
@@ -293,10 +307,23 @@ public class AdminController implements Initializable {
         FileSaverJobj.saveJobj(arrayLists, path);
     }
 
-    public void openObj() throws IOException {
+    public void openObj() {
         Path path = FileChooser.openFile();
-        FileOpenerJobj.openJobj(path);
+        ThreadOpenJobj task = new ThreadOpenJobj(path);
+        task.setOnSucceeded(this::threadDone);
+        task.setOnFailed(this::threadFailed);
+        Thread th = new Thread(task);
+        ap.setDisable(true);
+        th.start();
+    }
 
+    private void threadDone(WorkerStateEvent e) {
+        ap.setDisable(false);
+    }
+
+    private void threadFailed(WorkerStateEvent event) {
+        var e = event.getSource().getException();
+        System.out.print(e.toString());
     }
 
     public void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {

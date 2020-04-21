@@ -11,10 +11,9 @@
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
+<AnchorPane fx:id="ap" prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
 
-   <Button fx:id="btnSave" layoutX="1000.0" layoutY="20.0" mnemonicParsing="false" onAction="#saveObj" text="Save" />
    <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" onAction="#changeToEditConfigurations" text="Log out" />
 
    <Button fx:id="btnClearFilter" layoutX="628.0" layoutY="89.0" mnemonicParsing="false" onAction="#clearFilter" text="Clear filter" />
@@ -34,7 +33,7 @@
 
    <Button fx:id="btnAddComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" text="Add Component" />
    <Button fx:id="btnLoadComponent" layoutX="922.0" layoutY="400.0" mnemonicParsing="false" onAction="#openObj" text="Load components" />
-   <Button fx:id="btnSaveComponent" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" onAction="#showComponent" text="Save components" />
+   <Button fx:id="btnSaveComponent" onAction="#saveObj" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" text="Save components" />
 
       <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
         <columns>
