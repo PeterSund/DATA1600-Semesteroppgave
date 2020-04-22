@@ -13,7 +13,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="857.0" prefWidth="1222.0" style="-fx-background-color: #D2D2D2#D2D2D2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
-      <Button layoutX="577.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeToViewConfigurations" text="&lt;- View configurations" />
       <Label layoutX="211.0" layoutY="24.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
          <font>
             <Font size="23.0" />
@@ -26,7 +25,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Computercase">
+            <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Computercase">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
@@ -34,7 +33,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="CPU">
+            <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="CPU">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -42,7 +41,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="GPU">
+            <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="GPU">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -50,7 +49,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Hard drive">
+            <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Hard drive">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -58,7 +57,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnMotherboard" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Motherboard">
+            <Button fx:id="btnMotherboard" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Motherboard">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -66,7 +65,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="RAM">
+            <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="RAM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -74,7 +73,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnSoundcard" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Soundcard">
+            <Button fx:id="btnSoundcard" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Soundcard">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -82,7 +81,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="PSU">
+            <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="PSU">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -90,7 +89,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnMonitor" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Monitor">
+            <Button fx:id="btnMonitor" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Monitor">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -98,7 +97,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnMouse" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Mouse">
+            <Button fx:id="btnMouse" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Mouse">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -106,7 +105,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Keyboard">
+            <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Keyboard">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
