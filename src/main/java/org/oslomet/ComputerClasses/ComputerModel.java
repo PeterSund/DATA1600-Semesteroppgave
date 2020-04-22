@@ -216,17 +216,28 @@ public class ComputerModel {
         formattedComputer += "Configuration name;" + getConfigName();
         formattedComputer += "\nPrice;" + getTotalPrice();
         formattedComputer += "\nPerformance value;" + getTotalPerformanceValue();
-        formattedComputer += "\n" + getComputerCase().toStringForTxtFile();
-        formattedComputer += "\n" + getCpu().toStringForTxtFile();
-        formattedComputer += "\n" + getGpu().toStringForTxtFile();
-        formattedComputer += "\n" + getRam().toStringForTxtFile();
-        formattedComputer += "\n" + getHardDrive().toStringForTxtFile();
-        formattedComputer += "\n" + getMotherboard().toStringForTxtFile();
-        formattedComputer += "\n" + getPsu().toStringForTxtFile();
-        formattedComputer += "\n" + getSoundCard().toStringForTxtFile();
-        formattedComputer += "\n" + getMonitor().toStringForTxtFile();
-        formattedComputer += "\n" + getKeyboard().toStringForTxtFile();
-        formattedComputer += "\n" + getMouse().toStringForTxtFile();
+        try {formattedComputer += "\n" + getComputerCase().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nComputer case;Name: No component selected";}
+        try {formattedComputer += "\n" + getCpu().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nCPU;Name: No component selected";}
+        try {formattedComputer += "\n" + getGpu().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nGPU;Name: No component selected";}
+        try {formattedComputer += "\n" + getRam().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nRAM;Name: No component selected";}
+        try {formattedComputer += "\n" + getHardDrive().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nHard drive;Name: No component selected";}
+        try {formattedComputer += "\n" + getMotherboard().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nMotherboard;Name: No component selected";};
+        try {formattedComputer += "\n" + getPsu().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nPSU;Name: No component selected";}
+        try {formattedComputer += "\n" + getSoundCard().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nSound card;Name: No component selected";}
+        try {formattedComputer += "\n" + getMonitor().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nMonitor;Name: No component selected";}
+        try {formattedComputer += "\n" + getKeyboard().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nKeyboard;Name: No component selected";}
+        try {formattedComputer += "\n" + getMouse().toStringForTxtFile();}
+        catch (NullPointerException npe) {formattedComputer += "\nMouse;Name: No component selected";}
 
         return formattedComputer;
     }

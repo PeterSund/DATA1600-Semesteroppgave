@@ -177,6 +177,7 @@ public class ComputerRegistry {
             return computer;
         }
         catch (IndexOutOfBoundsException ioobe) {
+            System.out.print(ioobe.getMessage());
             return null;
         }
     }
