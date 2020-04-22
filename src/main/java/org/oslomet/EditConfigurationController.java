@@ -27,6 +27,7 @@ import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.Dialogs.ErrorDialog;
+import org.oslomet.Dialogs.LoginDialog;
 
 public class EditConfigurationController implements Initializable {
 
@@ -171,11 +172,14 @@ public class EditConfigurationController implements Initializable {
     //Change view to Admin
     @FXML
     void adminLoginFromBtn(ActionEvent event) throws IOException {
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
-        window.setScene(viewConfScene);
-        window.show();
+        LoginDialog loginDialog = new LoginDialog();
+        if (loginDialog.display()) {
+            Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
+            Scene viewConfScene = new Scene(viewConfParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            window.setScene(viewConfScene);
+            window.show();
+        }
     }
 
     //Returns the table view that is visible

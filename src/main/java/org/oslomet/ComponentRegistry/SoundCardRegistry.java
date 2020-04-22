@@ -67,18 +67,18 @@ public class SoundCardRegistry implements RegistryMethods  {
     }
     public ObservableList<SoundCardModel> filterByPerformanceValue(double performanceValue) {
         return soundCardArray.stream().
-                filter(r -> r.getPerformanceValue() == performanceValue).
+                filter(sc -> sc.getPerformanceValue() == performanceValue).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
     public ObservableList<SoundCardModel> filterBySurround(String surround) {
-        return soundCardArray.stream().filter(sc -> sc.getName().
+        return soundCardArray.stream().filter(sc -> sc.getSurround().
                 toLowerCase().matches(String.format("%s%s%s", ".*", surround.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
     public ObservableList<SoundCardModel> filterByBassBoost(String bassBoost) {
-        return soundCardArray.stream().filter(sc -> sc.getName().
+        return soundCardArray.stream().filter(sc -> sc.getBassBoost().
                 toLowerCase().matches(String.format("%s%s%s", ".*", bassBoost.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }

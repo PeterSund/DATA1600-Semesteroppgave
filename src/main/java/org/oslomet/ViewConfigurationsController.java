@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.ComponentDialogs.LoginDialog;
+import org.oslomet.Dialogs.LoginDialog;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;

@@ -76,12 +76,12 @@ public class KeyboardRegistry implements RegistryMethods {
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<KeyboardModel> filterByLanguage(String language) {
-        return keyboardArray.stream().filter(k -> k.getBrand().
+        return keyboardArray.stream().filter(k -> k.getLanguage().
                 toLowerCase().matches(String.format("%s%s%s", ".*", language.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<KeyboardModel> filterByWireless(String wireless) {
-        return keyboardArray.stream().filter(k -> k.getBrand().
+        return keyboardArray.stream().filter(k -> k.getWireless().
                 toLowerCase().matches(String.format("%s%s%s", ".*", wireless.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
