@@ -59,20 +59,12 @@ public class ComputerModel {
         return computerCase.get();
     }
 
-    public SimpleObjectProperty<ComputerCaseModel> computerCaseProperty() {
-        return computerCase;
-    }
-
     public void setComputerCase(ComputerCaseModel computerCase) {
         this.computerCase.set(computerCase);
     }
 
     public CPUModel getCpu() {
         return cpu.get();
-    }
-
-    public SimpleObjectProperty<CPUModel> cpuProperty() {
-        return cpu;
     }
 
     public void setCpu(CPUModel cpu) {
@@ -83,20 +75,12 @@ public class ComputerModel {
         return gpu.get();
     }
 
-    public SimpleObjectProperty<GPUModel> gpuProperty() {
-        return gpu;
-    }
-
     public void setGpu(GPUModel gpu) {
         this.gpu.set(gpu);
     }
 
     public RAMModel getRam() {
         return ram.get();
-    }
-
-    public SimpleObjectProperty<RAMModel> ramProperty() {
-        return ram;
     }
 
     public void setRam(RAMModel ram) {
@@ -107,20 +91,12 @@ public class ComputerModel {
         return hardDrive.get();
     }
 
-    public SimpleObjectProperty<HarddriveModel> hardDriveProperty() {
-        return hardDrive;
-    }
-
     public void setHardDrive(HarddriveModel hardDrive) {
         this.hardDrive.set(hardDrive);
     }
 
     public MotherboardModel getMotherboard() {
         return motherboard.get();
-    }
-
-    public SimpleObjectProperty<MotherboardModel> motherboardProperty() {
-        return motherboard;
     }
 
     public void setMotherboard(MotherboardModel motherboard) {
@@ -131,20 +107,12 @@ public class ComputerModel {
         return psu.get();
     }
 
-    public SimpleObjectProperty<PSUModel> psuProperty() {
-        return psu;
-    }
-
     public void setPsu(PSUModel psu) {
         this.psu.set(psu);
     }
 
     public SoundCardModel getSoundCard() {
         return soundCard.get();
-    }
-
-    public SimpleObjectProperty<SoundCardModel> soundCardProperty() {
-        return soundCard;
     }
 
     public void setSoundCard(SoundCardModel soundCard) {
@@ -155,20 +123,12 @@ public class ComputerModel {
         return keyboard.get();
     }
 
-    public SimpleObjectProperty<KeyboardModel> keyboardProperty() {
-        return keyboard;
-    }
-
     public void setKeyboard(KeyboardModel keyboard) {
         this.keyboard.set(keyboard);
     }
 
     public MonitorModel getMonitor() {
         return monitor.get();
-    }
-
-    public SimpleObjectProperty<MonitorModel> monitorProperty() {
-        return monitor;
     }
 
     public void setMonitor(MonitorModel monitor) {
@@ -179,20 +139,12 @@ public class ComputerModel {
         return mouse.get();
     }
 
-    public SimpleObjectProperty<MouseModel> mouseProperty() {
-        return mouse;
-    }
-
     public void setMouse(MouseModel mouse) {
         this.mouse.set(mouse);
     }
 
     public double getTotalPrice() {
         return totalPrice.get();
-    }
-
-    public SimpleDoubleProperty totalPriceProperty() {
-        return totalPrice;
     }
 
     public void setTotalPrice(double totalPrice) {
@@ -203,19 +155,18 @@ public class ComputerModel {
         return totalPerformanceValue.get();
     }
 
-    public SimpleDoubleProperty totalPerformanceValueProperty() {
-        return totalPerformanceValue;
-    }
-
     public void setTotalPerformanceValue(double totalPerformanceValue) {
         this.totalPerformanceValue.set(totalPerformanceValue);
     }
 
+    //Returns a formatted string for the txt saver
     public String formatComputerForFile() {
         String formattedComputer = "";
         formattedComputer += "Configuration name;" + getConfigName();
         formattedComputer += "\nPrice;" + getTotalPrice();
         formattedComputer += "\nPerformance value;" + getTotalPerformanceValue();
+
+        //Tries to get information about the component. If the component is missing, add "No component is selected" instead
         try {formattedComputer += "\n" + getComputerCase().toStringForTxtFile();}
         catch (NullPointerException npe) {formattedComputer += "\nComputer case;Name: No component selected";}
         try {formattedComputer += "\n" + getCpu().toStringForTxtFile();}
