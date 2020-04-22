@@ -8,7 +8,8 @@ import org.oslomet.ComponentClasses.PSUModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class PSURegistry implements RegistryMethods  {
+public class PSUComponentRegistry implements ComponentRegistryMethods {
+
     //Initialize array
     private static ObservableList<PSUModel> psuArray = FXCollections.observableArrayList();
     public static void attachTableView(TableView tv) {
@@ -37,6 +38,7 @@ public class PSURegistry implements RegistryMethods  {
         return psuList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static void addPSUFromJobjToArray(ArrayList<PSUModel> list) {
         for (PSUModel psu : list) {
             psuArray.add(psu);

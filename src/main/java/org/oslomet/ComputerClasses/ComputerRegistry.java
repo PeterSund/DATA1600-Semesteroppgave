@@ -132,6 +132,17 @@ public class ComputerRegistry {
             MonitorModel monitor = MonitorRegistry.monitorExists(computerMonitorName);
             KeyboardModel keyboard = KeyboardRegistry.keyBoardExists(computerKeyboardName);
             MouseModel mouse = MouseRegistry.mouseExists(computerMouseName);
+            ComputerCaseModel computerCase = ComputerCaseComponentRegistry.computerCaseExists(computerCaseName);
+            CPUModel cpu = CPUComponentRegistry.cpuExists(computerCPUName);
+            GPUModel gpu = GPUComponentRegistry.gpuExists(computerGPUName);
+            RAMModel ram = RAMComponentRegistry.ramExists(computerRAMName);
+            HarddriveModel hardDrive = HardDriveComponentRegistry.hardDriveExists(computerHardDriveName);
+            MotherboardModel motherBoard = MotherboardComponentRegistry.motherBoardExists(computerMotherBoardName);
+            PSUModel psu = PSUComponentRegistry.psuExists(computerPSUName);
+            SoundCardModel soundCard = SoundCardComponentRegistry.soundCardExists(computerSoundCardName);
+            MonitorModel monitor = MonitorComponentRegistry.monitorExists(computerMonitorName);
+            KeyboardModel keyboard = KeyboardComponentRegistry.keyBoardExists(computerKeyboardName);
+            MouseModel mouse = MouseComponentRegistry.mouseExists(computerMouseName);
 
             ComputerModel computer = new ComputerModel(computerName, null, null, null, null,
                     null, null, null, null, null, null, null,

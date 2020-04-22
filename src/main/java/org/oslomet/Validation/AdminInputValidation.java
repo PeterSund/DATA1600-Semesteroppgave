@@ -1,4 +1,4 @@
-package org.oslomet.ComponentClasses;
+package org.oslomet.Validation;
 
 import org.oslomet.ComputerClasses.ComputerRegistry;
 

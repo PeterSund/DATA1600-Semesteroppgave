@@ -3,6 +3,7 @@ package org.oslomet.ComponentClasses;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidCapacityException;
+import org.oslomet.Validation.AdminInputValidation;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

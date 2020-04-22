@@ -8,7 +8,8 @@ import org.oslomet.ComponentClasses.RAMModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class RAMRegistry implements RegistryMethods  {
+public class RAMComponentRegistry implements ComponentRegistryMethods {
+
     //Initialize array
     private static ObservableList<RAMModel> ramArray = FXCollections.observableArrayList();
     public static void attachTableView(TableView tv) {
@@ -37,6 +38,7 @@ public class RAMRegistry implements RegistryMethods  {
         return ramList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static void addRAMFromJobjToArray(ArrayList<RAMModel> list) {
         for (RAMModel ram : list) {
             ramArray.add(ram);

@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.GPUModel;
-import org.oslomet.ComponentRegistry.GPURegistry;
+import org.oslomet.ComponentRegistry.GPUComponentRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class GPUDialog {
@@ -102,7 +102,7 @@ public class GPUDialog {
                 memoryErrorLbl.setText("Memory must be a number");
             }
 
-            GPURegistry.addComponent(new GPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, memoryInt));
+            GPUComponentRegistry.addComponent(new GPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, memoryInt));
             window.close();
         }
 

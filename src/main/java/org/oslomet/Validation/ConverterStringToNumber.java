@@ -1,4 +1,4 @@
-package org.oslomet;
+package org.oslomet.Validation;
 
 public class ConverterStringToNumber  {
 

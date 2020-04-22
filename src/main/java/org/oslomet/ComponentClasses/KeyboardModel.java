@@ -2,6 +2,7 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidLanguageException;
+import org.oslomet.Validation.AdminInputValidation;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

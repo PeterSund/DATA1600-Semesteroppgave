@@ -2,6 +2,7 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import org.oslomet.ExceptionClasses.InvalidWattException;
+import org.oslomet.Validation.AdminInputValidation;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

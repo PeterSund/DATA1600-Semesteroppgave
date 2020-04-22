@@ -8,15 +8,13 @@ import org.oslomet.ComponentClasses.MotherboardModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class MotherboardRegistry implements RegistryMethods {
+public class MotherboardComponentRegistry implements ComponentRegistryMethods {
+
     //Initialize array
     private static ObservableList<MotherboardModel> motherboardArray = FXCollections.observableArrayList();
     public static void attachTableView(TableView tv) {
         tv.setItems(motherboardArray);
     }
-
-
-
 
     //Add component to array
     public static void addComponent(MotherboardModel motherboard) {
@@ -40,6 +38,7 @@ public class MotherboardRegistry implements RegistryMethods {
         motherboardArray.clear();
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addMotherboardFromJobjToArray(ArrayList<MotherboardModel> list) {
         for (MotherboardModel motherboard : list) {
             motherboardArray.add(motherboard);

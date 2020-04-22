@@ -1,12 +1,9 @@
 package org.oslomet;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
@@ -14,8 +11,6 @@ import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * JavaFX App
@@ -56,31 +51,31 @@ public class App extends Application {
         PSUModel PSU2 = new PSUModel("F-K9", "Dell", 200, 40, 500);
         MouseModel Mouse2 = new MouseModel("7E", "Logitech", 300, 1, "Gaming", "Yes");
 
-        ComputerCaseRegistry.addComponent(computerCase);
-        CPURegistry.addComponent(cpu);
-        GPURegistry.addComponent(gpu);
-        HardDriveRegistry.addComponent(hdd);
-        KeyboardRegistry.addComponent(keyboard);
-        KeyboardRegistry.addComponent(testKey);
-        MonitorRegistry.addComponent(monitor);
-        MotherboardRegistry.addComponent(motherboard);
-        SoundCardRegistry.addComponent(sc1);
-        RAMRegistry.addComponent(RAM1);
-        PSURegistry.addComponent(PSU1);
-        MouseRegistry.addComponent(Mouse1);
+        ComputerCaseComponentRegistry.addComponent(computerCase);
+        CPUComponentRegistry.addComponent(cpu);
+        GPUComponentRegistry.addComponent(gpu);
+        HardDriveComponentRegistry.addComponent(hdd);
+        KeyboardComponentRegistry.addComponent(keyboard);
+        KeyboardComponentRegistry.addComponent(testKey);
+        MonitorComponentRegistry.addComponent(monitor);
+        MotherboardComponentRegistry.addComponent(motherboard);
+        SoundCardComponentRegistry.addComponent(sc1);
+        RAMComponentRegistry.addComponent(RAM1);
+        PSUComponentRegistry.addComponent(PSU1);
+        MouseComponentRegistry.addComponent(Mouse1);
 
-        ComputerCaseRegistry.addComponent(computerCase2);
-        CPURegistry.addComponent(cpu2);
-        GPURegistry.addComponent(gpu2);
-        HardDriveRegistry.addComponent(hdd2);
-        KeyboardRegistry.addComponent(keyboard2);
-        KeyboardRegistry.addComponent(testKey2);
-        MonitorRegistry.addComponent(monitor2);
-        MotherboardRegistry.addComponent(motherboard2);
-        SoundCardRegistry.addComponent(sc2);
-        RAMRegistry.addComponent(RAM2);
-        PSURegistry.addComponent(PSU2);
-        MouseRegistry.addComponent(Mouse2);
+        ComputerCaseComponentRegistry.addComponent(computerCase2);
+        CPUComponentRegistry.addComponent(cpu2);
+        GPUComponentRegistry.addComponent(gpu2);
+        HardDriveComponentRegistry.addComponent(hdd2);
+        KeyboardComponentRegistry.addComponent(keyboard2);
+        KeyboardComponentRegistry.addComponent(testKey2);
+        MonitorComponentRegistry.addComponent(monitor2);
+        MotherboardComponentRegistry.addComponent(motherboard2);
+        SoundCardComponentRegistry.addComponent(sc2);
+        RAMComponentRegistry.addComponent(RAM2);
+        PSUComponentRegistry.addComponent(PSU2);
+        MouseComponentRegistry.addComponent(Mouse2);
 
         ComputerModel testComputer = new ComputerModel("TestComputer", computerCase, cpu, gpu, RAM1, hdd, motherboard, PSU1, sc1, keyboard, monitor, Mouse1, 0, 0);
         testComputer.setTotalPrice(ComputerRegistry.calculateTotalPrice(testComputer));

@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.KeyboardModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class KeyboardRegistry implements RegistryMethods {
+public class KeyboardComponentRegistry implements ComponentRegistryMethods {
 
     //Initialize array
     private static ObservableList<KeyboardModel> keyboardArray = FXCollections.observableArrayList();
@@ -38,6 +38,7 @@ public class KeyboardRegistry implements RegistryMethods {
         return keyBoardList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addKeyboardFromJobjToArray(ArrayList<KeyboardModel> list) {
         for (KeyboardModel keyboard : list) {
             keyboardArray.add(keyboard);

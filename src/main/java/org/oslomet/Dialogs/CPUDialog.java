@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.CPUModel;
-import org.oslomet.ComponentRegistry.CPURegistry;
+import org.oslomet.ComponentRegistry.CPUComponentRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class CPUDialog {
@@ -102,7 +102,7 @@ public class CPUDialog {
                 coresErrorLbl.setText("Cores must be a number");
             }
 
-            CPURegistry.addComponent(new CPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, coresInt));
+            CPUComponentRegistry.addComponent(new CPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, coresInt));
             window.close();
         }
 

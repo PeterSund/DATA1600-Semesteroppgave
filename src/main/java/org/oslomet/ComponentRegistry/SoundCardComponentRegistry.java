@@ -8,7 +8,8 @@ import org.oslomet.ComponentClasses.SoundCardModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class SoundCardRegistry implements RegistryMethods  {
+public class SoundCardComponentRegistry implements ComponentRegistryMethods {
+
     //Initialize array
     private static ObservableList<SoundCardModel> soundCardArray = FXCollections.observableArrayList();
     public static void attachTableView(TableView tv) {
@@ -37,6 +38,7 @@ public class SoundCardRegistry implements RegistryMethods  {
         return soundCardList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addSoundcardFromJobjToArray(ArrayList<SoundCardModel> list) {
         for (SoundCardModel soundcard : list) {
             soundCardArray.add(soundcard);

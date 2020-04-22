@@ -1,9 +1,9 @@
 package org.oslomet.ComponentClasses;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidColorException;
 import org.oslomet.ExceptionClasses.InvalidDimensionsException;
+import org.oslomet.Validation.AdminInputValidation;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

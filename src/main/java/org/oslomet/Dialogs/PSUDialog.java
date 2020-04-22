@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.PSUModel;
-import org.oslomet.ComponentRegistry.PSURegistry;
+import org.oslomet.ComponentRegistry.PSUComponentRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class PSUDialog {
@@ -84,7 +84,7 @@ public class PSUDialog {
                 wattErrorLbl.setText("Watt must be a number");
             }
 
-            PSURegistry.addComponent(new PSUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, wattInt));
+            PSUComponentRegistry.addComponent(new PSUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, wattInt));
             window.close();
 
         } catch (InvalidNameException ine) {

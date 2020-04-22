@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.GPUModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class GPURegistry implements RegistryMethods {
+public class GPUComponentRegistry implements ComponentRegistryMethods {
 
     //Initialize array
     private static transient ObservableList<GPUModel> gpuArray = FXCollections.observableArrayList();
@@ -16,7 +16,6 @@ public class GPURegistry implements RegistryMethods {
     public static void attachTableView(TableView tv) {
         tv.setItems(gpuArray);
     }
-
 
     //Add component to array
     public static void addComponent(GPUModel gpu) {
@@ -34,6 +33,13 @@ public class GPURegistry implements RegistryMethods {
             gpuList.add(gpu);
         }
         return gpuList;
+    }
+
+    //Adds objects from jobj files to array (register) when they are read in filehandling
+    public static  void addGPUFromJobjToArray(ArrayList<GPUModel> list) {
+        for (GPUModel gpu : list) {
+            gpuArray.add(gpu);
+        }
     }
 
     public ObservableList<GPUModel> filterByName(String name) {
@@ -82,11 +88,6 @@ public class GPURegistry implements RegistryMethods {
         gpuArray.clear();
     }
 
-    public static  void addGPUFromJobjToArray(ArrayList<GPUModel> list) {
-        for (GPUModel gpu : list) {
-            gpuArray.add(gpu);
-        }
-    }
 }
 
 

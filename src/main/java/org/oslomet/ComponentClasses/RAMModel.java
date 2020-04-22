@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import org.oslomet.ExceptionClasses.InvalidMemoryException;
 import org.oslomet.ExceptionClasses.InvalidMemorySpeedException;
+import org.oslomet.Validation.AdminInputValidation;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

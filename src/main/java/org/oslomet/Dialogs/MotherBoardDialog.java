@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.MotherboardModel;
-import org.oslomet.ComponentRegistry.MotherboardRegistry;
+import org.oslomet.ComponentRegistry.MotherboardComponentRegistry;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
 import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
@@ -82,7 +82,7 @@ public class MotherBoardDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            MotherboardRegistry.addComponent(new MotherboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, typeString));
+            MotherboardComponentRegistry.addComponent(new MotherboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, typeString));
             window.close();
 
         } catch (InvalidNameException ine) {
