@@ -2,15 +2,9 @@ package org.oslomet.ComponentRegistry;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.util.Pair;
-import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentClasses.ComputerCaseModel;
-
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ComputerCaseRegistry implements RegistryMethods {

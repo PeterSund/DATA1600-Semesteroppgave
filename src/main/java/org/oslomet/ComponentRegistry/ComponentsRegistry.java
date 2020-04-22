@@ -1,11 +1,6 @@
 package org.oslomet.ComponentRegistry;
 
-import javafx.collections.ObservableList;
-import org.oslomet.ComponentClasses.CPUModel;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ComponentsRegistry {
 
