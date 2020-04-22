@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.MonitorModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class MonitorComponentRegistry implements ComponentRegistryMethods {
+public class MonitorRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<MonitorModel> monitorArray = FXCollections.observableArrayList();

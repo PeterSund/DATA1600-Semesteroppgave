@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.HarddriveModel;
-import org.oslomet.ComponentRegistry.HardDriveComponentRegistry;
+import org.oslomet.ComponentRegistry.HardDriveRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class HardDriveDialog {
@@ -100,7 +100,7 @@ public class HardDriveDialog {
                 capacityErrorLbl.setText("Capacity must be a number");
             }
 
-            HardDriveComponentRegistry.addComponent(new HarddriveModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, typeString, capacityInt));
+            HardDriveRegistry.addComponent(new HarddriveModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, typeString, capacityInt));
             window.close();
 
         } catch (InvalidNameException ine) {

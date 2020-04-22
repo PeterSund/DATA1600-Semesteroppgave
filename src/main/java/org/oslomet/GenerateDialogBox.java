@@ -174,7 +174,7 @@ public class GenerateDialogBox {
                     performanceValueErrorLbl.setText("Performancevalue must be a number");
                 }
 
-                ComputerCaseComponentRegistry.addComponent(new ComputerCaseModel(name.getText(), brand.getText(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
+                ComputerCaseRegistry.addComponent(new ComputerCaseModel(name.getText(), brand.getText(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
                 createObject = true;
 
             }
@@ -249,7 +249,7 @@ public class GenerateDialogBox {
                     coresErrorLbl.setText("Cores must be a number");
                 }
 
-                CPUComponentRegistry.addComponent(new CPUModel(name.getText(), brand.getText(), priceDouble, pvDouble, clockSpeedDouble, coresInt));
+                CPURegistry.addComponent(new CPUModel(name.getText(), brand.getText(), priceDouble, pvDouble, clockSpeedDouble, coresInt));
                 createObject = true;
             }
 
@@ -321,7 +321,7 @@ public class GenerateDialogBox {
                     memoryErrorLbl.setText("Memory must be a number");
                 }
 
-                GPUComponentRegistry.addComponent(new GPUModel(name.getText(), brand.getText(), priceDouble, pvDouble, clockSpeedDouble, memoryInt));
+                GPURegistry.addComponent(new GPUModel(name.getText(), brand.getText(), priceDouble, pvDouble, clockSpeedDouble, memoryInt));
                 createObject = true;
             }
 
@@ -391,7 +391,7 @@ public class GenerateDialogBox {
                     capacityErrorLbl.setText("Memory must be a number");
                 }
 
-                HardDriveComponentRegistry.addComponent(new HarddriveModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, capacityInt));
+                HardDriveRegistry.addComponent(new HarddriveModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, capacityInt));
                 createObject = true;
             } catch (InvalidNameException ine) {
                 nameErrorLbl.setText(ine.getMessage());
@@ -456,7 +456,7 @@ public class GenerateDialogBox {
                         performanceValueErrorLbl.setText("Performancevalue must be a number");
                     }
 
-                    KeyboardComponentRegistry.addComponent(new KeyboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, language.getText(), wirelessString));
+                    KeyboardRegistry.addComponent(new KeyboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, language.getText(), wirelessString));
                     createObject = true;
 
             } catch (InvalidNameException ine) {
@@ -513,7 +513,7 @@ public class GenerateDialogBox {
                         sizeErrorLlb.setText("Size must be a number");
                     }
 
-                MonitorComponentRegistry.addComponent(new MonitorModel(name.getText(), brand.getText(), priceDouble, pvDouble, sizeInt));
+                MonitorRegistry.addComponent(new MonitorModel(name.getText(), brand.getText(), priceDouble, pvDouble, sizeInt));
                 createObject = true;
 
                 }
@@ -567,7 +567,7 @@ public class GenerateDialogBox {
                     performanceValueErrorLbl.setText("Performancevalue must be a number");
                 }
 
-                MotherboardComponentRegistry.addComponent(new MotherboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString));
+                MotherboardRegistry.addComponent(new MotherboardModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString));
                 createObject = true;
 
             } catch (InvalidNameException ine) {
@@ -623,7 +623,7 @@ public class GenerateDialogBox {
                     performanceValueErrorLbl.setText("Performancevalue must be a number");
                 }
 
-                MouseComponentRegistry.addComponent(new MouseModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, wireslessString));
+                MouseRegistry.addComponent(new MouseModel(name.getText(), brand.getText(), priceDouble, pvDouble, typeString, wireslessString));
                 createObject = true;
 
             } catch (InvalidNameException ine) {
@@ -679,7 +679,7 @@ public class GenerateDialogBox {
                     wattErrorLbl.setText("Watt must be a number");
                 }
 
-                PSUComponentRegistry.addComponent(new PSUModel(name.getText(), brand.getText(), priceDouble, pvDouble, wattInt));
+                PSURegistry.addComponent(new PSUModel(name.getText(), brand.getText(), priceDouble, pvDouble, wattInt));
                 createObject = true;
 
             } catch (InvalidNameException ine) {
@@ -751,7 +751,7 @@ public class GenerateDialogBox {
                     memoryspeedErrorLbl.setText("Memoryspeed must be a number");
                 }
 
-                RAMComponentRegistry.addComponent(new RAMModel(name.getText(), brand.getText(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));
+                RAMRegistry.addComponent(new RAMModel(name.getText(), brand.getText(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));
                 createObject = true;
 
             }
@@ -813,7 +813,7 @@ public class GenerateDialogBox {
                     performanceValueErrorLbl.setText("Performancevalue must be a number");
                 }
 
-                SoundCardComponentRegistry.addComponent(new SoundCardModel(name.getText(), brand.getText(), priceDouble, pvDouble, surroundString, bassboostString));
+                SoundCardRegistry.addComponent(new SoundCardModel(name.getText(), brand.getText(), priceDouble, pvDouble, surroundString, bassboostString));
                 createObject = true;
 
             } catch (InvalidNameException ine) {

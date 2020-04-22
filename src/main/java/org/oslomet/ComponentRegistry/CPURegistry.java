@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.CPUModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class CPUComponentRegistry implements ComponentRegistryMethods {
+public class CPURegistry implements RegistryMethods {
 
     //Initialize array
     private transient static ObservableList<CPUModel> cpuArray = FXCollections.observableArrayList();

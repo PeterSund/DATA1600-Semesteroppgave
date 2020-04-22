@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.ComputerCaseModel;
-import org.oslomet.ComponentRegistry.ComputerCaseComponentRegistry;
+import org.oslomet.ComponentRegistry.ComputerCaseRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class ComputerCaseDialog {
@@ -92,7 +92,7 @@ public class ComputerCaseDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            ComputerCaseComponentRegistry.addComponent(new ComputerCaseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
+            ComputerCaseRegistry.addComponent(new ComputerCaseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
             window.close();
         }
 

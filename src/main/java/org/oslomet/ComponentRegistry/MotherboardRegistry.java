@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.MotherboardModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class MotherboardComponentRegistry implements ComponentRegistryMethods {
+public class MotherboardRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<MotherboardModel> motherboardArray = FXCollections.observableArrayList();

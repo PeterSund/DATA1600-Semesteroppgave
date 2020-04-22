@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.HarddriveModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class HardDriveComponentRegistry implements ComponentRegistryMethods {
+public class HardDriveRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<HarddriveModel> hardDriveArray = FXCollections.observableArrayList();

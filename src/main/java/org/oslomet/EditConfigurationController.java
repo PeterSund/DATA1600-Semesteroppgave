@@ -54,17 +54,17 @@ public class EditConfigurationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ComputerCaseComponentRegistry.attachTableView(tvComputercase);
-        CPUComponentRegistry.attachTableView(tvCPU);
-        GPUComponentRegistry.attachTableView(tvGPU);
-        HardDriveComponentRegistry.attachTableView(tvHarddrive);
-        KeyboardComponentRegistry.attachTableView(tvKeyboard);
-        MonitorComponentRegistry.attachTableView(tvMonitor);
-        MotherboardComponentRegistry.attachTableView(tvMotherboard);
-        SoundCardComponentRegistry.attachTableView(tvSoundcard);
-        RAMComponentRegistry.attachTableView(tvRAM);
-        PSUComponentRegistry.attachTableView(tvPSU);
-        MouseComponentRegistry.attachTableView(tvMouse);
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+        CPURegistry.attachTableView(tvCPU);
+        GPURegistry.attachTableView(tvGPU);
+        HardDriveRegistry.attachTableView(tvHarddrive);
+        KeyboardRegistry.attachTableView(tvKeyboard);
+        MonitorRegistry.attachTableView(tvMonitor);
+        MotherboardRegistry.attachTableView(tvMotherboard);
+        SoundCardRegistry.attachTableView(tvSoundcard);
+        RAMRegistry.attachTableView(tvRAM);
+        PSURegistry.attachTableView(tvPSU);
+        MouseRegistry.attachTableView(tvMouse);
 
         tableViewArray = Arrays.asList(tvMouse, tvCPU, tvGPU, tvHarddrive, tvMotherboard, tvRAM, tvSoundcard, tvPSU, tvMonitor, tvComputercase, tvKeyboard);
 

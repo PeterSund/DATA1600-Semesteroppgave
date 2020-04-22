@@ -8,17 +8,17 @@ public class ComponentsRegistry {
 
     public static ArrayList addAllComponentsArraysToArray() {
         allComponents.clear();
-        allComponents.add(ComputerCaseComponentRegistry.returnArray());
-        allComponents.add(CPUComponentRegistry.returnArray());
-        allComponents.add(GPUComponentRegistry.returnArray());
-        allComponents.add(HardDriveComponentRegistry.returnArray());
-        allComponents.add(KeyboardComponentRegistry.returnArray());
-        allComponents.add(MonitorComponentRegistry.returnArray());
-        allComponents.add(MotherboardComponentRegistry.returnArray());
-        allComponents.add(MouseComponentRegistry.returnArray());
-        allComponents.add(PSUComponentRegistry.returnArray());
-        allComponents.add(RAMComponentRegistry.returnArray());
-        allComponents.add(SoundCardComponentRegistry.returnArray());
+        allComponents.add(ComputerCaseRegistry.returnArray());
+        allComponents.add(CPURegistry.returnArray());
+        allComponents.add(GPURegistry.returnArray());
+        allComponents.add(HardDriveRegistry.returnArray());
+        allComponents.add(KeyboardRegistry.returnArray());
+        allComponents.add(MonitorRegistry.returnArray());
+        allComponents.add(MotherboardRegistry.returnArray());
+        allComponents.add(MouseRegistry.returnArray());
+        allComponents.add(PSURegistry.returnArray());
+        allComponents.add(RAMRegistry.returnArray());
+        allComponents.add(SoundCardRegistry.returnArray());
         return allComponents;
     }
 

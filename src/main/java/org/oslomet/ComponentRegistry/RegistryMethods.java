@@ -2,7 +2,7 @@ package org.oslomet.ComponentRegistry;
 
 
 
-public interface ComponentRegistryMethods {
+public interface RegistryMethods {
 
     static void attachTableView() {
     }

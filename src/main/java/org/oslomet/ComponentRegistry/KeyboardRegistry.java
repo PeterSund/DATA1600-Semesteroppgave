@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.KeyboardModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class KeyboardComponentRegistry implements ComponentRegistryMethods {
+public class KeyboardRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<KeyboardModel> keyboardArray = FXCollections.observableArrayList();

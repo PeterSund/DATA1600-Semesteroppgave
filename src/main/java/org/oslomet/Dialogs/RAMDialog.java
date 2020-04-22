@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.RAMModel;
-import org.oslomet.ComponentRegistry.RAMComponentRegistry;
+import org.oslomet.ComponentRegistry.RAMRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class RAMDialog {
@@ -98,7 +98,7 @@ public class RAMDialog {
                 memoryspeedErrorLbl.setText("Memoryspeed must be a number");
             }
 
-            RAMComponentRegistry.addComponent(new RAMModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));
+            RAMRegistry.addComponent(new RAMModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));
             window.close();
 
         }

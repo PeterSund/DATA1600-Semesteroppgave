@@ -7,7 +7,7 @@ import org.oslomet.ComponentClasses.MouseModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class MouseComponentRegistry implements ComponentRegistryMethods {
+public class MouseRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<MouseModel> mouseArray = FXCollections.observableArrayList();

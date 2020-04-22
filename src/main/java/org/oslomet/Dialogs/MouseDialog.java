@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.MouseModel;
-import org.oslomet.ComponentRegistry.MouseComponentRegistry;
+import org.oslomet.ComponentRegistry.MouseRegistry;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
 import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
@@ -84,7 +84,7 @@ public class MouseDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            MouseComponentRegistry.addComponent(new MouseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), wireless.getValue().toString()));
+            MouseRegistry.addComponent(new MouseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), wireless.getValue().toString()));
             window.close();
 
         } catch (InvalidNameException ine) {

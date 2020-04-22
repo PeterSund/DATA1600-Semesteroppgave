@@ -7,7 +7,7 @@ import org.oslomet.ComponentClasses.ComputerCaseModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class ComputerCaseComponentRegistry implements ComponentRegistryMethods {
+public class ComputerCaseRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<ComputerCaseModel> computerCaseArray = FXCollections.observableArrayList();

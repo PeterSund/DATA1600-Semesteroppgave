@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.SoundCardModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class SoundCardComponentRegistry implements ComponentRegistryMethods {
+public class SoundCardRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<SoundCardModel> soundCardArray = FXCollections.observableArrayList();

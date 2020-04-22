@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.RAMModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class RAMComponentRegistry implements ComponentRegistryMethods {
+public class RAMRegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<RAMModel> ramArray = FXCollections.observableArrayList();

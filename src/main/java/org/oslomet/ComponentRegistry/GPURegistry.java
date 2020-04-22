@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.GPUModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class GPUComponentRegistry implements ComponentRegistryMethods {
+public class GPURegistry implements RegistryMethods {
 
     //Initialize array
     private static transient ObservableList<GPUModel> gpuArray = FXCollections.observableArrayList();

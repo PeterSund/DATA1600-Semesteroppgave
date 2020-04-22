@@ -47,17 +47,17 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ComputerCaseComponentRegistry.attachTableView(tvComputercase);
-        CPUComponentRegistry.attachTableView(tvCPU);
-        GPUComponentRegistry.attachTableView(tvGPU);
-        HardDriveComponentRegistry.attachTableView(tvHarddrive);
-        KeyboardComponentRegistry.attachTableView(tvKeyboard);
-        MonitorComponentRegistry.attachTableView(tvMonitor);
-        MotherboardComponentRegistry.attachTableView(tvMotherboard);
-        SoundCardComponentRegistry.attachTableView(tvSoundcard);
-        RAMComponentRegistry.attachTableView(tvRAM);
-        PSUComponentRegistry.attachTableView(tvPSU);
-        MouseComponentRegistry.attachTableView(tvMouse);
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+        CPURegistry.attachTableView(tvCPU);
+        GPURegistry.attachTableView(tvGPU);
+        HardDriveRegistry.attachTableView(tvHarddrive);
+        KeyboardRegistry.attachTableView(tvKeyboard);
+        MonitorRegistry.attachTableView(tvMonitor);
+        MotherboardRegistry.attachTableView(tvMotherboard);
+        SoundCardRegistry.attachTableView(tvSoundcard);
+        RAMRegistry.attachTableView(tvRAM);
+        PSURegistry.attachTableView(tvPSU);
+        MouseRegistry.attachTableView(tvMouse);
 
         //Sets computercase tableview as visible when Admin is opened, sets all other tableviews to not visible
         for (TableView tv : tableViewArray) {
@@ -601,40 +601,40 @@ public class AdminController implements Initializable {
     private ChoiceBox<String> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
             cbFilterRAM, cbFilterSoundcard, cbFilterPSU, cbFilterMonitor, cbFilterMouse, cbFilterKeyboard;
 
-    private ComputerCaseComponentRegistry computerCaseRegistry = new ComputerCaseComponentRegistry();
-    private CPUComponentRegistry cpuRegistry = new CPUComponentRegistry();
-    private GPUComponentRegistry gpuRegistry = new GPUComponentRegistry();
-    private HardDriveComponentRegistry hardDriveRegistry = new HardDriveComponentRegistry();
-    private KeyboardComponentRegistry keyboardRegistry = new KeyboardComponentRegistry();
-    private MonitorComponentRegistry monitorRegistry = new MonitorComponentRegistry();
-    private MotherboardComponentRegistry motherboardRegistry = new MotherboardComponentRegistry();
-    private MouseComponentRegistry mouseRegistry = new MouseComponentRegistry();
-    private PSUComponentRegistry psuRegistry = new PSUComponentRegistry();
-    private RAMComponentRegistry ramRegistry = new RAMComponentRegistry();
-    private SoundCardComponentRegistry soundCardRegistry = new SoundCardComponentRegistry();
+    private ComputerCaseRegistry computerCaseRegistry = new ComputerCaseRegistry();
+    private CPURegistry cpuRegistry = new CPURegistry();
+    private GPURegistry gpuRegistry = new GPURegistry();
+    private HardDriveRegistry hardDriveRegistry = new HardDriveRegistry();
+    private KeyboardRegistry keyboardRegistry = new KeyboardRegistry();
+    private MonitorRegistry monitorRegistry = new MonitorRegistry();
+    private MotherboardRegistry motherboardRegistry = new MotherboardRegistry();
+    private MouseRegistry mouseRegistry = new MouseRegistry();
+    private PSURegistry psuRegistry = new PSURegistry();
+    private RAMRegistry ramRegistry = new RAMRegistry();
+    private SoundCardRegistry soundCardRegistry = new SoundCardRegistry();
 
     @FXML
-    private void updateComputerCaseList() { ComputerCaseComponentRegistry.attachTableView(tvComputercase);}
+    private void updateComputerCaseList() { ComputerCaseRegistry.attachTableView(tvComputercase);}
 
-    private void updateCPUList() { CPUComponentRegistry.attachTableView(tvCPU);}
+    private void updateCPUList() { CPURegistry.attachTableView(tvCPU);}
 
-    private void updateGPUList() { GPUComponentRegistry.attachTableView(tvGPU);}
+    private void updateGPUList() { GPURegistry.attachTableView(tvGPU);}
 
-    private void updateHardDriveList() { HardDriveComponentRegistry.attachTableView(tvHarddrive);}
+    private void updateHardDriveList() { HardDriveRegistry.attachTableView(tvHarddrive);}
 
-    private void updateKeyboardList() { KeyboardComponentRegistry.attachTableView(tvKeyboard);}
+    private void updateKeyboardList() { KeyboardRegistry.attachTableView(tvKeyboard);}
 
-    private void updateMonitorList() { MonitorComponentRegistry.attachTableView(tvMonitor);}
+    private void updateMonitorList() { MonitorRegistry.attachTableView(tvMonitor);}
 
-    private void updateMotherboardList() { MotherboardComponentRegistry.attachTableView(tvMotherboard);}
+    private void updateMotherboardList() { MotherboardRegistry.attachTableView(tvMotherboard);}
 
-    private void updateMouseList() { MouseComponentRegistry.attachTableView(tvMouse);}
+    private void updateMouseList() { MouseRegistry.attachTableView(tvMouse);}
 
-    private void updatePSUList() { PSUComponentRegistry.attachTableView(tvPSU);}
+    private void updatePSUList() { PSURegistry.attachTableView(tvPSU);}
 
-    private void updateRAMList() { RAMComponentRegistry.attachTableView(tvRAM);}
+    private void updateRAMList() { RAMRegistry.attachTableView(tvRAM);}
 
-    private void updateSoundCardList() { SoundCardComponentRegistry.attachTableView(tvSoundcard);}
+    private void updateSoundCardList() { SoundCardRegistry.attachTableView(tvSoundcard);}
 
     @FXML
     private void clearFilter() {
@@ -1048,47 +1048,47 @@ public class AdminController implements Initializable {
 
              switch (activeTableviewID) {
                  case "Computercase":
-                     ComputerCaseComponentRegistry.removeComponent((ComputerCaseModel) activeTableview.getSelectionModel().getSelectedItem());
+                     ComputerCaseRegistry.removeComponent((ComputerCaseModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "CPU":
-                     CPUComponentRegistry.removeComponent((CPUModel) activeTableview.getSelectionModel().getSelectedItem());
+                     CPURegistry.removeComponent((CPUModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "GPU":
-                     GPUComponentRegistry.removeComponent((GPUModel) activeTableview.getSelectionModel().getSelectedItem());
+                     GPURegistry.removeComponent((GPUModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "Hard drive":
-                     HardDriveComponentRegistry.removeComponent((HarddriveModel) activeTableview.getSelectionModel().getSelectedItem());
+                     HardDriveRegistry.removeComponent((HarddriveModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "Motherboard":
-                     MotherboardComponentRegistry.removeComponent((MotherboardModel) activeTableview.getSelectionModel().getSelectedItem());
+                     MotherboardRegistry.removeComponent((MotherboardModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "RAM":
-                     RAMComponentRegistry.removeComponent((RAMModel) activeTableview.getSelectionModel().getSelectedItem());
+                     RAMRegistry.removeComponent((RAMModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "Soundcard":
-                     SoundCardComponentRegistry.removeComponent((SoundCardModel) activeTableview.getSelectionModel().getSelectedItem());
+                     SoundCardRegistry.removeComponent((SoundCardModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "PSU":
-                     PSUComponentRegistry.removeComponent((PSUModel) activeTableview.getSelectionModel().getSelectedItem());
+                     PSURegistry.removeComponent((PSUModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "Monitor":
-                     MonitorComponentRegistry.removeComponent((MonitorModel) activeTableview.getSelectionModel().getSelectedItem());
+                     MonitorRegistry.removeComponent((MonitorModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "Mouse":
-                     MouseComponentRegistry.removeComponent((MouseModel) activeTableview.getSelectionModel().getSelectedItem());
+                     MouseRegistry.removeComponent((MouseModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
 
                  case "Keyboard":
-                     KeyboardComponentRegistry.removeComponent((KeyboardModel) activeTableview.getSelectionModel().getSelectedItem());
+                     KeyboardRegistry.removeComponent((KeyboardModel) activeTableview.getSelectionModel().getSelectedItem());
                      break;
                  }
          activeTableview.refresh();

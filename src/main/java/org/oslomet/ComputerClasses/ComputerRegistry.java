@@ -119,6 +119,7 @@ public class ComputerRegistry {
             String computerKeyboardName = computerFromFile.get(12).split(DELIMITER)[1].split(":")[1].strip();
             String computerMouseName = computerFromFile.get(13).split(DELIMITER)[1].split(":")[1].strip();
 
+
             //Checks if the components exist based on their name
             //If the component exist, set the component to the variable. Otherwise, set the variable to null
             ComputerCaseModel computerCase = ComputerCaseRegistry.computerCaseExists(computerCaseName);
@@ -132,17 +133,6 @@ public class ComputerRegistry {
             MonitorModel monitor = MonitorRegistry.monitorExists(computerMonitorName);
             KeyboardModel keyboard = KeyboardRegistry.keyBoardExists(computerKeyboardName);
             MouseModel mouse = MouseRegistry.mouseExists(computerMouseName);
-            ComputerCaseModel computerCase = ComputerCaseComponentRegistry.computerCaseExists(computerCaseName);
-            CPUModel cpu = CPUComponentRegistry.cpuExists(computerCPUName);
-            GPUModel gpu = GPUComponentRegistry.gpuExists(computerGPUName);
-            RAMModel ram = RAMComponentRegistry.ramExists(computerRAMName);
-            HarddriveModel hardDrive = HardDriveComponentRegistry.hardDriveExists(computerHardDriveName);
-            MotherboardModel motherBoard = MotherboardComponentRegistry.motherBoardExists(computerMotherBoardName);
-            PSUModel psu = PSUComponentRegistry.psuExists(computerPSUName);
-            SoundCardModel soundCard = SoundCardComponentRegistry.soundCardExists(computerSoundCardName);
-            MonitorModel monitor = MonitorComponentRegistry.monitorExists(computerMonitorName);
-            KeyboardModel keyboard = KeyboardComponentRegistry.keyBoardExists(computerKeyboardName);
-            MouseModel mouse = MouseComponentRegistry.mouseExists(computerMouseName);
 
             ComputerModel computer = new ComputerModel(computerName, null, null, null, null,
                     null, null, null, null, null, null, null,
@@ -185,7 +175,6 @@ public class ComputerRegistry {
             return computer;
         }
         catch (IndexOutOfBoundsException ioobe) {
-            System.out.print(ioobe.getMessage());
             return null;
         }
     }

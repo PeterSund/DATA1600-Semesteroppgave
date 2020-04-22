@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.PSUModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class PSUComponentRegistry implements ComponentRegistryMethods {
+public class PSURegistry implements RegistryMethods {
 
     //Initialize array
     private static ObservableList<PSUModel> psuArray = FXCollections.observableArrayList();

@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.SoundCardModel;
-import org.oslomet.ComponentRegistry.SoundCardComponentRegistry;
+import org.oslomet.ComponentRegistry.SoundCardRegistry;
 import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
 import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
@@ -86,7 +86,7 @@ public class SoundCardDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            SoundCardComponentRegistry.addComponent(new SoundCardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, surround.getValue().toString(), bassboost.getValue().toString()));
+            SoundCardRegistry.addComponent(new SoundCardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, surround.getValue().toString(), bassboost.getValue().toString()));
             window.close();
 
         } catch (InvalidNameException ine) {
