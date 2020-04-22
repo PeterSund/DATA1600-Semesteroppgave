@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.MonitorModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class MonitorRegistry implements RegistryMethods {
+public class MonitorComponentRegistry implements ComponentRegistryMethods {
 
     //Initialize array
     private static ObservableList<MonitorModel> monitorArray = FXCollections.observableArrayList();
@@ -39,6 +39,7 @@ public class MonitorRegistry implements RegistryMethods {
         return monitorList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addMonitorFromJobjToArray(ArrayList<MonitorModel> list) {
         for (MonitorModel monitor : list) {
             monitorArray.add(monitor);

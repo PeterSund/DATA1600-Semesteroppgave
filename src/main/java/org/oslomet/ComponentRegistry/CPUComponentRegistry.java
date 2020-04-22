@@ -5,12 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import org.oslomet.ComponentClasses.CPUModel;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class CPURegistry implements RegistryMethods, Serializable {
-    //private static final long serialVersionUID = 1;
+public class CPUComponentRegistry implements ComponentRegistryMethods {
 
     //Initialize array
     private transient static ObservableList<CPUModel> cpuArray = FXCollections.observableArrayList();
@@ -39,6 +37,13 @@ public class CPURegistry implements RegistryMethods, Serializable {
             cpuList.add(cpu);
         }
         return cpuList;
+    }
+
+    //Adds objects from jobj files to array (register) when they are read in filehandling
+    public static  void addCPUFromJobjToArray(ArrayList<CPUModel> list) {
+        for (CPUModel cpu : list) {
+            cpuArray.add(cpu);
+        }
     }
 
     public ObservableList<CPUModel> filterByName(String name) {
@@ -79,14 +84,7 @@ public class CPURegistry implements RegistryMethods, Serializable {
                 return cpu;
             }
         }
-
         return null;
     }
-    
 
-    public static  void addCPUFromJobjToArray(ArrayList<CPUModel> list) {
-        for (CPUModel cpu : list) {
-            cpuArray.add(cpu);
-        }
-    }
 }

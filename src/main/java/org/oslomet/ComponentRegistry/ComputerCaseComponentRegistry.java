@@ -7,7 +7,7 @@ import org.oslomet.ComponentClasses.ComputerCaseModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class ComputerCaseRegistry implements RegistryMethods {
+public class ComputerCaseComponentRegistry implements ComponentRegistryMethods {
 
     //Initialize array
     private static ObservableList<ComputerCaseModel> computerCaseArray = FXCollections.observableArrayList();
@@ -38,13 +38,12 @@ public class ComputerCaseRegistry implements RegistryMethods {
         return computerCaseList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addComputerCaseFromJobjToArray(ArrayList<ComputerCaseModel> list) {
         for (ComputerCaseModel computerCase : list) {
             computerCaseArray.add(computerCase);
         }
     }
-
-
 
     public ObservableList<ComputerCaseModel> filterByName(String name) {
         return computerCaseArray.stream().filter(cc -> cc.getName().
@@ -78,13 +77,11 @@ public class ComputerCaseRegistry implements RegistryMethods {
     }
 
     public static ComputerCaseModel computerCaseExists(String computerCaseName) {
-
         for (ComputerCaseModel computerCase : computerCaseArray) {
             if (computerCase.getName().equals(computerCaseName)) {
                 return computerCase;
             }
         }
-
         return null;
     }
 }

@@ -8,7 +8,7 @@ import org.oslomet.ComponentClasses.HarddriveModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class HardDriveRegistry implements RegistryMethods {
+public class HardDriveComponentRegistry implements ComponentRegistryMethods {
 
     //Initialize array
     private static ObservableList<HarddriveModel> hardDriveArray = FXCollections.observableArrayList();
@@ -40,6 +40,7 @@ public class HardDriveRegistry implements RegistryMethods {
         return hardDriveList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addHardDriveFromJobjToArray(ArrayList<HarddriveModel> list) {
         for (HarddriveModel hardDrive : list) {
             hardDriveArray.add(hardDrive);

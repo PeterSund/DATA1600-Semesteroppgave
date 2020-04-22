@@ -7,7 +7,8 @@ import org.oslomet.ComponentClasses.MouseModel;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class MouseRegistry implements RegistryMethods  {
+public class MouseComponentRegistry implements ComponentRegistryMethods {
+
     //Initialize array
     private static ObservableList<MouseModel> mouseArray = FXCollections.observableArrayList();
     public static void attachTableView(TableView tv) {
@@ -36,6 +37,7 @@ public class MouseRegistry implements RegistryMethods  {
         return mouseList;
     }
 
+    //Adds objects from jobj files to array (register) when they are read in filehandling
     public static  void addMouseFromJobjToArray(ArrayList<MouseModel> list) {
         for (MouseModel mouse : list) {
             mouseArray.add(mouse);
