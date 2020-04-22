@@ -7,9 +7,7 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerTxt;
-
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ComputerRegistry {
@@ -25,11 +23,6 @@ public class ComputerRegistry {
     //Add computer
     public static void addComputer(ComputerModel computer) {
         computerArray.add(computer);
-    }
-
-    public static String getValue() {
-       String test = computerArray.get(0).getConfigName();
-       return test;
     }
 
     //Returns index of computer if name matches
@@ -112,6 +105,7 @@ public class ComputerRegistry {
         ArrayList<String> computerFromFile = FileOpenerTxt.readFile(FileChooser.openTxtFile());
 
         try {
+            //Gets the name of all components
             String computerName = computerFromFile.get(0).split(DELIMITER)[1];
             String computerCaseName = computerFromFile.get(3).split(DELIMITER)[1].split(":")[1].strip();
             String computerCPUName = computerFromFile.get(4).split(DELIMITER)[1].split(":")[1].strip();
@@ -125,6 +119,8 @@ public class ComputerRegistry {
             String computerKeyboardName = computerFromFile.get(12).split(DELIMITER)[1].split(":")[1].strip();
             String computerMouseName = computerFromFile.get(13).split(DELIMITER)[1].split(":")[1].strip();
 
+            //Checks if the components exist based on their name
+            //If the component exist, set the component to the variable. Otherwise, set the variable to null
             ComputerCaseModel computerCase = ComputerCaseRegistry.computerCaseExists(computerCaseName);
             CPUModel cpu = CPURegistry.cpuExists(computerCPUName);
             GPUModel gpu = GPURegistry.gpuExists(computerGPUName);
@@ -141,6 +137,7 @@ public class ComputerRegistry {
                     null, null, null, null, null, null, null,
                     0, 0);
 
+            //If the component exists, set it to the computer
             if (computerCase != null) {
                 computer.setComputerCase(computerCase);
             }
