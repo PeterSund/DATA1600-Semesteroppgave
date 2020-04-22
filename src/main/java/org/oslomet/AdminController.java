@@ -787,6 +787,7 @@ public class AdminController implements Initializable {
             case "Performance value" : result = keyboardRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
             case "Type" : result = keyboardRegistry.filterByType(txtFilter.getText()); break;
             case "Language" : result = keyboardRegistry.filterByLanguage(txtFilter.getText()); break;
+            case "Wireless" : result = keyboardRegistry.filterByWireless(txtFilter.getText()); break;
         }
 
         if(result == null) {
@@ -920,6 +921,8 @@ public class AdminController implements Initializable {
             case "Brand" : result = soundCardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = soundCardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
             case "Performance value" : result = soundCardRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Surround" : result = soundCardRegistry.filterBySurround(txtFilter.getText()); break;
+            case "Bass boost" : result = soundCardRegistry.filterByBassBoost(txtFilter.getText()); break;
         }
 
         if(result == null) {
