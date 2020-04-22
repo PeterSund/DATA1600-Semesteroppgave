@@ -26,6 +26,7 @@ import org.oslomet.Dialogs.HelpDialog;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import org.oslomet.Dialogs.LoginDialog;
@@ -35,50 +36,11 @@ import org.oslomet.Dialogs.SaveConfigurationDialog;
 public class EditConfigurationController implements Initializable {
 
     @FXML
-    private TableView<?> tableviewMyConfig;
+    private TableView<?> tvMouse, tvCPU, tvGPU, tvHarddrive, tvMotherboard, tvRAM, tvSoundcard, tvPSU, tvMonitor, tvComputercase, tvKeyboard;
 
     @FXML
-    private Button btnRemoveComp;
-
-    @FXML
-    private Button btnSaveConfig;
-
-    @FXML
-    private TableView<?> tvMouse;
-
-    @FXML
-    private TableView<?> tvCPU;
-
-    @FXML
-    private TableView<?> tvGPU;
-
-    @FXML
-    private TableView<?> tvHarddrive;
-
-    @FXML
-    private TableView<?> tvMotherboard;
-
-    @FXML
-    private TableView<?> tvRAM;
-
-    @FXML
-    private TableView<?> tvSoundcard;
-
-    @FXML
-    private TableView<?> tvPSU;
-
-    @FXML
-    private TableView<?> tvMonitor;
-
-    @FXML
-    private TableView<?> tvComputercase;
-
-    @FXML
-    private TableView<?> tvKeyboard;
-
-    @FXML
-    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard,
-            lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice, lblTotalPerformanceValue, lblPerformanceValueProgressText;
+    private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard,  lblPSU, lblMonitor,
+            lblMouse, lblKeyboard, lblName, lblTotalPrice, lblTotalPerformanceValue, lblPerformanceValueProgressText;
 
     @FXML
     private Button btnDeleteComputerCase, btnDeleteCPU, btnDeleteGPU, btnDeleteHardDrive, btnDeleteMotherBoard,
@@ -87,11 +49,11 @@ public class EditConfigurationController implements Initializable {
     @FXML
     private ProgressIndicator progressbarPV;
 
-    private ComputerModel computer;
-
     public List<TableView> tableViewArray = new ArrayList<>();
 
     public List<Button> buttonDeleteArray = new ArrayList<>();
+
+    private ComputerModel computer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -107,36 +69,18 @@ public class EditConfigurationController implements Initializable {
         PSURegistry.attachTableView(tvPSU);
         MouseRegistry.attachTableView(tvMouse);
 
-        tableViewArray.add(tvComputercase);
-        tableViewArray.add(tvCPU);
-        tableViewArray.add(tvGPU);
-        tableViewArray.add(tvHarddrive);
-        tableViewArray.add(tvKeyboard);
-        tableViewArray.add(tvMonitor);
-        tableViewArray.add(tvMotherboard);
-        tableViewArray.add(tvMouse);
-        tableViewArray.add(tvPSU);
-        tableViewArray.add(tvRAM);
-        tableViewArray.add(tvSoundcard);
+        tableViewArray = Arrays.asList(tvMouse, tvCPU, tvGPU, tvHarddrive, tvMotherboard, tvRAM, tvSoundcard, tvPSU, tvMonitor, tvComputercase, tvKeyboard);
 
-        buttonDeleteArray.add(btnDeleteComputerCase);
-        buttonDeleteArray.add(btnDeleteCPU);
-        buttonDeleteArray.add(btnDeleteGPU);
-        buttonDeleteArray.add(btnDeleteHardDrive);
-        buttonDeleteArray.add(btnDeleteMotherBoard);
-        buttonDeleteArray.add(btnDeleteRAM);
-        buttonDeleteArray.add(btnDeleteSoundCard);
-        buttonDeleteArray.add(btnDeletePSU);
-        buttonDeleteArray.add(btnDeleteMonitor);
-        buttonDeleteArray.add(btnDeleteMouse);
-        buttonDeleteArray.add(btnDeleteKeyboard);
+        buttonDeleteArray = Arrays.asList(btnDeleteComputerCase, btnDeleteCPU, btnDeleteGPU, btnDeleteHardDrive, btnDeleteMotherBoard,
+                btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard);
 
-
+        //Makes all tableviews invisible except for computer case tableview
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
         }
         tvComputercase.setVisible(true);
 
+        //Makes all delete buttons invisible
         for (Button btn : buttonDeleteArray) {
             btn.setVisible(false);
         }
@@ -144,15 +88,14 @@ public class EditConfigurationController implements Initializable {
 
     //Change table view
     @FXML
-    void showComponent(ActionEvent event) {
+    private void changeActiveTableView(ActionEvent event) {
+
+        //Gets the name of the component belonging to the button that was pressed
         String component = event.getSource().toString();
         component = component.split("]")[1];
         component = component.substring(1,component.length()-1);
-        showTableView(component);
-    }
 
-    public void showTableView(String component) {
-
+        //Makes all table views invisible except for the table view that belongs to the component
         for (TableView tv : tableViewArray) {
             if (tv.getId().equals(component)) {
                 tv.setVisible(true);
@@ -163,46 +106,35 @@ public class EditConfigurationController implements Initializable {
         }
     }
 
-    //Change view to View Configurations
-    @FXML
-    void changeToViewConfigurations(ActionEvent event) throws IOException {
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
-        window.setScene(viewConfScene);
-        window.show();
-    }
-
     //Change view to Admin
     @FXML
-    void adminLoginFromBtn(ActionEvent event) throws IOException {
+    private void adminLoginFromBtn(ActionEvent event) throws IOException {
         LoginDialog loginDialog = new LoginDialog();
         if (loginDialog.display()) {
             Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
             Scene viewConfScene = new Scene(viewConfParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
             window.show();
         }
     }
 
     //Returns the table view that is visible
-    private TableView isVisible() {
+    private TableView tableViewVisible() {
         for (TableView tv : tableViewArray) {
             if (tv.isVisible()) {
                 return tv;
             }
         }
-        return null; //Trenger exeption
+        return tvComputercase;
     }
 
-
-    //Delete component
+    //Deletes selected component and updates computer, labels and progress indicator
     @FXML
-    void deleteComponent(ActionEvent event) {
+    private void deleteComponent(ActionEvent event) {
 
+        //Gets the name of component belonging to the delete button that was pressed
         String buttonPressed = event.getSource().toString().split("id")[1].substring(1).split(",")[0];
-
 
         if (buttonPressed.equals("ComputerCase")) {
             computer.setComputerCase(null);
@@ -284,12 +216,13 @@ public class EditConfigurationController implements Initializable {
         updateProgIndicatorTotalPV();
     }
 
+    //Adds the configuration to the ComputerRegistry array
     @FXML
-    void saveConfiguration(ActionEvent event) throws IOException {
+    private void saveConfiguration(ActionEvent event) throws IOException {
 
         List<String> componentsNotChosen = new ArrayList<String>();
 
-        //Checks that user has chosen all components for the computer
+        //Checks if the configuration is missing any components
         if (computer.getComputerCase()==null) {
             componentsNotChosen.add("computer case");
         }
@@ -324,56 +257,31 @@ public class EditConfigurationController implements Initializable {
             componentsNotChosen.add("mouse");
         }
 
+        //If there are no missing components, save configuration
         if (computer.getComputerCase()!=null && computer.getCpu()!=null && computer.getGpu()!=null && computer.getRam()!=null && computer.getHardDrive()!=null && computer.getMouse()!=null
         && computer.getMotherboard()!=null && computer.getPsu()!=null && computer.getSoundCard()!=null && computer.getKeyboard()!=null && computer.getMonitor()!=null) {
-            //Adds new computer to computer registry OR replaces computer in registry if it already exists
-            int computerIndex = ComputerRegistry.findComputer(computer);
-
-            if (computerIndex < 0) {
-                ComputerRegistry.addComputer(computer);
-            }
-
-            else {
-                ComputerRegistry.replaceComputer(computer, computerIndex);
-            }
-
-            Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
-            Scene viewConfScene = new Scene(viewConfParent);
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
-            window.setScene(viewConfScene);
-            window.show();
+            save(computer, event);
         }
+
+        //Displays a warning to the user that the configuration is missing components
+        //The user can then choose to cancel the save operation and continure editing the configuration
+        //OR save the configuration with missing components
         else {
             SaveConfigurationDialog saveConfigurationDialog = new SaveConfigurationDialog();
             if (saveConfigurationDialog.display(componentsNotChosen)) {
-                //Adds new computer to computer registry OR replaces computer in registry if it already exists
-                int computerIndex = ComputerRegistry.findComputer(computer);
-
-                if (computerIndex < 0) {
-                    ComputerRegistry.addComputer(computer);
-                }
-
-                else {
-                    ComputerRegistry.replaceComputer(computer, computerIndex);
-                }
-
-                Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
-                Scene viewConfScene = new Scene(viewConfParent);
-                Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
-                window.setScene(viewConfScene);
-                window.show();
+               save(computer, event);
             }
         }
     }
 
+    //Gets computer from ViewConfiguration controller
     public void setComputer(ComputerModel userComputer) {
         computer = userComputer;
         showComputer();
     }
 
-    public void showComputer() {
-
-        //Shows computer's components only if the computer is not a new computer
+    //Updates labels and makes delete buttons visible for all the existing components
+    private void showComputer() {
         if (computer.getComputerCase() != null) {
             lblComputerCase.setText(computer.getComputerCase().toStringForConfig());
             btnDeleteComputerCase.setVisible(true);
@@ -425,11 +333,13 @@ public class EditConfigurationController implements Initializable {
         updateProgIndicatorTotalPV();
     }
 
+    //Updates computer, labels and progress indicator when a new component is selected
     @FXML
     void addComponent(MouseEvent event) {
 
-        TableView currentTableView = isVisible();
+        TableView currentTableView = tableViewVisible();
 
+        //Checks if user has double clicked a component
         if (currentTableView.getSelectionModel().getSelectedItem() != null && event.getClickCount() == 2) {
 
             ComponentModel component = (ComponentModel) currentTableView.getSelectionModel().getSelectedItem();
@@ -525,12 +435,15 @@ public class EditConfigurationController implements Initializable {
         updateProgIndicatorTotalPV();
     }
 
+    //Displays help dialog
     public void showHelp() {
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.showEditConfigHelp();
     }
 
-    public void updateProgIndicatorTotalPV() {
+    //Updates the progress indicator based on the computer's curret performance value
+    //The color will gradually change when the performance value becomes higher
+    private void updateProgIndicatorTotalPV() {
         double totalPV = computer.getTotalPerformanceValue() / AdminInputValidation.MAX_PERFORMANCE_TOTALVALUE;
         progressbarPV.setProgress(totalPV);
 
@@ -556,6 +469,28 @@ public class EditConfigurationController implements Initializable {
             lblPerformanceValueProgressText.setText("Your computer will have a BEAST performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: darkgreen;");
         }
+    }
+
+    //Adds current configuration to computer registry array
+    private void save(ComputerModel computer, ActionEvent event) throws IOException {
+        int computerIndex = ComputerRegistry.findComputer(computer);
+
+        //If the computer doesn't exist, add it
+        if (computerIndex < 0) {
+            ComputerRegistry.addComputer(computer);
+        }
+
+        //If it exists, replace it
+        else {
+            ComputerRegistry.replaceComputer(computer, computerIndex);
+        }
+
+        //Change view to viewConfiguration controller
+        Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
+        Scene viewConfScene = new Scene(viewConfParent);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+        window.setScene(viewConfScene);
+        window.show();
     }
 
 }
