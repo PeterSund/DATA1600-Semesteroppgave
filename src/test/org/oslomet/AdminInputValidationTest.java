@@ -1,6 +1,6 @@
 package org.oslomet;
 
-import org.oslomet.ComponentClasses.AdminInputValidation;
+import org.oslomet.Validation.AdminInputValidation;
 
 import static org.junit.jupiter.api.Assertions.*;
 

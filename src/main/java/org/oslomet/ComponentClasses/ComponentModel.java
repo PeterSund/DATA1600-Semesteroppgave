@@ -6,6 +6,7 @@ import org.oslomet.ExceptionClasses.InvalidBrandException;
 import org.oslomet.ExceptionClasses.InvalidNameException;
 import org.oslomet.ExceptionClasses.InvalidPerformanceValueException;
 import org.oslomet.ExceptionClasses.InvalidPriceException;
+import org.oslomet.Validation.AdminInputValidation;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ExceptionClasses.InvalidConfigNameException;
+import org.oslomet.Validation.AdminInputValidation;
 
 public class ComputerModel {
 
