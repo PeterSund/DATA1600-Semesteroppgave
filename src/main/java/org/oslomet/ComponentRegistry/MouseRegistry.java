@@ -2,22 +2,9 @@ package org.oslomet.ComponentRegistry;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import org.oslomet.ComponentClasses.CPUModel;
-import org.oslomet.ComponentClasses.MotherboardModel;
 import org.oslomet.ComponentClasses.MouseModel;
-import org.oslomet.ComponentClasses.PSUModel;
-
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class MouseRegistry implements RegistryMethods  {
