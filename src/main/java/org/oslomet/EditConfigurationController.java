@@ -17,7 +17,6 @@ import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.Dialogs.ErrorDialog;
-<<<<<<< HEAD
 import org.oslomet.Dialogs.HelpDialog;
 
 import java.io.IOException;
@@ -26,9 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import org.oslomet.Dialogs.LoginDialog;
-=======
 import org.oslomet.Dialogs.SaveConfigurationDialog;
->>>>>>> allowNull
+
 
 public class EditConfigurationController implements Initializable {
 
