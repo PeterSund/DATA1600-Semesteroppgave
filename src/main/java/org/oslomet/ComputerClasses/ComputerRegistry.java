@@ -9,7 +9,6 @@ import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerTxt;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ComputerRegistry {
@@ -125,17 +124,17 @@ public class ComputerRegistry {
             String computerKeyboardName = computerFromFile.get(12).split(DELIMITER)[1].split(":")[1].strip();
             String computerMouseName = computerFromFile.get(13).split(DELIMITER)[1].split(":")[1].strip();
 
-            ComputerCaseModel computerCase = ComputerCaseRegistry.computerCaseExists(computerCaseName);
-            CPUModel cpu = CPURegistry.cpuExists(computerCPUName);
-            GPUModel gpu = GPURegistry.gpuExists(computerGPUName);
-            RAMModel ram = RAMRegistry.ramExists(computerRAMName);
-            HarddriveModel hardDrive = HardDriveRegistry.hardDriveExists(computerHardDriveName);
-            MotherboardModel motherBoard = MotherboardRegistry.motherBoardExists(computerMotherBoardName);
-            PSUModel psu = PSURegistry.psuExists(computerPSUName);
-            SoundCardModel soundCard = SoundCardRegistry.soundCardExists(computerSoundCardName);
-            MonitorModel monitor = MonitorRegistry.monitorExists(computerMonitorName);
-            KeyboardModel keyboard = KeyboardRegistry.keyBoardExists(computerKeyboardName);
-            MouseModel mouse = MouseRegistry.mouseExists(computerMouseName);
+            ComputerCaseModel computerCase = ComputerCaseComponentRegistry.computerCaseExists(computerCaseName);
+            CPUModel cpu = CPUComponentRegistry.cpuExists(computerCPUName);
+            GPUModel gpu = GPUComponentRegistry.gpuExists(computerGPUName);
+            RAMModel ram = RAMComponentRegistry.ramExists(computerRAMName);
+            HarddriveModel hardDrive = HardDriveComponentRegistry.hardDriveExists(computerHardDriveName);
+            MotherboardModel motherBoard = MotherboardComponentRegistry.motherBoardExists(computerMotherBoardName);
+            PSUModel psu = PSUComponentRegistry.psuExists(computerPSUName);
+            SoundCardModel soundCard = SoundCardComponentRegistry.soundCardExists(computerSoundCardName);
+            MonitorModel monitor = MonitorComponentRegistry.monitorExists(computerMonitorName);
+            KeyboardModel keyboard = KeyboardComponentRegistry.keyBoardExists(computerKeyboardName);
+            MouseModel mouse = MouseComponentRegistry.mouseExists(computerMouseName);
 
             ComputerModel computer = new ComputerModel(computerName, null, null, null, null,
                     null, null, null, null, null, null, null,

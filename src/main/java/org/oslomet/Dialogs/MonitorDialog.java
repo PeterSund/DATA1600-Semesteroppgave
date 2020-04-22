@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.MonitorModel;
-import org.oslomet.ComponentRegistry.MonitorRegistry;
+import org.oslomet.ComponentRegistry.MonitorComponentRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class MonitorDialog {
@@ -82,7 +82,7 @@ public class MonitorDialog {
                 sizeErrorLlb.setText("Size must be a number");
             }
 
-            MonitorRegistry.addComponent(new MonitorModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, sizeInt));
+            MonitorComponentRegistry.addComponent(new MonitorModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, sizeInt));
             window.close();
 
         }

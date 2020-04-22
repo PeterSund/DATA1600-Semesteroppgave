@@ -1,7 +1,5 @@
 package org.oslomet;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
@@ -20,7 +17,6 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
-import org.oslomet.Dialogs.ErrorDialog;
 import org.oslomet.Dialogs.HelpDialog;
 
 import java.io.IOException;
@@ -31,6 +27,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import org.oslomet.Dialogs.LoginDialog;
 import org.oslomet.Dialogs.SaveConfigurationDialog;
+import org.oslomet.Validation.AdminInputValidation;
 
 
 public class EditConfigurationController implements Initializable {
@@ -57,17 +54,17 @@ public class EditConfigurationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ComputerCaseRegistry.attachTableView(tvComputercase);
-        CPURegistry.attachTableView(tvCPU);
-        GPURegistry.attachTableView(tvGPU);
-        HardDriveRegistry.attachTableView(tvHarddrive);
-        KeyboardRegistry.attachTableView(tvKeyboard);
-        MonitorRegistry.attachTableView(tvMonitor);
-        MotherboardRegistry.attachTableView(tvMotherboard);
-        SoundCardRegistry.attachTableView(tvSoundcard);
-        RAMRegistry.attachTableView(tvRAM);
-        PSURegistry.attachTableView(tvPSU);
-        MouseRegistry.attachTableView(tvMouse);
+        ComputerCaseComponentRegistry.attachTableView(tvComputercase);
+        CPUComponentRegistry.attachTableView(tvCPU);
+        GPUComponentRegistry.attachTableView(tvGPU);
+        HardDriveComponentRegistry.attachTableView(tvHarddrive);
+        KeyboardComponentRegistry.attachTableView(tvKeyboard);
+        MonitorComponentRegistry.attachTableView(tvMonitor);
+        MotherboardComponentRegistry.attachTableView(tvMotherboard);
+        SoundCardComponentRegistry.attachTableView(tvSoundcard);
+        RAMComponentRegistry.attachTableView(tvRAM);
+        PSUComponentRegistry.attachTableView(tvPSU);
+        MouseComponentRegistry.attachTableView(tvMouse);
 
         tableViewArray = Arrays.asList(tvMouse, tvCPU, tvGPU, tvHarddrive, tvMotherboard, tvRAM, tvSoundcard, tvPSU, tvMonitor, tvComputercase, tvKeyboard);
 

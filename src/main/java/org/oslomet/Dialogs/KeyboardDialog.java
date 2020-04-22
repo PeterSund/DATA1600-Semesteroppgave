@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.KeyboardModel;
-import org.oslomet.ComponentRegistry.KeyboardRegistry;
+import org.oslomet.ComponentRegistry.KeyboardComponentRegistry;
 import org.oslomet.ExceptionClasses.*;
 
 public class KeyboardDialog {
@@ -95,7 +95,7 @@ public class KeyboardDialog {
                 dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
             }
 
-            KeyboardRegistry.addComponent(new KeyboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), language.getText(), wireless.getValue().toString()));
+            KeyboardComponentRegistry.addComponent(new KeyboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), language.getText(), wireless.getValue().toString()));
             window.close();
 
         } catch (InvalidNameException ine) {

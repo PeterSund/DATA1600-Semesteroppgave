@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class SoundCardComponentRegistry implements ComponentRegistryMethods {
-    
+
     //Initialize array
     private static ObservableList<SoundCardModel> soundCardArray = FXCollections.observableArrayList();
     public static void attachTableView(TableView tv) {
