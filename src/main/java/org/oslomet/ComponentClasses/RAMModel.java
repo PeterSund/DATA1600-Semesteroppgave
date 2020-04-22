@@ -1,9 +1,7 @@
 package org.oslomet.ComponentClasses;
 
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidMemoryException;
 import org.oslomet.ExceptionClasses.InvalidMemorySpeedException;
 

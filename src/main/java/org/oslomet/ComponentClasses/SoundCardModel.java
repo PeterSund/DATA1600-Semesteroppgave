@@ -1,6 +1,5 @@
 package org.oslomet.ComponentClasses;
 
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.io.IOException;

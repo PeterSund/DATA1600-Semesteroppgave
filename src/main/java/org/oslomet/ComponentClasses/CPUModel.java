@@ -2,7 +2,6 @@ package org.oslomet.ComponentClasses;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import org.oslomet.ExceptionClasses.InvalidClockSpeedException;
 import org.oslomet.ExceptionClasses.InvalidCoresException;
 
