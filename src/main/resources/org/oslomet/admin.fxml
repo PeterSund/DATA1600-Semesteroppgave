@@ -19,17 +19,17 @@
    <Button fx:id="btnClearFilter" layoutX="628.0" layoutY="89.0" mnemonicParsing="false" onAction="#clearFilter" text="Clear filter" />
 
 
-   <Button fx:id="btnCPU" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="CPU" />
-   <Button fx:id="btnGPU" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="GPU" />
-   <Button fx:id="btnHarddrive" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
-   <Button fx:id="btnMotherboard" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
-   <Button fx:id="btnRAM" layoutX="30.0" layoutY="230.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="RAM" />
-   <Button fx:id="btnSoundcard" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
-   <Button fx:id="btnPSU" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="PSU" />
-   <Button fx:id="btnMonitor" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
-   <Button fx:id="btnMouse" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
-   <Button fx:id="btnComputercase" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" onAction="#showComponent" text="Computercase" />
-   <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" onAction="#showComponent" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
+   <Button fx:id="btnCPU" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="CPU" />
+   <Button fx:id="btnGPU" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="GPU" />
+   <Button fx:id="btnHarddrive" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
+   <Button fx:id="btnMotherboard" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
+   <Button fx:id="btnRAM" layoutX="30.0" layoutY="230.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="RAM" />
+   <Button fx:id="btnSoundcard" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
+   <Button fx:id="btnPSU" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="PSU" />
+   <Button fx:id="btnMonitor" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
+   <Button fx:id="btnMouse" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
+   <Button fx:id="btnComputercase" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" onAction="#changeActiveTableview" text="Computercase" />
+   <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
 
    <Button fx:id="btnAddComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" text="Add Component" />
    <Button fx:id="deleteComponent" layoutX="1094.0" layoutY="302.0" mnemonicParsing="false" onAction="#deleteComponent" text="Delete Component" />

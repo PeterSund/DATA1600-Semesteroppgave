@@ -16,14 +16,12 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.Dialogs.*;
 import org.oslomet.ComponentRegistry.*;
+import org.oslomet.Dialogs.*;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
-import org.oslomet.FileHandling.FileOpenerJobj;
 import org.oslomet.FileHandling.FileSaverJobj;
 import org.oslomet.FileHandling.ThreadOpenJobj;
-
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
@@ -34,21 +32,19 @@ import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
 
+    //Lists for holding tableviews, choiceboxes and buttons. All elements are added to these lists in initialize.
+    public List<TableView> tableViewArray = new ArrayList<>();
+    public List<ChoiceBox> cbArray = new ArrayList<>();
+    public List<Button> chooseComponentButtons = new ArrayList<>();
+
+    //Converters used when editing integer or double values
+    private ConverterStringToNumber.IntegerStringConverter StringToIntConv
+            = new ConverterStringToNumber.IntegerStringConverter();
+    private ConverterStringToNumber.DoubleStringConverter StringToDoubleConv
+            = new ConverterStringToNumber.DoubleStringConverter();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tableViewArray.add(tvComputercase);
-        tableViewArray.add(tvCPU);
-        tableViewArray.add(tvGPU);
-        tableViewArray.add(tvHarddrive);
-        tableViewArray.add(tvKeyboard);
-        tableViewArray.add(tvPSU);
-        tableViewArray.add(tvMonitor);
-        tableViewArray.add(tvMotherboard);
-        tableViewArray.add(tvMouse);
-        tableViewArray.add(tvRAM);
-        tableViewArray.add(tvSoundcard);
-        tableViewArray.add(tvMouse);
-
         ComputerCaseRegistry.attachTableView(tvComputercase);
         CPURegistry.attachTableView(tvCPU);
         GPURegistry.attachTableView(tvGPU);
@@ -61,29 +57,19 @@ public class AdminController implements Initializable {
         PSURegistry.attachTableView(tvPSU);
         MouseRegistry.attachTableView(tvMouse);
 
-        cbArray.add(cbFilterComputerCase);
-        cbArray.add(cbFilterCPU);
-        cbArray.add(cbFilterGPU);
-        cbArray.add(cbFilterHarddrive);
-        cbArray.add(cbFilterKeyboard);
-        cbArray.add(cbFilterPSU);
-        cbArray.add(cbFilterMonitor);
-        cbArray.add(cbFilterMotherboard);
-        cbArray.add(cbFilterMouse);
-        cbArray.add(cbFilterRAM);
-        cbArray.add(cbFilterSoundcard);
-        cbArray.add(cbFilterMouse);
-
+        //Sets computercase tableview as visible when Admin is opened, sets all other tableviews to not visible
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
         }
         tvComputercase.setVisible(true);
 
+        //Sets computercase combo-box as visible when Admin is opened, sets all other combo-box to not visible
         for (ChoiceBox cb : cbArray) {
             cb.setVisible(false);
         }
         cbFilterComputerCase.setVisible(true);
 
+        //Options for choiceboxes used when changing values of attriubutes in component-tableviews
         final ObservableList<String> optionsHarddriveComboBox = FXCollections.observableArrayList("SSD", "HDD");
         final ObservableList<String> optionsMotherboardCombobox = FXCollections.observableArrayList("ATX", "mini-ATX", "e-ATX");
         final ObservableList<String> optionsSurroundCombobox = FXCollections.observableArrayList("Yes", "No");
@@ -94,7 +80,8 @@ public class AdminController implements Initializable {
         final ObservableList<String> optionsKeyboardWirelessCombobox = FXCollections.observableArrayList("Yes", "No");
 
 
-
+        //Sets CellFactory for all tableview columns containing numbers or choiceboxes. Numbers are linked to converter for
+        //String to number (Integer or double)
         colComputercasePrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colComputercasePV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colCPUPrice.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
@@ -135,6 +122,9 @@ public class AdminController implements Initializable {
         colKeyboardType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardTypeCombobox));
         colKeyboardWireless.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardWirelessCombobox));
 
+        //Adds tableviews, choiceboxes (filtering) and buttons to lists. Lists are used to easier control which components are visible to the user
+        tableViewArray = Arrays.asList(tvComputercase, tvCPU, tvGPU, tvHarddrive, tvKeyboard, tvPSU, tvMonitor, tvMotherboard, tvMouse, tvRAM, tvSoundcard);
+        cbArray = Arrays.asList(cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterKeyboard, cbFilterPSU, cbFilterMonitor, cbFilterMotherboard, cbFilterMouse, cbFilterRAM, cbFilterSoundcard);
         chooseComponentButtons = Arrays.asList(btnComputercase, btnCPU, btnGPU, btnHarddrive, btnKeyboard, btnMonitor, btnMotherboard, btnMouse, btnPSU, btnRAM, btnSoundcard);
     }
 
@@ -204,60 +194,8 @@ public class AdminController implements Initializable {
     @FXML
     private TableColumn<KeyboardModel, String> colKeyboardType, colKeyboardWireless;
 
-    public List<TableView> tableViewArray = new ArrayList<>();
-    public List<ChoiceBox> cbArray = new ArrayList<>();
-
-
-
-    private ConverterStringToNumber.IntegerStringConverter StringToIntConv
-            = new ConverterStringToNumber.IntegerStringConverter();
-    private ConverterStringToNumber.DoubleStringConverter StringToDoubleConv
-            = new ConverterStringToNumber.DoubleStringConverter();
-
     @FXML
-    private Button btnLogOut;
-
-    @FXML
-    private Button btnCPU;
-
-    @FXML
-    private Button btnGPU;
-
-    @FXML
-    private Button btnHarddrive;
-
-    @FXML
-    private Button btnMotherboard;
-
-    @FXML
-    private Button btnRAM;
-
-    @FXML
-    private Button btnSoundcard;
-
-    @FXML
-    private Button btnPSU;
-
-    @FXML
-    private Button btnMonitor;
-
-    @FXML
-    private Button btnMouse;
-
-    @FXML
-    private Button btnComputercase;
-
-    @FXML
-    private Button btnKeyboard;
-
-    @FXML
-    private Button btnAddComponent;
-
-    @FXML
-    private Button btnLoadComponent;
-
-    @FXML
-    private Button btnSaveComponent;
+    private Button btnCPU, btnGPU, btnHarddrive, btnMotherboard, btnRAM, btnSoundcard, btnPSU, btnMonitor, btnMouse, btnComputercase, btnKeyboard;
 
     @FXML
     private TableView<ComputerCaseModel> tvComputercase;
@@ -295,13 +233,9 @@ public class AdminController implements Initializable {
     @FXML
     private AnchorPane ap;
 
-    TableView current;
-
-    CPURegistry test = new CPURegistry();
-
-    public List<Button> chooseComponentButtons = new ArrayList<Button>();
-
-    public void saveObj() throws IOException {
+    //Calls on methods for saving jobj files
+    @FXML
+    private void saveObj() throws IOException {
         try {
             Path path = FileChooser.saveJobjFile();
             ArrayList arrayLists = ComponentsRegistry.addAllComponentsArraysToArray();
@@ -311,7 +245,9 @@ public class AdminController implements Initializable {
         }
     }
 
-    public void openObj() {
+    //Calls on methods for opening jobj files
+    @FXML
+    private void openObj() {
         try {
             Path path = FileChooser.openJobjFile();
             ThreadOpenJobj task = new ThreadOpenJobj(path);
@@ -325,17 +261,21 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Enables anchorpane (window) when thread is done
     private void threadDone(WorkerStateEvent e) {
         ap.setDisable(false);
     }
 
+    //Enables anchorpane (window) if thread fails, generates error messages which is displayed to user
     private void threadFailed(WorkerStateEvent event) {
         var e = event.getSource().getException();
         ErrorDialog.showErrorDialog(e.getMessage(), e.getMessage());
         ap.setDisable(false);
     }
 
-    public void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {
+    //Sets new name when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editName(TableColumn.CellEditEvent<ComponentModel, String> event) {
         try {
             event.getRowValue().setName(event.getNewValue());
 
@@ -345,7 +285,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editBrand(TableColumn.CellEditEvent<ComponentModel, String> event) {
+    //Sets new brand when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editBrand(TableColumn.CellEditEvent<ComponentModel, String> event) {
         try {
             event.getRowValue().setBrand(event.getNewValue());
 
@@ -355,7 +297,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
+    //Sets new price when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPrice(event.getNewValue());
@@ -372,7 +316,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editPerformanceValue(TableColumn.CellEditEvent<ComponentModel, Double> event) {
+    //Sets new performancevalue when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editPerformanceValue(TableColumn.CellEditEvent<ComponentModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPerformanceValue(event.getNewValue());
@@ -389,7 +335,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editComputerCaseDimensions(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editComputerCaseDimensions(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
         try {
             event.getRowValue().setDimensions(event.getNewValue());
         } catch (InvalidDimensionsException ide) {
@@ -398,7 +346,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editComputerCaseColor(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editComputerCaseColor(TableColumn.CellEditEvent<ComputerCaseModel, String> event) {
         try {
             event.getRowValue().setColor(event.getNewValue());
         } catch (InvalidColorException ice) {
@@ -407,7 +357,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editCPUClockSpeed(TableColumn.CellEditEvent<CPUModel, Double> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editCPUClockSpeed(TableColumn.CellEditEvent<CPUModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
@@ -423,7 +375,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
+    //Sets new no. cpu cores when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCores(event.getNewValue());
@@ -431,7 +385,6 @@ public class AdminController implements Initializable {
             else {
                 ErrorDialog.showErrorDialog("No. cores must be a number", "Invalid input");
             }
-
         } catch (InvalidCoresException ice) {
             ErrorDialog.showErrorDialog(ice.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
@@ -440,7 +393,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editGPUClockSpeed(TableColumn.CellEditEvent<GPUModel, Double> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editGPUClockSpeed(TableColumn.CellEditEvent<GPUModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
@@ -457,7 +412,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editGPUMemory(TableColumn.CellEditEvent<GPUModel, Integer> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editGPUMemory(TableColumn.CellEditEvent<GPUModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
@@ -465,7 +422,6 @@ public class AdminController implements Initializable {
             else {
                 ErrorDialog.showErrorDialog("GPU memory must be a number", "Invalid input");
             }
-
         } catch (InvalidMemoryException ime) {
             ErrorDialog.showErrorDialog(ime.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
@@ -474,13 +430,16 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-
-    public void editHarddriveType(TableColumn.CellEditEvent<HarddriveModel, String> event) {
+    //Sets new type (String) when value (type) of choicebox in cell is changed
+    @FXML
+    private void editHarddriveType(TableColumn.CellEditEvent<HarddriveModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editCapacity(TableColumn.CellEditEvent<HarddriveModel, Integer> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editCapacity(TableColumn.CellEditEvent<HarddriveModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCapacity(event.getNewValue());
@@ -497,13 +456,16 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-
-    public void editMotherboardType(TableColumn.CellEditEvent<MotherboardModel, String> event) {
+    //Sets new type (String) when value (type) of choicebox in cell is changed
+    @FXML
+    private void editMotherboardType(TableColumn.CellEditEvent<MotherboardModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
@@ -520,7 +482,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editMemorySpeed(TableColumn.CellEditEvent<RAMModel, Double> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editMemorySpeed(TableColumn.CellEditEvent<RAMModel, Double> event) {
         try {
             if(StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setMemorySpeed(event.getNewValue());
@@ -528,7 +492,6 @@ public class AdminController implements Initializable {
             else {
                 ErrorDialog.showErrorDialog("Memoryspeed must be a number", "Invalid input");
             }
-
         } catch (InvalidPerformanceValueException ipe) {
             ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
@@ -537,18 +500,23 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-
-    public void editSurround(TableColumn.CellEditEvent<SoundCardModel, String> event) {
+    //Sets new value when value of choicebox in cell is changed
+    @FXML
+    private void editSurround(TableColumn.CellEditEvent<SoundCardModel, String> event) {
         event.getRowValue().setSurround(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editBassBoost(TableColumn.CellEditEvent<SoundCardModel, String> event) {
+    //Sets new value when value of choicebox in cell is changed
+    @FXML
+    private void editBassBoost(TableColumn.CellEditEvent<SoundCardModel, String> event) {
         event.getRowValue().setBassBoost(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setWatt(event.getNewValue());
@@ -565,7 +533,9 @@ public class AdminController implements Initializable {
         tableViewVisible().refresh();
     }
 
-    public void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
         try {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setSize(event.getNewValue());
@@ -579,34 +549,45 @@ public class AdminController implements Initializable {
             ErrorDialog.showErrorDialog("Size cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
-
     }
 
-    public void editMouseType(TableColumn.CellEditEvent<MouseModel, String> event) {
+    //Sets new type (String) when value (type) of choicebox in cell is changed
+    @FXML
+    private void editMouseType(TableColumn.CellEditEvent<MouseModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editMouseWireless(TableColumn.CellEditEvent<MouseModel, String> event) {
+    //Sets new value when value of choicebox in cell is changed
+    @FXML
+    private void editMouseWireless(TableColumn.CellEditEvent<MouseModel, String> event) {
         event.getRowValue().setWireless(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editKeyboardType(TableColumn.CellEditEvent<KeyboardModel, String> event) {
+    //Sets new type (String) when value (type) of choicebox in cell is changed
+    @FXML
+    private void editKeyboardType(TableColumn.CellEditEvent<KeyboardModel, String> event) {
         event.getRowValue().setType(event.getNewValue());
         tableViewVisible().refresh();
     }
 
-    public void editKeyboardLanguage(TableColumn.CellEditEvent<KeyboardModel, String> event) {
+    //Sets new attribute value when the cell is edited, displays exception if input is invalid
+    @FXML
+    private void editKeyboardLanguage(TableColumn.CellEditEvent<KeyboardModel, String> event) {
         try {
             event.getRowValue().setLanguage(event.getNewValue());
         } catch (InvalidLanguageException ile) {
             ErrorDialog.showErrorDialog(ile.getMessage(), "Invalid input");
+        } catch (NullPointerException npe) {
+            ErrorDialog.showErrorDialog("Language cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
 
-    public void editKeyboardWireless(TableColumn.CellEditEvent<KeyboardModel, String> event) {
+    //Sets new value when value of choicebox in cell is changed
+    @FXML
+    private void editKeyboardWireless(TableColumn.CellEditEvent<KeyboardModel, String> event) {
         event.getRowValue().setWireless(event.getNewValue());
         tableViewVisible().refresh();
     }
@@ -659,7 +640,7 @@ public class AdminController implements Initializable {
         txtFilterEntered();
     }
 
-
+    //Runs different filter functions based on active tableview when text is written in filter textfield.
     @FXML
     private void txtFilterEntered() {
         TableView currentTableView = tableViewVisible();
@@ -689,6 +670,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterComputerCase() {
         if(txtFilter.getText().isBlank()) {
             updateComputerCaseList();
@@ -696,7 +679,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<ComputerCaseModel> result = null;
-        switch (cbFilterComputerCase.getValue().toString()) {
+        switch (cbFilterComputerCase.getValue()) {
             case "Name" : result = computerCaseRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = computerCaseRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = computerCaseRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -712,6 +695,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterCPU() {
         if(txtFilter.getText().isBlank()) {
             updateCPUList();
@@ -719,7 +704,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<CPUModel> result = null;
-        switch (cbFilterCPU.getValue().toString()) {
+        switch (cbFilterCPU.getValue()) {
             case "Name" : result = cpuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = cpuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = cpuRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -735,6 +720,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterGPU() {
         if(txtFilter.getText().isBlank()) {
             updateGPUList();
@@ -742,7 +729,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<GPUModel> result = null;
-        switch (cbFilterGPU.getValue().toString()) {
+        switch (cbFilterGPU.getValue()) {
             case "Name" : result = gpuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = gpuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = gpuRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -758,6 +745,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterHardDrive() {
         if(txtFilter.getText().isBlank()) {
             updateHardDriveList();
@@ -765,7 +754,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<HarddriveModel> result = null;
-        switch (cbFilterHarddrive.getValue().toString()) {
+        switch (cbFilterHarddrive.getValue()) {
             case "Name" : result = hardDriveRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = hardDriveRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = hardDriveRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -781,6 +770,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterKeyboard() {
         if(txtFilter.getText().isBlank()) {
             updateKeyboardList();
@@ -788,7 +779,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<KeyboardModel> result = null;
-        switch (cbFilterKeyboard.getValue().toString()) {
+        switch (cbFilterKeyboard.getValue()) {
             case "Name" : result = keyboardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = keyboardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = keyboardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -805,6 +796,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterMonitor() {
         if(txtFilter.getText().isBlank()) {
             updateMonitorList();
@@ -834,7 +827,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<MotherboardModel> result = null;
-        switch (cbFilterMotherboard.getValue().toString()) {
+        switch (cbFilterMotherboard.getValue()) {
             case "Name" : result = motherboardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = motherboardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = motherboardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -849,6 +842,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterMouse() {
         if(txtFilter.getText().isBlank()) {
             updateMouseList();
@@ -856,7 +851,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<MouseModel> result = null;
-        switch (cbFilterMouse.getValue().toString()) {
+        switch (cbFilterMouse.getValue()) {
             case "Name" : result = mouseRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = mouseRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = mouseRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -872,6 +867,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterPSU() {
         if(txtFilter.getText().isBlank()) {
             updatePSUList();
@@ -879,7 +876,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<PSUModel> result = null;
-        switch (cbFilterPSU.getValue().toString()) {
+        switch (cbFilterPSU.getValue()) {
             case "Name" : result = psuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = psuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = psuRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -894,6 +891,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterRAM() {
         if(txtFilter.getText().isBlank()) {
             updateRAMList();
@@ -901,7 +900,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<RAMModel> result = null;
-        switch (cbFilterRAM.getValue().toString()) {
+        switch (cbFilterRAM.getValue()) {
             case "Name" : result = ramRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = ramRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = ramRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -917,6 +916,8 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Filters tableview based on input in filter textfield and attribute selected in choicebox. Displays all objects in tableview
+    //if textfield is empty, displays none if component is not found.
     private void filterSoundcard() {
         if(txtFilter.getText().isBlank()) {
             updateSoundCardList();
@@ -924,7 +925,7 @@ public class AdminController implements Initializable {
         }
 
         ObservableList<SoundCardModel> result = null;
-        switch (cbFilterSoundcard.getValue().toString()) {
+        switch (cbFilterSoundcard.getValue()) {
             case "Name" : result = soundCardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = soundCardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = soundCardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
@@ -940,35 +941,29 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Changes window to edit configuration
     @FXML
     void changeToEditConfigurations(ActionEvent event) throws IOException {
         Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
         Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
         window.setScene(viewConfScene);
         window.show();
     }
 
-    private String getActiveTableViewID() {
-        for (TableView tv : tableViewArray) {
-            if (tv.isVisible()) {
-                return tv.getId();
-            }
-        }
-        return null; //Trenger exeption
-    }
-
+    //Returns active (visible) tableview
     private TableView<?> tableViewVisible() {
         for (TableView tv : tableViewArray) {
             if (tv.isVisible()) {
                 return tv;
             }
         }
-        return null; //Trenger exeption
+        return tvComputercase; //If no tw is visible. Should never happen, but will prevent program from crashing.
     }
 
+    //Switch for generating dialogboxes based on the active tableview (type of component user is working with).
     public void generateDialogAddComponent() {
-        String activeTableviewID = getActiveTableViewID();
+        String activeTableviewID = tableViewVisible().getId();
 
         switch (activeTableviewID) {
             case "Computercase":
@@ -1029,6 +1024,7 @@ public class AdminController implements Initializable {
         clearFilter();
     }
 
+    //Displays dialog boxes when deleting components.
     public void deleteComponent() {
         DeleteComponentDialog deleteDialog = new DeleteComponentDialog();
         TableView activeTableview = tableViewVisible();
@@ -1043,9 +1039,10 @@ public class AdminController implements Initializable {
         }
     }
 
+    //Deletes selected component (row in tw).
     public void deleteSelectedComponent() {
          TableView activeTableview = tableViewVisible();
-         String activeTableviewID = getActiveTableViewID();
+         String activeTableviewID = tableViewVisible().getId();
 
              switch (activeTableviewID) {
                  case "Computercase":
@@ -1095,9 +1092,20 @@ public class AdminController implements Initializable {
          activeTableview.refresh();
      }
 
+    //Calls on showTableview and showFilter to change when button for component is pressed.
+    @FXML
+    void changeActiveTableview(ActionEvent event) {
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1,component.length()-1);
+        showTableView(component);
+        showFilter(component);
+
+    }
 
 
-    public void showTableView(String component) {
+    //Displays tableview with input from changeActiveTableview (CPU btn pressed -> CPU tableview set to visible)
+    private void showTableView(String component) {
         for (TableView tv : tableViewArray) {
             if (tv.getId().equals(component)) {
                 tv.setVisible(true);
@@ -1108,17 +1116,8 @@ public class AdminController implements Initializable {
         }
     }
 
-    @FXML
-    void showComponent(ActionEvent event) {
-        String component = event.getSource().toString();
-        component = component.split("]")[1];
-        component = component.substring(1,component.length()-1);
-        showTableView(component);
-        showFilter(component);
-
-    }
-
-    public void showFilter(String component) {
+    //Displays choicebox with input from changeActiveTableview (CPU btn pressed, CPU choicebox set to visible)
+    private void showFilter(String component) {
         for (ChoiceBox cb : cbArray) {
             if (cb.getId().equals(component)) {
                 cb.setVisible(true);
@@ -1129,7 +1128,9 @@ public class AdminController implements Initializable {
         }
     }
 
-    public void showHelp() {
+    //Displays dialogbox with information/"helptext" related to admin
+    @FXML
+    private void showHelp() {
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.showAdminHelp();
     }
