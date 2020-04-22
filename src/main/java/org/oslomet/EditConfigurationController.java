@@ -27,6 +27,7 @@ import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.Dialogs.ErrorDialog;
+import org.oslomet.Dialogs.SaveConfigurationDialog;
 
 public class EditConfigurationController implements Initializable {
 
@@ -278,11 +279,45 @@ public class EditConfigurationController implements Initializable {
     @FXML
     void saveConfiguration(ActionEvent event) throws IOException {
 
-        //Checks that user has chosen all components for the computer
-        if ( !(computer.getComputerCase()==null) && !(computer.getCpu()==null) && !(computer.getGpu()==null) && !(computer.getRam()==null)
-                && !(computer.getHardDrive()==null) && !(computer.getMotherboard()==null) && !(computer.getPsu()==null)
-                && !(computer.getSoundCard()==null) && !(computer.getKeyboard()==null) && !(computer.getMonitor()==null) && !(computer.getMouse()==null)) {
+        List<String> componentsNotChosen = new ArrayList<String>();
 
+        //Checks that user has chosen all components for the computer
+        if (computer.getComputerCase()==null) {
+            componentsNotChosen.add("computer case");
+        }
+        if (computer.getCpu()==null) {
+            componentsNotChosen.add("CPU");
+        }
+        if (computer.getGpu()==null) {
+            componentsNotChosen.add("GPU");
+        }
+        if (computer.getRam()==null) {
+            componentsNotChosen.add("RAM");
+        }
+        if (computer.getHardDrive()==null) {
+            componentsNotChosen.add("hard drive");
+        }
+        if (computer.getMotherboard()==null) {
+            componentsNotChosen.add("motherboard");
+        }
+        if (computer.getPsu()==null) {
+            componentsNotChosen.add("PSU");
+        }
+        if (computer.getSoundCard()==null) {
+            componentsNotChosen.add("sound card");
+        }
+        if (computer.getKeyboard()==null) {
+            componentsNotChosen.add("keyboard");
+        }
+        if (computer.getMonitor()==null) {
+            componentsNotChosen.add("monitor");
+        }
+        if (computer.getMouse()==null) {
+            componentsNotChosen.add("mouse");
+        }
+
+        if (computer.getComputerCase()!=null && computer.getCpu()!=null && computer.getGpu()!=null && computer.getRam()!=null && computer.getHardDrive()!=null && computer.getMouse()!=null
+        && computer.getMotherboard()!=null && computer.getPsu()!=null && computer.getSoundCard()!=null && computer.getKeyboard()!=null && computer.getMonitor()!=null) {
             //Adds new computer to computer registry OR replaces computer in registry if it already exists
             int computerIndex = ComputerRegistry.findComputer(computer);
 
@@ -294,16 +329,32 @@ public class EditConfigurationController implements Initializable {
                 ComputerRegistry.replaceComputer(computer, computerIndex);
             }
 
-
             Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
             Scene viewConfScene = new Scene(viewConfParent);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
             window.show();
         }
-
         else {
-            ErrorDialog.showErrorDialog("Please select all parts for the computer", "Unfinished configuration");
+            SaveConfigurationDialog saveConfigurationDialog = new SaveConfigurationDialog();
+            if (saveConfigurationDialog.display(componentsNotChosen)) {
+                //Adds new computer to computer registry OR replaces computer in registry if it already exists
+                int computerIndex = ComputerRegistry.findComputer(computer);
+
+                if (computerIndex < 0) {
+                    ComputerRegistry.addComputer(computer);
+                }
+
+                else {
+                    ComputerRegistry.replaceComputer(computer, computerIndex);
+                }
+
+                Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
+                Scene viewConfScene = new Scene(viewConfParent);
+                Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
+                window.setScene(viewConfScene);
+                window.show();
+            }
         }
     }
 
