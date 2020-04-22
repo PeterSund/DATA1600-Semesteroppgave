@@ -1,4 +1,4 @@
-package org.oslomet.ComponentDialogs;
+package org.oslomet.Dialogs;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -54,10 +55,19 @@ public class LoginDialog {
 
         Scene scene = new Scene(gridPane);
         window.setScene(scene);
+
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                btnLogin.fire();
+            }
+            else if (e.getCode() == KeyCode.ESCAPE) {
+                btnCancel.fire();
+            }
+        });
+
         window.showAndWait();
 
         return loginCorrect;
-
     }
 
     private void login(Stage window) {

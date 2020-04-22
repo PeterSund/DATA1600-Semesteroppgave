@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -56,6 +57,16 @@ public class CPUDialog {
         btnSubmit.setOnAction(e -> submitCPU(window));
 
         Scene scene = new Scene(gridPane);
+
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                btnSubmit.fire();
+            }
+            else if (e.getCode() == KeyCode.ESCAPE) {
+                btnCancel.fire();
+            }
+        });
+
         window.setScene(scene);
         window.showAndWait();
     }

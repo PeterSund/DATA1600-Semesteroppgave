@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -32,6 +34,7 @@ public class ComputerNameDialog {
 
     @FXML
     private Button btnSubmit, btnCancel;
+
 
     String computerName = null;
 
@@ -67,6 +70,19 @@ public class ComputerNameDialog {
             window.close();
         }
     }
+
+    @FXML
+    void fireSubmitOrCancel(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            btnSubmit.fire();
+        }
+        else if (event.getCode() == KeyCode.ESCAPE) {
+            btnCancel.fire();
+        }
+    }
+
+
+
 
 
 }

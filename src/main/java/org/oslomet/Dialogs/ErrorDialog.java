@@ -4,11 +4,11 @@ import javafx.scene.control.Alert;
 
 public class ErrorDialog {
 
-    public static void showErrorDialog(String msg) {
+    public static void showErrorDialog(String content, String header) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setHeaderText("Invalid input");
-        alert.setContentText(msg);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
 
         alert.showAndWait();
     }
