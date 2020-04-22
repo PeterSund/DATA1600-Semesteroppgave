@@ -3,6 +3,7 @@ package org.oslomet.Dialogs;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -26,10 +27,19 @@ public class HelpDialog {
 
         btnOK.setOnAction(e -> window.close());
 
+
         Scene scene = new Scene(grid);
         window.setScene(scene);
-        window.showAndWait();
 
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                btnOK.fire();
+            }    else if (e.getCode() == KeyCode.ESCAPE) {
+                btnOK.fire();
+            }
+        });
+
+        window.showAndWait();
     }
 
     public void showConfigHelp() {

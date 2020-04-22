@@ -737,7 +737,7 @@
        </ChoiceBox>
 
       <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
-      <Button fx:id="btnHelp" layoutX="1008.0" layoutY="41.0" mnemonicParsing="false" onAction="#showHelp" text="Save components" />
+      <Button fx:id="btnHelp" layoutX="1008.0" layoutY="41.0" mnemonicParsing="false" onAction="#showHelp" text="Help" />
 
    </children>
 </AnchorPane>
