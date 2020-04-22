@@ -1,5 +1,7 @@
 package org.oslomet;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -71,11 +75,14 @@ public class EditConfigurationController implements Initializable {
 
     @FXML
     private Label lblComputerCase, lblCPU, lblGPU, lblHardDrive, lblMotherBoard, lblRAM, lblSoundcard,
-            lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice, lblTotalPerformanceValue;
+            lblPSU, lblMonitor, lblMouse, lblKeyboard, lblName, lblTotalPrice, lblTotalPerformanceValue, lblPerformanceValueProgressText;
 
     @FXML
     private Button btnDeleteComputerCase, btnDeleteCPU, btnDeleteGPU, btnDeleteHardDrive, btnDeleteMotherBoard,
             btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard;
+
+    @FXML
+    private ProgressIndicator progressbarPV;
 
     private ComputerModel computer;
 
@@ -130,8 +137,6 @@ public class EditConfigurationController implements Initializable {
         for (Button btn : buttonDeleteArray) {
             btn.setVisible(false);
         }
-
-
     }
 
     //Change table view
@@ -270,6 +275,7 @@ public class EditConfigurationController implements Initializable {
             lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
             lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
         }
+        updateProgIndicatorTotalPV();
     }
 
     @FXML
@@ -360,6 +366,7 @@ public class EditConfigurationController implements Initializable {
         lblName.setText(computer.getConfigName());
         lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
         lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
+        updateProgIndicatorTotalPV();
     }
 
     @FXML
@@ -459,6 +466,7 @@ public class EditConfigurationController implements Initializable {
                 btnDeleteMouse.setVisible(true);
             }
         }
+        updateProgIndicatorTotalPV();
     }
 
     public void showHelp() {
@@ -466,8 +474,33 @@ public class EditConfigurationController implements Initializable {
         helpDialog.showEditConfigHelp();
     }
 
+    public void updateProgIndicatorTotalPV() {
+        double totalPV = computer.getTotalPerformanceValue() / AdminInputValidation.MAX_PERFORMANCE_TOTALVALUE;
+        progressbarPV.setProgress(totalPV);
 
-   
+        if(totalPV < 0.3) {
+            progressbarPV.setStyle(" -fx-progress-color: red;");
+            lblPerformanceValueProgressText.setText("Your computer will have a low performance");
+            lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: red;");
+
+        }
+
+        if(totalPV > 0.3 && totalPV < 0.6) {
+            progressbarPV.setStyle(" -fx-progress-color: orange;");
+            lblPerformanceValueProgressText.setText("Your computer will have a OK performance");
+            lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: orange;");
+        }
+
+        if(totalPV > 0.6) {
+            progressbarPV.setStyle(" -fx-progress-color: green;");
+            lblPerformanceValueProgressText.setText("Your computer will have a good performance");
+            lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: green;");
+        }
+        if(totalPV > 0.9) {
+            lblPerformanceValueProgressText.setText("Your computer will have a BEAST performance");
+            lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: darkgreen;");
+        }
+    }
 
 }
 

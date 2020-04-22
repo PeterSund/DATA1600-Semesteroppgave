@@ -302,19 +302,27 @@ public class AdminController implements Initializable {
     public List<Button> chooseComponentButtons = new ArrayList<Button>();
 
     public void saveObj() throws IOException {
-        Path path = FileChooser.saveJobjFile();
-        ArrayList arrayLists = ComponentsRegistry.addAllComponentsArraysToArray();
-        FileSaverJobj.saveJobj(arrayLists, path);
+        try {
+            Path path = FileChooser.saveJobjFile();
+            ArrayList arrayLists = ComponentsRegistry.addAllComponentsArraysToArray();
+            FileSaverJobj.saveJobj(arrayLists, path);
+        } catch (NullPointerException npe) {
+            //Prevents program from crashing when user closes filechooser without action
+        }
     }
 
     public void openObj() {
-        Path path = FileChooser.openJobjFile();
-        ThreadOpenJobj task = new ThreadOpenJobj(path);
-        task.setOnSucceeded(this::threadDone);
-        task.setOnFailed(this::threadFailed);
-        Thread th = new Thread(task);
-        ap.setDisable(true);
-        th.start();
+        try {
+            Path path = FileChooser.openJobjFile();
+            ThreadOpenJobj task = new ThreadOpenJobj(path);
+            task.setOnSucceeded(this::threadDone);
+            task.setOnFailed(this::threadFailed);
+            Thread th = new Thread(task);
+            ap.setDisable(true);
+            th.start();
+        } catch (NullPointerException npe) {
+            //Prevents program from crashing when user closes filechooser without action
+        }
     }
 
     private void threadDone(WorkerStateEvent e) {

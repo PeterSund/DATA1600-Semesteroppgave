@@ -21,8 +21,9 @@ public class HelpDialog {
         GridPane grid = new GridPane();
         Button btnOK = new Button("OK");
 
-        grid.add(new Label(helpText), 1, 0);
-        grid.add(btnOK, 1,1);
+        window.setTitle("Help");
+        grid.add(new Label(helpText), 1, 1);
+        grid.add(btnOK, 2,1);
 
 
         btnOK.setOnAction(e -> window.close());
