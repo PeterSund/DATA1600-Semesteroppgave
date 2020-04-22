@@ -6,6 +6,7 @@ public class AdminInputValidation {
 
     public static final double MAX_PRICE = 99999;
     public static final double MAX_PERFORMANCE_VALUE = 100;
+    public static final double MAX_PERFORMANCE_TOTALVALUE = 1100;
     public static final double MAX_CLOCK_SPEED = 100;
     public static final double MAX_CAPACITY = 100000;
     public static final int MAX_SIZE_MONITOR = 300;
