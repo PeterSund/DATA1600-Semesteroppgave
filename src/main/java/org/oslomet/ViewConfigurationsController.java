@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.oslomet.Dialogs.ComputerNameDialog;
 import org.oslomet.Dialogs.LoginDialog;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
