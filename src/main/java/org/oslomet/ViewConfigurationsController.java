@@ -13,11 +13,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.ComponentDialogs.LoginDialog;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.Dialogs.ErrorDialog;
+import org.oslomet.Dialogs.HelpDialog;
+import org.oslomet.Dialogs.LoginDialog;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileSaverTxt;
@@ -77,9 +78,6 @@ public class ViewConfigurationsController implements Initializable {
             window.setScene(viewConfScene);
             window.show();
         }
-
-
-
     }
 
     @FXML
@@ -135,7 +133,8 @@ public class ViewConfigurationsController implements Initializable {
 
     @FXML
     void showHelp(ActionEvent event) {
-
+        HelpDialog helpDialog = new HelpDialog();
+        helpDialog.showConfigHelp();
     }
 
 

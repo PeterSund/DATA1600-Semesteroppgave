@@ -3,9 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
@@ -118,20 +115,8 @@
             </Button>
          </children>
       </VBox>
-      <MenuBar fx:id="menubarEditConfig" prefHeight="31.0" prefWidth="177.0" style="-fx-border-color: black;">
-        <menus>
-          <Menu mnemonicParsing="false" text="Menu">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Admin login" />
-                  <MenuItem mnemonicParsing="false" text="Help" />
-               </items></Menu>
-        </menus>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </MenuBar>
 
-       <TableView id="Computercase" fx:id="tvComputercase" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Computercase" fx:id="tvComputercase" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colComputercaseName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
@@ -171,7 +156,7 @@
            </columns>
        </TableView>
 
-       <TableView id="CPU" fx:id="tvCPU" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="200.0" prefWidth="1020.0">
+       <TableView id="CPU" fx:id="tvCPU" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="200.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colCPUName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
@@ -212,7 +197,7 @@
            </columns>
        </TableView>
 
-       <TableView id="GPU" fx:id="tvGPU" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="200.0" prefWidth="1020.0">
+       <TableView id="GPU" fx:id="tvGPU" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="200.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colGPUName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
@@ -253,7 +238,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Hard drive" fx:id="tvHarddrive" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Hard drive" fx:id="tvHarddrive" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colHarddriveName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -293,7 +278,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Keyboard" fx:id="tvKeyboard" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Keyboard" fx:id="tvKeyboard" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
 
                <TableColumn fx:id="colKeyboardName" prefWidth="175.0" text="Name">
@@ -341,7 +326,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Monitor" fx:id="tvMonitor" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Monitor" fx:id="tvMonitor" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colMonitorName" prefWidth="224.0" text="Name ">
                    <cellValueFactory>
@@ -375,7 +360,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Motherboard" fx:id="tvMotherboard" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Motherboard" fx:id="tvMotherboard" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="MotherboardName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -409,7 +394,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Mouse" fx:id="tvMouse" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Mouse" fx:id="tvMouse" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
 
                <TableColumn fx:id="colMouseName" prefWidth="175.0" text="Name ">
@@ -451,7 +436,7 @@
            </columns>
        </TableView>
 
-       <TableView id="PSU" fx:id="tvPSU" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="PSU" fx:id="tvPSU" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="PSUName" prefWidth="216.0" text="Name ">
                    <cellValueFactory>
@@ -485,7 +470,7 @@
            </columns>
        </TableView>
 
-       <TableView id="RAM" fx:id="tvRAM" onMouseClicked="#addComponent" layoutX="196.0" layoutY="489.0" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="RAM" fx:id="tvRAM" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="RAMName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -662,6 +647,7 @@
              </Button>
          </children>
       </VBox>
+      <Button fx:id="btnHelp" layoutX="4.0" layoutY="1.0" mnemonicParsing="false" onAction="#showHelp" text="Help" />
 
    </children>
 </AnchorPane>

@@ -1117,4 +1117,9 @@ public class AdminController implements Initializable {
             }
         }
     }
+
+    public void showHelp() {
+        HelpDialog helpDialog = new HelpDialog();
+        helpDialog.showAdminHelp();
+    }
 }
