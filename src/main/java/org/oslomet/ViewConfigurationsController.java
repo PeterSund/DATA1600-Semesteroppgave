@@ -1,9 +1,6 @@
 package org.oslomet;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,14 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.oslomet.ComponentClasses.*;
 import org.oslomet.Dialogs.LoginDialog;
-import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.Dialogs.ErrorDialog;
 import org.oslomet.Dialogs.HelpDialog;
-import org.oslomet.Dialogs.LoginDialog;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileSaverTxt;
@@ -27,13 +21,7 @@ import org.oslomet.FileHandling.FileSaverTxt;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
-
-import static javafx.scene.control.DialogEvent.DIALOG_CLOSE_REQUEST;
 
 public class ViewConfigurationsController implements Initializable {
 
@@ -42,40 +30,18 @@ public class ViewConfigurationsController implements Initializable {
         ComputerRegistry.attachTableView(tableviewMyConfigs);
     }
 
-    @FXML
-    private Button btnEditConfig;
-
-    @FXML
-    private Label lbl1;
-
-    @FXML
-    private MenuBar menubarEditConfig;
-
-    @FXML
-    private Menu loginAdmin;
-
-    @FXML
-    private Button btnLogin;
-
-    @FXML
-    private Menu getHelp;
 
     @FXML
     private TableView<?> tableviewMyConfigs;
 
     @FXML
-    private Button btnDeleteConfig;
-
-    @FXML
-    private Button btnSaveConfig, btnOpenConfig;
-
-    @FXML
+    //Login dialog box appears when you click login button and sends user to admin page
     void adminLogin(ActionEvent event) throws IOException {
         LoginDialog loginDialog = new LoginDialog();
         if(loginDialog.display()) {
             Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
             Scene viewConfScene = new Scene(viewConfParent);
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
             window.show();
         }
@@ -136,17 +102,6 @@ public class ViewConfigurationsController implements Initializable {
     void showHelp(ActionEvent event) {
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.showConfigHelp();
-    }
-
-
-    //Change to view to primary controller: NOT IN USE!
-    @FXML
-    void changePrimaryController(ActionEvent event) throws IOException {
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("editConfiguration.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
-        window.setScene(viewConfScene);
-        window.show();
     }
 
     //Edit selected computer
