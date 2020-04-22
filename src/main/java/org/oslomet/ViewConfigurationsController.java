@@ -135,7 +135,6 @@ public class ViewConfigurationsController implements Initializable {
 
     @FXML
     void showHelp(ActionEvent event) {
-
     }
 
 
