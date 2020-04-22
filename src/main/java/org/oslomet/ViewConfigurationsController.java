@@ -13,11 +13,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
-import org.oslomet.ComponentDialogs.LoginDialog;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.Dialogs.ErrorDialog;
+import org.oslomet.Dialogs.LoginDialog;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileSaverTxt;
@@ -88,7 +88,7 @@ public class ViewConfigurationsController implements Initializable {
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
         if (selectedComputer == null) {
-            ErrorDialog.showErrorDialog("Need to select a computer");
+            ErrorDialog.showErrorDialog("Need to select a computer", "No computer selected");
         }
 
         else {
@@ -102,7 +102,7 @@ public class ViewConfigurationsController implements Initializable {
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
         if (selectedComputer == null) {
-            ErrorDialog.showErrorDialog("Need to select a computer");
+            ErrorDialog.showErrorDialog("Need to select a computer", "No computer selected");
         }
 
         else {
@@ -129,7 +129,7 @@ public class ViewConfigurationsController implements Initializable {
             window.show();
         }
         catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Text file is corrupted and can't be opened!");
+            ErrorDialog.showErrorDialog("Text file is corrupted and can't be opened!", "File corrupted");
         }
     }
 
@@ -161,7 +161,7 @@ public class ViewConfigurationsController implements Initializable {
 
         //Checks if user has selectet a computer
         if (selectedComputer == null) {
-            ErrorDialog.showErrorDialog("Need to select a computer!");
+            ErrorDialog.showErrorDialog("Need to select a computer!", "No computer selected");
         }
 
         else {
@@ -180,7 +180,7 @@ public class ViewConfigurationsController implements Initializable {
             event.getRowValue().setConfigName(event.getNewValue());
 
         } catch(InvalidConfigNameException icne) {
-            ErrorDialog.showErrorDialog(icne.getMessage());
+            ErrorDialog.showErrorDialog(icne.getMessage(), "Invalid name");
         }
         tableviewMyConfigs.refresh();
     }

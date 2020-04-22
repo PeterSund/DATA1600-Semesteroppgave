@@ -303,7 +303,7 @@ public class EditConfigurationController implements Initializable {
         }
 
         else {
-            ErrorDialog.showErrorDialog("Please select all parts for the computer");
+            ErrorDialog.showErrorDialog("Please select all parts for the computer", "Unfinished configuration");
         }
     }
 

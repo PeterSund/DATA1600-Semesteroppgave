@@ -322,8 +322,8 @@ public class AdminController implements Initializable {
     }
 
     private void threadFailed(WorkerStateEvent event) {
-        var e = event.getSource().getException().getMessage();
-        ErrorDialog.showErrorDialog(e);
+        var e = event.getSource().getException();
+        ErrorDialog.showErrorDialog(e.getMessage(), e.getMessage());
         ap.setDisable(false);
     }
 
@@ -332,7 +332,7 @@ public class AdminController implements Initializable {
             event.getRowValue().setName(event.getNewValue());
 
         } catch(InvalidNameException ine) {
-            ErrorDialog.showErrorDialog(ine.getMessage());
+            ErrorDialog.showErrorDialog(ine.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -342,7 +342,7 @@ public class AdminController implements Initializable {
             event.getRowValue().setBrand(event.getNewValue());
 
         } catch(InvalidBrandException ibe) {
-            ErrorDialog.showErrorDialog(ibe.getMessage());
+            ErrorDialog.showErrorDialog(ibe.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -353,13 +353,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setPrice(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("Price must be a number");
+                ErrorDialog.showErrorDialog("Price must be a number", "Invalid input");
             }
 
         } catch (InvalidPriceException ipe) {
-            ErrorDialog.showErrorDialog(ipe.getMessage());
+            ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Price cannot be blank");
+            ErrorDialog.showErrorDialog("Price cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -370,13 +370,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setPerformanceValue(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("Performancevalue must be a number");
+                ErrorDialog.showErrorDialog("Performancevalue must be a number", "Invalid input");
             }
 
         } catch (InvalidPerformanceValueException ipe) {
-            ErrorDialog.showErrorDialog(ipe.getMessage());
+            ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Performancevalue cannot be blank");
+            ErrorDialog.showErrorDialog("Performancevalue cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -385,7 +385,7 @@ public class AdminController implements Initializable {
         try {
             event.getRowValue().setDimensions(event.getNewValue());
         } catch (InvalidDimensionsException ide) {
-            ErrorDialog.showErrorDialog(ide.getMessage());
+            ErrorDialog.showErrorDialog(ide.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -394,7 +394,7 @@ public class AdminController implements Initializable {
         try {
             event.getRowValue().setColor(event.getNewValue());
         } catch (InvalidColorException ice) {
-            ErrorDialog.showErrorDialog(ice.getMessage());
+            ErrorDialog.showErrorDialog(ice.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -405,12 +405,12 @@ public class AdminController implements Initializable {
                 event.getRowValue().setClockSpeed(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("CPU clockspeed must be a number");
+                ErrorDialog.showErrorDialog("CPU clockspeed must be a number", "Invalid input");
             }
         } catch (InvalidClockSpeedException icse) {
-            ErrorDialog.showErrorDialog(icse.getMessage());
+            ErrorDialog.showErrorDialog(icse.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-        ErrorDialog.showErrorDialog("CPU clockspeed cannot be blank");
+        ErrorDialog.showErrorDialog("CPU clockspeed cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -421,13 +421,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setCores(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("No. cores must be a number");
+                ErrorDialog.showErrorDialog("No. cores must be a number", "Invalid input");
             }
 
         } catch (InvalidCoresException ice) {
-            ErrorDialog.showErrorDialog(ice.getMessage());
+            ErrorDialog.showErrorDialog(ice.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("No. cores cannot be blank");
+            ErrorDialog.showErrorDialog("No. cores cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -438,13 +438,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setClockSpeed(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("GPU clockspeed must be a number");
+                ErrorDialog.showErrorDialog("GPU clockspeed must be a number", "Invalid input");
             }
 
         } catch (InvalidClockSpeedException icse) {
-            ErrorDialog.showErrorDialog(icse.getMessage());
+            ErrorDialog.showErrorDialog(icse.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("GPU clockspeed cannot be blank");
+            ErrorDialog.showErrorDialog("GPU clockspeed cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -455,13 +455,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setMemory(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("GPU memory must be a number");
+                ErrorDialog.showErrorDialog("GPU memory must be a number", "Invalid input");
             }
 
         } catch (InvalidMemoryException ime) {
-            ErrorDialog.showErrorDialog(ime.getMessage());
+            ErrorDialog.showErrorDialog(ime.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("GPU memory cannot be blank");
+            ErrorDialog.showErrorDialog("GPU memory cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -478,13 +478,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setCapacity(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("Capacity must be a number");
+                ErrorDialog.showErrorDialog("Capacity must be a number", "Invalid input");
             }
 
         } catch (InvalidCapacityException ice) {
-            ErrorDialog.showErrorDialog(ice.getMessage());
+            ErrorDialog.showErrorDialog(ice.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Capacity cannot be blank");
+            ErrorDialog.showErrorDialog("Capacity cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -501,13 +501,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setMemory(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("Memory must be a number");
+                ErrorDialog.showErrorDialog("Memory must be a number", "Invalid input");
             }
 
         } catch (InvalidMemoryException ime) {
             System.out.print(ime.getMessage());
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Memory cannot be blank");
+            ErrorDialog.showErrorDialog("Memory cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -518,13 +518,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setMemorySpeed(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("Memoryspeed must be a number");
+                ErrorDialog.showErrorDialog("Memoryspeed must be a number", "Invalid input");
             }
 
         } catch (InvalidPerformanceValueException ipe) {
-            ErrorDialog.showErrorDialog(ipe.getMessage());
+            ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Memoryspeed cannot be blank");
+            ErrorDialog.showErrorDialog("Memoryspeed cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -546,13 +546,13 @@ public class AdminController implements Initializable {
                 event.getRowValue().setWatt(event.getNewValue());
             }
             else {
-                ErrorDialog.showErrorDialog("Watt must be a number");
+                ErrorDialog.showErrorDialog("Watt must be a number", "Invalid input");
             }
 
         } catch (InvalidWattException iwe) {
-            ErrorDialog.showErrorDialog(iwe.getMessage());
+            ErrorDialog.showErrorDialog(iwe.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Watt cannot be blank");
+            ErrorDialog.showErrorDialog("Watt cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -562,13 +562,13 @@ public class AdminController implements Initializable {
             if(StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setSize(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Size must be a number");
+                ErrorDialog.showErrorDialog("Size must be a number", "Invalid input");
             }
 
         } catch (InvalidSizeException ize) {
-            ErrorDialog.showErrorDialog(ize.getMessage());
+            ErrorDialog.showErrorDialog(ize.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Size cannot be blank");
+            ErrorDialog.showErrorDialog("Size cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
 
@@ -593,7 +593,7 @@ public class AdminController implements Initializable {
         try {
             event.getRowValue().setLanguage(event.getNewValue());
         } catch (InvalidLanguageException ile) {
-            ErrorDialog.showErrorDialog(ile.getMessage());
+            ErrorDialog.showErrorDialog(ile.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
     }
