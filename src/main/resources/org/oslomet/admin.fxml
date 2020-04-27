@@ -11,7 +11,7 @@
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="ap" prefHeight="445.0" prefWidth="1255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
+<AnchorPane fx:id="ap" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
 
    <Button fx:id="btnLogOut" layoutX="1142.0" layoutY="41.0" mnemonicParsing="false" onAction="#adminLogOut" text="Log out" />
