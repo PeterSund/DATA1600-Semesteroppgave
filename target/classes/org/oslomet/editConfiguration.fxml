@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -8,10 +7,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1457.0" stylesheets="@test.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@test.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
       <Label layoutX="181.0" layoutY="10.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
          <font>
@@ -59,7 +59,7 @@
            </columns>
        </TableView>
 
-       <TableView id="CPU" fx:id="tvCPU" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="200.0" prefWidth="1020.0">
+       <TableView id="CPU" fx:id="tvCPU" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="200.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colCPUName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
@@ -100,7 +100,7 @@
            </columns>
        </TableView>
 
-       <TableView id="GPU" fx:id="tvGPU" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="200.0" prefWidth="1020.0">
+       <TableView id="GPU" fx:id="tvGPU" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="200.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colGPUName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
@@ -141,7 +141,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Hard drive" fx:id="tvHarddrive" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Hard drive" fx:id="tvHarddrive" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colHarddriveName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -181,7 +181,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Keyboard" fx:id="tvKeyboard" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Keyboard" fx:id="tvKeyboard" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
 
                <TableColumn fx:id="colKeyboardName" prefWidth="175.0" text="Name">
@@ -229,7 +229,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Monitor" fx:id="tvMonitor" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Monitor" fx:id="tvMonitor" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colMonitorName" prefWidth="224.0" text="Name ">
                    <cellValueFactory>
@@ -263,7 +263,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Motherboard" fx:id="tvMotherboard" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Motherboard" fx:id="tvMotherboard" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="MotherboardName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -297,7 +297,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Mouse" fx:id="tvMouse" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Mouse" fx:id="tvMouse" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
 
                <TableColumn fx:id="colMouseName" prefWidth="175.0" text="Name ">
@@ -339,7 +339,7 @@
            </columns>
        </TableView>
 
-       <TableView id="PSU" fx:id="tvPSU" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="PSU" fx:id="tvPSU" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="PSUName" prefWidth="216.0" text="Name ">
                    <cellValueFactory>
@@ -373,7 +373,7 @@
            </columns>
        </TableView>
 
-       <TableView id="RAM" fx:id="tvRAM" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="RAM" fx:id="tvRAM" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="RAMName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -413,7 +413,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="196.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="SoundcardName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -454,166 +454,191 @@
            </columns>
        </TableView>
       <Button layoutX="53.0" layoutY="5.0" mnemonicParsing="false" onAction="#adminLoginFromBtn" text="Admin Login" />
-      <Button layoutX="1213.0" layoutY="407.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="57.0" prefWidth="240.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Save configuration">
+      <Button layoutX="1180.0" layoutY="406.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="57.0" prefWidth="240.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Save configuration">
          <font>
             <Font size="22.0" />
          </font></Button>
-      <Label layoutX="1208.0" layoutY="77.0" text="Name: " />
+      <Label layoutX="1200.0" layoutY="77.0" text="Name: " />
       <Label fx:id="lblName" layoutX="1342.0" layoutY="77.0" text="computer name" />
       <Button fx:id="btnHelp" layoutX="4.0" layoutY="1.0" mnemonicParsing="false" onAction="#showHelp" text="Help" />
       <ProgressIndicator fx:id="progressbarPV" layoutX="1270.0" layoutY="205.0" maxHeight="200.0" maxWidth="200.0" minHeight="135.0" minWidth="125.0" prefHeight="135.0" prefWidth="125.0" progress="0.0" />
       <Label fx:id="lblPerformanceValueProgressText" layoutX="1176.0" layoutY="340.0" prefHeight="47.0" prefWidth="266.0" text="PVprog" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="1208.0" layoutY="113.0" text="Total price:" />
+      <Label layoutX="1200.0" layoutY="113.0" text="Total price:" />
       <Label layoutX="1200.0" layoutY="156.0" text="Total performance value:" />
       <Label fx:id="lblTotalPrice" layoutX="1344.0" layoutY="113.0" text="computer price" />
-      <AnchorPane layoutX="28.0" layoutY="101.0" prefHeight="372.0" prefWidth="1128.0" style="-fx-border-color: black;">
+      <AnchorPane layoutX="28.0" layoutY="101.0" prefHeight="372.0" prefWidth="1128.0" style="-fx-border-color: black; -fx-background-color: white;">
          <children>
-            <VBox layoutX="14.0" layoutY="27.0" prefHeight="300.0" prefWidth="158.0" style="-fx-background-color: E3EFF3; -fx-spacing: 20;">
+            <VBox layoutX="8.0" layoutY="9.0" prefHeight="360.0" prefWidth="573.0" styleClass="compnentVbox">
                <children>
-                  <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Computercase">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="198.0" style="-fx-background-color: #B7BABF#B7BABF;" text="CPU">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="GPU">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="158.0" style="-fx-background-color: #B7BABF#B7BABF;" text="RAM">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Hard drive">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="PSU">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="35.0" prefWidth="418.0" styleClass="hbox1">
+                     <children>
+                        <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="GPU">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblGPU" prefHeight="35.0" prefWidth="315.0" text="GPU" />
+                        <Button id="GPU" fx:id="btnDeleteGPU" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="334.0" styleClass="hbox2">
+                     <children>
+                        <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="198.0" styleClass="componentButton" text="CPU">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblCPU" prefHeight="35.0" prefWidth="311.0" text="CPU" />
+                        <Button id="CPU" fx:id="btnDeleteCPU" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="47.0" prefWidth="370.0" styleClass="hbox1">
+                     <children>
+                        <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Hard drive">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblHardDrive" prefHeight="35.0" prefWidth="309.0" text="Hard drive" />
+                        <Button id="HardDrive" fx:id="btnDeleteHardDrive" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="494.0" styleClass="hbox2">
+                     <children>
+                        <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="PSU">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblPSU" prefHeight="35.0" prefWidth="310.0" text="PSU" />
+                        <Button id="PSU" fx:id="btnDeletePSU" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox1">
+                     <children>
+                        <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="200.0" styleClass="componentButton" text="Computercase">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblComputerCase" prefHeight="35.0" prefWidth="310.0" text="Computer case" />
+                        <Button id="ComputerCase" fx:id="btnDeleteComputerCase" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="10.0" prefWidth="14.0" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox2">
+                     <children>
+                        <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="158.0" styleClass="componentButton" text="RAM">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblRAM" prefHeight="35.0" prefWidth="329.0" text="RAM" />
+                        <Button id="RAM" fx:id="btnDeleteRAM" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <VBox layoutX="182.0" layoutY="27.0" prefHeight="300.0" prefWidth="312.0" spacing="5.0" style="-fx-spacing: 15;">
+            <VBox layoutX="580.0" layoutY="9.0" prefHeight="354.0" prefWidth="540.0" styleClass="compnentVbox">
                <children>
-                   <Label fx:id="lblComputerCase" prefHeight="35.0" prefWidth="310.0" text="Computer case" />
-                   <Label fx:id="lblCPU" prefHeight="35.0" prefWidth="311.0" text="CPU" />
-                   <Label fx:id="lblGPU" prefHeight="35.0" prefWidth="309.0" text="GPU" />
-                   <Label fx:id="lblRAM" prefHeight="35.0" prefWidth="309.0" text="RAM" />
-                   <Label fx:id="lblHardDrive" prefHeight="35.0" prefWidth="309.0" text="Hard drive" />
-                   <Label fx:id="lblPSU" prefHeight="35.0" prefWidth="310.0" text="PSU" />
-               </children>
-            </VBox>
-            <VBox layoutX="494.0" layoutY="35.0" prefHeight="300.0" prefWidth="34.0" style="-fx-spacing: 20;">
-               <children>
-                  <Button id="ComputerCase" fx:id="btnDeleteComputerCase" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="10.0" prefWidth="14.0" style="-fx-background-color: red;" styleClass="deleteButton" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="CPU" fx:id="btnDeleteCPU" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="GPU" fx:id="btnDeleteGPU" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="RAM" fx:id="btnDeleteRAM" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="HardDrive" fx:id="btnDeleteHardDrive" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="PSU" fx:id="btnDeletePSU" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox layoutX="555.0" layoutY="35.0" prefHeight="300.0" prefWidth="158.0" style="-fx-spacing: 20; -fx-background-color: E3EFF3;">
-               <children>
-                  <Button fx:id="btnSoundcard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Soundcard">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnKeyboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Keyboard">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnMonitor1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Monitor">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnMouse1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="158.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Mouse">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnMotherboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" style="-fx-background-color: #B7BABF#B7BABF;" text="Motherboard">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox layoutX="728.0" layoutY="35.0" prefHeight="300.0" prefWidth="326.0" spacing="5.0" style="-fx-spacing: 15;">
-               <children>
-                   <Label fx:id="lblSoundcard" prefHeight="35.0" prefWidth="330.0" text="Sound card" />
-                   <Label fx:id="lblKeyboard" prefHeight="35.0" prefWidth="326.0" text="Keyboard" />
-                   <Label fx:id="lblMonitor" prefHeight="35.0" prefWidth="326.0" text="Monitor" />
-                   <Label fx:id="lblMouse" prefHeight="35.0" prefWidth="323.0" text="Mouse" />
-                   <Label fx:id="lblMotherBoard" prefHeight="35.0" prefWidth="327.0" text="Mother board" />
-               </children>
-            </VBox>
-            <VBox layoutX="1071.0" layoutY="35.0" prefHeight="300.0" prefWidth="30.0" style="-fx-spacing: 22;">
-               <children>
-                  <Button id="SoundCard" fx:id="btnDeleteSoundCard" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="Keyboard" fx:id="btnDeleteKeyboard" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="Monitor" fx:id="btnDeleteMonitor" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="Mouse" fx:id="btnDeleteMouse" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <Button id="MotherBoard" fx:id="btnDeleteMotherBoard" mnemonicParsing="false" onAction="#deleteComponent" style="-fx-background-color: red;" text="X" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="35.0" prefWidth="418.0" styleClass="hbox1">
+                     <children>
+                        <Button fx:id="btnSoundcard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Soundcard">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblSoundcard" prefHeight="35.0" prefWidth="330.0" text="Sound card" />
+                        <Button id="SoundCard" fx:id="btnDeleteSoundCard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="334.0" styleClass="hbox2">
+                     <children>
+                        <Button fx:id="btnKeyboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Keyboard">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblKeyboard" prefHeight="35.0" prefWidth="326.0" text="Keyboard" />
+                        <Button id="Keyboard" fx:id="btnDeleteKeyboard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="47.0" prefWidth="370.0" styleClass="hbox1">
+                     <children>
+                        <Button fx:id="btnMonitor1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Monitor">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblMonitor" prefHeight="35.0" prefWidth="326.0" text="Monitor" />
+                        <Button id="Monitor" fx:id="btnDeleteMonitor" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="35.0" prefWidth="494.0" styleClass="hbox2">
+                     <children>
+                        <Button fx:id="btnMouse1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="158.0" styleClass="componentButton" text="Mouse">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblMouse" prefHeight="35.0" prefWidth="323.0" text="Mouse" />
+                        <Button id="Mouse" fx:id="btnDeleteMouse" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox1">
+                     <children>
+                        <Button fx:id="btnMotherboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Motherboard">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                         <Label fx:id="lblMotherBoard" prefHeight="35.0" prefWidth="327.0" text="Mother board" />
+                        <Button id="MotherBoard" fx:id="btnDeleteMotherBoard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
