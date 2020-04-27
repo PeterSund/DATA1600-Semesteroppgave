@@ -4,32 +4,33 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap" prefHeight="445.0" prefWidth="1255.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
+<AnchorPane fx:id="ap" prefHeight="553.0" prefWidth="1255.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
-
-   <Button fx:id="btnLogOut" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogOut" prefHeight="27.0" prefWidth="91.0" text="Log out" />
 
    <Button fx:id="btnClearFilter" layoutX="628.0" layoutY="89.0" mnemonicParsing="false" onAction="#clearFilter" prefHeight="27.0" prefWidth="108.0" text="Clear filter" />
 
 
-   <Button fx:id="btnCPU" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="CPU" />
-   <Button fx:id="btnGPU" layoutX="30.0" layoutY="124.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="GPU" />
-   <Button fx:id="btnHarddrive" layoutX="30.0" layoutY="160.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
-   <Button fx:id="btnMotherboard" layoutX="30.0" layoutY="196.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
-   <Button fx:id="btnRAM" layoutX="30.0" layoutY="230.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="RAM" />
-   <Button fx:id="btnSoundcard" layoutX="30.0" layoutY="263.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
-   <Button fx:id="btnPSU" layoutX="30.0" layoutY="297.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="PSU" />
-   <Button fx:id="btnMonitor" layoutX="30.0" layoutY="331.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
-   <Button fx:id="btnMouse" layoutX="30.0" layoutY="365.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
-   <Button fx:id="btnComputercase" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" onAction="#changeActiveTableview" text="Computercase" />
-   <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
+   <Button fx:id="btnCPU" layoutX="30.0" layoutY="146.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="CPU" />
+   <Button fx:id="btnGPU" layoutX="30.0" layoutY="181.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="GPU" />
+   <Button fx:id="btnHarddrive" layoutX="30.0" layoutY="217.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
+   <Button fx:id="btnMotherboard" layoutX="30.0" layoutY="253.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
+   <Button fx:id="btnRAM" layoutX="30.0" layoutY="287.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="RAM" />
+   <Button fx:id="btnSoundcard" layoutX="30.0" layoutY="320.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
+   <Button fx:id="btnPSU" layoutX="30.0" layoutY="354.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="PSU" />
+   <Button fx:id="btnMonitor" layoutX="30.0" layoutY="388.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
+   <Button fx:id="btnMouse" layoutX="30.0" layoutY="427.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
+   <Button fx:id="btnComputercase" layoutX="30.0" layoutY="111.0" mnemonicParsing="false" onAction="#changeActiveTableview" text="Computercase" />
+   <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="465.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
 
    <Button fx:id="btnAddComponent" layoutX="1073.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="27.0" prefWidth="141.0" text="Add Component" />
    <Button fx:id="deleteComponent" layoutX="900.0" layoutY="400.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="27.0" prefWidth="150.0" text="Delete Component" />
@@ -737,7 +738,18 @@
        </ChoiceBox>
 
       <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
-      <Button fx:id="btnHelp" layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="27.0" prefWidth="61.0" text="Help" />
+      <HBox prefHeight="59.0" prefWidth="311.0" styleClass="menuBar">
+         <children>
+            <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" prefHeight="27.0" prefWidth="61.0" text="Help" />
+      
+         <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#adminLogOut" prefHeight="27.0" prefWidth="91.0" text="Log out" />
+            <Label prefHeight="33.0" prefWidth="81.0" text="Admin">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
 
    </children>
 </AnchorPane>
