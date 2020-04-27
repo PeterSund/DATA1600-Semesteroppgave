@@ -20,6 +20,7 @@
     -fx-min-width: 30px;
     -fx-max-height: 30px;
     -fx-background-color: #B30000;
+    -fx-color: white;
 }
 
 .componentButton {
