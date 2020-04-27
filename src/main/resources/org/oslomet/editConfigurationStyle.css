@@ -71,10 +71,20 @@
     -fx-font-weight: bold;
 }
 
-#saveConfButton {
+.saveConfButton {
     -fx-background-color: lightgreen;
 }
 
-#saveConfButton:hover {
+.saveConfButton:hover {
      -fx-background-color: #4DCD42;
  }
+
+.openConfButton {
+    -fx-background-color: lightblue;
+}
+
+.openConfButton:hover {
+    -fx-background-color: #21B1FA;
+}
+
+
