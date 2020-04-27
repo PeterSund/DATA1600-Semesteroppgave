@@ -21,7 +21,7 @@
       <TableView fx:id="tableviewMyConfigs" editable="true" layoutX="49.0" layoutY="111.0" prefHeight="460.0" prefWidth="1337.0">
         <columns>
 
-          <TableColumn fx:id="colConfigName" onEditCommit="#editConfigName" prefWidth="75.0" text="Config">
+          <TableColumn fx:id="colConfigName" onEditCommit="#editConfigName" prefWidth="75.0" text="Name">
              <cellValueFactory>
                 <PropertyValueFactory property="configName" />
              </cellValueFactory>
@@ -124,8 +124,8 @@
       </Button>
        <HBox prefHeight="34.0" prefWidth="208.0" styleClass="menuBar" stylesheets="@editConfigurationStyle.css">
            <children>
-               <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" text="ⓘ Help" />
-               <Button mnemonicParsing="false" onAction="#adminLogin" text="🔒 Admin Login" />
+               <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" stylesheets="@editConfigurationStyle.css" text="ⓘ Help" />
+               <Button mnemonicParsing="false" onAction="#adminLogin" stylesheets="@editConfigurationStyle.css" text="🔒 Admin Login" />
            </children>
        </HBox>
    </children>
