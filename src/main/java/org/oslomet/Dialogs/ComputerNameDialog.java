@@ -15,7 +15,7 @@ public class ComputerNameDialog {
 
     private TextField txtName = new TextField();
     private Label lblError = new Label();
-    private Button btnSubmit = new Button("Login");
+    private Button btnSubmit = new Button("Submit");
     private Button btnCancel = new Button("Cancel");
 
     String computerName = null;
