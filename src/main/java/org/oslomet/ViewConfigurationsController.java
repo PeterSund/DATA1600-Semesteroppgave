@@ -44,6 +44,7 @@ public class ViewConfigurationsController implements Initializable {
             Scene viewConfScene = new Scene(viewConfParent);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
+            window.setMaximized(true);
             window.show();
         }
     }
@@ -92,6 +93,7 @@ public class ViewConfigurationsController implements Initializable {
             Scene viewConfScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
             window.setScene(viewConfScene);
+            window.setMaximized(true);
             window.show();
         }
         catch (NullPointerException npe) {
@@ -125,6 +127,7 @@ public class ViewConfigurationsController implements Initializable {
             Scene viewConfScene = new Scene(root);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
             window.setScene(viewConfScene);
+            window.setMaximized(true);
             window.show();
 
         }
@@ -157,6 +160,7 @@ public class ViewConfigurationsController implements Initializable {
             Scene viewConfScene = new Scene(root);
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
             window.setScene(viewConfScene);
+            window.setMaximized(true);
             window.show();
         }
 

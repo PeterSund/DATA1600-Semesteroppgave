@@ -23,6 +23,7 @@ public class App extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
 
         ComputerCaseModel computerCase = new ComputerCaseModel("CAS-54", "CompCasesInc", 400, 5, "20x20x10", "Blue");

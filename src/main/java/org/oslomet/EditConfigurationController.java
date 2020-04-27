@@ -114,6 +114,7 @@ public class EditConfigurationController implements Initializable {
             Scene viewConfScene = new Scene(viewConfParent);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
+            window.setMaximized(true);
             window.show();
         }
     }
@@ -489,6 +490,7 @@ public class EditConfigurationController implements Initializable {
         Scene viewConfScene = new Scene(viewConfParent);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
         window.setScene(viewConfScene);
+        window.setMaximized(true);
         window.show();
     }
 
