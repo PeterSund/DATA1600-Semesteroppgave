@@ -92,6 +92,8 @@ public class EditConfigurationController implements Initializable {
         component = component.split("]")[1];
         component = component.substring(1,component.length()-1);
 
+
+
         //Makes all table views invisible except for the table view that belongs to the component
         for (TableView tv : tableViewArray) {
             if (tv.getId().equals(component)) {
