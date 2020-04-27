@@ -14,9 +14,9 @@
 <AnchorPane fx:id="ap" prefHeight="445.0" prefWidth="1255.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
 
-   <Button fx:id="btnLogOut" layoutX="80.0" layoutY="14.0" mnemonicParsing="false" onAction="#changeToViewConfigurations" text="Log out" />
+   <Button fx:id="btnLogOut" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" onAction="#adminLogOut" prefHeight="27.0" prefWidth="91.0" text="Log out" />
 
-   <Button fx:id="btnClearFilter" layoutX="628.0" layoutY="89.0" mnemonicParsing="false" onAction="#clearFilter" text="Clear filter" />
+   <Button fx:id="btnClearFilter" layoutX="628.0" layoutY="89.0" mnemonicParsing="false" onAction="#clearFilter" prefHeight="27.0" prefWidth="108.0" text="Clear filter" />
 
 
    <Button fx:id="btnCPU" layoutX="30.0" layoutY="89.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="CPU" />
@@ -31,10 +31,10 @@
    <Button fx:id="btnComputercase" layoutX="30.0" layoutY="54.0" mnemonicParsing="false" onAction="#changeActiveTableview" text="Computercase" />
    <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="400.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
 
-   <Button fx:id="btnAddComponent" layoutX="1094.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" text="Add Component" />
-   <Button fx:id="deleteComponent" layoutX="920.0" layoutY="358.0" mnemonicParsing="false" onAction="#deleteComponent" text="Delete Component" />
-   <Button fx:id="btnLoadComponent" layoutX="922.0" layoutY="400.0" mnemonicParsing="false" onAction="#openObj" text="Load components" />
-   <Button fx:id="btnSaveComponent" layoutX="1084.0" layoutY="400.0" mnemonicParsing="false" onAction="#saveObj" text="Save components" />
+   <Button fx:id="btnAddComponent" layoutX="1073.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="27.0" prefWidth="141.0" text="Add Component" />
+   <Button fx:id="deleteComponent" layoutX="900.0" layoutY="400.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="27.0" prefWidth="150.0" text="Delete Component" />
+   <Button fx:id="btnLoadComponent" layoutX="900.0" layoutY="352.0" mnemonicParsing="false" onAction="#openObj" prefHeight="27.0" prefWidth="150.0" text="Load components" />
+   <Button fx:id="btnSaveComponent" layoutX="1073.0" layoutY="400.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="27.0" prefWidth="141.0" text="Save components" />
 
       <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
         <columns>
@@ -737,7 +737,7 @@
        </ChoiceBox>
 
       <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="Search" />
-      <Button fx:id="btnHelp" layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onAction="#showHelp" text="Help" />
+      <Button fx:id="btnHelp" layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="27.0" prefWidth="61.0" text="Help" />
 
    </children>
 </AnchorPane>
