@@ -1,0 +1,39 @@
+.root {
+    -fx-background-color: #DFDFDF;
+}
+
+.button {
+    -fx-opacity: 1;
+    -fx-background-color: #008b8b;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-opacity: 0.7;
+}
+
+#btnHelp {
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+}
+
+#btnLogOut {
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+}
+
+#btnSaveComponent {
+    -fx-background-color: lightgreen;
+    -fx-text-fill: black;
+}
+
+#deleteComponent {
+    -fx-background-color: #cd5c5c;
+    -fx-text-fill: black;
+}
+
+
+
+
+
+
