@@ -1,15 +1,15 @@
 .root {
-    -fx-background-color: white;
+    -fx-background-color: #DFDFDF;
     -fx-font-family: Arial;
     -fx-font-size: 12px;
 }
 
 .button {
-    -fx-background-color: D0E9F3;
+    -fx-background-color: #DFDFDF;
 }
 
 .button:hover {
-    -fx-background-color: blue;
+    -fx-background-color: #FFFFFF;
 }
 
 .deleteButton:hover {
@@ -19,17 +19,17 @@
 .deleteButton {
     -fx-min-width: 30px;
     -fx-max-height: 30px;
-    -fx-background-color: B30000;
+    -fx-background-color: #B30000;
 }
 
 .componentButton {
     -fx-min-width: 150px;
     -fx-max-width: 150px;
-    -fx-background-color: grey;
+    -fx-background-color: #929292;
 }
 
 .componentButton:hover {
-    -fx-background-color: black;
+    -fx-background-color: #656565;
 }
 
 .hbox1 {
@@ -42,7 +42,7 @@
 }
 
 .hbox2 {
-    -fx-background-color: DBE1E3;
+    -fx-background-color: #DBE1E3;
     -fx-spacing: 10;
     -fx-min-width: 100%;
     -fx-min-height: 60px;
@@ -55,17 +55,26 @@
 }
 
 .table-view {
-    -fx-min-width: 1350;
-    -fx-max-width: 1350;
+    -fx-min-width: 1128;
+    -fx-max-width: 1128;
 }
 
 .menuBar {
     -fx-spacing: 10;
-    -fx-background-color: grey;
+    -fx-background-color: #929292;
     -fx-padding: 10;
+    -fx-color: white;
 }
 
 .infoLabel {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
 }
+
+#saveConfButton {
+    -fx-background-color: lightgreen;
+}
+
+#saveConfButton:hover {
+     -fx-background-color: #4DCD42;
+ }

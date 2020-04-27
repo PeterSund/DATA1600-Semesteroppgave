@@ -11,13 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@test.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@editConfigurationStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
-      <Label layoutX="181.0" layoutY="10.0" prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
 
        <TableView id="Computercase" fx:id="tvComputercase" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1391.0">
            <columns>
@@ -413,7 +408,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="29.0" layoutY="489.0" minWidth="1128.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1128.0">
            <columns>
                <TableColumn fx:id="SoundcardName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -453,19 +448,19 @@
 
            </columns>
        </TableView>
-      <Button layoutX="53.0" layoutY="5.0" mnemonicParsing="false" onAction="#adminLoginFromBtn" text="Admin Login" />
-      <Button layoutX="1180.0" layoutY="406.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="57.0" prefWidth="240.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Save configuration">
+      <Button id="saveConfButton" layoutX="1243.0" layoutY="580.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="58.0" prefWidth="230.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Save configuration">
          <font>
             <Font size="22.0" />
          </font></Button>
-      <Label layoutX="1200.0" layoutY="77.0" text="Name: " />
-      <Label fx:id="lblName" layoutX="1342.0" layoutY="77.0" text="computer name" />
-      <Button fx:id="btnHelp" layoutX="4.0" layoutY="1.0" mnemonicParsing="false" onAction="#showHelp" text="Help" />
-      <ProgressIndicator fx:id="progressbarPV" layoutX="1270.0" layoutY="205.0" maxHeight="200.0" maxWidth="200.0" minHeight="135.0" minWidth="125.0" prefHeight="135.0" prefWidth="125.0" progress="0.0" />
-      <Label fx:id="lblPerformanceValueProgressText" layoutX="1176.0" layoutY="340.0" prefHeight="47.0" prefWidth="266.0" text="PVprog" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="1200.0" layoutY="113.0" text="Total price:" />
-      <Label layoutX="1200.0" layoutY="156.0" text="Total performance value:" />
-      <Label fx:id="lblTotalPrice" layoutX="1344.0" layoutY="113.0" text="computer price" />
+      <Label id="computerName" fx:id="lblName" layoutX="457.0" layoutY="23.0" prefHeight="54.0" prefWidth="698.0" text="comp">
+         <font>
+            <Font size="37.0" />
+         </font></Label>
+      <ProgressIndicator fx:id="progressbarPV" layoutX="1222.0" layoutY="201.0" maxHeight="212.0" maxWidth="220.0" minHeight="135.0" minWidth="125.0" prefHeight="212.0" prefWidth="220.0" progress="0.0" />
+      <Label fx:id="lblPerformanceValueProgressText" layoutX="1202.0" layoutY="413.0" prefHeight="47.0" prefWidth="240.0" text="PVprog" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="1191.0" layoutY="120.0" styleClass="infoLabel" text="Total price:" />
+      <Label layoutX="1191.0" layoutY="157.0" styleClass="infoLabel" text="Total performance value:" />
+      <Label fx:id="lblTotalPrice" layoutX="1281.0" layoutY="120.0" prefHeight="16.0" prefWidth="167.0" styleClass="infoLabel" text="computer price" />
       <AnchorPane layoutX="28.0" layoutY="101.0" prefHeight="372.0" prefWidth="1128.0" style="-fx-border-color: black; -fx-background-color: white;">
          <children>
             <VBox layoutX="8.0" layoutY="9.0" prefHeight="360.0" prefWidth="573.0" styleClass="compnentVbox">
@@ -530,15 +525,15 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox1">
+                  <HBox prefHeight="60.0" prefWidth="557.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="200.0" styleClass="componentButton" text="Computercase">
+                        <Button fx:id="btnMotherboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Motherboard">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblComputerCase" prefHeight="35.0" prefWidth="310.0" text="Computer case" />
-                        <Button id="ComputerCase" fx:id="btnDeleteComputerCase" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="10.0" prefWidth="14.0" styleClass="deleteButton" text="X" textFill="WHITE">
+                         <Label fx:id="lblMotherBoard" prefHeight="35.0" prefWidth="310.0" text="Mother board" />
+                        <Button id="MotherBoard" fx:id="btnDeleteMotherBoard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -552,7 +547,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblRAM" prefHeight="35.0" prefWidth="329.0" text="RAM" />
+                         <Label fx:id="lblRAM" prefHeight="35.0" prefWidth="310.0" text="RAM" />
                         <Button id="RAM" fx:id="btnDeleteRAM" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -626,13 +621,13 @@
                   </HBox>
                   <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnMotherboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Motherboard">
+                        <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="200.0" styleClass="componentButton" text="Computercase">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblMotherBoard" prefHeight="35.0" prefWidth="327.0" text="Mother board" />
-                        <Button id="MotherBoard" fx:id="btnDeleteMotherBoard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
+                         <Label fx:id="lblComputerCase" prefHeight="35.0" prefWidth="323.0" text="Computer case" />
+                        <Button id="ComputerCase" fx:id="btnDeleteComputerCase" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="10.0" prefWidth="14.0" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
@@ -643,7 +638,18 @@
             </VBox>
          </children>
       </AnchorPane>
-      <Label fx:id="lblTotalPerformanceValue" layoutX="1376.0" layoutY="156.0" text="PV" />
+      <Label fx:id="lblTotalPerformanceValue" layoutX="1365.0" layoutY="157.0" prefHeight="16.0" prefWidth="63.0" styleClass="infoLabel" text="PV" />
+      <HBox prefHeight="60.0" prefWidth="390.0" styleClass="menuBar">
+         <children>
+            <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" text="Help" />
+            <Button mnemonicParsing="false" onAction="#adminLoginFromBtn" text="Admin Login" />
+            <Label prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
 
    </children>
 </AnchorPane>

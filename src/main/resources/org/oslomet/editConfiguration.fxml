@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@test.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@editConfigurationStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.EditConfigurationController">
    <children>
 
        <TableView id="Computercase" fx:id="tvComputercase" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1391.0">
@@ -408,7 +408,7 @@
            </columns>
        </TableView>
 
-       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="29.0" layoutY="489.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1020.0">
+       <TableView id="Soundcard" fx:id="tvSoundcard" layoutX="29.0" layoutY="489.0" minWidth="1128.0" onMouseClicked="#addComponent" prefHeight="300.0" prefWidth="1128.0">
            <columns>
                <TableColumn fx:id="SoundcardName" prefWidth="175.0" text="Name ">
                    <cellValueFactory>
@@ -448,17 +448,22 @@
 
            </columns>
        </TableView>
-      <Button layoutX="1169.0" layoutY="415.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="57.0" prefWidth="240.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Save configuration">
+      <Button id="saveConfButton" layoutX="1243.0" layoutY="580.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="58.0" prefWidth="230.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Save configuration">
          <font>
             <Font size="22.0" />
          </font></Button>
-      <Label layoutX="1175.0" layoutY="101.0" styleClass="infoLabel" text="Name: " />
-      <Label fx:id="lblName" layoutX="1229.0" layoutY="101.0" prefHeight="16.0" prefWidth="198.0" styleClass="infoLabel" text="computer name" />
-      <ProgressIndicator fx:id="progressbarPV" layoutX="1218.0" layoutY="219.0" maxHeight="200.0" maxWidth="200.0" minHeight="135.0" minWidth="125.0" prefHeight="135.0" prefWidth="125.0" progress="0.0" />
-      <Label fx:id="lblPerformanceValueProgressText" layoutX="1169.0" layoutY="354.0" prefHeight="47.0" prefWidth="240.0" text="PVprog" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="1175.0" layoutY="137.0" styleClass="infoLabel" text="Total price:" />
-      <Label layoutX="1175.0" layoutY="171.0" styleClass="infoLabel" text="Total performance value:" />
-      <Label fx:id="lblTotalPrice" layoutX="1259.0" layoutY="137.0" prefHeight="16.0" prefWidth="169.0" styleClass="infoLabel" text="computer price" />
+      <Label id="computerName" fx:id="lblName" layoutX="457.0" layoutY="33.0" prefHeight="54.0" prefWidth="698.0">
+         <font>
+            <Font size="37.0" />
+         </font></Label>
+      <ProgressIndicator fx:id="progressbarPV" layoutX="1222.0" layoutY="201.0" maxHeight="212.0" maxWidth="220.0" minHeight="135.0" minWidth="125.0" prefHeight="212.0" prefWidth="220.0" progress="0.0" />
+      <Label fx:id="lblPerformanceValueProgressText" layoutX="1202.0" layoutY="413.0" prefHeight="47.0" prefWidth="240.0" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="1191.0" layoutY="120.0" styleClass="infoLabel" text="Total price:" />
+      <Label layoutX="1191.0" layoutY="157.0" styleClass="infoLabel" text="Total performance value:" />
+      <Label fx:id="lblTotalPrice" layoutX="1281.0" layoutY="120.0" prefHeight="16.0" prefWidth="167.0" styleClass="infoLabel" />
       <AnchorPane layoutX="28.0" layoutY="101.0" prefHeight="372.0" prefWidth="1128.0" style="-fx-border-color: black; -fx-background-color: white;">
          <children>
             <VBox layoutX="8.0" layoutY="9.0" prefHeight="360.0" prefWidth="573.0" styleClass="compnentVbox">
@@ -470,7 +475,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblGPU" prefHeight="35.0" prefWidth="315.0" text="GPU" />
+                         <Label fx:id="lblGPU" prefHeight="35.0" prefWidth="315.0" />
                         <Button id="GPU" fx:id="btnDeleteGPU" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -485,7 +490,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblCPU" prefHeight="35.0" prefWidth="311.0" text="CPU" />
+                         <Label fx:id="lblCPU" prefHeight="35.0" prefWidth="311.0" />
                         <Button id="CPU" fx:id="btnDeleteCPU" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -500,7 +505,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblHardDrive" prefHeight="35.0" prefWidth="309.0" text="Hard drive" />
+                         <Label fx:id="lblHardDrive" prefHeight="35.0" prefWidth="309.0" />
                         <Button id="HardDrive" fx:id="btnDeleteHardDrive" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -515,7 +520,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblPSU" prefHeight="35.0" prefWidth="310.0" text="PSU" />
+                         <Label fx:id="lblPSU" prefHeight="35.0" prefWidth="310.0" />
                         <Button id="PSU" fx:id="btnDeletePSU" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -530,7 +535,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblMotherBoard" prefHeight="35.0" prefWidth="310.0" text="Mother board" />
+                         <Label fx:id="lblMotherBoard" prefHeight="35.0" prefWidth="310.0" />
                         <Button id="MotherBoard" fx:id="btnDeleteMotherBoard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -545,7 +550,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblRAM" prefHeight="35.0" prefWidth="310.0" text="RAM" />
+                         <Label fx:id="lblRAM" prefHeight="35.0" prefWidth="310.0" />
                         <Button id="RAM" fx:id="btnDeleteRAM" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -564,7 +569,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblSoundcard" prefHeight="35.0" prefWidth="330.0" text="Sound card" />
+                         <Label fx:id="lblSoundcard" prefHeight="35.0" prefWidth="330.0" />
                         <Button id="SoundCard" fx:id="btnDeleteSoundCard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -579,7 +584,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblKeyboard" prefHeight="35.0" prefWidth="326.0" text="Keyboard" />
+                         <Label fx:id="lblKeyboard" prefHeight="35.0" prefWidth="326.0" />
                         <Button id="Keyboard" fx:id="btnDeleteKeyboard" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -594,7 +599,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblMonitor" prefHeight="35.0" prefWidth="326.0" text="Monitor" />
+                         <Label fx:id="lblMonitor" prefHeight="35.0" prefWidth="326.0" />
                         <Button id="Monitor" fx:id="btnDeleteMonitor" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -609,7 +614,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblMouse" prefHeight="35.0" prefWidth="323.0" text="Mouse" />
+                         <Label fx:id="lblMouse" prefHeight="35.0" prefWidth="323.0" />
                         <Button id="Mouse" fx:id="btnDeleteMouse" mnemonicParsing="false" onAction="#deleteComponent" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -624,7 +629,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                         <Label fx:id="lblComputerCase" prefHeight="35.0" prefWidth="323.0" text="Computer case" />
+                         <Label fx:id="lblComputerCase" prefHeight="35.0" prefWidth="323.0" />
                         <Button id="ComputerCase" fx:id="btnDeleteComputerCase" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="10.0" prefWidth="14.0" styleClass="deleteButton" text="X" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="13.0" />
@@ -636,7 +641,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <Label fx:id="lblTotalPerformanceValue" layoutX="1347.0" layoutY="171.0" prefHeight="16.0" prefWidth="63.0" styleClass="infoLabel" text="PV" />
+      <Label fx:id="lblTotalPerformanceValue" layoutX="1365.0" layoutY="157.0" prefHeight="16.0" prefWidth="63.0" styleClass="infoLabel" />
       <HBox prefHeight="60.0" prefWidth="390.0" styleClass="menuBar">
          <children>
             <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" text="Help" />

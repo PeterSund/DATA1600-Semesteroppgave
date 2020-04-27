@@ -946,10 +946,12 @@ public class AdminController implements Initializable {
     //Changes window to edit configuration
     @FXML
     void changeToViewConfigurations(ActionEvent event) throws IOException {
+    void adminLogOut(ActionEvent event) throws IOException {
         Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
         Scene viewConfScene = new Scene(viewConfParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
         window.setScene(viewConfScene);
+        window.setMaximized(true);
         window.show();
     }
 
