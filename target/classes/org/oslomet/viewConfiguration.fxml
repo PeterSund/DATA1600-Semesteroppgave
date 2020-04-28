@@ -117,7 +117,7 @@
          </font>
       </Button>
       <Button layoutX="235.0" layoutY="577.0" mnemonicParsing="false" onAction="#newConf" prefHeight="29.0" prefWidth="183.0" stylesheets="@editConfigurationStyle.css" text="+ New configuration" />
-      <Button fx:id="btnOpenConfig" layoutX="976.0" layoutY="644.0" mnemonicParsing="false" onAction="#openConfig" styleClass="openConfButton" stylesheets="@editConfigurationStyle.css" text="⇧ Open configuration">
+      <Button fx:id="btnOpenConfig" layoutX="976.0" layoutY="644.0" mnemonicParsing="false" onAction="#openConfig" styleClass="openConfButton" stylesheets="@editConfigurationStyle.css" text="⇧ Load configuration">
          <font>
             <Font size="17.0" />
          </font>
