@@ -59,7 +59,7 @@ public class KeyboardModel extends ComponentModel implements Serializable {
 
     public String toStringForConfig() {
 
-        String output = this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getLanguage() + ", " + this.getWireless();
+        String output = this.getBrand() + " " + this.getName() + ", " + this.getType() + "-keyboard, " + this.getLanguage() + ", Wireless: " + this.getWireless();
 
         return output;
     }

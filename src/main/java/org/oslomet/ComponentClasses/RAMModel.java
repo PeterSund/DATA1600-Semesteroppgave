@@ -56,7 +56,7 @@ public class RAMModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getMemory() + ", " + this.getMemorySpeed();
+        return this.getBrand() + " " + this.getName() + ", " + this.getMemory() + " MB, " + this.getMemorySpeed() + " Mhz";
     }
 
     public String toStringForTxtFile() {

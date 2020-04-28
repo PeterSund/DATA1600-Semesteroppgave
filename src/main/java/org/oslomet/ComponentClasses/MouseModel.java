@@ -39,7 +39,7 @@ public class MouseModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        String output = this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getWireless();
+        String output = this.getBrand() + " " + this.getName() + ", " + this.getType() + "-mouse, Wireless: " + this.getWireless();
         return output;
     }
 

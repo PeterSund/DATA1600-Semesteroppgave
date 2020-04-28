@@ -37,7 +37,7 @@ public class PSUModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getWatt();
+        return this.getBrand() + " " + this.getName() + ", " + this.getWatt() + " watt";
     }
 
     public String toStringForTxtFile() {

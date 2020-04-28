@@ -54,7 +54,7 @@ public class CPUModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", "  +  ", " + this.getCores();
+        return this.getBrand() + ", " + this.getName() + ", " + this.getClockSpeed() + " GHz, " + this.getCores() +  " cores";
     }
 
     public String toStringForTxtFile() {

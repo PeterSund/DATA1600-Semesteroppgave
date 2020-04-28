@@ -54,7 +54,7 @@ public class ComputerCaseModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getDimensions() + ", " + this.getColor();
+        return this.getBrand() + " " + this.getName() + ", " + this.getDimensions() + " cm, Color: " + this.getColor();
     }
 
     public String toStringForTxtFile() {
