@@ -46,7 +46,7 @@ public class EditConfigurationController implements Initializable {
             btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard;
 
     @FXML
-    private Button btnGPU, btnCPU, btnHardrive, btnPSU, btnMotherboard1, btnRAM, btnSoundcard1, btnKeyboard1, btnMonitor1, btnMouse1, btnComputerCase;
+    private Button btnGPU, btnCPU, btnHardrive, btnPSU, btnMotherboard, btnRAM, btnSoundcard, btnKeyboard, btnMonitor, btnMouse, btnComputerCase;
 
     @FXML
     private ProgressIndicator progressbarPV;
@@ -78,7 +78,7 @@ public class EditConfigurationController implements Initializable {
         buttonDeleteArray = Arrays.asList(btnDeleteComputerCase, btnDeleteCPU, btnDeleteGPU, btnDeleteHardDrive, btnDeleteMotherBoard,
                 btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard);
 
-        componentButtonArray = Arrays.asList(btnGPU, btnCPU, btnHardrive, btnPSU, btnMotherboard1, btnRAM, btnSoundcard1, btnKeyboard1, btnMonitor1, btnMouse1, btnComputerCase);
+        componentButtonArray = Arrays.asList(btnGPU, btnCPU, btnHardrive, btnPSU, btnMotherboard, btnRAM, btnSoundcard, btnKeyboard, btnMonitor, btnMouse, btnComputerCase);
 
         //Makes all tableviews invisible except for computer case tableview
         for (TableView tv : tableViewArray) {
