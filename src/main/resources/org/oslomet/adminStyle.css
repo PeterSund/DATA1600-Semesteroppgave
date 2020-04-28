@@ -36,6 +36,14 @@
     -fx-border-radius: 3px;
 }
 
+#btnHelp:hover {
+    -fx-background-color: #FFFFFF;
+}
+
+#btnLogOut:hover {
+    -fx-background-color: #FFFFFF;
+}
+
 #btnSaveComponent {
     -fx-background-color: lightgreen;
     -fx-text-fill: black;
@@ -72,6 +80,10 @@
 
 .openCompButton:hover {
     -fx-background-color: #21B1FA;
+}
+
+.activeCompButton {
+    -fx-background-color: black;
 }
 
     .table-view {

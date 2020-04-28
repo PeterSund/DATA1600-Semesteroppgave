@@ -81,7 +81,7 @@ public class LoginDialog {
             usernameErrorLbl.setText("Incorrect username");
         }
 
-        if (password.getText().equals("Pass")) {
+        if (password.getText().equals("pass")) {
             passwordCorrect = true;
             passwordErrorLbl.setText("");
         } else {

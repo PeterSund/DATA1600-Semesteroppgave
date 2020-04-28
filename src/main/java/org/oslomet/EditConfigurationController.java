@@ -96,7 +96,6 @@ public class EditConfigurationController implements Initializable {
     //Change table view
     @FXML
     private void changeActiveTableView(ActionEvent event) {
-
         //Gets the name of the component belonging to the button that was pressed
         String component = event.getSource().toString();
         component = component.split("]")[1];
@@ -346,7 +345,7 @@ public class EditConfigurationController implements Initializable {
         }
 
         lblName.setText(computer.getConfigName());
-        lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
+        lblTotalPrice.setText(ComputerRegistry.calculateTotalPrice(computer) + " kr");
         lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
         updateProgIndicatorTotalPV();
     }
@@ -513,14 +512,37 @@ public class EditConfigurationController implements Initializable {
         window.show();
     }
 
+    //Mouse-hover function
     @FXML
-    private void onHover(MouseEvent event) {
-        System.out.print(event.getSource());
+    private void onHoverCompButton(MouseEvent event) {
+        //Gets the name of the component belonging to the button that was pressed
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1, component.length() - 1);
+
+        for (Button btn : componentButtonArray) {
+            if (btn.getText().equals(component)) {
+                btn.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
+            }
+        }
     }
 
+    //Mouse-hover function
+    @FXML
+    private void mouseExitCompButton(MouseEvent event) {
+        //Gets the name of the component belonging to the button that was pressed
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1, component.length() - 1);
+        if (!tableViewVisible().getId().equals(component)) {
+            for (Button btn : componentButtonArray) {
+                if (btn.getText().equals(component)) {
+                    btn.setStyle("-fx-background-color: #929292; -fx-text-fill: black");
+                }
+            }
 
-
-
+        }
+    }
 }
 
 

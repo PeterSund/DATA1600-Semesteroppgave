@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -65,13 +66,13 @@ public class AdminController implements Initializable {
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
         }
-        tvComputercase.setVisible(true);
+        tvKeyboard.setVisible(true);
 
         //Sets computercase combo-box as visible when Admin is opened, sets all other combo-box to not visible
         for (ChoiceBox cb : cbArray) {
             cb.setVisible(false);
         }
-        cbFilterComputerCase.setVisible(true);
+        cbFilterKeyboard.setVisible(true);
 
         //Options for choiceboxes used when changing values of attriubutes in component-tableviews
         final ObservableList<String> optionsHarddriveComboBox = FXCollections.observableArrayList("SSD", "HDD");
@@ -479,7 +480,7 @@ public class AdminController implements Initializable {
             }
 
         } catch (InvalidMemoryException ime) {
-            System.out.print(ime.getMessage());
+           ErrorDialog.showErrorDialog("Memory cannot be blank, must be greater then 0 and an even number", "Invalid input");
         } catch (NullPointerException npe) {
             ErrorDialog.showErrorDialog("Memory cannot be blank", "Invalid input");
         }
@@ -1101,12 +1102,21 @@ public class AdminController implements Initializable {
     //Calls on showTableview and showFilter to change when button for component is pressed.
     @FXML
     void changeActiveTableview(ActionEvent event) {
+        //Gets the name of the component belonging to the button that was pressed
         String component = event.getSource().toString();
         component = component.split("]")[1];
         component = component.substring(1,component.length()-1);
+
+        for (Button btn : chooseComponentButtons) {
+            if (btn.getText().equals(component)) {
+                btn.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
+            }
+            else {
+                btn.setStyle("-fx-background-color: #929292; -fx-text-fill: black;");
+            }
+        }
         showTableView(component);
         showFilter(component);
-
     }
 
 
@@ -1139,5 +1149,37 @@ public class AdminController implements Initializable {
     private void showHelp() {
         HelpDialog helpDialog = new HelpDialog();
         helpDialog.showAdminHelp();
+    }
+
+    //Mouse-hover function
+    @FXML
+    private void onHoverCompButton(MouseEvent event) {
+        //Gets the name of the component belonging to the button that was pressed
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1, component.length() - 1);
+
+        for (Button btn : chooseComponentButtons) {
+            if (btn.getText().equals(component)) {
+                btn.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
+            }
+        }
+    }
+
+    //Mouse-hover function
+    @FXML
+    private void mouseExitCompButton(MouseEvent event) {
+        //Gets the name of the component belonging to the button that was pressed
+        String component = event.getSource().toString();
+        component = component.split("]")[1];
+        component = component.substring(1, component.length() - 1);
+        if (!tableViewVisible().getId().equals(component)) {
+            for (Button btn : chooseComponentButtons) {
+                if (btn.getText().equals(component)) {
+                    btn.setStyle("-fx-background-color: #929292; -fx-text-fill: black");
+                }
+            }
+
+        }
     }
 }
