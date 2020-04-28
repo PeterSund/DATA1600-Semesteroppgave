@@ -46,11 +46,16 @@ public class EditConfigurationController implements Initializable {
             btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard;
 
     @FXML
+    private Button btnGPU, btnCPU, btnHardrive, btnPSU, btnMotherboard1, btnRAM, btnSoundcard1, btnKeyboard1, btnMonitor1, btnMouse1, btnComputerCase;
+
+    @FXML
     private ProgressIndicator progressbarPV;
 
-    public List<TableView> tableViewArray = new ArrayList<>();
+    private List<TableView> tableViewArray = new ArrayList<>();
 
-    public List<Button> buttonDeleteArray = new ArrayList<>();
+    private List<Button> buttonDeleteArray = new ArrayList<>();
+
+    private List<Button> componentButtonArray = new ArrayList<>();
 
     private ComputerModel computer;
 
@@ -73,11 +78,14 @@ public class EditConfigurationController implements Initializable {
         buttonDeleteArray = Arrays.asList(btnDeleteComputerCase, btnDeleteCPU, btnDeleteGPU, btnDeleteHardDrive, btnDeleteMotherBoard,
                 btnDeleteRAM, btnDeleteSoundCard, btnDeletePSU, btnDeleteMonitor, btnDeleteMouse, btnDeleteKeyboard);
 
+        componentButtonArray = Arrays.asList(btnGPU, btnCPU, btnHardrive, btnPSU, btnMotherboard1, btnRAM, btnSoundcard1, btnKeyboard1, btnMonitor1, btnMouse1, btnComputerCase);
+
         //Makes all tableviews invisible except for computer case tableview
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
         }
-        tvComputercase.setVisible(true);
+        tvGPU.setVisible(true);
+        btnGPU.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
 
         //Makes all delete buttons invisible
         for (Button btn : buttonDeleteArray) {
@@ -94,7 +102,14 @@ public class EditConfigurationController implements Initializable {
         component = component.split("]")[1];
         component = component.substring(1,component.length()-1);
 
-
+        for (Button btn : componentButtonArray) {
+            if (btn.getText().equals(component)) {
+                btn.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
+            }
+            else {
+                btn.setStyle("-fx-background-color: #929292; -fx-text-fill: black;");
+            }
+        }
 
         //Makes all table views invisible except for the table view that belongs to the component
         for (TableView tv : tableViewArray) {
@@ -497,6 +512,14 @@ public class EditConfigurationController implements Initializable {
         window.setMaximized(true);
         window.show();
     }
+
+    @FXML
+    private void onHover(MouseEvent event) {
+        System.out.print(event.getSource());
+    }
+
+
+
 
 }
 
