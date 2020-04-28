@@ -470,7 +470,7 @@
                <children>
                   <HBox prefHeight="35.0" prefWidth="418.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="GPU">
+                        <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="GPU">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -485,7 +485,7 @@
                   </HBox>
                   <HBox prefHeight="35.0" prefWidth="334.0" styleClass="hbox2">
                      <children>
-                        <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="198.0" styleClass="componentButton" text="CPU">
+                        <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="31.0" prefWidth="198.0" styleClass="componentButton" text="CPU">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -500,7 +500,7 @@
                   </HBox>
                   <HBox prefHeight="47.0" prefWidth="370.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Hard drive">
+                        <Button fx:id="btnHardrive" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Hard drive">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -515,7 +515,7 @@
                   </HBox>
                   <HBox prefHeight="35.0" prefWidth="494.0" styleClass="hbox2">
                      <children>
-                        <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="PSU">
+                        <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="PSU">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -530,7 +530,7 @@
                   </HBox>
                   <HBox prefHeight="60.0" prefWidth="557.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnMotherboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Motherboard">
+                        <Button fx:id="btnMotherboard1" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Motherboard">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -545,7 +545,7 @@
                   </HBox>
                   <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox2">
                      <children>
-                        <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="158.0" styleClass="componentButton" text="RAM">
+                        <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="158.0" styleClass="componentButton" text="RAM">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -564,7 +564,7 @@
                <children>
                   <HBox prefHeight="35.0" prefWidth="418.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnSoundcard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Soundcard">
+                        <Button fx:id="btnSoundcard1" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Soundcard">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -579,7 +579,7 @@
                   </HBox>
                   <HBox prefHeight="35.0" prefWidth="334.0" styleClass="hbox2">
                      <children>
-                        <Button fx:id="btnKeyboard1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Keyboard">
+                        <Button fx:id="btnKeyboard1" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Keyboard">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -594,7 +594,7 @@
                   </HBox>
                   <HBox prefHeight="47.0" prefWidth="370.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnMonitor1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Monitor">
+                        <Button fx:id="btnMonitor1" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="175.0" styleClass="componentButton" text="Monitor">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -609,7 +609,7 @@
                   </HBox>
                   <HBox prefHeight="35.0" prefWidth="494.0" styleClass="hbox2">
                      <children>
-                        <Button fx:id="btnMouse1" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="27.0" prefWidth="158.0" styleClass="componentButton" text="Mouse">
+                        <Button fx:id="btnMouse1" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="27.0" prefWidth="158.0" styleClass="componentButton" text="Mouse">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -624,7 +624,7 @@
                   </HBox>
                   <HBox prefHeight="34.0" prefWidth="342.0" styleClass="hbox1">
                      <children>
-                        <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" prefHeight="31.0" prefWidth="200.0" styleClass="componentButton" text="Computercase">
+                        <Button fx:id="btnComputerCase" mnemonicParsing="false" onAction="#changeActiveTableView" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="31.0" prefWidth="200.0" styleClass="componentButton" text="Computercase">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>

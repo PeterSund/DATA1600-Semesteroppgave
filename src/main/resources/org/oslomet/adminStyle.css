@@ -3,7 +3,7 @@
 }
 
 .compButton {
-    -fx-padding: 22px;
+    -fx-padding: 20px;
     -fx-font-size: 17px;
 }
 
@@ -34,6 +34,14 @@
     -fx-text-fill: black;
     -fx-border-color: black;
     -fx-border-radius: 3px;
+}
+
+#btnHelp:hover {
+    -fx-background-color: #FFFFFF;
+}
+
+#btnLogOut:hover {
+    -fx-background-color: #FFFFFF;
 }
 
 #btnSaveComponent {
@@ -72,6 +80,10 @@
 
 .openCompButton:hover {
     -fx-background-color: #21B1FA;
+}
+
+.activeCompButton {
+    -fx-background-color: black;
 }
 
     .table-view {
