@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
@@ -946,8 +948,9 @@ public class AdminController implements Initializable {
     //Changes window to edit configuration
     @FXML
     void adminLogOut(ActionEvent event) throws IOException {
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
+        Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
+        Parent root = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
+        Scene viewConfScene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
         window.setScene(viewConfScene);
         window.setMaximized(true);
