@@ -22,11 +22,11 @@
 
    <Button fx:id="btnAddComponent" layoutX="311.0" layoutY="613.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="33.0" prefWidth="156.0" text="+ Add Component" />
    <Button fx:id="deleteComponent" layoutX="483.0" layoutY="613.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="33.0" prefWidth="167.0" text="🗑 Delete Component" />
-   <Button fx:id="btnLoadComponent" layoutX="964.0" layoutY="687.0" mnemonicParsing="false" onAction="#openObj" prefHeight="49.0" prefWidth="177.0" styleClass="openCompButton" stylesheets="@Admin.css" text="⇧ Load components">
+   <Button fx:id="btnLoadComponent" layoutX="981.0" layoutY="687.0" mnemonicParsing="false" onAction="#openObj" prefHeight="49.0" prefWidth="177.0" styleClass="openCompButton" stylesheets="@Admin.css" text="⇧ Load components">
          <font>
             <Font size="16.0" />
          </font></Button>
-   <Button fx:id="btnSaveComponent" layoutX="1154.0" layoutY="687.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="49.0" prefWidth="177.0" text="⇩ Save components">
+   <Button fx:id="btnSaveComponent" layoutX="1169.0" layoutY="687.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="49.0" prefWidth="177.0" text="⇩ Save components">
          <font>
             <Font size="16.0" />
          </font></Button>
