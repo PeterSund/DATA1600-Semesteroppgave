@@ -50,6 +50,11 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Adds tableviews, choiceboxes (filtering) and buttons to lists. Lists are used to easier control which components are visible to the user
+        tableViewArray = Arrays.asList(tvComputercase, tvCPU, tvGPU, tvHarddrive, tvKeyboard, tvPSU, tvMonitor, tvMotherboard, tvMouse, tvRAM, tvSoundcard);
+        cbArray = Arrays.asList(cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterKeyboard, cbFilterPSU, cbFilterMonitor, cbFilterMotherboard, cbFilterMouse, cbFilterRAM, cbFilterSoundcard);
+        chooseComponentButtons = Arrays.asList(btnComputercase, btnCPU, btnGPU, btnHarddrive, btnKeyboard, btnMonitor, btnMotherboard, btnMouse, btnPSU, btnRAM, btnSoundcard);
+
         ComputerCaseRegistry.attachTableView(tvComputercase);
         CPURegistry.attachTableView(tvCPU);
         GPURegistry.attachTableView(tvGPU);
@@ -66,13 +71,15 @@ public class AdminController implements Initializable {
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
         }
-        tvKeyboard.setVisible(true);
+        tvCPU.setVisible(true);
 
         //Sets computercase combo-box as visible when Admin is opened, sets all other combo-box to not visible
         for (ChoiceBox cb : cbArray) {
             cb.setVisible(false);
         }
-        cbFilterKeyboard.setVisible(true);
+        cbFilterCPU.setVisible(true);
+
+        btnCPU.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
 
         //Options for choiceboxes used when changing values of attriubutes in component-tableviews
         final ObservableList<String> optionsHarddriveComboBox = FXCollections.observableArrayList("SSD", "HDD");
@@ -126,11 +133,6 @@ public class AdminController implements Initializable {
         colKeyboardPV.setCellFactory(TextFieldTableCell.forTableColumn(StringToDoubleConv));
         colKeyboardType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardTypeCombobox));
         colKeyboardWireless.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardWirelessCombobox));
-
-        //Adds tableviews, choiceboxes (filtering) and buttons to lists. Lists are used to easier control which components are visible to the user
-        tableViewArray = Arrays.asList(tvComputercase, tvCPU, tvGPU, tvHarddrive, tvKeyboard, tvPSU, tvMonitor, tvMotherboard, tvMouse, tvRAM, tvSoundcard);
-        cbArray = Arrays.asList(cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterKeyboard, cbFilterPSU, cbFilterMonitor, cbFilterMotherboard, cbFilterMouse, cbFilterRAM, cbFilterSoundcard);
-        chooseComponentButtons = Arrays.asList(btnComputercase, btnCPU, btnGPU, btnHarddrive, btnKeyboard, btnMonitor, btnMotherboard, btnMouse, btnPSU, btnRAM, btnSoundcard);
     }
 
     @FXML
