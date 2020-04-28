@@ -12,32 +12,26 @@
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap" prefHeight="553.0" prefWidth="1255.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
+<AnchorPane fx:id="ap" prefHeight="811.0" prefWidth="1417.0" stylesheets="@Admin.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.AdminController">
    <children>
 
-   <Button fx:id="btnClearFilter" layoutX="628.0" layoutY="89.0" mnemonicParsing="false" onAction="#clearFilter" prefHeight="27.0" prefWidth="108.0" text="Clear filter" />
+   <Button fx:id="btnClearFilter" layoutX="654.0" layoutY="96.0" mnemonicParsing="false" onAction="#clearFilter" prefHeight="27.0" prefWidth="108.0" text="Clear filter" />
 
+   <Button fx:id="btnAddComponent" layoutX="311.0" layoutY="613.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="33.0" prefWidth="156.0" text="+ Add Component" />
+   <Button fx:id="deleteComponent" layoutX="483.0" layoutY="613.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="33.0" prefWidth="167.0" text="🗑 Delete Component" />
+   <Button fx:id="btnLoadComponent" layoutX="981.0" layoutY="687.0" mnemonicParsing="false" onAction="#openObj" prefHeight="49.0" prefWidth="177.0" styleClass="openCompButton" stylesheets="@Admin.css" text="⇧ Load components">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+   <Button fx:id="btnSaveComponent" layoutX="1169.0" layoutY="687.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="49.0" prefWidth="177.0" text="⇩ Save components">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
 
-   <Button fx:id="btnCPU" layoutX="30.0" layoutY="146.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="CPU" />
-   <Button fx:id="btnGPU" layoutX="30.0" layoutY="181.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="GPU" />
-   <Button fx:id="btnHarddrive" layoutX="30.0" layoutY="217.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Hard drive" />
-   <Button fx:id="btnMotherboard" layoutX="30.0" layoutY="253.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Motherboard" />
-   <Button fx:id="btnRAM" layoutX="30.0" layoutY="287.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="RAM" />
-   <Button fx:id="btnSoundcard" layoutX="30.0" layoutY="320.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Soundcard" />
-   <Button fx:id="btnPSU" layoutX="30.0" layoutY="354.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="PSU" />
-   <Button fx:id="btnMonitor" layoutX="30.0" layoutY="388.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Monitor" />
-   <Button fx:id="btnMouse" layoutX="30.0" layoutY="427.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Mouse" />
-   <Button fx:id="btnComputercase" layoutX="30.0" layoutY="111.0" mnemonicParsing="false" onAction="#changeActiveTableview" text="Computercase" />
-   <Button fx:id="btnKeyboard" layoutX="30.0" layoutY="465.0" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="27.0" prefWidth="99.0" text="Keyboard" />
-
-   <Button fx:id="btnAddComponent" layoutX="1073.0" layoutY="352.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="27.0" prefWidth="141.0" text="+ Add Component" />
-   <Button fx:id="deleteComponent" layoutX="900.0" layoutY="400.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="27.0" prefWidth="150.0" text="🗑 Delete Component" />
-   <Button fx:id="btnLoadComponent" layoutX="900.0" layoutY="352.0" mnemonicParsing="false" onAction="#openObj" prefHeight="27.0" prefWidth="150.0" text="⇧ Load components" />
-   <Button fx:id="btnSaveComponent" layoutX="1073.0" layoutY="400.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="27.0" prefWidth="141.0" text="⇩ Save components" />
-
-      <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
         <columns>
 
            <TableColumn fx:id="colComputercaseName" onEditCommit="#editName" prefWidth="175.0" text="Name">
@@ -91,7 +85,7 @@
         </columns>
       </TableView>
 
-      <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
             <TableColumn fx:id="colCPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
                <cellValueFactory>
@@ -138,7 +132,7 @@
          </columns>
       </TableView>
 
-       <TableView id="GPU" fx:id="tvGPU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+       <TableView id="GPU" fx:id="tvGPU" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
            <columns>
                <TableColumn fx:id="colGPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
                    <cellValueFactory>
@@ -185,7 +179,7 @@
            </columns>
        </TableView>
 
-      <TableView id="Hard drive" fx:id="tvHarddrive" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Hard drive" fx:id="tvHarddrive" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
             <TableColumn fx:id="colHarddriveName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
@@ -236,7 +230,7 @@
          </columns>
       </TableView>
 
-      <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
             <TableColumn fx:id="colMotherboardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
@@ -281,7 +275,7 @@
          </columns>
       </TableView>
 
-      <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
             <TableColumn fx:id="colRAMName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
@@ -329,7 +323,7 @@
          </columns>
       </TableView>
 
-      <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
              <TableColumn fx:id="colSoundcardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
@@ -383,7 +377,7 @@
          </columns>
 
       </TableView>
-      <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
              <TableColumn fx:id="colPSUName" onEditCommit="#editName" prefWidth="216.0" text="Name ">
@@ -425,7 +419,7 @@
          </columns>
       </TableView>
 
-      <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
              <TableColumn fx:id="colMonitorName" onEditCommit="#editName" prefWidth="224.0" text="Name ">
@@ -467,7 +461,7 @@
          </columns>
       </TableView>
 
-      <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
          <columns>
 
              <TableColumn fx:id="colMouseName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
@@ -522,7 +516,7 @@
          </columns>
       </TableView>
 
-      <TableView id="Keyboard" fx:id="tvKeyboard" editable="true" layoutX="182.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+      <TableView id="Keyboard" fx:id="tvKeyboard" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="461.0" prefWidth="1020.0">
          <columns>
 
             <TableColumn fx:id="colKeyboardName" onEditCommit="#editName" prefWidth="175.0" text="Name">
@@ -555,7 +549,7 @@
                </cellValueFactory>
             </TableColumn>
 
-            <TableColumn fx:id="colKeyboardType" onEditCommit="#editKeyboardType" prefWidth="154.0" text="Type">
+                  <TableColumn fx:id="colKeyboardType" onEditCommit="#editKeyboardType" prefWidth="154.0" text="Type">
                <cellValueFactory>
                   <PropertyValueFactory property="type" />
                </cellValueFactory>
@@ -585,7 +579,7 @@
          </columns>
       </TableView>
 
-      <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+      <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
        <items>
            <FXCollections fx:factory="observableArrayList">
@@ -599,7 +593,7 @@
        </items>
       </ChoiceBox>
 
-       <ChoiceBox id="CPU" fx:id="cbFilterCPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="CPU" fx:id="cbFilterCPU" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -613,7 +607,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="GPU" fx:id="cbFilterGPU" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="GPU" fx:id="cbFilterGPU" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -627,7 +621,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Hard drive" fx:id="cbFilterHarddrive" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="Hard drive" fx:id="cbFilterHarddrive" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -641,7 +635,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Motherboard" fx:id="cbFilterMotherboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="Motherboard" fx:id="cbFilterMotherboard" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -654,7 +648,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="RAM" fx:id="cbFilterRAM" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="RAM" fx:id="cbFilterRAM" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -668,7 +662,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Soundcard" fx:id="cbFilterSoundcard" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="Soundcard" fx:id="cbFilterSoundcard" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -682,7 +676,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="PSU" fx:id="cbFilterPSU" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="PSU" fx:id="cbFilterPSU" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -695,7 +689,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Monitor" fx:id="cbFilterMonitor" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="Monitor" fx:id="cbFilterMonitor" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -708,7 +702,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Mouse" fx:id="cbFilterMouse" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="Mouse" fx:id="cbFilterMouse" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -722,7 +716,7 @@
            </items>
        </ChoiceBox>
 
-       <ChoiceBox id="Keyboard" fx:id="cbFilterKeyboard" layoutX="466.0" layoutY="89.0" prefWidth="150.0" value="Name">
+       <ChoiceBox id="Keyboard" fx:id="cbFilterKeyboard" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -737,19 +731,36 @@
            </items>
        </ChoiceBox>
 
-      <TextField fx:id="txtFilter" layoutX="296.0" layoutY="89.0" onKeyTyped="#txtFilterEntered" promptText="&#128269; Search" />
+      <TextField fx:id="txtFilter" layoutX="311.0" layoutY="97.0" onKeyTyped="#txtFilterEntered" promptText="🔍 Search" />
       <HBox prefHeight="59.0" prefWidth="311.0" styleClass="menuBar">
          <children>
-            <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" prefHeight="27.0" prefWidth="61.0" text="ⓘ Help" />
+            <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" prefHeight="29.0" prefWidth="81.0" text="ⓘ Help" />
       
          <Button fx:id="btnLogOut" mnemonicParsing="false" onAction="#adminLogOut" prefHeight="27.0" prefWidth="91.0" text="🔒 Log out" />
-            <Label prefHeight="33.0" prefWidth="81.0" text="Admin">
+            <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="87.0" text="Admin">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
          </children>
       </HBox>
+      <VBox layoutY="59.0" prefHeight="738.0" prefWidth="189.0" styleClass="vBoxComp" stylesheets="@Admin.css">
+         <children>
+      
+            
+               <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@Admin.css" text="CPU" />
+         <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@Admin.css" text="GPU" />
+         <Button fx:id="btnHarddrive" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="198.0" styleClass="compButton" stylesheets="@Admin.css" text="Hard drive" />
+         <Button fx:id="btnMotherboard" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@Admin.css" text="Motherboard" />
+         <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="191.0" styleClass="compButton" stylesheets="@Admin.css" text="RAM" />
+         <Button fx:id="btnSoundcard" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="193.0" styleClass="compButton" stylesheets="@Admin.css" text="Soundcard" />
+         <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="193.0" styleClass="compButton" stylesheets="@Admin.css" text="PSU" />
+         <Button fx:id="btnMonitor" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@Admin.css" text="Monitor" />
+         <Button fx:id="btnMouse" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@Admin.css" text="Mouse" />
+         <Button fx:id="btnComputercase" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="192.0" styleClass="compButton" stylesheets="@Admin.css" text="Computercase" />
+         <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableview" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@Admin.css" text="Keyboard" />
+         </children>
+      </VBox>
 
    </children>
 </AnchorPane>
