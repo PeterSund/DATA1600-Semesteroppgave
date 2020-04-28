@@ -448,7 +448,7 @@
 
            </columns>
        </TableView>
-      <Button id="saveConfButton" layoutX="1243.0" layoutY="580.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="58.0" prefWidth="230.0" style="-fx-border-color: black; -fx-border-radius: 5px;" styleClass="saveConfButton" text="Save configuration">
+      <Button id="saveConfButton" layoutX="1243.0" layoutY="580.0" mnemonicParsing="false" onAction="#saveConfiguration" prefHeight="58.0" prefWidth="230.0" style="-fx-border-color: black; -fx-border-radius: 5px;" styleClass="saveConfButton" text="⇩ Save configuration">
          <font>
             <Font size="22.0" />
          </font></Button>
@@ -644,8 +644,8 @@
       <Label fx:id="lblTotalPerformanceValue" layoutX="1365.0" layoutY="157.0" prefHeight="16.0" prefWidth="63.0" styleClass="infoLabel" />
       <HBox prefHeight="60.0" prefWidth="390.0" styleClass="menuBar">
          <children>
-            <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" text="Help" />
-            <Button mnemonicParsing="false" onAction="#adminLoginFromBtn" text="Admin Login" />
+            <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" text="ⓘ Help" />
+            <Button mnemonicParsing="false" onAction="#adminLoginFromBtn" text="🔒 Admin Login" />
             <Label prefHeight="34.0" prefWidth="198.0" text="Edit configuration">
                <font>
                   <Font size="23.0" />
