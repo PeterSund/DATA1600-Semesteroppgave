@@ -42,6 +42,9 @@ public class ComputerModel {
         this.mouse = new SimpleObjectProperty<>(mouse);
         this.totalPrice = new SimpleDoubleProperty(totalPrice);
         this.totalPerformanceValue = new SimpleDoubleProperty(totalPerformanceValue);
+
+        this.setTotalPrice(ComputerRegistry.calculateTotalPrice(this));
+        this.setTotalPerformanceValue(ComputerRegistry.calculateTotalPerformanceValue(this));
     }
 
     //Getters/Setters
