@@ -56,8 +56,8 @@
 }
 
 .table-view {
-    -fx-min-width: 1128;
-    -fx-max-width: 1128;
+    -fx-min-width: 960;
+    -fx-max-width: 960;
 }
 
 .menuBar {
