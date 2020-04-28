@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
@@ -110,8 +112,9 @@ public class EditConfigurationController implements Initializable {
     private void adminLoginFromBtn(ActionEvent event) throws IOException {
         LoginDialog loginDialog = new LoginDialog();
         if (loginDialog.display()) {
-            Parent viewConfParent = FXMLLoader.load(getClass().getResource("admin.fxml"));
-            Scene viewConfScene = new Scene(viewConfParent);
+            Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
+            Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+            Scene viewConfScene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
             window.setMaximized(true);
@@ -486,8 +489,9 @@ public class EditConfigurationController implements Initializable {
         }
 
         //Change view to viewConfiguration controller
-        Parent viewConfParent = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
-        Scene viewConfScene = new Scene(viewConfParent);
+        Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
+        Parent root = FXMLLoader.load(getClass().getResource("viewConfiguration.fxml"));
+        Scene viewConfScene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
         window.setScene(viewConfScene);
         window.setMaximized(true);
