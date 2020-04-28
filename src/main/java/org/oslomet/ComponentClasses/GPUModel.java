@@ -54,7 +54,7 @@ public class GPUModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + ", " + this.getMemory();
+        return this.getBrand() + " " + this.getName() + ", " + this.getClockSpeed() + " GHz, " + this.getMemory() + " MB";
     }
 
     public String toStringForTxtFile() {

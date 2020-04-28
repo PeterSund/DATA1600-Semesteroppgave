@@ -6,6 +6,8 @@
     -fx-opacity: 1;
     -fx-background-color: #929292;
     -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-radius: 3px;
 }
 
 .button:hover {
@@ -16,6 +18,8 @@
 #btnHelp {
     -fx-background-color: #DFDFDF;
     -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-radius: 3px;
 }
 
 
@@ -23,16 +27,22 @@
 #btnLogOut {
     -fx-background-color: #DFDFDF;
     -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-radius: 3px;
 }
 
 #btnSaveComponent {
     -fx-background-color: lightgreen;
     -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-radius: 3px;
 }
 
 #deleteComponent {
     -fx-background-color: #cd5c5c;
     -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-radius: 3px;
 }
 
 #deleteComponent:hover {

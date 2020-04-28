@@ -31,7 +31,7 @@ public class MotherboardModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getType();
+        return this.getBrand() + " " + this.getName() + ", Type " + this.getType();
     }
 
     public String toStringForTxtFile() {

@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="701.0" prefWidth="1429.0" style="-fx-background-color:#DFDFDF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.oslomet.ViewConfigurationsController">
    <children>
-      <Button fx:id="btnEditConfig" layoutX="49.0" layoutY="577.0" mnemonicParsing="false" onAction="#editConfig" prefHeight="34.0" prefWidth="143.0" text="✎ Edit configuration" />
+      <Button fx:id="btnEditConfig" layoutX="49.0" layoutY="577.0" mnemonicParsing="false" onAction="#editConfig" prefHeight="29.0" prefWidth="170.0" stylesheets="@editConfigurationStyle.css" text="✎ Edit configuration" />
       <Label layoutX="494.0" layoutY="46.0" prefHeight="57.0" prefWidth="437.0" text="My configurations">
          <font>
             <Font size="46.0" />
@@ -110,13 +110,13 @@
 
         </columns>
       </TableView>
-      <Button id="deleteButton" fx:id="btnDeleteConfig" layoutX="364.0" layoutY="577.0" mnemonicParsing="false" onAction="#deleteConfig" prefHeight="34.0" prefWidth="160.0" styleClass="deleteButton" stylesheets="@editConfigurationStyle.css" text="🗑 Delete configuration" textFill="WHITE" />
+      <Button id="deleteButton" fx:id="btnDeleteConfig" layoutX="434.0" layoutY="577.0" maxHeight="36.0" mnemonicParsing="false" onAction="#deleteConfig" prefHeight="36.0" prefWidth="183.0" styleClass="deleteButton" stylesheets="@editConfigurationStyle.css" text="🗑 Delete configuration" textFill="WHITE" />
       <Button fx:id="btnSaveConfig" layoutX="1194.0" layoutY="644.0" mnemonicParsing="false" onAction="#saveConfig" styleClass="saveConfButton" stylesheets="@editConfigurationStyle.css" text="⇩ Save configuration">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="577.0" mnemonicParsing="false" onAction="#newConf" prefHeight="34.0" prefWidth="143.0" text="+ New configuration" />
+      <Button layoutX="235.0" layoutY="577.0" mnemonicParsing="false" onAction="#newConf" prefHeight="29.0" prefWidth="183.0" stylesheets="@editConfigurationStyle.css" text="+ New configuration" />
       <Button fx:id="btnOpenConfig" layoutX="976.0" layoutY="644.0" mnemonicParsing="false" onAction="#openConfig" styleClass="openConfButton" stylesheets="@editConfigurationStyle.css" text="⇧ Open configuration">
          <font>
             <Font size="17.0" />

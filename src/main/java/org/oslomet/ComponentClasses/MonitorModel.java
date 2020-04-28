@@ -39,7 +39,7 @@ public class MonitorModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getSize();
+        return this.getBrand() + " " + this.getName() + ", " + this.getSize() + "''";
     }
 
     public String toStringForTxtFile() {

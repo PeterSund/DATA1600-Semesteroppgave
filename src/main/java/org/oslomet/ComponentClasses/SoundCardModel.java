@@ -42,7 +42,7 @@ public class SoundCardModel extends ComponentModel implements Serializable {
 
     public String toStringForConfig() {
 
-        String output = this.getBrand() + " " + this.getName() + " " + this.getSurround() + " " + this.getBassBoost();
+        String output = this.getBrand() + " " + this.getName() + ", Surround: " + this.getSurround() + ", Bassboost: " + this.getBassBoost();
         return output;
     }
 

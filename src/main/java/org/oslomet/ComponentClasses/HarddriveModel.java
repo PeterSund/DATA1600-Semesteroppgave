@@ -51,7 +51,7 @@ public class HarddriveModel extends ComponentModel implements Serializable {
     }
 
     public String toStringForConfig() {
-        return this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getCapacity();
+        return this.getBrand() + " " + this.getName() + ", " + this.getType() + ", " + this.getCapacity() + " gb";
     }
 
     public String toStringForTxtFile() {
