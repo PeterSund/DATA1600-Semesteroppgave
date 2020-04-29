@@ -3,7 +3,7 @@
 }
 
 .compButton {
-    -fx-padding: 20px;
+    -fx-padding: 15px;
     -fx-font-size: 17px;
     -fx-opacity: 1;
     -fx-background-color: #929292;
@@ -78,8 +78,8 @@
 }
 
 .table-view {
-    -fx-min-width: 1035;
-    -fx-max-width: 1035;
+    -fx-min-width: 1000;
+    -fx-max-width: 1000;
     -fx-min-height: 459;
     -fx-max-height: 459;
 }
