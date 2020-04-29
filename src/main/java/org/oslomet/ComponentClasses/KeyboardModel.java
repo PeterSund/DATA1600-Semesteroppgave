@@ -18,7 +18,7 @@ public class KeyboardModel extends ComponentModel implements Serializable {
                          String type, String language, String wireless) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.language(language)) {
-            throw new InvalidLanguageException("Language cannot be blank and must contain only letters with a capital first letter");
+            throw new InvalidLanguageException("Language cannot be blank and must contain three capital letters (e.g NOR)");
         }
         this.type = new SimpleStringProperty(type);
         this.language = new SimpleStringProperty(language);
@@ -40,7 +40,7 @@ public class KeyboardModel extends ComponentModel implements Serializable {
 
     public void setLanguage(String language) {
         if(!AdminInputValidation.language(language)) {
-            throw new InvalidLanguageException("Language cannot be blank and must contain only letters with a capital first letter");
+            throw new InvalidLanguageException("Language cannot be blank and must contain three capital letters (e.g NOR)");
         }
         this.language.set(language);
     }

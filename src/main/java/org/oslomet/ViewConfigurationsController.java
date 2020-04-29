@@ -96,13 +96,16 @@ public class ViewConfigurationsController implements Initializable {
 
             editConfigurationController.setComputer(computerFromFile);
             Scene viewConfScene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
             window.setMaximized(true);
             window.show();
         }
-        catch (NullPointerException npe) {
+        catch (CorruptedFileException cfe) {
             ErrorDialog.showErrorDialog("Text file is corrupted and can't be opened!", "File corrupted");
+        }
+        catch (NullPointerException npe) {
+           //Catches exception if window is canceled without choosing file.
         }
     }
 

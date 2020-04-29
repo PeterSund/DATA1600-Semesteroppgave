@@ -464,14 +464,14 @@ public class EditConfigurationController implements Initializable {
         double totalPV = computer.getTotalPerformanceValue() / AdminInputValidation.MAX_PERFORMANCE_TOTALVALUE;
         progressbarPV.setProgress(totalPV);
 
-        if(totalPV < 0.3) {
+        if(totalPV < 0.2) {
             progressbarPV.setStyle(" -fx-progress-color: red;");
             lblPerformanceValueProgressText.setText("Your computer will have a low performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: red;");
 
         }
 
-        if(totalPV > 0.3 && totalPV < 0.6) {
+        if(totalPV > 0.2 && totalPV < 0.5) {
             progressbarPV.setStyle(" -fx-progress-color: orange;");
             lblPerformanceValueProgressText.setText("Your computer will have a OK performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: orange;");

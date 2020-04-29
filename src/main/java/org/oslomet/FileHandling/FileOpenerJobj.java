@@ -42,7 +42,7 @@ public class FileOpenerJobj extends FileChooser {
             SoundCardRegistry.addSoundcardFromJobjToArray(arrayLists.get(10));
 
         } catch (ClassNotFoundException e) {
-            throw new IOException("Something is wrong with the implementation. See debug information");
+            throw new IOException("File corrupted and cannot be opened");
         }
         catch (StreamCorruptedException sce) {
             throw new StreamCorruptedException("File corrupted and cannot be opened");

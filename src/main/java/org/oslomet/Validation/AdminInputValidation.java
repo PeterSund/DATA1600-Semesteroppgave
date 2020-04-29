@@ -15,7 +15,7 @@ public class AdminInputValidation {
 
     //Regex accepts all letters, digits and some special characters
     public static boolean name(String name) {
-        return !name.isBlank() && name.matches("^[a-zA-Z0-9!#$%&'*+-/=?^_`{|};]+$");
+        return !name.isBlank() && name.matches("[a-zA-Z0-9!#$%&'*+-/=?^_`{|};\\s]*");
     }
 
     public static boolean configName(String name) {
@@ -24,7 +24,7 @@ public class AdminInputValidation {
 
     //Regex accepts all letters, digits and some special characters
     public static boolean brand(String brand) {
-        return !brand.isBlank() && brand.matches("^[a-zA-Z0-9!#$%&'*+-/=?^_`{|};]+$");
+        return !brand.isBlank() && brand.matches("[a-zA-Z0-9!#$%&'*+-/=?^_`{|};\\s]*");
     }
 
     public static boolean price(double price) {
@@ -62,9 +62,9 @@ public class AdminInputValidation {
         return capacity > 0 && capacity <= MAX_CAPACITY;
     }
 
-    //Regex accepts all letters with capital first letter
+    //Regex accepts 3 capital letters (NOR / ENG / SWE..)
     public static boolean language(String language) {
-        return !language.isBlank() && language.matches("[A-Z]*[a-z]*");
+        return !language.isBlank() && language.matches("[A-Z]{3}");
     }
 
     public static boolean size(int size) {

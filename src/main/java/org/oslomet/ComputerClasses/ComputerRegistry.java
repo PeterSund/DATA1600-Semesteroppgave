@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
+import org.oslomet.ExceptionClasses.CorruptedFileException;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerTxt;
 import java.io.IOException;
@@ -175,7 +176,7 @@ public class ComputerRegistry {
             return computer;
         }
         catch (IndexOutOfBoundsException ioobe) {
-            return null;
+            throw new CorruptedFileException("Text file is corrupted and can't be opened!");
         }
     }
 }
