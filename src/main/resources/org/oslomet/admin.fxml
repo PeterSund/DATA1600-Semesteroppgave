@@ -21,15 +21,15 @@
 
    <Button fx:id="btnClearFilter" layoutX="654.0" layoutY="96.0" mnemonicParsing="false" onAction="#clearFilter" prefHeight="27.0" prefWidth="108.0" text="Clear filter" />
 
-   <Button fx:id="btnAddComponent" layoutX="311.0" layoutY="613.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="42.0" prefWidth="161.0" stylesheets="@adminStyle.css" text="+ Add Component">
+   <Button fx:id="btnAddComponent" layoutX="250.0" layoutY="612.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="42.0" prefWidth="161.0" stylesheets="@adminStyle.css" text="+ Add Component">
          <font>
             <Font size="14.0" />
          </font></Button>
-   <Button fx:id="deleteComponent" layoutX="483.0" layoutY="613.0" maxHeight="42.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="42.0" prefWidth="167.0" styleClass="deleteButton" stylesheets="@editConfigurationStyle.css" text="🗑 Delete Component" textFill="WHITE">
+   <Button fx:id="deleteComponent" layoutX="428.0" layoutY="613.0" maxHeight="42.0" mnemonicParsing="false" onAction="#deleteComponent" prefHeight="42.0" prefWidth="167.0" styleClass="deleteButton" stylesheets="@editConfigurationStyle.css" text="🗑 Delete Component" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>
-   <Button fx:id="btnLoadComponent" layoutX="981.0" layoutY="687.0" mnemonicParsing="false" onAction="#openObj" prefHeight="49.0" prefWidth="177.0" styleClass="openConfButton" text="⇧ Load components">
+   <Button fx:id="btnLoadComponent" layoutX="859.0" layoutY="613.0" mnemonicParsing="false" onAction="#openObj" prefHeight="49.0" prefWidth="177.0" styleClass="openConfButton" text="⇧ Load components">
          <font>
             <Font size="16.0" />
          </font>
@@ -37,558 +37,10 @@
             <URL value="@editConfigurationStyle.css" />
             <URL value="@editConfigurationStyle.css" />
          </stylesheets></Button>
-   <Button fx:id="btnSaveComponent" layoutX="1169.0" layoutY="687.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="49.0" prefWidth="177.0" text="⇩ Save components">
+   <Button fx:id="btnSaveComponent" layoutX="1052.0" layoutY="613.0" mnemonicParsing="false" onAction="#saveObj" prefHeight="49.0" prefWidth="177.0" text="⇩ Save components">
          <font>
             <Font size="16.0" />
          </font></Button>
-
-      <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-        <columns>
-
-           <TableColumn fx:id="colComputercaseName" onEditCommit="#editName" prefWidth="175.0" text="Name">
-              <cellValueFactory>
-                 <PropertyValueFactory property="name" />
-              </cellValueFactory>
-              <cellFactory>
-                 <TextFieldTableCell fx:factory="forTableColumn" />
-              </cellFactory>
-           </TableColumn>
-
-          <TableColumn fx:id="colComputercaseBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-             <cellValueFactory>
-                <PropertyValueFactory property="brand" />
-             </cellValueFactory>
-             <cellFactory>
-                <TextFieldTableCell fx:factory="forTableColumn" />
-             </cellFactory>
-          </TableColumn>
-
-            <TableColumn fx:id="colComputercasePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-               <cellValueFactory>
-                  <PropertyValueFactory property="price" />
-               </cellValueFactory>
-            </TableColumn>
-
-           <TableColumn fx:id="colComputercasePV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-              <cellValueFactory>
-                 <PropertyValueFactory property="performanceValue" />
-              </cellValueFactory>
-           </TableColumn>
-
-            <TableColumn fx:id="colComputercaseDimension" onEditCommit="#editComputerCaseDimensions" prefWidth="178.0" text="Dimension (HxLxD)">
-               <cellValueFactory>
-                  <PropertyValueFactory property="dimensions" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-           <TableColumn fx:id="colComputercaseColor" onEditCommit="#editComputerCaseColor" prefWidth="232.0" text="Color">
-              <cellValueFactory>
-                 <PropertyValueFactory property="color" />
-              </cellValueFactory>
-              <cellFactory>
-                 <TextFieldTableCell fx:factory="forTableColumn" />
-              </cellFactory>
-           </TableColumn>
-
-        </columns>
-      </TableView>
-
-      <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-            <TableColumn fx:id="colCPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
-               <cellValueFactory>
-                  <PropertyValueFactory property="name" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colCPUBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-               <cellValueFactory>
-                  <PropertyValueFactory property="brand" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colCPUPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-               <cellValueFactory>
-                  <PropertyValueFactory property="price" />
-               </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colCPUPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-               <cellValueFactory>
-                  <PropertyValueFactory property="performanceValue" />
-               </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colCPUClockSpeed" onEditCommit="#editCPUClockSpeed" prefWidth="178.0" text="Clock speed (GHz)">
-               <cellValueFactory>
-                  <PropertyValueFactory property="clockSpeed" />
-               </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colCPUCores" onEditCommit="#editCores" prefWidth="232.0" text="Cores">
-               <cellValueFactory>
-                  <PropertyValueFactory property="cores" />
-               </cellValueFactory>
-            </TableColumn>
-
-         </columns>
-      </TableView>
-
-       <TableView id="GPU" fx:id="tvGPU" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-           <columns>
-               <TableColumn fx:id="colGPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="name" />
-                   </cellValueFactory>
-                   <cellFactory>
-                       <TextFieldTableCell fx:factory="forTableColumn" />
-                   </cellFactory>
-               </TableColumn>
-
-               <TableColumn fx:id="colGPUBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="brand" />
-                   </cellValueFactory>
-                   <cellFactory>
-                       <TextFieldTableCell fx:factory="forTableColumn" />
-                   </cellFactory>
-               </TableColumn>
-
-               <TableColumn fx:id="colGPUPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="price" />
-                   </cellValueFactory>
-               </TableColumn>
-
-               <TableColumn fx:id="colGPUPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="performanceValue" />
-                   </cellValueFactory>
-               </TableColumn>
-
-               <TableColumn fx:id="colGPUClockSpeed" onEditCommit="#editGPUClockSpeed" prefWidth="178.0" text="Clock speed (GHz)">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="clockSpeed" />
-                   </cellValueFactory>
-               </TableColumn>
-
-               <TableColumn fx:id="colGPUMemory" onEditCommit="#editGPUMemory" prefWidth="232.0" text="Memory (MB)">
-                   <cellValueFactory>
-                       <PropertyValueFactory property="memory" />
-                   </cellValueFactory>
-               </TableColumn>
-
-           </columns>
-       </TableView>
-
-      <TableView id="Hard drive" fx:id="tvHarddrive" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-            <TableColumn fx:id="colHarddriveName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
-               <cellValueFactory>
-                  <PropertyValueFactory property="name" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colHarddriveBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-               <cellValueFactory>
-                  <PropertyValueFactory property="brand" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colHarddrivePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-               <cellValueFactory>
-                  <PropertyValueFactory property="price" />
-               </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colHarddrivePV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-               <cellValueFactory>
-                  <PropertyValueFactory property="performanceValue" />
-               </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colHarddriveType" onEditCommit="#editHarddriveType" prefWidth="178.0" text="Type">
-               <cellValueFactory>
-                  <PropertyValueFactory property="type" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colHarddriveCapacity" onEditCommit="#editCapacity" prefWidth="232.0" text="Capacity (GB)">
-               <cellValueFactory>
-                  <PropertyValueFactory property="capacity" />
-               </cellValueFactory>
-            </TableColumn>
-
-         </columns>
-      </TableView>
-
-      <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-            <TableColumn fx:id="colMotherboardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
-                <cellValueFactory>
-                    <PropertyValueFactory property="name" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colMotherboardBrand" onEditCommit="#editBrand" prefWidth="189.0" text="Brand">
-                <cellValueFactory>
-                    <PropertyValueFactory property="brand" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colMotherboardPrice" onEditCommit="#editPrice" prefWidth="202.0" text="Price">
-                <cellValueFactory>
-                    <PropertyValueFactory property="price" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colMotherboardPV" onEditCommit="#editPerformanceValue" prefWidth="212.0" text="Performance value">
-                <cellValueFactory>
-                    <PropertyValueFactory property="performanceValue" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colMotherboardType" onEditCommit="#editMotherboardType" prefWidth="241.0" text="Type">
-                <cellValueFactory>
-                    <PropertyValueFactory property="type" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-         </columns>
-      </TableView>
-
-      <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-            <TableColumn fx:id="colRAMName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
-                <cellValueFactory>
-                    <PropertyValueFactory property="name" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colRAMBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-                <cellValueFactory>
-                    <PropertyValueFactory property="brand" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colRAMPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-                <cellValueFactory>
-                    <PropertyValueFactory property="price" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colRAMPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-                <cellValueFactory>
-                    <PropertyValueFactory property="performanceValue" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colRAMMemory" onEditCommit="#editRAMMemory" prefWidth="178.0" text="Memory (MB)">
-                <cellValueFactory>
-                    <PropertyValueFactory property="memory" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colRAMMemorySpeed" onEditCommit="#editMemorySpeed" prefWidth="232.0" text="Memory speed (MHz)">
-                <cellValueFactory>
-                    <PropertyValueFactory property="memorySpeed" />
-                </cellValueFactory>
-            </TableColumn>
-
-         </columns>
-      </TableView>
-
-      <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-             <TableColumn fx:id="colSoundcardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="name" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-            <TableColumn fx:id="colSoundcardBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-                <cellValueFactory>
-                    <PropertyValueFactory property="brand" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colSoundcardPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-                <cellValueFactory>
-                    <PropertyValueFactory property="price" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colSoundcardPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-                <cellValueFactory>
-                    <PropertyValueFactory property="performanceValue" />
-                </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colSoundcardSurround" onEditCommit="#editSurround" prefWidth="178.0" text="Surround">
-                <cellValueFactory>
-                    <PropertyValueFactory property="surround" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colSoundcardBassBoost" onEditCommit="#editBassBoost" prefWidth="232.0" text="Bassboost">
-                <cellValueFactory>
-                    <PropertyValueFactory property="bassBoost" />
-                </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-         </columns>
-
-      </TableView>
-      <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-             <TableColumn fx:id="colPSUName" onEditCommit="#editName" prefWidth="216.0" text="Name">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="name" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colPSUBrand" onEditCommit="#editBrand" prefWidth="181.0" text="Brand">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="brand" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colPSUPrice" onEditCommit="#editPrice" prefWidth="194.0" text="Price">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="price" />
-                 </cellValueFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colPSUPV" onEditCommit="#editPerformanceValue" prefWidth="225.0" text="Performance value">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="performanceValue" />
-                 </cellValueFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colPSUWatt" onEditCommit="#editWatt" prefWidth="203.0" text="Watt">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="watt" />
-                 </cellValueFactory>
-             </TableColumn>
-
-         </columns>
-      </TableView>
-
-      <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-             <TableColumn fx:id="colMonitorName" onEditCommit="#editName" prefWidth="224.0" text="Name ">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="name" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMonitorBrand" onEditCommit="#editBrand" prefWidth="162.0" text="Brand">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="brand" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMonitorPrice" onEditCommit="#editPrice" prefWidth="176.0" text="Price">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="price" />
-                 </cellValueFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMonitorPV" onEditCommit="#editPerformanceValue" prefWidth="210.0" text="Performance value">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="performanceValue" />
-                 </cellValueFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMonitorSize" onEditCommit="#editSize" prefWidth="247.0" text="Size (inches)">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="size" />
-                 </cellValueFactory>
-             </TableColumn>
-
-         </columns>
-      </TableView>
-
-      <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
-         <columns>
-
-             <TableColumn fx:id="colMouseName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="name" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-
-             <TableColumn fx:id="colMouseBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="brand" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMousePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="price" />
-                 </cellValueFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMousePV" onEditCommit="#editPerformanceValue" prefWidth="192.0" text="Performance value">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="performanceValue" />
-                 </cellValueFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMouseType" onEditCommit="#editMouseType" prefWidth="181.0" text="Type">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="type" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-             <TableColumn fx:id="colMouseWireless" onEditCommit="#editMouseWireless" prefWidth="178.0" text="Wireless">
-                 <cellValueFactory>
-                     <PropertyValueFactory property="wireless" />
-                 </cellValueFactory>
-                 <cellFactory>
-                     <TextFieldTableCell fx:factory="forTableColumn" />
-                 </cellFactory>
-             </TableColumn>
-
-         </columns>
-      </TableView>
-
-      <TableView id="Keyboard" fx:id="tvKeyboard" editable="true" layoutX="311.0" layoutY="138.0" prefHeight="461.0" prefWidth="1020.0">
-         <columns>
-
-            <TableColumn fx:id="colKeyboardName" onEditCommit="#editName" prefWidth="175.0" text="Name">
-               <cellValueFactory>
-                  <PropertyValueFactory property="name" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colKeyboardBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
-               <cellValueFactory>
-                  <PropertyValueFactory property="brand" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colKeyboardPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
-               <cellValueFactory>
-                  <PropertyValueFactory property="price" />
-               </cellValueFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colKeyboardPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
-               <cellValueFactory>
-                  <PropertyValueFactory property="performanceValue" />
-               </cellValueFactory>
-            </TableColumn>
-
-                  <TableColumn fx:id="colKeyboardType" onEditCommit="#editKeyboardType" prefWidth="154.0" text="Type">
-               <cellValueFactory>
-                  <PropertyValueFactory property="type" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colKeyboardLanguage" onEditCommit="#editKeyboardLanguage" prefWidth="133.0" text="Language">
-               <cellValueFactory>
-                  <PropertyValueFactory property="language" />
-               </cellValueFactory>
-               <cellFactory>
-                  <TextFieldTableCell fx:factory="forTableColumn" />
-               </cellFactory>
-            </TableColumn>
-
-            <TableColumn fx:id="colKeyboardWireless" onEditCommit="#editKeyboardWireless" prefWidth="123.0" text="Wireless">
-               <cellValueFactory>
-                  <PropertyValueFactory property="wireless" />
-               </cellValueFactory>
-                <cellFactory>
-                    <TextFieldTableCell fx:factory="forTableColumn" />
-                </cellFactory>
-            </TableColumn>
-
-         </columns>
-      </TableView>
 
       <ChoiceBox id="Computercase" fx:id="cbFilterComputerCase" layoutX="491.0" layoutY="97.0" prefWidth="150.0" value="Name">
 
@@ -755,10 +207,10 @@
             </Label>
          </children>
       </HBox>
-      <VBox layoutY="59.0" prefHeight="738.0" prefWidth="189.0" styleClass="vBoxComp" stylesheets="@adminStyle.css">
+      <VBox layoutY="59.0" prefHeight="704.0" prefWidth="187.0" styleClass="vBoxComp" stylesheets="@adminStyle.css">
          <children>
 
-             <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="CPU" />
+             <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="42.0" prefWidth="187.0" styleClass="compButton" stylesheets="@adminStyle.css" text="CPU" />
          <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="GPU" />
          <Button fx:id="btnHarddrive" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="198.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Hard drive" />
          <Button fx:id="btnMotherboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Motherboard" />
@@ -768,9 +220,557 @@
          <Button fx:id="btnMonitor" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Monitor" />
          <Button fx:id="btnMouse" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Mouse" />
          <Button fx:id="btnComputercase" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="192.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Computercase" />
-         <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Keyboard" />
+         <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="46.0" prefWidth="218.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Keyboard" />
          </children>
       </VBox>
+
+      <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+        <columns>
+
+           <TableColumn fx:id="colComputercaseName" onEditCommit="#editName" prefWidth="175.0" text="Name">
+              <cellValueFactory>
+                 <PropertyValueFactory property="name" />
+              </cellValueFactory>
+              <cellFactory>
+                 <TextFieldTableCell fx:factory="forTableColumn" />
+              </cellFactory>
+           </TableColumn>
+
+          <TableColumn fx:id="colComputercaseBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+             <cellValueFactory>
+                <PropertyValueFactory property="brand" />
+             </cellValueFactory>
+             <cellFactory>
+                <TextFieldTableCell fx:factory="forTableColumn" />
+             </cellFactory>
+          </TableColumn>
+
+            <TableColumn fx:id="colComputercasePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+               <cellValueFactory>
+                  <PropertyValueFactory property="price" />
+               </cellValueFactory>
+            </TableColumn>
+
+           <TableColumn fx:id="colComputercasePV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+              <cellValueFactory>
+                 <PropertyValueFactory property="performanceValue" />
+              </cellValueFactory>
+           </TableColumn>
+
+            <TableColumn fx:id="colComputercaseDimension" onEditCommit="#editComputerCaseDimensions" prefWidth="178.0" text="Dimension (HxLxD)">
+               <cellValueFactory>
+                  <PropertyValueFactory property="dimensions" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+           <TableColumn fx:id="colComputercaseColor" onEditCommit="#editComputerCaseColor" prefWidth="212.0" text="Color">
+              <cellValueFactory>
+                 <PropertyValueFactory property="color" />
+              </cellValueFactory>
+              <cellFactory>
+                 <TextFieldTableCell fx:factory="forTableColumn" />
+              </cellFactory>
+           </TableColumn>
+
+        </columns>
+      </TableView>
+
+      <TableView id="CPU" fx:id="tvCPU" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+            <TableColumn fx:id="colCPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="name" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colCPUBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+               <cellValueFactory>
+                  <PropertyValueFactory property="brand" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colCPUPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+               <cellValueFactory>
+                  <PropertyValueFactory property="price" />
+               </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colCPUPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+               <cellValueFactory>
+                  <PropertyValueFactory property="performanceValue" />
+               </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colCPUClockSpeed" onEditCommit="#editCPUClockSpeed" prefWidth="178.0" text="Clock speed (GHz)">
+               <cellValueFactory>
+                  <PropertyValueFactory property="clockSpeed" />
+               </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colCPUCores" onEditCommit="#editCores" prefWidth="212.0" text="Cores">
+               <cellValueFactory>
+                  <PropertyValueFactory property="cores" />
+               </cellValueFactory>
+            </TableColumn>
+
+         </columns>
+      </TableView>
+
+       <TableView id="GPU" fx:id="tvGPU" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+           <columns>
+               <TableColumn fx:id="colGPUName" onEditCommit="#editName" prefWidth="175.0" text="Name">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="name" />
+                   </cellValueFactory>
+                   <cellFactory>
+                       <TextFieldTableCell fx:factory="forTableColumn" />
+                   </cellFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="brand" />
+                   </cellValueFactory>
+                   <cellFactory>
+                       <TextFieldTableCell fx:factory="forTableColumn" />
+                   </cellFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="price" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="performanceValue" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUClockSpeed" onEditCommit="#editGPUClockSpeed" prefWidth="178.0" text="Clock speed (GHz)">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="clockSpeed" />
+                   </cellValueFactory>
+               </TableColumn>
+
+               <TableColumn fx:id="colGPUMemory" onEditCommit="#editGPUMemory" prefWidth="212.0" text="Memory (MB)">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="memory" />
+                   </cellValueFactory>
+               </TableColumn>
+
+           </columns>
+       </TableView>
+
+      <TableView id="Hard drive" fx:id="tvHarddrive" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+            <TableColumn fx:id="colHarddriveName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
+               <cellValueFactory>
+                  <PropertyValueFactory property="name" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colHarddriveBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+               <cellValueFactory>
+                  <PropertyValueFactory property="brand" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colHarddrivePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+               <cellValueFactory>
+                  <PropertyValueFactory property="price" />
+               </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colHarddrivePV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+               <cellValueFactory>
+                  <PropertyValueFactory property="performanceValue" />
+               </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colHarddriveType" onEditCommit="#editHarddriveType" prefWidth="178.0" text="Type">
+               <cellValueFactory>
+                  <PropertyValueFactory property="type" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colHarddriveCapacity" onEditCommit="#editCapacity" prefWidth="212.0" text="Capacity (GB)">
+               <cellValueFactory>
+                  <PropertyValueFactory property="capacity" />
+               </cellValueFactory>
+            </TableColumn>
+
+         </columns>
+      </TableView>
+
+      <TableView id="Keyboard" fx:id="tvKeyboard" editable="true" layoutX="250.0" layoutY="138.0" minHeight="375.0" minWidth="903.0" prefHeight="375.0" prefWidth="903.0">
+         <columns>
+
+            <TableColumn fx:id="colKeyboardName" onEditCommit="#editName" prefWidth="175.0" text="Name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="name" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colKeyboardBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+               <cellValueFactory>
+                  <PropertyValueFactory property="brand" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colKeyboardPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+               <cellValueFactory>
+                  <PropertyValueFactory property="price" />
+               </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colKeyboardPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+               <cellValueFactory>
+                  <PropertyValueFactory property="performanceValue" />
+               </cellValueFactory>
+            </TableColumn>
+
+                  <TableColumn fx:id="colKeyboardType" onEditCommit="#editKeyboardType" prefWidth="154.0" text="Type">
+               <cellValueFactory>
+                  <PropertyValueFactory property="type" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colKeyboardLanguage" onEditCommit="#editKeyboardLanguage" prefWidth="133.0" text="Language">
+               <cellValueFactory>
+                  <PropertyValueFactory property="language" />
+               </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colKeyboardWireless" onEditCommit="#editKeyboardWireless" prefWidth="103.0" text="Wireless">
+               <cellValueFactory>
+                  <PropertyValueFactory property="wireless" />
+               </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+         </columns>
+      </TableView>
+
+      <TableView id="Monitor" fx:id="tvMonitor" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+             <TableColumn fx:id="colMonitorName" onEditCommit="#editName" prefWidth="224.0" text="Name ">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="name" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMonitorBrand" onEditCommit="#editBrand" prefWidth="162.0" text="Brand">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="brand" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMonitorPrice" onEditCommit="#editPrice" prefWidth="176.0" text="Price">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="price" />
+                 </cellValueFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMonitorPV" onEditCommit="#editPerformanceValue" prefWidth="210.0" text="Performance value">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="performanceValue" />
+                 </cellValueFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMonitorSize" onEditCommit="#editSize" prefWidth="227.0" text="Size (inches)">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="size" />
+                 </cellValueFactory>
+             </TableColumn>
+
+         </columns>
+      </TableView>
+
+      <TableView id="Motherboard" fx:id="tvMotherboard" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+            <TableColumn fx:id="colMotherboardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colMotherboardBrand" onEditCommit="#editBrand" prefWidth="189.0" text="Brand">
+                <cellValueFactory>
+                    <PropertyValueFactory property="brand" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colMotherboardPrice" onEditCommit="#editPrice" prefWidth="202.0" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colMotherboardPV" onEditCommit="#editPerformanceValue" prefWidth="212.0" text="Performance value">
+                <cellValueFactory>
+                    <PropertyValueFactory property="performanceValue" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colMotherboardType" onEditCommit="#editMotherboardType" prefWidth="221.0" text="Type">
+                <cellValueFactory>
+                    <PropertyValueFactory property="type" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+         </columns>
+      </TableView>
+
+      <TableView id="Mouse" fx:id="tvMouse" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+             <TableColumn fx:id="colMouseName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="name" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+
+             <TableColumn fx:id="colMouseBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="brand" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMousePrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="price" />
+                 </cellValueFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMousePV" onEditCommit="#editPerformanceValue" prefWidth="192.0" text="Performance value">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="performanceValue" />
+                 </cellValueFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMouseType" onEditCommit="#editMouseType" prefWidth="181.0" text="Type">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="type" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colMouseWireless" onEditCommit="#editMouseWireless" prefWidth="158.0" text="Wireless">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="wireless" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+         </columns>
+      </TableView>
+      <TableView id="PSU" fx:id="tvPSU" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+             <TableColumn fx:id="colPSUName" onEditCommit="#editName" prefWidth="216.0" text="Name">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="name" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colPSUBrand" onEditCommit="#editBrand" prefWidth="181.0" text="Brand">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="brand" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colPSUPrice" onEditCommit="#editPrice" prefWidth="194.0" text="Price">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="price" />
+                 </cellValueFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colPSUPV" onEditCommit="#editPerformanceValue" prefWidth="225.0" text="Performance value">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="performanceValue" />
+                 </cellValueFactory>
+             </TableColumn>
+
+             <TableColumn fx:id="colPSUWatt" onEditCommit="#editWatt" prefWidth="183.0" text="Watt">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="watt" />
+                 </cellValueFactory>
+             </TableColumn>
+
+         </columns>
+      </TableView>
+
+      <TableView id="RAM" fx:id="tvRAM" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+            <TableColumn fx:id="colRAMName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colRAMBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+                <cellValueFactory>
+                    <PropertyValueFactory property="brand" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colRAMPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colRAMPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+                <cellValueFactory>
+                    <PropertyValueFactory property="performanceValue" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colRAMMemory" onEditCommit="#editRAMMemory" prefWidth="178.0" text="Memory (MB)">
+                <cellValueFactory>
+                    <PropertyValueFactory property="memory" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colRAMMemorySpeed" onEditCommit="#editMemorySpeed" prefWidth="212.0" text="Memory speed (MHz)">
+                <cellValueFactory>
+                    <PropertyValueFactory property="memorySpeed" />
+                </cellValueFactory>
+            </TableColumn>
+
+         </columns>
+      </TableView>
+
+      <TableView id="Soundcard" fx:id="tvSoundcard" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
+         <columns>
+
+             <TableColumn fx:id="colSoundcardName" onEditCommit="#editName" prefWidth="175.0" text="Name ">
+                 <cellValueFactory>
+                     <PropertyValueFactory property="name" />
+                 </cellValueFactory>
+                 <cellFactory>
+                     <TextFieldTableCell fx:factory="forTableColumn" />
+                 </cellFactory>
+             </TableColumn>
+
+            <TableColumn fx:id="colSoundcardBrand" onEditCommit="#editBrand" prefWidth="133.0" text="Brand">
+                <cellValueFactory>
+                    <PropertyValueFactory property="brand" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colSoundcardPrice" onEditCommit="#editPrice" prefWidth="160.0" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colSoundcardPV" onEditCommit="#editPerformanceValue" prefWidth="141.0" text="Performance value">
+                <cellValueFactory>
+                    <PropertyValueFactory property="performanceValue" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colSoundcardSurround" onEditCommit="#editSurround" prefWidth="178.0" text="Surround">
+                <cellValueFactory>
+                    <PropertyValueFactory property="surround" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="colSoundcardBassBoost" onEditCommit="#editBassBoost" prefWidth="212.0" text="Bassboost">
+                <cellValueFactory>
+                    <PropertyValueFactory property="bassBoost" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+
+         </columns>
+
+      </TableView>
 
    </children>
 </AnchorPane>
