@@ -56,8 +56,6 @@ public class DialogTemplate {
         priceErrorLbl.setWrapText(true);
         performanceValueErrorLbl.setWrapText(true);
 
-        //nameErrorLbl.prefHeight(30);
-
         nameErrorLbl.setStyle("-fx-text-fill: red;");
         brandErrorLbl.setStyle("-fx-text-fill: red;");
         priceErrorLbl.setStyle("-fx-text-fill: red;");
