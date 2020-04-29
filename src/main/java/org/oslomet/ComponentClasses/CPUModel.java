@@ -44,7 +44,7 @@ public class CPUModel extends ComponentModel implements Serializable {
 
     public void setCores(int cores) {
         if(!AdminInputValidation.cores(cores)) {
-            throw new InvalidCoresException("Cores cannot be blank and must be between and even number");
+            throw new InvalidCoresException("Cores cannot be blank and must be an even number between 0 and "+ AdminInputValidation.MAX_CORES);
         }
         this.cores.set(cores);
     }

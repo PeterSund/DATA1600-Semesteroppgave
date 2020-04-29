@@ -82,7 +82,7 @@ public class ComponentModel implements Serializable {
 
     public void setPerformanceValue(double performanceValue) {
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new InvalidPerformanceValueException("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE);
+            throw new InvalidPerformanceValueException("Performance value cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE);
         }
         this.performanceValue.set(performanceValue);
     }

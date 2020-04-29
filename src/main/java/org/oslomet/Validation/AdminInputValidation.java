@@ -8,9 +8,10 @@ public class AdminInputValidation {
     public static final double MAX_PERFORMANCE_VALUE = 100;
     public static final double MAX_PERFORMANCE_TOTALVALUE = 1100;
     public static final double MAX_CLOCK_SPEED = 100;
-    public static final double MAX_CAPACITY = 100000;
+    public static final double MAX_CAPACITY = 10000;
     public static final int MAX_SIZE_MONITOR = 300;
     public static final int MAX_WATT = 10000;
+    public static final int MAX_CORES = 128;
 
 
     //Regex accepts all letters, digits and some special characters
@@ -51,7 +52,7 @@ public class AdminInputValidation {
     }
 
     public static boolean cores(int cores) {
-        return cores % 2 == 0;
+        return cores % 2 == 0 && cores > 0 && cores <= MAX_CORES;
     }
 
     public static boolean memory(int memory) {
