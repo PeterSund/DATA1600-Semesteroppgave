@@ -54,14 +54,14 @@ public class MouseRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<MouseModel> filterByPrice(double price) {
+    public ObservableList<MouseModel> filterByPrice(String price) {
         return mouseArray.stream().
-                filter(mm -> mm.getPrice() == price).
+                filter(mm -> String.valueOf(mm.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<MouseModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<MouseModel> filterByPerformanceValue(String performanceValue) {
         return mouseArray.stream().
-                filter(mm -> mm.getPerformanceValue() == performanceValue).
+                filter(mm -> String.valueOf(mm.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<MouseModel> filterByType(String type) {

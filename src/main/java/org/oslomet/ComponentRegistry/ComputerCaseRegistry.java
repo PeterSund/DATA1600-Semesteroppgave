@@ -55,14 +55,14 @@ public class ComputerCaseRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<ComputerCaseModel> filterByPrice(double price) {
+    public ObservableList<ComputerCaseModel> filterByPrice(String price) {
         return computerCaseArray.stream().
-                filter(cc -> cc.getPrice() == price).
+                filter(cc -> String.valueOf(cc.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<ComputerCaseModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<ComputerCaseModel> filterByPerformanceValue(String performanceValue) {
         return computerCaseArray.stream().
-                filter(cc -> cc.getPerformanceValue() == performanceValue).
+                filter(cc -> String.valueOf(cc.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<ComputerCaseModel> filterByDimension(String dimension) {

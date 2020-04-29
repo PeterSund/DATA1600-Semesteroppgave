@@ -57,14 +57,14 @@ public class HardDriveRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<HarddriveModel> filterByPrice(double price) {
+    public ObservableList<HarddriveModel> filterByPrice(String price) {
         return hardDriveArray.stream().
-                filter(hd -> hd.getPrice() == price).
+                filter(hd -> String.valueOf(hd.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<HarddriveModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<HarddriveModel> filterByPerformanceValue(String performanceValue) {
         return hardDriveArray.stream().
-                filter(hd -> hd.getPerformanceValue() == performanceValue).
+                filter(hd -> String.valueOf(hd.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<HarddriveModel> filterByType(String type) {
@@ -72,9 +72,9 @@ public class HardDriveRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<HarddriveModel> filterByCapacity(int capacity) {
+    public ObservableList<HarddriveModel> filterByCapacity(String capacity) {
         return hardDriveArray.stream().
-                filter(gpu -> gpu.getCapacity() == capacity).
+                filter(gpu -> String.valueOf(gpu.getCapacity()).contains(capacity)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

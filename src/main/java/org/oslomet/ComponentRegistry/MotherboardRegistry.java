@@ -58,15 +58,15 @@ public class MotherboardRegistry implements RegistryMethods {
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
-    public ObservableList<MotherboardModel> filterByPrice(double price) {
+    public ObservableList<MotherboardModel> filterByPrice(String price) {
         return motherboardArray.stream().
-                filter(mb -> mb.getPrice() == price).
+                filter(mb -> String.valueOf(mb.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
-    public ObservableList<MotherboardModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<MotherboardModel> filterByPerformanceValue(String performanceValue) {
         return motherboardArray.stream().
-                filter(mb -> mb.getPerformanceValue() == performanceValue).
+                filter(mb -> String.valueOf(mb.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

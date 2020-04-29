@@ -56,24 +56,24 @@ public class RAMRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<RAMModel> filterByPrice(double price) {
+    public ObservableList<RAMModel> filterByPrice(String price) {
         return ramArray.stream().
-                filter(r -> r.getPrice() == price).
+                filter(r -> String.valueOf(r.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<RAMModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<RAMModel> filterByPerformanceValue(String performanceValue) {
         return ramArray.stream().
-                filter(r -> r.getPerformanceValue() == performanceValue).
+                filter(r -> String.valueOf(r.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<RAMModel> filterByMemory(int memory) {
+    public ObservableList<RAMModel> filterByMemory(String memory) {
         return ramArray.stream().
-                filter(r -> r.getMemory() == memory).
+                filter(r -> String.valueOf(r.getMemory()).contains(memory)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<RAMModel> filterByMemorySpeed(double memorySpeed) {
+    public ObservableList<RAMModel> filterByMemorySpeed(String memorySpeed) {
         return ramArray.stream().
-                filter(r -> r.getPerformanceValue() == memorySpeed).
+                filter(r -> String.valueOf(r.getPerformanceValue()).contains(memorySpeed)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
