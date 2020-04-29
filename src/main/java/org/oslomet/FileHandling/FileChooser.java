@@ -40,7 +40,7 @@ public class FileChooser {
         javafx.stage.FileChooser fileChooser = new javafx.stage.FileChooser();
         fileChooser.setTitle("Open file");
         fileChooser.getExtensionFilters().addAll(
-                new javafx.stage.FileChooser.ExtensionFilter("Text files", "*.txt", "*.rtf"));
+                new javafx.stage.FileChooser.ExtensionFilter("Csv files", "*.csv"));
         File selectedFile = fileChooser.showOpenDialog(frame);
         String path = selectedFile.getAbsolutePath();
         Path paths = Paths.get(path);

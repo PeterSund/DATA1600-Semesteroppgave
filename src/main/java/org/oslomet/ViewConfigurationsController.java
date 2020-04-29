@@ -11,15 +11,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import org.oslomet.Dialogs.ComputerNameDialog;
-import org.oslomet.Dialogs.LoginDialog;
+import org.oslomet.Dialogs.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
-import org.oslomet.Dialogs.ErrorDialog;
-import org.oslomet.Dialogs.HelpDialog;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
-import org.oslomet.FileHandling.FileSaverTxt;
+import org.oslomet.FileHandling.FileSaverCsv;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,35 +50,45 @@ public class ViewConfigurationsController implements Initializable {
         }
     }
 
+
+    //Displays dialog for confirming deleting. Deletes config if selected.
     @FXML
     void deleteConfig(ActionEvent event) {
-
+        DeleteComponentDialog deleteDialog = new DeleteComponentDialog();
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
-        if (selectedComputer == null) {
-            ErrorDialog.showErrorDialog("Need to select a computer", "No computer selected");
+        if (selectedComputer != null) {
+            if(deleteDialog.confirmDeleteDialog()) {
+                ComputerRegistry.deleteComputer(selectedComputer);
+            }
         }
+        //else {
+            //deleteDialog.noComputerSelected();
 
-        else {
-            ComputerRegistry.deleteComputer(selectedComputer);
         }
-    }
+    //}
 
     @FXML
     void saveConfig(ActionEvent event) throws IOException {
 
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
 
-        if (selectedComputer == null) {
-            ErrorDialog.showErrorDialog("Need to select a computer", "No computer selected");
+        try {
+            if (selectedComputer == null) {
+                ErrorDialog.showErrorDialog("Need to select a computer", "No computer selected");
+            }
+            else {
+                Path savedFilepath = FileChooser.saveTxtFile();
+                String formattedComputer = selectedComputer.formatComputerForFile();
+                FileSaverCsv.writeFile(savedFilepath, formattedComputer);
+            }
         }
 
-        else {
-            Path savedFilepath = FileChooser.saveTxtFile();
-            String formattedComputer = selectedComputer.formatComputerForFile();
-            FileSaverTxt.writeFile(savedFilepath, formattedComputer);
+        catch (NullPointerException npe) {
+            //Catches exception if window is canceled without choosing file.
         }
     }
+
 
     @FXML
     void openConfig(ActionEvent event) throws IOException {
@@ -168,7 +175,7 @@ public class ViewConfigurationsController implements Initializable {
             EditConfigurationController editConfigurationController = loader.getController();
             editConfigurationController.setComputer(newComputer);
             Scene viewConfScene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets inforation about original stage
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Gets information about original stage
             window.setScene(viewConfScene);
             window.setMaximized(true);
             window.show();

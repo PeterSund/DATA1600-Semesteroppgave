@@ -5,9 +5,6 @@
 .compButton {
     -fx-padding: 20px;
     -fx-font-size: 17px;
-}
-
-.button {
     -fx-opacity: 1;
     -fx-background-color: #929292;
     -fx-text-fill: black;
@@ -15,34 +12,32 @@
     -fx-border-radius: 3px;
 }
 
-.button:hover {
+
+.compButton:hover {
     -fx-background-color: #FFFFFF;
 
 }
 
-#btnHelp {
-    -fx-background-color: #DFDFDF;
+#btnAddComponent {
+    -fx-opacity: 1;
+    -fx-background-color: #929292;
     -fx-text-fill: black;
     -fx-border-color: black;
     -fx-border-radius: 3px;
 }
 
 
-
-#btnLogOut {
+.btnMenu {
     -fx-background-color: #DFDFDF;
     -fx-text-fill: black;
     -fx-border-color: black;
     -fx-border-radius: 3px;
 }
 
-#btnHelp:hover {
+.btnMenu:hover {
     -fx-background-color: #FFFFFF;
 }
 
-#btnLogOut:hover {
-    -fx-background-color: #FFFFFF;
-}
 
 #btnSaveComponent {
     -fx-background-color: lightgreen;
@@ -82,16 +77,12 @@
     -fx-background-color: #21B1FA;
 }
 
-.activeCompButton {
-    -fx-background-color: black;
+.table-view {
+    -fx-min-width: 1035;
+    -fx-max-width: 1035;
+    -fx-min-height: 459;
+    -fx-max-height: 459;
 }
-
-    .table-view {
-        -fx-min-width: 1035;
-        -fx-max-width: 1035;
-        -fx-min-height: 459;
-        -fx-max-height: 459;
-    }
 
 
 
