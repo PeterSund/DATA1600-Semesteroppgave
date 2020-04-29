@@ -38,18 +38,22 @@ public class CPUDialog {
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(clockspeedErrorLbl, 2, 4);
-        gridPane.add(new Label("No. cores:"), 0, 5);
-        gridPane.add(cores, 1,5);
+        gridPane.add(new Label("Clockspeed:"), 0, 5);
+        gridPane.add(clockspeedErrorLbl, 2, 5);
+        gridPane.add(clockSpeed, 1,5);
+        clockspeedErrorLbl.setStyle("-fx-text-fill: red;");
         cores.setPromptText("No. cores");
 
-        gridPane.add(coresErrorLbl,2,5);
-        gridPane.add(new Label("Clockspeed:"), 0, 4);
-        gridPane.add(clockSpeed, 1,4);
+        gridPane.add(new Label("No. cores:"), 0, 6);
+        gridPane.add(cores, 1,6);
+        gridPane.add(coresErrorLbl,2,6);
+        coresErrorLbl.setStyle("-fx-text-fill: red;");
         clockSpeed.setPromptText("Clockspeed (GHz)");
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 7);
+        gridPane.add(btnCancel, 1, 7);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
 
         gridPane.setAlignment(Pos.CENTER);
 
