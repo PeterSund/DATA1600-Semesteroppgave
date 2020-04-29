@@ -1,11 +1,13 @@
 package org.oslomet.Dialogs;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -34,25 +36,39 @@ public class ComputerCaseDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Computer case");
-        window.setMinWidth(600);
+        window.setMinWidth(700);
         window.setMinHeight(300);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
+        gridPane.setPadding(new Insets(10));
 
-        gridPane.add(new Label("Dimensions (HxLxD):"), 0, 4);
-        gridPane.add(dimensions, 1,4);
-        gridPane.add(dimensionsErrorLbl, 2, 4);
+        ColumnConstraints col1 = new ColumnConstraints();
+        col1.setPercentWidth(25);
+        ColumnConstraints col2 = new ColumnConstraints();
+        col2.setPercentWidth(25);
+        ColumnConstraints col3 = new ColumnConstraints();
+        col3.setPercentWidth(50);
+        gridPane.getColumnConstraints().addAll(col1,col2,col3);
+
+
+        gridPane.add(new Label("Dimensions (HxLxD):"), 0, 5);
+        gridPane.add(dimensions, 1,5);
+        gridPane.add(dimensionsErrorLbl, 2, 5);
         dimensions.setPromptText("H x L x D");
+        dimensionsErrorLbl.setStyle("-fx-text-fill: red;");
 
-        gridPane.add(new Label("Color:"), 0, 5);
-        gridPane.add(color, 1,5);
-        gridPane.add(colorErrorLbl,2,5);
+        gridPane.add(new Label("Color:"), 0, 6);
+        gridPane.add(color, 1,6);
+        gridPane.add(colorErrorLbl,2,6);
         color.setPromptText("Color");
+        colorErrorLbl.setStyle("-fx-text-fill: red;");
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 7);
+        gridPane.add(btnCancel, 1, 7);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
 
-        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setAlignment(Pos.BASELINE_LEFT);
 
         btnCancel.setOnAction(e -> window.close());
         btnSubmit.setOnAction(e -> submitComputerCase(window));
