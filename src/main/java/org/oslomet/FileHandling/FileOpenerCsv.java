@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-public class FileOpenerTxt {
+public class FileOpenerCsv {
 
     //Reads from selected file, add string to array and returns array of string from file
     public static ArrayList<String> readFile(Path path) throws IOException {

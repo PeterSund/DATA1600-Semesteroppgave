@@ -7,7 +7,7 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ExceptionClasses.CorruptedFileException;
 import org.oslomet.FileHandling.FileChooser;
-import org.oslomet.FileHandling.FileOpenerTxt;
+import org.oslomet.FileHandling.FileOpenerCsv;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -103,7 +103,7 @@ public class ComputerRegistry {
 
     //Add computer from file
     public static ComputerModel readFromFile() throws IOException {
-        ArrayList<String> computerFromFile = FileOpenerTxt.readFile(FileChooser.openTxtFile());
+        ArrayList<String> computerFromFile = FileOpenerCsv.readFile(FileChooser.openTxtFile());
 
         try {
             //Gets the name of all components
