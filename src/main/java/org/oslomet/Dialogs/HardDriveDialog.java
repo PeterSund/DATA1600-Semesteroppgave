@@ -34,25 +34,30 @@ public class HardDriveDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Hard drive");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
         type.getItems().addAll("HDD", "SSD");
         type.setValue("HDD");
 
-        gridPane.add(new Label("Type):"), 0, 4);
-        gridPane.add(type, 1, 4);
-        gridPane.add(typeErrorLBl, 2, 4);
+        gridPane.add(new Label("Type:"), 0, 5);
+        gridPane.add(type, 1, 5);
+        gridPane.add(typeErrorLBl, 2, 5);
+        typeErrorLBl.setStyle("-fx-text-fill: red;");
 
-        gridPane.add(new Label("Capacity:"), 0, 5);
-        gridPane.add(capacity, 1, 5);
-        gridPane.add(capacityErrorLbl, 2, 5);
+        gridPane.add(new Label("Capacity:"), 0, 6);
+        gridPane.add(capacity, 1, 6);
+        gridPane.add(capacityErrorLbl, 2, 6);
         capacity.setPromptText("Capacity (GB)");
+        capacityErrorLbl.setStyle("-fx-text-fill: red;");
+        capacityErrorLbl.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 9);
+        gridPane.add(btnCancel, 1, 9);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
 
         gridPane.setAlignment(Pos.CENTER);
 

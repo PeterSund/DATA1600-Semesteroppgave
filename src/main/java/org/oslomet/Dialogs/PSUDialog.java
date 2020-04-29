@@ -30,18 +30,22 @@ public class PSUDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("PSU");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(350);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(new Label("Watt: "), 0, 4);
-        gridPane.add(watt, 1,4);
-        gridPane.add(wattErrorLbl, 2,4);
+        gridPane.add(new Label("Watt: "), 0, 5);
+        gridPane.add(watt, 1,5);
+        gridPane.add(wattErrorLbl, 2,5);
         watt.setPromptText("Watt");
+        wattErrorLbl.setStyle("-fx-text-fill: red;");
+        wattErrorLbl.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 8);
+        gridPane.add(btnCancel, 1, 8);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnSubmit.setOnAction(e -> submitPSU(window));
         btnCancel.setOnAction(e -> window.close());
 

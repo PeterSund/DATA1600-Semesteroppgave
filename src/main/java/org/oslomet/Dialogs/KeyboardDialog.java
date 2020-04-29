@@ -34,28 +34,33 @@ public class KeyboardDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Keyboard");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(new Label("Type:"), 0, 4);
-        gridPane.add(type, 1, 4);
+        gridPane.add(new Label("Type:"), 0, 5);
+        gridPane.add(type, 1, 5);
         type.getItems().addAll("Office", "Gaming", "Mechanical");
         type.setValue("Office");
 
-        gridPane.add(language, 1, 5);
-        gridPane.add(new Label("Language:"), 0, 5);
-        gridPane.add(languageErrorLbl, 2, 5);
+        gridPane.add(language, 1, 6);
+        gridPane.add(new Label("Language:"), 0, 6);
+        gridPane.add(languageErrorLbl, 2, 6);
         language.setPromptText("Language");
+        languageErrorLbl.setStyle("-fx-text-fill: red;");
+        languageErrorLbl.setWrapText(true);
 
-        gridPane.add(new Label("Wireless:"), 0, 6);
-        gridPane.add(wireless, 1, 6);
+        gridPane.add(new Label("Wireless:"), 0, 7);
+        gridPane.add(wireless, 1, 7);
         wireless.getItems().addAll("Yes", "No");
         wireless.setValue("Yes");
 
-        gridPane.add(btnSubmit, 0, 7);
-        gridPane.add(btnCancel, 1, 7);
+        gridPane.add(btnSubmit, 0, 10);
+        gridPane.add(btnCancel, 1, 10);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
+
         btnCancel.setOnAction(e -> window.close());
         btnSubmit.setOnAction(e -> submitKeyboard(window));
 

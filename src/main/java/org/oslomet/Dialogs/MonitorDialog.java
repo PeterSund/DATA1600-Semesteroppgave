@@ -29,18 +29,22 @@ public class MonitorDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("CPU");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(350);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(sizeErrorLlb, 2, 4);
-        gridPane.add(new Label("Size:"), 0, 4);
-        gridPane.add(size, 1, 4);
+        gridPane.add(sizeErrorLlb, 2, 5);
+        gridPane.add(new Label("Size:"), 0, 5);
+        gridPane.add(size, 1, 5);
         size.setPromptText("Size (inches)");
+        sizeErrorLlb.setStyle("-fx-text-fill: red;");
+        sizeErrorLlb.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 5);
-        gridPane.add(btnCancel, 1, 5);
+        gridPane.add(btnSubmit, 0, 8);
+        gridPane.add(btnCancel, 1, 8);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnSubmit.setOnAction(e -> submitMonitor(window));
         btnCancel.setOnAction(e -> window.close());
 
