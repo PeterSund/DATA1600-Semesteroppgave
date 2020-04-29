@@ -345,7 +345,7 @@ public class EditConfigurationController implements Initializable {
         }
 
         lblName.setText(computer.getConfigName());
-        lblTotalPrice.setText(ComputerRegistry.calculateTotalPrice(computer) + " kr");
+        lblTotalPrice.setText(String.valueOf(ComputerRegistry.calculateTotalPrice(computer)));
         lblTotalPerformanceValue.setText(String.valueOf(ComputerRegistry.calculateTotalPerformanceValue(computer)));
         updateProgIndicatorTotalPV();
     }
