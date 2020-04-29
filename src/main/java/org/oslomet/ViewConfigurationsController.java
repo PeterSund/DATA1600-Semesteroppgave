@@ -62,11 +62,11 @@ public class ViewConfigurationsController implements Initializable {
                 ComputerRegistry.deleteComputer(selectedComputer);
             }
         }
-        //else {
-            //deleteDialog.noComputerSelected();
+        else {
+            deleteDialog.noComputerSelected();
 
         }
-    //}
+    }
 
     @FXML
     void saveConfig(ActionEvent event) throws IOException {

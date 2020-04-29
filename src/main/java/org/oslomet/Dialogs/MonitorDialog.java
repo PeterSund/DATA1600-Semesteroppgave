@@ -28,7 +28,7 @@ public class MonitorDialog {
     public void display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("CPU");
+        window.setTitle("Monitor");
         window.setMinWidth(650);
         window.setMinHeight(350);
 

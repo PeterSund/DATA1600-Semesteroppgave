@@ -109,7 +109,7 @@ public class HelpDialog {
         "Filter:\n" +
         "Use the search input field to filter through the table.\n" +
         "Use the dropdown-menu to select which category you wish to filter.\n" +
-        "The filter function shows every row that contains the input. " + "\n\n" +
+        "The filter function shows every row that contains the input. Press clear filter to reset" + "\n\n" +
         "Add component:\n" +
         "Add a new component of the type selected" + "\n\n" +
         "Delete component:\n" +
