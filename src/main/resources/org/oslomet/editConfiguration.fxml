@@ -651,7 +651,7 @@
                    </cellValueFactory>
                </TableColumn>
 
-                             </columns>
+                 </columns>
        </TableView>
 
    </children>
