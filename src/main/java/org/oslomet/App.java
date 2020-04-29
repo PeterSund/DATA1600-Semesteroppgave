@@ -9,10 +9,13 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
+import org.oslomet.Dialogs.ErrorDialog;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerJobj;
 
 import java.io.IOException;
+import java.io.StreamCorruptedException;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -30,12 +33,22 @@ public class App extends Application {
         stage.setMaximized(true);
         stage.show();
 
-        Path path = Paths.get("Components.jobj");
-        FileOpenerJobj.openJobj(path);
-
-        makeDemoComputer("Demo computer 1", 0,0,0,0,0,0,0,0,0,0,0);
-        makeDemoComputer("Demo computer 2", 1,1,1,1,1,1,1,1,1,1,1);
-        makeDemoComputer("Demo computer 3", 2,2,2,2,2,2,2,2,2,2,2);
+        try {
+            Path path = Paths.get("Components.jobj");
+            FileOpenerJobj.openJobj(path);
+            makeDemoComputer("Gaming computer", 0,0,0,0,17,19,0,0,0,0,0);
+            makeDemoComputer("Budget computer", 15,13,10,19,0,0,14,10,17,17,18);
+            makeDemoComputer("Office computer", 10,10,10,10,10,10,10,10,10,10,10);
+        }
+        catch (StreamCorruptedException sce) {
+            //Prevents program from crashing if start-up-jobj-file is corrupted
+        }
+        catch (NoSuchFileException nsfe) {
+            //Prevents program from crashing if start-up-jobj-file is removed
+        }
+        catch (IndexOutOfBoundsException ioobe) {
+            //Prevents program from crashing if computer parts that doesn't exist are added to the demo computer
+        }
     }
 
     public static void main(String[] args) {
