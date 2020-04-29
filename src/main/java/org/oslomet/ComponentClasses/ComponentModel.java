@@ -21,11 +21,11 @@ public class ComponentModel implements Serializable {
     //Constructor
     public ComponentModel(String name, String brand, double price, double performanceValue) {
         if(!AdminInputValidation.name(name)) {
-            throw new InvalidNameException("Name cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
+            throw new InvalidNameException("Name cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|}");
         }
 
         if(!AdminInputValidation.brand(brand)) {
-            throw new InvalidBrandException("Brand cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
+            throw new InvalidBrandException("Brand cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|}");
         }
 
         if(!AdminInputValidation.price(price)) {

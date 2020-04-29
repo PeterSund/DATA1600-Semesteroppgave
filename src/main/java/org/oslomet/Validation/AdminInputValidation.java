@@ -15,7 +15,7 @@ public class AdminInputValidation {
 
     //Regex accepts all letters, digits and some special characters
     public static boolean name(String name) {
-        return !name.isBlank() && name.matches("[a-zA-Z0-9!#$%&'*+-/=?^_`{|};\\s]*");
+        return !name.isBlank() && name.matches("[a-zA-Z0-9!#$%&'*+-/=?^_`{|}\\s]*");
     }
 
     public static boolean configName(String name) {
@@ -24,7 +24,7 @@ public class AdminInputValidation {
 
     //Regex accepts all letters, digits and some special characters
     public static boolean brand(String brand) {
-        return !brand.isBlank() && brand.matches("[a-zA-Z0-9!#$%&'*+-/=?^_`{|};\\s]*");
+        return !brand.isBlank() && brand.matches("[a-zA-Z0-9!#$%&'*+-/=?^_`{|}\\s]*");
     }
 
     public static boolean price(double price) {
