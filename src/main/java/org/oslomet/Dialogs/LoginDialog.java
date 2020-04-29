@@ -1,5 +1,6 @@
 package org.oslomet.Dialogs;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,29 +33,42 @@ public class LoginDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Login");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMaxWidth(350);
+        window.setMinHeight(200);
 
         GridPane gridPane = new GridPane();
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(10));
+
+        ColumnConstraints col1 = new ColumnConstraints();
+        col1.setPercentWidth(25);
+        ColumnConstraints col2 = new ColumnConstraints();
+        col2.setPercentWidth(25);
+        gridPane.getColumnConstraints().addAll(col1,col2);
 
         gridPane.add(new Label("Username"), 0, 4);
         gridPane.add(username, 1, 4);
         gridPane.add(usernameErrorLbl, 2, 4);
         username.setPromptText("Username");
+        usernameErrorLbl.setStyle("-fx-text-fill: red;");
 
         gridPane.add(new Label("Password"), 0, 5);
         gridPane.add(password, 1, 5);
         gridPane.add(passwordErrorLbl, 2, 5);
         password.setPromptText("Password");
+        passwordErrorLbl.setStyle("-fx-text-fill: red;");
 
         gridPane.add(btnLogin, 0, 7);
         gridPane.add(btnCancel, 1, 7);
+        btnLogin.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnCancel.setOnAction(e -> window.close());
         btnLogin.setOnAction(e -> login(window));
 
         gridPane.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(gridPane);
+        Scene scene = new Scene(gridPane, 350,200);
         window.setScene(scene);
 
         scene.setOnKeyPressed(e -> {

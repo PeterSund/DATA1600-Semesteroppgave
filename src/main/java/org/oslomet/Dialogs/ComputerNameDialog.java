@@ -1,5 +1,6 @@
 package org.oslomet.Dialogs;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import org.oslomet.ComputerClasses.ComputerRegistry;
 
 public class ComputerNameDialog {
 
+    private Label header = new Label("Enter a name");
     private TextField txtName = new TextField();
     private Label lblError = new Label();
     private Button btnSubmit = new Button("Submit");
@@ -23,18 +25,28 @@ public class ComputerNameDialog {
     public String display() {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Enter a name");
+        window.setTitle("Computer name");
         window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinHeight(350);
 
+        header.setStyle("-fx-font-size: 24px; -fx-font-weight: bold");
+        lblError.setStyle("-fx-text-fill: red;");
+        lblError.setWrapText(true);
+
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnCancel.setOnAction(e -> window.close());
         btnSubmit.setOnAction(e -> submitName(window, txtName, lblError));
 
         GridPane gridPane = new GridPane();
-        gridPane.add(txtName,1,1);
-        gridPane.add(lblError, 2, 1);
-        gridPane.add(btnSubmit,1,2);
-        gridPane.add(btnCancel,2,2);
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(10));
+        gridPane.add(header, 1,0,3,1);
+        gridPane.add(txtName,1,2);
+        gridPane.add(lblError, 2, 2);
+        gridPane.add(btnSubmit,1,5);
+        gridPane.add(btnCancel,2,5);
 
         gridPane.setAlignment(Pos.CENTER);
 
