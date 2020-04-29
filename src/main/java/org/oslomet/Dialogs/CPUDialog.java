@@ -33,8 +33,8 @@ public class CPUDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("CPU");
-        window.setMinWidth(400);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
@@ -43,15 +43,17 @@ public class CPUDialog {
         gridPane.add(clockSpeed, 1,5);
         clockspeedErrorLbl.setStyle("-fx-text-fill: red;");
         cores.setPromptText("No. cores");
+        clockspeedErrorLbl.setWrapText(true);
 
         gridPane.add(new Label("No. cores:"), 0, 6);
         gridPane.add(cores, 1,6);
         gridPane.add(coresErrorLbl,2,6);
         coresErrorLbl.setStyle("-fx-text-fill: red;");
         clockSpeed.setPromptText("Clockspeed (GHz)");
+        coresErrorLbl.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 7);
-        gridPane.add(btnCancel, 1, 7);
+        gridPane.add(btnSubmit, 0, 9);
+        gridPane.add(btnCancel, 1, 9);
         btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
         btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
 

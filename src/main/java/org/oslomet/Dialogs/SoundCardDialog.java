@@ -31,8 +31,8 @@ public class SoundCardDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Sound card");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
@@ -42,13 +42,15 @@ public class SoundCardDialog {
         bassboost.getItems().addAll("Yes", "No", "Mega");
         bassboost.setValue("Yes");
 
-        gridPane.add(new Label("Surround: "), 0, 4);
-        gridPane.add(surround, 1,4);
-        gridPane.add(new Label("Bassboost: "), 0, 5);
-        gridPane.add(bassboost, 1,5);
+        gridPane.add(new Label("Surround: "), 0, 5);
+        gridPane.add(surround, 1,5);
+        gridPane.add(new Label("Bassboost: "), 0, 6);
+        gridPane.add(bassboost, 1,6);
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 9);
+        gridPane.add(btnCancel, 1, 9);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnSubmit.setOnAction(e -> submitSoundCard(window));
         btnCancel.setOnAction(e -> window.close());
 

@@ -34,7 +34,7 @@ public class ComputerCaseDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Computer case");
-        window.setMinWidth(600);
+        window.setMinWidth(650);
         window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
@@ -44,19 +44,21 @@ public class ComputerCaseDialog {
         gridPane.add(dimensionsErrorLbl, 2, 5);
         dimensions.setPromptText("H x L x D");
         dimensionsErrorLbl.setStyle("-fx-text-fill: red;");
+        dimensionsErrorLbl.setWrapText(true);
 
         gridPane.add(new Label("Color:"), 0, 6);
         gridPane.add(color, 1,6);
         gridPane.add(colorErrorLbl,2,6);
         color.setPromptText("Color");
         colorErrorLbl.setStyle("-fx-text-fill: red;");
+        colorErrorLbl.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 7);
-        gridPane.add(btnCancel, 1, 7);
+        gridPane.add(btnSubmit, 0, 9);
+        gridPane.add(btnCancel, 1, 9);
         btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
         btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
 
-        gridPane.setAlignment(Pos.BASELINE_LEFT);
+        gridPane.setAlignment(Pos.CENTER);
 
         btnCancel.setOnAction(e -> window.close());
         btnSubmit.setOnAction(e -> submitComputerCase(window));

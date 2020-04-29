@@ -32,23 +32,29 @@ public class RAMDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("RAM");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(new Label("Memory:"), 0, 4);
-        gridPane.add(memory, 1, 4);
-        gridPane.add(memoryErrorLbl, 2, 4);
+        gridPane.add(new Label("Memory:"), 0, 5);
+        gridPane.add(memory, 1, 5);
+        gridPane.add(memoryErrorLbl, 2, 5);
         memory.setPromptText("Memory (MB)");
+        memoryErrorLbl.setStyle("-fx-text-fill: red;");
+        memoryspeedErrorLbl.setWrapText(true);
 
-        gridPane.add(new Label("Memoryspeed (MHz): "), 0, 5);
-        gridPane.add(memorySpeed, 1, 5);
-        gridPane.add(memoryspeedErrorLbl, 2, 5);
+        gridPane.add(new Label("Memoryspeed (MHz): "), 0, 6);
+        gridPane.add(memorySpeed, 1, 6);
+        gridPane.add(memoryspeedErrorLbl, 2, 6);
         memorySpeed.setPromptText("Memoryspeed (MHz)");
+        memoryspeedErrorLbl.setStyle("-fx-text-fill: red;");
+        memoryspeedErrorLbl.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 9);
+        gridPane.add(btnCancel, 1, 9);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnSubmit.setOnAction(e -> submitRAM(window));
         btnCancel.setOnAction(e -> window.close());
 

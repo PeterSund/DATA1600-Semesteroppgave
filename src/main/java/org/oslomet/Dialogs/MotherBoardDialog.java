@@ -31,23 +31,24 @@ public class MotherBoardDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Mother board");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
         type.getItems().addAll("ATX", "mini-ATX", "E-ATX");
         type.setValue("ATX");
-        gridPane.add(new Label("Type:"), 0, 4);
-        gridPane.add(type, 1, 4);
+        gridPane.add(new Label("Type:"), 0, 5);
+        gridPane.add(type, 1, 5);
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
-
-        gridPane.setAlignment(Pos.CENTER);
-
+        gridPane.add(btnSubmit, 0, 8);
+        gridPane.add(btnCancel, 1, 8);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
         btnCancel.setOnAction(e -> window.close());
         btnSubmit.setOnAction(e -> submitMotherBoard(window));
+
+        gridPane.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(gridPane);
 

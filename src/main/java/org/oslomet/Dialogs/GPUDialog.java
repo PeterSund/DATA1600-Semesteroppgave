@@ -33,28 +33,35 @@ public class GPUDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("GPU");
-        window.setMinWidth(600);
-        window.setMinHeight(300);
+        window.setMinWidth(650);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
-        gridPane.add(new Label("Clockspeed:"), 0, 4);
-        gridPane.add(clockSpeed, 1,4);
-        gridPane.add(clockSpeedErrorLbl, 2, 4);
+        gridPane.add(new Label("Clockspeed:"), 0, 5);
+        gridPane.add(clockSpeed, 1,5);
+        gridPane.add(clockSpeedErrorLbl, 2, 5);
         clockSpeed.setPromptText("Clockspeed (GHz)");
+        clockSpeedErrorLbl.setStyle("-fx-text-fill: red;");
+        clockSpeedErrorLbl.setWrapText(true);
 
-        gridPane.add(new Label("Memory:"), 0, 5);
-        gridPane.add(memory, 1,5);
-        gridPane.add(memoryErrorLbl,2,5);
+        gridPane.add(new Label("Memory:"), 0, 6);
+        gridPane.add(memory, 1,6);
+        gridPane.add(memoryErrorLbl,2,6);
         memory.setPromptText("Memory (MB)");
+        memoryErrorLbl.setStyle("-fx-text-fill: red;");
+        memoryErrorLbl.setWrapText(true);
 
-        gridPane.add(btnSubmit, 0, 6);
-        gridPane.add(btnCancel, 1, 6);
+        gridPane.add(btnSubmit, 0, 9);
+        gridPane.add(btnCancel, 1, 9);
+        btnSubmit.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        btnCancel.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
 
         gridPane.setAlignment(Pos.CENTER);
 
         btnCancel.setOnAction(e -> window.close());
         btnSubmit.setOnAction(e -> submitGPU(window));
+
 
         Scene scene = new Scene(gridPane);
 
