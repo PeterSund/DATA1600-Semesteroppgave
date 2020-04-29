@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.PatternSyntaxException;
 
 public class AdminController implements Initializable {
 
@@ -145,7 +146,7 @@ public class AdminController implements Initializable {
     private TableColumn<CPUModel, Integer> colCPUCores;
 
     @FXML
-    private TableColumn<GPUModel, Double> colGPUPrice, colGPUPV,colGPUClockSpeed;
+    private TableColumn<GPUModel, Double> colGPUPrice, colGPUPV, colGPUClockSpeed;
 
     @FXML
     private TableColumn<GPUModel, Integer> colGPUMemory;
@@ -286,7 +287,7 @@ public class AdminController implements Initializable {
         try {
             event.getRowValue().setName(event.getNewValue());
 
-        } catch(InvalidNameException ine) {
+        } catch (InvalidNameException ine) {
             ErrorDialog.showErrorDialog(ine.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
@@ -298,7 +299,7 @@ public class AdminController implements Initializable {
         try {
             event.getRowValue().setBrand(event.getNewValue());
 
-        } catch(InvalidBrandException ibe) {
+        } catch (InvalidBrandException ibe) {
             ErrorDialog.showErrorDialog(ibe.getMessage(), "Invalid input");
         }
         tableViewVisible().refresh();
@@ -308,10 +309,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editPrice(TableColumn.CellEditEvent<ComponentModel, Double> event) {
         try {
-            if(StringToDoubleConv.wasSuccessful()) {
+            if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPrice(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("Price must be a number", "Invalid input");
             }
 
@@ -327,10 +327,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editPerformanceValue(TableColumn.CellEditEvent<ComponentModel, Double> event) {
         try {
-            if(StringToDoubleConv.wasSuccessful()) {
+            if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPerformanceValue(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("Performancevalue must be a number", "Invalid input");
             }
 
@@ -368,16 +367,15 @@ public class AdminController implements Initializable {
     @FXML
     private void editCPUClockSpeed(TableColumn.CellEditEvent<CPUModel, Double> event) {
         try {
-            if(StringToDoubleConv.wasSuccessful()) {
+            if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("CPU clockspeed must be a number", "Invalid input");
             }
         } catch (InvalidClockSpeedException icse) {
             ErrorDialog.showErrorDialog(icse.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-        ErrorDialog.showErrorDialog("CPU clockspeed cannot be blank", "Invalid input");
+            ErrorDialog.showErrorDialog("CPU clockspeed cannot be blank", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -386,10 +384,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editCores(TableColumn.CellEditEvent<CPUModel, Integer> event) {
         try {
-            if(StringToIntConv.wasSuccessful()) {
+            if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCores(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("No. cores must be a number", "Invalid input");
             }
         } catch (InvalidCoresException ice) {
@@ -404,10 +401,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editGPUClockSpeed(TableColumn.CellEditEvent<GPUModel, Double> event) {
         try {
-            if(StringToDoubleConv.wasSuccessful()) {
+            if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("GPU clockspeed must be a number", "Invalid input");
             }
 
@@ -423,10 +419,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editGPUMemory(TableColumn.CellEditEvent<GPUModel, Integer> event) {
         try {
-            if(StringToIntConv.wasSuccessful()) {
+            if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("GPU memory must be a number", "Invalid input");
             }
         } catch (InvalidMemoryException ime) {
@@ -448,10 +443,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editCapacity(TableColumn.CellEditEvent<HarddriveModel, Integer> event) {
         try {
-            if(StringToIntConv.wasSuccessful()) {
+            if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCapacity(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("Capacity must be a number", "Invalid input");
             }
 
@@ -474,15 +468,14 @@ public class AdminController implements Initializable {
     @FXML
     private void editRAMMemory(TableColumn.CellEditEvent<RAMModel, Integer> event) {
         try {
-            if(StringToIntConv.wasSuccessful()) {
+            if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("Memory must be a number", "Invalid input");
             }
 
         } catch (InvalidMemoryException ime) {
-           ErrorDialog.showErrorDialog("Memory cannot be blank, must be greater then 0 and an even number", "Invalid input");
+            ErrorDialog.showErrorDialog("Memory cannot be blank, must be greater then 0 and an even number", "Invalid input");
         } catch (NullPointerException npe) {
             ErrorDialog.showErrorDialog("Memory cannot be blank", "Invalid input");
         }
@@ -493,10 +486,9 @@ public class AdminController implements Initializable {
     @FXML
     private void editMemorySpeed(TableColumn.CellEditEvent<RAMModel, Double> event) {
         try {
-            if(StringToDoubleConv.wasSuccessful()) {
+            if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setMemorySpeed(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("Memoryspeed must be a number", "Invalid input");
             }
         } catch (InvalidPerformanceValueException ipe) {
@@ -523,12 +515,11 @@ public class AdminController implements Initializable {
 
     //Sets new attribute value when the cell is edited, displays exception if input is invalid
     @FXML
-    private void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event)  {
+    private void editWatt(TableColumn.CellEditEvent<PSUModel, Integer> event) {
         try {
-            if(StringToIntConv.wasSuccessful()) {
+            if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setWatt(event.getNewValue());
-            }
-            else {
+            } else {
                 ErrorDialog.showErrorDialog("Watt must be a number", "Invalid input");
             }
 
@@ -544,7 +535,7 @@ public class AdminController implements Initializable {
     @FXML
     private void editSize(TableColumn.CellEditEvent<MonitorModel, Integer> event) {
         try {
-            if(StringToIntConv.wasSuccessful()) {
+            if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setSize(event.getNewValue());
             } else {
                 ErrorDialog.showErrorDialog("Size must be a number", "Invalid input");
@@ -619,27 +610,49 @@ public class AdminController implements Initializable {
     private SoundCardRegistry soundCardRegistry = new SoundCardRegistry();
 
     @FXML
-    private void updateComputerCaseList() { ComputerCaseRegistry.attachTableView(tvComputercase);}
+    private void updateComputerCaseList() {
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+    }
 
-    private void updateCPUList() { CPURegistry.attachTableView(tvCPU);}
+    private void updateCPUList() {
+        CPURegistry.attachTableView(tvCPU);
+    }
 
-    private void updateGPUList() { GPURegistry.attachTableView(tvGPU);}
+    private void updateGPUList() {
+        GPURegistry.attachTableView(tvGPU);
+    }
 
-    private void updateHardDriveList() { HardDriveRegistry.attachTableView(tvHarddrive);}
+    private void updateHardDriveList() {
+        HardDriveRegistry.attachTableView(tvHarddrive);
+    }
 
-    private void updateKeyboardList() { KeyboardRegistry.attachTableView(tvKeyboard);}
+    private void updateKeyboardList() {
+        KeyboardRegistry.attachTableView(tvKeyboard);
+    }
 
-    private void updateMonitorList() { MonitorRegistry.attachTableView(tvMonitor);}
+    private void updateMonitorList() {
+        MonitorRegistry.attachTableView(tvMonitor);
+    }
 
-    private void updateMotherboardList() { MotherboardRegistry.attachTableView(tvMotherboard);}
+    private void updateMotherboardList() {
+        MotherboardRegistry.attachTableView(tvMotherboard);
+    }
 
-    private void updateMouseList() { MouseRegistry.attachTableView(tvMouse);}
+    private void updateMouseList() {
+        MouseRegistry.attachTableView(tvMouse);
+    }
 
-    private void updatePSUList() { PSURegistry.attachTableView(tvPSU);}
+    private void updatePSUList() {
+        PSURegistry.attachTableView(tvPSU);
+    }
 
-    private void updateRAMList() { RAMRegistry.attachTableView(tvRAM);}
+    private void updateRAMList() {
+        RAMRegistry.attachTableView(tvRAM);
+    }
 
-    private void updateSoundCardList() { SoundCardRegistry.attachTableView(tvSoundcard);}
+    private void updateSoundCardList() {
+        SoundCardRegistry.attachTableView(tvSoundcard);
+    }
 
     @FXML
     private void clearFilter() {
@@ -651,29 +664,32 @@ public class AdminController implements Initializable {
     @FXML
     private void txtFilterEntered() {
         TableView currentTableView = tableViewVisible();
-
-        if (currentTableView == tvComputercase) {
-            filterComputerCase();
-        } else if (currentTableView == tvCPU) {
-            filterCPU();
-        } else if (currentTableView == tvGPU) {
-            filterGPU();
-        } else if (currentTableView == tvHarddrive) {
-            filterHardDrive();
-        } else if (currentTableView == tvKeyboard) {
-            filterKeyboard();
-        } else if (currentTableView == tvMonitor) {
-            filterMonitor();
-        } else if (currentTableView == tvMotherboard) {
-            filterMotherboard();
-        } else if (currentTableView == tvMouse) {
-            filterMouse();
-        } else if (currentTableView == tvPSU) {
-            filterPSU();
-        } else if (currentTableView == tvRAM) {
-            filterRAM();
-        } else if (currentTableView == tvSoundcard) {
-            filterSoundcard();
+        try {
+            if (currentTableView == tvComputercase) {
+                filterComputerCase();
+            } else if (currentTableView == tvCPU) {
+                filterCPU();
+            } else if (currentTableView == tvGPU) {
+                filterGPU();
+            } else if (currentTableView == tvHarddrive) {
+                filterHardDrive();
+            } else if (currentTableView == tvKeyboard) {
+                filterKeyboard();
+            } else if (currentTableView == tvMonitor) {
+                filterMonitor();
+            } else if (currentTableView == tvMotherboard) {
+                filterMotherboard();
+            } else if (currentTableView == tvMouse) {
+                filterMouse();
+            } else if (currentTableView == tvPSU) {
+                filterPSU();
+            } else if (currentTableView == tvRAM) {
+                filterRAM();
+            } else if (currentTableView == tvSoundcard) {
+                filterSoundcard();
+            }
+        } catch (PatternSyntaxException pse) {
+            // Prevents program from crashing when entered "*" in filter
         }
     }
 
@@ -689,8 +705,8 @@ public class AdminController implements Initializable {
         switch (cbFilterComputerCase.getValue()) {
             case "Name" : result = computerCaseRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = computerCaseRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = computerCaseRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = computerCaseRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Price" : result = computerCaseRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = computerCaseRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Dimension" : result = computerCaseRegistry.filterByDimension(txtFilter.getText()); break;
             case "Color" : result = computerCaseRegistry.filterByColor(txtFilter.getText()); break;
         }
@@ -714,10 +730,10 @@ public class AdminController implements Initializable {
         switch (cbFilterCPU.getValue()) {
             case "Name" : result = cpuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = cpuRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = cpuRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = cpuRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
-            case "Dimension" : result = cpuRegistry.filterByClockSpeed(Double.parseDouble((txtFilter.getText()))); break;
-            case "Color" : result = cpuRegistry.filterByCores(Integer.parseInt((txtFilter.getText()))); break;
+            case "Price" : result = cpuRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = cpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Dimension" : result = cpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
+            case "Color" : result = cpuRegistry.filterByCores((txtFilter.getText())); break;
         }
 
         if(result == null) {
@@ -739,10 +755,10 @@ public class AdminController implements Initializable {
         switch (cbFilterGPU.getValue()) {
             case "Name" : result = gpuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = gpuRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = gpuRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = gpuRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
-            case "Dimension" : result = gpuRegistry.filterByClockSpeed(Double.parseDouble((txtFilter.getText()))); break;
-            case "Memory" : result = gpuRegistry.filterByMemory(Integer.parseInt((txtFilter.getText()))); break;
+            case "Price" : result = gpuRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = gpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Dimension" : result = gpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
+            case "Memory" : result = gpuRegistry.filterByMemory((txtFilter.getText())); break;
         }
 
         if(result == null) {
@@ -764,10 +780,10 @@ public class AdminController implements Initializable {
         switch (cbFilterHarddrive.getValue()) {
             case "Name" : result = hardDriveRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = hardDriveRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = hardDriveRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = hardDriveRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Price" : result = hardDriveRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = hardDriveRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = hardDriveRegistry.filterByType(txtFilter.getText()); break;
-            case "Capacity" : result = hardDriveRegistry.filterByCapacity(Integer.parseInt((txtFilter.getText()))); break;
+            case "Capacity" : result = hardDriveRegistry.filterByCapacity((txtFilter.getText())); break;
         }
 
         if(result == null) {
@@ -789,8 +805,8 @@ public class AdminController implements Initializable {
         switch (cbFilterKeyboard.getValue()) {
             case "Name" : result = keyboardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = keyboardRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = keyboardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = keyboardRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Price" : result = keyboardRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = keyboardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = keyboardRegistry.filterByType(txtFilter.getText()); break;
             case "Language" : result = keyboardRegistry.filterByLanguage(txtFilter.getText()); break;
             case "Wireless" : result = keyboardRegistry.filterByWireless(txtFilter.getText()); break;
@@ -815,9 +831,9 @@ public class AdminController implements Initializable {
         switch (cbFilterMonitor.getValue().toString()) {
             case "Name" : result = monitorRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = monitorRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = monitorRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = monitorRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
-            case "Size" : result = monitorRegistry.filterBySize(Integer.parseInt((txtFilter.getText()))); break;
+            case "Price" : result = monitorRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = monitorRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Size" : result = monitorRegistry.filterBySize(txtFilter.getText()); break;
         }
 
         if(result == null) {
@@ -837,8 +853,8 @@ public class AdminController implements Initializable {
         switch (cbFilterMotherboard.getValue()) {
             case "Name" : result = motherboardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = motherboardRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = motherboardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = motherboardRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Price" : result = motherboardRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = motherboardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = motherboardRegistry.filterByType(txtFilter.getText()); break;
         }
 
@@ -861,8 +877,8 @@ public class AdminController implements Initializable {
         switch (cbFilterMouse.getValue()) {
             case "Name" : result = mouseRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = mouseRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = mouseRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = mouseRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Price" : result = mouseRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = mouseRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = mouseRegistry.filterByType(txtFilter.getText()); break;
             case "Wireless" : result = mouseRegistry.filterByWireless(txtFilter.getText()); break;
         }
@@ -886,9 +902,9 @@ public class AdminController implements Initializable {
         switch (cbFilterPSU.getValue()) {
             case "Name" : result = psuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = psuRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = psuRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = psuRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
-            case "Watt" : result = psuRegistry.filterByWatt(Integer.parseInt((txtFilter.getText()))); break;
+            case "Price" : result = psuRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = psuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Watt" : result = psuRegistry.filterByWatt(txtFilter.getText()); break;
         }
 
         if(result == null) {
@@ -910,10 +926,10 @@ public class AdminController implements Initializable {
         switch (cbFilterRAM.getValue()) {
             case "Name" : result = ramRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = ramRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = ramRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = ramRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
-            case "Memory" : result = ramRegistry.filterByMemory(Integer.parseInt((txtFilter.getText()))); break;
-            case "Memory speed" : result = ramRegistry.filterByMemorySpeed(Double.parseDouble((txtFilter.getText()))); break;
+            case "Price" : result = ramRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = ramRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Memory" : result = ramRegistry.filterByMemory(txtFilter.getText()); break;
+            case "Memory speed" : result = ramRegistry.filterByMemorySpeed(txtFilter.getText()); break;
         }
 
         if(result == null) {
@@ -935,8 +951,8 @@ public class AdminController implements Initializable {
         switch (cbFilterSoundcard.getValue()) {
             case "Name" : result = soundCardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = soundCardRegistry.filterByBrand(txtFilter.getText()); break;
-            case "Price" : result = soundCardRegistry.filterByPrice(Double.parseDouble(txtFilter.getText())); break;
-            case "Performance value" : result = soundCardRegistry.filterByPerformanceValue(Double.parseDouble(txtFilter.getText())); break;
+            case "Price" : result = soundCardRegistry.filterByPrice(txtFilter.getText()); break;
+            case "Performance value" : result = soundCardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Surround" : result = soundCardRegistry.filterBySurround(txtFilter.getText()); break;
             case "Bass boost" : result = soundCardRegistry.filterByBassBoost(txtFilter.getText()); break;
         }

@@ -58,21 +58,21 @@ public class MonitorRegistry implements RegistryMethods {
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
-    public ObservableList<MonitorModel> filterByPrice(double price) {
+    public ObservableList<MonitorModel> filterByPrice(String price) {
         return monitorArray.stream().
-                filter(m -> m.getPrice() == price).
+                filter(m -> String.valueOf(m.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
-    public ObservableList<MonitorModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<MonitorModel> filterByPerformanceValue(String performanceValue) {
         return monitorArray.stream().
-                filter(m -> m.getPerformanceValue() == performanceValue).
+                filter(m -> String.valueOf(m.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
-    public ObservableList<MonitorModel> filterBySize(int size) {
+    public ObservableList<MonitorModel> filterBySize(String size) {
         return monitorArray.stream().
-                filter(m -> m.getSize() == size).
+                filter(m -> String.valueOf(m.getSize()).contains(size)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

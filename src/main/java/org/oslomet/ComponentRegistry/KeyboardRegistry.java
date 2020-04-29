@@ -55,14 +55,14 @@ public class KeyboardRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<KeyboardModel> filterByPrice(double price) {
+    public ObservableList<KeyboardModel> filterByPrice(String price) {
         return keyboardArray.stream().
-                filter(k -> k.getPrice() == price).
+                filter(k -> String.valueOf(k.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<KeyboardModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<KeyboardModel> filterByPerformanceValue(String performanceValue) {
         return keyboardArray.stream().
-                filter(k -> k.getPerformanceValue() == performanceValue).
+                filter(k -> String.valueOf(k.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<KeyboardModel> filterByType(String type) {

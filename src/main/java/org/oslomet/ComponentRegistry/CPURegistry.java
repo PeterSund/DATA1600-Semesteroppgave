@@ -56,24 +56,24 @@ public class CPURegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<CPUModel> filterByPrice(double price) {
+    public ObservableList<CPUModel> filterByPrice(String price) {
         return cpuArray.stream().
-                filter(cpu -> cpu.getPrice() == price).
+                filter(cpu -> String.valueOf(cpu.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<CPUModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<CPUModel> filterByPerformanceValue(String performanceValue) {
         return cpuArray.stream().
-                filter(cpu -> cpu.getPerformanceValue() == performanceValue).
+                filter(cpu -> String.valueOf(cpu.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<CPUModel> filterByClockSpeed(double clockSpeed) {
+    public ObservableList<CPUModel> filterByClockSpeed(String clockSpeed) {
         return cpuArray.stream().
-                filter(cpu -> cpu.getPerformanceValue() == clockSpeed).
+                filter(cpu -> String.valueOf(cpu.getPerformanceValue()).contains(clockSpeed)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<CPUModel> filterByCores(int cores) {
+    public ObservableList<CPUModel> filterByCores(String cores) {
         return cpuArray.stream().
-                filter(cpu -> cpu.getCores() == cores).
+                filter(cpu -> String.valueOf(cpu.getCores()).contains(cores)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

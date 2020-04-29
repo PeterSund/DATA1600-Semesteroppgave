@@ -56,14 +56,14 @@ public class SoundCardRegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<SoundCardModel> filterByPrice(double price) {
+    public ObservableList<SoundCardModel> filterByPrice(String price) {
         return soundCardArray.stream().
-                filter(sc -> sc.getPrice() == price).
+                filter(sc -> String.valueOf(sc.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<SoundCardModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<SoundCardModel> filterByPerformanceValue(String performanceValue) {
         return soundCardArray.stream().
-                filter(sc -> sc.getPerformanceValue() == performanceValue).
+                filter(sc -> String.valueOf(sc.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

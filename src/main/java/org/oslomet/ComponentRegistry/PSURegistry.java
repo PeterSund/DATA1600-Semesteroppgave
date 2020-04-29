@@ -55,19 +55,19 @@ public class PSURegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<PSUModel> filterByPrice(double price) {
+    public ObservableList<PSUModel> filterByPrice(String price) {
         return psuArray.stream().
-                filter(psu -> psu.getPrice() == price).
+                filter(psu -> String.valueOf(psu.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<PSUModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<PSUModel> filterByPerformanceValue(String performanceValue) {
         return psuArray.stream().
-                filter(psu -> psu.getPerformanceValue() == performanceValue).
+                filter(psu -> String.valueOf(psu.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<PSUModel> filterByWatt(int watt) {
+    public ObservableList<PSUModel> filterByWatt(String watt) {
         return psuArray.stream().
-                filter(psu -> psu.getWatt() == watt).
+                filter(psu -> String.valueOf(psu.getWatt()).contains(watt)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

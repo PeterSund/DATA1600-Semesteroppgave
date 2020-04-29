@@ -52,24 +52,24 @@ public class GPURegistry implements RegistryMethods {
                 toLowerCase().matches(String.format("%s%s%s", ".*", brand.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<GPUModel> filterByPrice(double price) {
+    public ObservableList<GPUModel> filterByPrice(String price) {
         return gpuArray.stream().
-                filter(cpu -> cpu.getPrice() == price).
+                filter(cpu -> String.valueOf(cpu.getPrice()).contains(price)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<GPUModel> filterByPerformanceValue(double performanceValue) {
+    public ObservableList<GPUModel> filterByPerformanceValue(String performanceValue) {
         return gpuArray.stream().
-                filter(gpu -> gpu.getPerformanceValue() == performanceValue).
+                filter(gpu -> String.valueOf(gpu.getPerformanceValue()).contains(performanceValue)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<GPUModel> filterByClockSpeed(double clockSpeed) {
+    public ObservableList<GPUModel> filterByClockSpeed(String clockSpeed) {
         return gpuArray.stream().
-                filter(gpu -> gpu.getPerformanceValue() == clockSpeed).
+                filter(gpu -> String.valueOf(gpu.getPerformanceValue()).contains(clockSpeed)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
-    public ObservableList<GPUModel> filterByMemory(int memory) {
+    public ObservableList<GPUModel> filterByMemory(String memory) {
         return gpuArray.stream().
-                filter(gpu -> gpu.getMemory() == memory).
+                filter(gpu -> String.valueOf(gpu.getMemory()).contains(memory)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
