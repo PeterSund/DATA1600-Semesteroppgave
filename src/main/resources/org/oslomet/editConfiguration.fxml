@@ -26,9 +26,6 @@
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label layoutX="1011.0" layoutY="120.0" styleClass="infoLabel" text="Total price:" />
-      <Label layoutX="1011.0" layoutY="157.0" styleClass="infoLabel" text="Total performance value:" />
-      <Label fx:id="lblTotalPrice" layoutX="1094.0" layoutY="120.0" prefHeight="16.0" prefWidth="167.0" styleClass="infoLabel" />
       <AnchorPane layoutX="28.0" layoutY="101.0" prefHeight="372.0" prefWidth="960.0" style="-fx-border-color: black; -fx-background-color: white;">
          <children>
             <VBox layoutX="8.0" layoutY="9.0" prefHeight="360.0" prefWidth="483.0" styleClass="compnentVbox">
@@ -206,7 +203,6 @@
             </VBox>
          </children>
       </AnchorPane>
-      <Label fx:id="lblTotalPerformanceValue" layoutX="1191.0" layoutY="157.0" prefHeight="16.0" prefWidth="63.0" styleClass="infoLabel" />
       <HBox prefHeight="60.0" prefWidth="398.0" styleClass="menuBar">
          <children>
             <Button fx:id="btnHelp" mnemonicParsing="false" onAction="#showHelp" text="ⓘ Help" />
@@ -653,6 +649,33 @@
 
                              </columns>
        </TableView>
+      <HBox alignment="CENTER" layoutX="1015.0" layoutY="114.0" prefHeight="30.0" prefWidth="282.0" style="-fx-spacing: 5; -fx-alignment: BASELINE_LEFT;">
+         <children>
+            <Label alignment="TOP_CENTER" styleClass="infoLabel" text="Total price:" />
+            <Label fx:id="lblTotalPrice" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="68.0" style="-fx-max-width: Infinity;" styleClass="infoLabel" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label alignment="TOP_CENTER" styleClass="infoLabel" text="kr">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="1011.0" layoutY="153.0" prefHeight="30.0" prefWidth="318.0" style="-fx-alignment: BASELINE_LEFT; -fx-spacing: 5;">
+         <children>
+            <Label alignment="TOP_CENTER" styleClass="infoLabel" text="Total performance value:" />
+            <Label fx:id="lblTotalPerformanceValue" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="46.0" style="-fx-max-width: Infinity;" styleClass="infoLabel">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label alignment="TOP_CENTER" styleClass="infoLabel" text="/ 1100">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+         </children>
+      </HBox>
 
    </children>
 </AnchorPane>
