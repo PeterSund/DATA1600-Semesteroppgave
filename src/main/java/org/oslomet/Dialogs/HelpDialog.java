@@ -79,7 +79,7 @@ public class HelpDialog {
         String header = "Edit configuration";
         String helpText =
         "\nThis is a window for editing a configuration." + "\n\n" +
-        "Name can be edited in the table. Double-click the the cell you want to edit." + "\n\n" +
+        "The table is sortable for all attributes. Click the column header to sort" + "\n\n" +
         "Menu:\n" +
         "Select the component you wish to process by pressing the components buttons.\n" +
         "This will bring up a table of all available models of the selected component.\nDouble-click to add to the configuration. The table is sortable.\n" +

@@ -49,7 +49,7 @@ public class ComponentModel implements Serializable {
 
     public void setName(String name) {
         if(!AdminInputValidation.name(name)) {
-            throw new InvalidNameException("Name cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
+            throw new InvalidNameException("Name cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|}");
         }
         this.name.set(name);
     }
@@ -60,7 +60,7 @@ public class ComponentModel implements Serializable {
 
     public void setBrand(String brand) {
         if(!AdminInputValidation.brand(brand)) {
-            throw new InvalidBrandException("Brand cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|};");
+            throw new InvalidBrandException("Brand cannot be blank or contain characters other then letters, numbers or !#$%&'*+-/=?^_`{|}");
         }
         this.brand.set(brand);
     }
