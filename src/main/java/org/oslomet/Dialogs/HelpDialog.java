@@ -69,7 +69,7 @@ public class HelpDialog {
         "Load configuration:\n" +
         "Load a .csv-file with an configuration" + "\n\n" +
         "Save configuration:\n" +
-        "Saves selected configuration to a .cvs-file. Semicolon (;) is used a separator." + "\n\n" +
+        "Saves selected configuration to a .cvs-file. Semicolon (;) is used as separator." + "\n\n" +
         "Admin login:\n" +
         "Enter username and password to access admin-page\n";
         helpDialog(helpText, header);
@@ -78,7 +78,7 @@ public class HelpDialog {
     public void showEditConfigHelp() {
         String header = "Edit configuration";
         String helpText =
-        "\nThis is an window for editing a configuration." + "\n\n" +
+        "\nThis is a window for editing a configuration." + "\n\n" +
         "Name can be edited in the table. Double-click the the cell you want to edit." + "\n\n" +
         "Menu:\n" +
         "Select the component you wish to process by pressing the components buttons.\n" +
