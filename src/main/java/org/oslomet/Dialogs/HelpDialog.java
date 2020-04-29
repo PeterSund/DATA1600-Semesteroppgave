@@ -85,7 +85,8 @@ public class HelpDialog {
         "This will bring up a table of all available models of the selected component.\nDouble-click to add to the configuration. The table is sortable.\n" +
         "Press the red X to delete a component from your configuration. " + "\n\n" +
         "Performance value:\n" +
-        "All components has a performance value which represent the performance a user can expect.\n " +
+        "All components has a performance value which represent the performance a user can expect.\n" +
+        "The performance value ranges from 0 to 100 for each component, resulting in a total value of 1100 for a complete configuration\n" +
         "The total performance value is used illustrate the performance a user can expected from their configuration\n " +
         "depending on their choice of components. " +
         "This is shown graphical on the right side of the window. " + "\n\n" +
