@@ -1,8 +1,10 @@
 package org.oslomet.Dialogs;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 
 public class DialogTemplate {
@@ -26,8 +28,17 @@ public class DialogTemplate {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
+        grid.setPadding(new Insets(10));
 
-        grid.add(header, 1,0);
+        ColumnConstraints col1 = new ColumnConstraints();
+        col1.setPercentWidth(25);
+        ColumnConstraints col2 = new ColumnConstraints();
+        col2.setPercentWidth(25);
+        ColumnConstraints col3 = new ColumnConstraints();
+        col3.setPercentWidth(50);
+        grid.getColumnConstraints().addAll(col1,col2,col3);
+
+        grid.add(header, 1,0,3,1);
         header.setStyle("-fx-font-size: 24px; -fx-font-weight: bold");
 
         grid.add(name, 1, 1);
@@ -44,6 +55,8 @@ public class DialogTemplate {
         brandErrorLbl.setWrapText(true);
         priceErrorLbl.setWrapText(true);
         performanceValueErrorLbl.setWrapText(true);
+
+        //nameErrorLbl.prefHeight(30);
 
         nameErrorLbl.setStyle("-fx-text-fill: red;");
         brandErrorLbl.setStyle("-fx-text-fill: red;");

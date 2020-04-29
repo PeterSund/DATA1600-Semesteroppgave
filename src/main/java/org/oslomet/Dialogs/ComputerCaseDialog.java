@@ -1,13 +1,11 @@
 package org.oslomet.Dialogs;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -36,20 +34,10 @@ public class ComputerCaseDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Computer case");
-        window.setMinWidth(700);
-        window.setMinHeight(300);
+        window.setMinWidth(600);
+        window.setMinHeight(400);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
-        gridPane.setPadding(new Insets(10));
-
-        ColumnConstraints col1 = new ColumnConstraints();
-        col1.setPercentWidth(25);
-        ColumnConstraints col2 = new ColumnConstraints();
-        col2.setPercentWidth(25);
-        ColumnConstraints col3 = new ColumnConstraints();
-        col3.setPercentWidth(50);
-        gridPane.getColumnConstraints().addAll(col1,col2,col3);
-
 
         gridPane.add(new Label("Dimensions (HxLxD):"), 0, 5);
         gridPane.add(dimensions, 1,5);

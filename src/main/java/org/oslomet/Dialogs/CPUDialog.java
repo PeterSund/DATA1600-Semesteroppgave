@@ -33,7 +33,7 @@ public class CPUDialog {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("CPU");
-        window.setMinWidth(600);
+        window.setMinWidth(400);
         window.setMinHeight(300);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
