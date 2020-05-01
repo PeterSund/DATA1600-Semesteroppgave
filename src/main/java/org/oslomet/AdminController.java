@@ -16,6 +16,7 @@ import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.*;
@@ -71,6 +72,8 @@ public class AdminController implements Initializable {
         //Sets computercase tableview as visible when Admin is opened, sets all other tableviews to not visible
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
+            tv.prefWidthProperty().bind(stackPane.widthProperty());
+            tv.prefHeightProperty().bind(stackPane.heightProperty());
         }
         tvCPU.setVisible(true);
 
@@ -135,6 +138,9 @@ public class AdminController implements Initializable {
         colKeyboardType.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardTypeCombobox));
         colKeyboardWireless.setCellFactory(ComboBoxTableCell.forTableColumn(optionsKeyboardWirelessCombobox));
     }
+
+    @FXML
+    private StackPane stackPane;
 
     @FXML
     private TableColumn<ComputerCaseModel, Double> colComputercasePrice, colComputercasePV;
