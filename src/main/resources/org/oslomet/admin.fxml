@@ -23,17 +23,17 @@
    <left>
       <VBox prefHeight="634.0" prefWidth="187.0" styleClass="vBoxComp" stylesheets="@adminStyle.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="42.0" prefWidth="187.0" styleClass="compButton" stylesheets="@adminStyle.css" text="CPU" />
-            <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="GPU" />
-            <Button fx:id="btnHarddrive" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="198.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Hard drive" />
-            <Button fx:id="btnMotherboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Motherboard" />
-            <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="191.0" styleClass="compButton" stylesheets="@adminStyle.css" text="RAM" />
-            <Button fx:id="btnSoundcard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="193.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Soundcard" />
-            <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="193.0" styleClass="compButton" stylesheets="@adminStyle.css" text="PSU" />
-            <Button fx:id="btnMonitor" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Monitor" />
-            <Button fx:id="btnMouse" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Mouse" />
-            <Button fx:id="btnComputercase" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="192.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Computercase" />
-            <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="46.0" prefWidth="218.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Keyboard" />
+            <Button fx:id="btnCPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="42.0" prefWidth="187.0" styleClass="compButton" stylesheets="@adminStyle.css" text="CPU" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnGPU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="GPU" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnHarddrive" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="198.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Hard drive" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnMotherboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Motherboard" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnRAM" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="191.0" styleClass="compButton" stylesheets="@adminStyle.css" text="RAM" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnSoundcard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="193.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Soundcard" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnPSU" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="193.0" styleClass="compButton" stylesheets="@adminStyle.css" text="PSU" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnMonitor" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="189.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Monitor" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnMouse" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="190.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Mouse" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnComputercase" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="192.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Computercase" VBox.vgrow="ALWAYS" />
+            <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="46.0" prefWidth="218.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Keyboard" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
    </left>
@@ -759,7 +759,7 @@
    <bottom>
       <AnchorPane prefHeight="124.0" prefWidth="1111.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_CENTER" layoutY="-3.0" prefHeight="123.0" prefWidth="1111.0" spacing="20.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="TOP_CENTER" layoutY="-3.0" prefHeight="123.0" prefWidth="1111.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button fx:id="btnAddComponent" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="42.0" prefWidth="161.0" stylesheets="@adminStyle.css" text="+ Add Component" HBox.hgrow="ALWAYS">
                      <font>

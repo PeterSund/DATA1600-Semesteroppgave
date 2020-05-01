@@ -73,7 +73,6 @@ public class AdminController implements Initializable {
         for (TableView tv : tableViewArray) {
             tv.setVisible(false);
             tv.prefWidthProperty().bind(stackPane.widthProperty());
-            tv.prefHeightProperty().bind(stackPane.heightProperty());
         }
         tvCPU.setVisible(true);
 
