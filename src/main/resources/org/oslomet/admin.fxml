@@ -757,9 +757,9 @@
       </StackPane>
    </center>
    <bottom>
-      <AnchorPane prefHeight="200.0" prefWidth="1117.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="124.0" prefWidth="1111.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_CENTER" layoutY="-3.0" prefHeight="224.0" prefWidth="1111.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+            <HBox alignment="TOP_CENTER" layoutY="-3.0" prefHeight="123.0" prefWidth="1111.0" spacing="20.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button fx:id="btnAddComponent" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="42.0" prefWidth="161.0" stylesheets="@adminStyle.css" text="+ Add Component" HBox.hgrow="ALWAYS">
                      <font>
