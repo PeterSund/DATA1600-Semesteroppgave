@@ -29,11 +29,11 @@ public class ComponentModel implements Serializable {
         }
 
         if(!AdminInputValidation.price(price)) {
-            throw new InvalidPriceException("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE);
+            throw new InvalidPriceException("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
         }
 
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new InvalidPerformanceValueException("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE);
+            throw new InvalidPerformanceValueException("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
         }
 
         this.name = new SimpleStringProperty(name);
@@ -71,7 +71,7 @@ public class ComponentModel implements Serializable {
 
     public final void setPrice(double price) {
         if (!AdminInputValidation.price(price)) {
-            throw new InvalidPriceException("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE);
+            throw new InvalidPriceException("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE+". Use \".\" for decimals.");
         }
         this.price.set(price);
     }
@@ -82,7 +82,7 @@ public class ComponentModel implements Serializable {
 
     public void setPerformanceValue(double performanceValue) {
         if(!AdminInputValidation.performanceValue(performanceValue)) {
-            throw new InvalidPerformanceValueException("Performance value cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE);
+            throw new InvalidPerformanceValueException("Performance value cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE+ ". Use \".\" for decimals.");
         }
         this.performanceValue.set(performanceValue);
     }

@@ -12,6 +12,8 @@ public class AdminInputValidation {
     public static final int MAX_SIZE_MONITOR = 300;
     public static final int MAX_WATT = 10000;
     public static final int MAX_CORES = 128;
+    public static final int MAX_MEMORY = 256000;
+    public static final double MAX_MEMORYSPEED = 10000;
 
 
     //Regex accepts all letters, digits and some special characters
@@ -56,7 +58,7 @@ public class AdminInputValidation {
     }
 
     public static boolean memory(int memory) {
-        return memory % 2 == 0 && memory > 0;
+        return memory % 2 == 0 && memory > 0 && memory <= MAX_MEMORY;
     }
 
     public static boolean capacity(int capacity) {
@@ -77,7 +79,7 @@ public class AdminInputValidation {
     }
 
     public static boolean memorySpeed(double memorySpeed) {
-        return memorySpeed > 0;
+        return memorySpeed > 0 && memorySpeed <= MAX_MEMORYSPEED;
     }
 
 

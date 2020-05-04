@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.RAMModel;
 import org.oslomet.ComponentRegistry.RAMRegistry;
 import org.oslomet.ExceptionClasses.*;
+import org.oslomet.Validation.AdminInputValidation;
 
 public class RAMDialog {
 
@@ -86,22 +87,22 @@ public class RAMDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price must be a number");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
             try {
                 memoryInt = Integer.parseInt(memory.getText());
             } catch (NumberFormatException nfe) {
-                memoryErrorLbl.setText("Memory must be a number");
+                memoryErrorLbl.setText("Memory must be a number between 0 and " + AdminInputValidation.MAX_MEMORY + ".");
             }
             try {
                 memorySpeedDouble = Double.parseDouble(memorySpeed.getText());
             } catch (NumberFormatException nfe) {
-                memoryspeedErrorLbl.setText("Memoryspeed must be a number");
+                memoryspeedErrorLbl.setText("Memoryspeed must be a number between 0 and " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
             }
 
             RAMRegistry.addComponent(new RAMModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));

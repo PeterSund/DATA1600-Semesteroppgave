@@ -21,7 +21,7 @@ public class GPUModel extends ComponentModel implements Serializable {
     public GPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int memory) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED);
+            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED+ ". Use \".\" for decimals.");
         }
         if(!AdminInputValidation.memory(memory)) {
             throw new InvalidMemoryException("Memory cannot be blank, must be greater then 0 and an even number");
@@ -35,7 +35,7 @@ public class GPUModel extends ComponentModel implements Serializable {
 
     public void setClockSpeed(double clockSpeed) {
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED);
+            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED+". Use \".\" for decimals.");
         }
         this.clockSpeed.set(clockSpeed);
     }

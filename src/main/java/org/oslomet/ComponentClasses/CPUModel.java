@@ -20,7 +20,7 @@ public class CPUModel extends ComponentModel implements Serializable {
     public CPUModel(String name, String brand, double price, double performanceValue, double clockSpeed, int cores) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED);
+            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED + ". Use \".\" for decimals.");
         }
         if(!AdminInputValidation.cores(cores)) {
             throw new InvalidCoresException("Cores cannot be blank and must be between and even number");
@@ -34,7 +34,7 @@ public class CPUModel extends ComponentModel implements Serializable {
 
     public void setClockSpeed(double clockSpeed) {
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED);
+            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED+ ". Use \".\" for decimals.");
         }
         this.clockSpeed.set(clockSpeed);
     }

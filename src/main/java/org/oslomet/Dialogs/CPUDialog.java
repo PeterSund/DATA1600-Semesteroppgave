@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.CPUModel;
 import org.oslomet.ComponentRegistry.CPURegistry;
 import org.oslomet.ExceptionClasses.*;
+import org.oslomet.Validation.AdminInputValidation;
 
 public class CPUDialog {
 
@@ -90,22 +91,22 @@ public class CPUDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price must be a number");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performance value must be a number");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
             try {
                 clockSpeedDouble = Double.parseDouble(clockSpeed.getText());
             } catch (NumberFormatException nfe) {
-                clockspeedErrorLbl.setText("Clockspeed must be a number");
+                clockspeedErrorLbl.setText("Clockspeed must be a number between 0 and" + AdminInputValidation.MAX_CLOCK_SPEED +". Use \".\" for decimals.");
             }
             try {
                 coresInt = Integer.parseInt(cores.getText());
             } catch (NumberFormatException nfe) {
-                coresErrorLbl.setText("Cores must be a number");
+                coresErrorLbl.setText("Cores must be a number between 0 and " + AdminInputValidation.MAX_CORES + ".");
             }
 
             CPURegistry.addComponent(new CPUModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, clockSpeedDouble, coresInt));

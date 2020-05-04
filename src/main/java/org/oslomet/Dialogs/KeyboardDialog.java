@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.KeyboardModel;
 import org.oslomet.ComponentRegistry.KeyboardRegistry;
 import org.oslomet.ExceptionClasses.*;
+import org.oslomet.Validation.AdminInputValidation;
 
 public class KeyboardDialog {
 
@@ -92,12 +93,12 @@ public class KeyboardDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price must be a number");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
 
             KeyboardRegistry.addComponent(new KeyboardModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), language.getText(), wireless.getValue().toString()));

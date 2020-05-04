@@ -312,13 +312,13 @@ public class AdminController implements Initializable {
             if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPrice(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Price must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Price must be a number. Use \".\" for decimals.", "Invalid input");
             }
 
         } catch (InvalidPriceException ipe) {
             ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
-            ErrorDialog.showErrorDialog("Price cannot be blank", "Invalid input");
+            ErrorDialog.showErrorDialog("Price cannot be blank.", "Invalid input");
         }
         tableViewVisible().refresh();
     }
@@ -330,7 +330,7 @@ public class AdminController implements Initializable {
             if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setPerformanceValue(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Performancevalue must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Performancevalue must be a number. Use \".\" for decimals.", "Invalid input");
             }
 
         } catch (InvalidPerformanceValueException ipe) {
@@ -370,7 +370,7 @@ public class AdminController implements Initializable {
             if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("CPU clockspeed must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("CPU clockspeed must be a number. Use \".\" for decimals.", "Invalid input");
             }
         } catch (InvalidClockSpeedException icse) {
             ErrorDialog.showErrorDialog(icse.getMessage(), "Invalid input");
@@ -404,7 +404,7 @@ public class AdminController implements Initializable {
             if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setClockSpeed(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("GPU clockspeed must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("GPU clockspeed must be a number. Use \".\" for decimals.", "Invalid input");
             }
 
         } catch (InvalidClockSpeedException icse) {
@@ -489,7 +489,7 @@ public class AdminController implements Initializable {
             if (StringToDoubleConv.wasSuccessful()) {
                 event.getRowValue().setMemorySpeed(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Memoryspeed must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Memoryspeed must be a number. Use \".\" for decimals.", "Invalid input");
             }
         } catch (InvalidPerformanceValueException ipe) {
             ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");

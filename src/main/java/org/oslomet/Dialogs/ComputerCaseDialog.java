@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.oslomet.ComponentClasses.ComputerCaseModel;
 import org.oslomet.ComponentRegistry.ComputerCaseRegistry;
 import org.oslomet.ExceptionClasses.*;
+import org.oslomet.Validation.AdminInputValidation;
 
 public class ComputerCaseDialog {
 
@@ -90,12 +91,12 @@ public class ComputerCaseDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price must be a number");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue must be a number");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
 
             ComputerCaseRegistry.addComponent(new ComputerCaseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, dimensions.getText(),color.getText()));
