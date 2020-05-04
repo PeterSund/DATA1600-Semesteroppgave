@@ -222,6 +222,7 @@
          <Button fx:id="btnComputercase" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="29.0" prefWidth="192.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Computercase" />
          <Button fx:id="btnKeyboard" mnemonicParsing="false" onAction="#changeActiveTableview" onMouseEntered="#onHoverCompButton" onMouseExited="#mouseExitCompButton" prefHeight="46.0" prefWidth="218.0" styleClass="compButton" stylesheets="@adminStyle.css" text="Keyboard" />
          </children>
+<<<<<<< HEAD
       </VBox>
 
       <TableView id="Computercase" fx:id="tvComputercase" editable="true" layoutX="250.0" layoutY="138.0" prefHeight="200.0" prefWidth="1020.0">
@@ -774,9 +775,11 @@
 
    </children>
 </AnchorPane>
+=======
          <padding>
             <Insets bottom="20.0" />
          </padding>
       </AnchorPane>
    </bottom>
 </BorderPane>
+>>>>>>> parent of 8ef62e3... Update admin.fxml
