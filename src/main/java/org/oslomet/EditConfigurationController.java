@@ -483,6 +483,7 @@ public class EditConfigurationController implements Initializable {
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: green;");
         }
         else if(totalPV >= 0.9) {
+            progressbarPV.setStyle(" -fx-progress-color: darkgreen;");
             lblPerformanceValueProgressText.setText("Your computer will have a BEAST performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: darkgreen;");
         }
