@@ -241,7 +241,7 @@ public class EditConfigurationController implements Initializable {
 
         //Checks if the configuration is missing any components
         if (computer.getComputerCase()==null) {
-            componentsNotChosen.add("computer case");
+            componentsNotChosen.add("Computer Case");
         }
         if (computer.getCpu()==null) {
             componentsNotChosen.add("CPU");
@@ -253,25 +253,25 @@ public class EditConfigurationController implements Initializable {
             componentsNotChosen.add("RAM");
         }
         if (computer.getHardDrive()==null) {
-            componentsNotChosen.add("hard drive");
+            componentsNotChosen.add("Hard Drive");
         }
         if (computer.getMotherboard()==null) {
-            componentsNotChosen.add("motherboard");
+            componentsNotChosen.add("Motherboard");
         }
         if (computer.getPsu()==null) {
             componentsNotChosen.add("PSU");
         }
         if (computer.getSoundCard()==null) {
-            componentsNotChosen.add("sound card");
+            componentsNotChosen.add("Sound Card");
         }
         if (computer.getKeyboard()==null) {
-            componentsNotChosen.add("keyboard");
+            componentsNotChosen.add("Keyboard");
         }
         if (computer.getMonitor()==null) {
-            componentsNotChosen.add("monitor");
+            componentsNotChosen.add("Monitor");
         }
         if (computer.getMouse()==null) {
-            componentsNotChosen.add("mouse");
+            componentsNotChosen.add("Mouse");
         }
 
         //If there are no missing components, save configuration
