@@ -21,7 +21,7 @@
 
    <Button fx:id="btnClearFilter" layoutX="654.0" layoutY="96.0" mnemonicParsing="false" onAction="#clearFilter" prefHeight="27.0" prefWidth="108.0" text="Clear filter" />
 
-   <Button fx:id="btnAddComponent" layoutX="250.0" layoutY="612.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="42.0" prefWidth="161.0" stylesheets="@adminStyle.css" text="+ Add Component">
+   <Button fx:id="btnAddComponent" layoutX="250.0" layoutY="612.0" mnemonicParsing="false" onAction="#generateDialogAddComponent" prefHeight="42.0" prefWidth="161.0" styleClass="btnAddComponent" stylesheets="@adminStyle.css" text="+ Add Component">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -64,7 +64,7 @@
                    <String fx:value="Brand" />
                    <String fx:value="Price" />
                    <String fx:value="Performance Value" />
-                   <String fx:value="speed" />
+                   <String fx:value="Clock speed" />
                    <String fx:value="Cores" />
                </FXCollections>
            </items>

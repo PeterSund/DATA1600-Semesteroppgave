@@ -18,12 +18,17 @@
 
 }
 
-#btnAddComponent {
+.btnAddComponent {
     -fx-opacity: 1;
     -fx-background-color: #929292;
     -fx-text-fill: black;
     -fx-border-color: black;
     -fx-border-radius: 3px;
+}
+
+.btnAddComponent:hover {
+    -fx-background-color: #4F4F4F;
+    -fx-text-fill: white;
 }
 
 

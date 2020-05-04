@@ -82,7 +82,7 @@ public class AdminController implements Initializable {
 
         btnCPU.setStyle("-fx-background-color: #4F4F4F; -fx-text-fill: white");
 
-        //Options for choiceboxes used when changing values of attriubutes in component-tableviews
+        //Options for choiceboxes used when changing values of attridbutes in component-tableviews
         final ObservableList<String> optionsHarddriveComboBox = FXCollections.observableArrayList("SSD", "HDD");
         final ObservableList<String> optionsMotherboardCombobox = FXCollections.observableArrayList("ATX", "mini-ATX", "e-ATX");
         final ObservableList<String> optionsSurroundCombobox = FXCollections.observableArrayList("Yes", "No");
@@ -387,7 +387,7 @@ public class AdminController implements Initializable {
             if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCores(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("No. cores must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("No. cores must be a even number", "Invalid input");
             }
         } catch (InvalidCoresException ice) {
             ErrorDialog.showErrorDialog(ice.getMessage(), "Invalid input");
@@ -422,7 +422,7 @@ public class AdminController implements Initializable {
             if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("GPU memory must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("GPU memory must be a whole number", "Invalid input");
             }
         } catch (InvalidMemoryException ime) {
             ErrorDialog.showErrorDialog(ime.getMessage(), "Invalid input");
@@ -446,7 +446,7 @@ public class AdminController implements Initializable {
             if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setCapacity(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Capacity must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Capacity must be a whole number", "Invalid input");
             }
 
         } catch (InvalidCapacityException ice) {
@@ -471,11 +471,11 @@ public class AdminController implements Initializable {
             if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setMemory(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Memory must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Memory must be a whole number", "Invalid input");
             }
 
         } catch (InvalidMemoryException ime) {
-            ErrorDialog.showErrorDialog("Memory cannot be blank, must be greater then 0 and an even number", "Invalid input");
+            ErrorDialog.showErrorDialog(ime.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
             ErrorDialog.showErrorDialog("Memory cannot be blank", "Invalid input");
         }
@@ -520,7 +520,7 @@ public class AdminController implements Initializable {
             if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setWatt(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Watt must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Watt must be a whole number", "Invalid input");
             }
 
         } catch (InvalidWattException iwe) {
@@ -538,7 +538,7 @@ public class AdminController implements Initializable {
             if (StringToIntConv.wasSuccessful()) {
                 event.getRowValue().setSize(event.getNewValue());
             } else {
-                ErrorDialog.showErrorDialog("Size must be a number", "Invalid input");
+                ErrorDialog.showErrorDialog("Size must be a whole number", "Invalid input");
             }
 
         } catch (InvalidSizeException ize) {
@@ -732,7 +732,7 @@ public class AdminController implements Initializable {
             case "Brand" : result = cpuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = cpuRegistry.filterByPrice(txtFilter.getText()); break;
             case "Performance Value" : result = cpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
-            case "speed" : result = cpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
+            case "Clock speed" : result = cpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
             case "Cores" : result = cpuRegistry.filterByCores((txtFilter.getText())); break;
         }
 
@@ -1057,6 +1057,7 @@ public class AdminController implements Initializable {
         if(checkIfItemSelected != null) {
             if(deleteDialog.confirmDeleteDialog()) {
                 deleteSelectedComponent();
+                clearFilter();
             }
         }
         else {
@@ -1135,6 +1136,7 @@ public class AdminController implements Initializable {
         }
         showTableView(component);
         showFilter(component);
+        clearFilter();
     }
 
 

@@ -16,7 +16,7 @@ public class PSUModel extends ComponentModel implements Serializable {
     public PSUModel(String name, String brand, double price, double performanceValue, int watt) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.watt(watt)) {
-            throw new InvalidWattException("Watt cannot be blank and must be between 0 and " + AdminInputValidation.MAX_WATT);
+            throw new InvalidWattException("Watt cannot be blank and must be greater then 0 and maximum " + AdminInputValidation.MAX_WATT);
         }
         this.watt = new SimpleIntegerProperty(watt);
     }
@@ -27,7 +27,7 @@ public class PSUModel extends ComponentModel implements Serializable {
     }
     public void setWatt(int watt) {
         if(!AdminInputValidation.watt(watt)) {
-            throw new InvalidWattException("Watt cannot be blank and must be between 0 and " + AdminInputValidation.MAX_WATT);
+            throw new InvalidWattException("Watt cannot be blank and must be greater then 0 and maximum " + AdminInputValidation.MAX_WATT);
         }
         this.watt.set(watt);
     }

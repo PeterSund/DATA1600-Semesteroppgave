@@ -23,7 +23,7 @@ public class CPUModel extends ComponentModel implements Serializable {
             throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED + ". Use \".\" for decimals.");
         }
         if(!AdminInputValidation.cores(cores)) {
-            throw new InvalidCoresException("Cores cannot be blank and must be between and even number");
+            throw new InvalidCoresException("Cores cannot be blank and must be an even number larger then 0 and maximum "+ AdminInputValidation.MAX_CORES);
         }
         this.clockSpeed = new SimpleDoubleProperty(clockSpeed);
         this.cores = new SimpleIntegerProperty(cores);
@@ -34,7 +34,7 @@ public class CPUModel extends ComponentModel implements Serializable {
 
     public void setClockSpeed(double clockSpeed) {
         if(!AdminInputValidation.clockSpeed(clockSpeed)) {
-            throw new InvalidClockSpeedException("Clockspeed must be between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED+ ". Use \".\" for decimals.");
+            throw new InvalidClockSpeedException("Clockspeed must be between 0.1 and " + AdminInputValidation.MAX_CLOCK_SPEED+ ". Use \".\" for decimals.");
         }
         this.clockSpeed.set(clockSpeed);
     }
@@ -44,7 +44,7 @@ public class CPUModel extends ComponentModel implements Serializable {
 
     public void setCores(int cores) {
         if(!AdminInputValidation.cores(cores)) {
-            throw new InvalidCoresException("Cores cannot be blank and must be an even number between 0 and "+ AdminInputValidation.MAX_CORES);
+            throw new InvalidCoresException("Cores cannot be blank and must be an even number larger then 0 and maximum "+ AdminInputValidation.MAX_CORES);
         }
         this.cores.set(cores);
     }
