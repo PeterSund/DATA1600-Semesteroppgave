@@ -832,7 +832,7 @@ public class AdminController implements Initializable {
             case "Name" : result = monitorRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = monitorRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = monitorRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = monitorRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = monitorRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Size" : result = monitorRegistry.filterBySize(txtFilter.getText()); break;
         }
 
@@ -854,7 +854,7 @@ public class AdminController implements Initializable {
             case "Name" : result = motherboardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = motherboardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = motherboardRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = motherboardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = motherboardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = motherboardRegistry.filterByType(txtFilter.getText()); break;
         }
 
@@ -878,7 +878,7 @@ public class AdminController implements Initializable {
             case "Name" : result = mouseRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = mouseRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = mouseRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = mouseRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = mouseRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = mouseRegistry.filterByType(txtFilter.getText()); break;
             case "Wireless" : result = mouseRegistry.filterByWireless(txtFilter.getText()); break;
         }
@@ -903,7 +903,7 @@ public class AdminController implements Initializable {
             case "Name" : result = psuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = psuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = psuRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = psuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = psuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Watt" : result = psuRegistry.filterByWatt(txtFilter.getText()); break;
         }
 
@@ -927,7 +927,7 @@ public class AdminController implements Initializable {
             case "Name" : result = ramRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = ramRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = ramRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = ramRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = ramRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Memory" : result = ramRegistry.filterByMemory(txtFilter.getText()); break;
             case "Memory speed" : result = ramRegistry.filterByMemorySpeed(txtFilter.getText()); break;
         }
@@ -952,7 +952,7 @@ public class AdminController implements Initializable {
             case "Name" : result = soundCardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = soundCardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = soundCardRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = soundCardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = soundCardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Surround" : result = soundCardRegistry.filterBySurround(txtFilter.getText()); break;
             case "Bass boost" : result = soundCardRegistry.filterByBassBoost(txtFilter.getText()); break;
         }
