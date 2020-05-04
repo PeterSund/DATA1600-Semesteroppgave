@@ -32,7 +32,7 @@ public class PSUDialog {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("PSU");
         window.setMinWidth(650);
-        window.setMinHeight(350);
+        window.setMinHeight(500);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 

@@ -36,7 +36,7 @@ public class KeyboardDialog {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Keyboard");
         window.setMinWidth(650);
-        window.setMinHeight(400);
+        window.setMinHeight(500);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
