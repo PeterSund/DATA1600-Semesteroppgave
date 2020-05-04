@@ -84,7 +84,7 @@ public class MonitorDialog {
             try {
                 sizeInt = Integer.parseInt(size.getText());
             } catch (NumberFormatException nfe) {
-                sizeErrorLlb.setText("Size must be a number");
+                sizeErrorLlb.setText("Size must be a number between 0 and " + AdminInputValidation.MAX_SIZE_MONITOR + ".");
             }
 
             MonitorRegistry.addComponent(new MonitorModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, sizeInt));

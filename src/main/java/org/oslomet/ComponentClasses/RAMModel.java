@@ -23,7 +23,7 @@ public class RAMModel extends ComponentModel implements Serializable {
             throw new InvalidMemoryException("Memory cannot be blank and must be an even number between 0 and " + AdminInputValidation.MAX_MEMORY + ".");
         }
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be between 0 and" + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
+            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be between 0 and " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
         }
         this.memory = new SimpleIntegerProperty(memory);
         this.memorySpeed = new SimpleDoubleProperty(memorySpeed);
@@ -46,7 +46,7 @@ public class RAMModel extends ComponentModel implements Serializable {
 
     public void setMemorySpeed(double memorySpeed) {
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be between 0 and" + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
+            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be between 0 and " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
         }
         this.memorySpeed.set(memorySpeed);
     }
