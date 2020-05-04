@@ -71,7 +71,7 @@ public class MotherboardRegistry implements RegistryMethods {
     }
 
     public ObservableList<MotherboardModel> filterByType(String type) {
-        return motherboardArray.stream().filter(mb -> mb.getBrand().
+        return motherboardArray.stream().filter(mb -> mb.getType().
                 toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }

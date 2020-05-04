@@ -66,7 +66,7 @@ public class KeyboardRegistry implements RegistryMethods {
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<KeyboardModel> filterByType(String type) {
-        return keyboardArray.stream().filter(k -> k.getBrand().
+        return keyboardArray.stream().filter(k -> k.getType().
                 toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }

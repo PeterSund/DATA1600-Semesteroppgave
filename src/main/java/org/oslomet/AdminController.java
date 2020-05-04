@@ -706,7 +706,7 @@ public class AdminController implements Initializable {
             case "Name" : result = computerCaseRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = computerCaseRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = computerCaseRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = computerCaseRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = computerCaseRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Dimension" : result = computerCaseRegistry.filterByDimension(txtFilter.getText()); break;
             case "Color" : result = computerCaseRegistry.filterByColor(txtFilter.getText()); break;
         }
@@ -731,7 +731,7 @@ public class AdminController implements Initializable {
             case "Name" : result = cpuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = cpuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = cpuRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = cpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = cpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Dimension" : result = cpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
             case "Color" : result = cpuRegistry.filterByCores((txtFilter.getText())); break;
         }
@@ -756,8 +756,8 @@ public class AdminController implements Initializable {
             case "Name" : result = gpuRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = gpuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = gpuRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = gpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
-            case "Dimension" : result = gpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
+            case "Performance Value" : result = gpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Clock speed" : result = gpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
             case "Memory" : result = gpuRegistry.filterByMemory((txtFilter.getText())); break;
         }
 
@@ -781,7 +781,7 @@ public class AdminController implements Initializable {
             case "Name" : result = hardDriveRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = hardDriveRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = hardDriveRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = hardDriveRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = hardDriveRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = hardDriveRegistry.filterByType(txtFilter.getText()); break;
             case "Capacity" : result = hardDriveRegistry.filterByCapacity((txtFilter.getText())); break;
         }
@@ -806,7 +806,7 @@ public class AdminController implements Initializable {
             case "Name" : result = keyboardRegistry.filterByName(txtFilter.getText()); break;
             case "Brand" : result = keyboardRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = keyboardRegistry.filterByPrice(txtFilter.getText()); break;
-            case "Performance value" : result = keyboardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
+            case "Performance Value" : result = keyboardRegistry.filterByPerformanceValue(txtFilter.getText()); break;
             case "Type" : result = keyboardRegistry.filterByType(txtFilter.getText()); break;
             case "Language" : result = keyboardRegistry.filterByLanguage(txtFilter.getText()); break;
             case "Wireless" : result = keyboardRegistry.filterByWireless(txtFilter.getText()); break;

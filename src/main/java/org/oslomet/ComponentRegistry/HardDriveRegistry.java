@@ -68,7 +68,7 @@ public class HardDriveRegistry implements RegistryMethods {
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<HarddriveModel> filterByType(String type) {
-        return hardDriveArray.stream().filter(hd -> hd.getBrand().
+        return hardDriveArray.stream().filter(hd -> hd.getType().
                 toLowerCase().matches(String.format("%s%s%s", ".*", type.toLowerCase(),
                 ".*"))).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
