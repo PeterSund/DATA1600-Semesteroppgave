@@ -73,7 +73,7 @@ public class RAMRegistry implements RegistryMethods {
     }
     public ObservableList<RAMModel> filterByMemorySpeed(String memorySpeed) {
         return ramArray.stream().
-                filter(r -> String.valueOf(r.getPerformanceValue()).contains(memorySpeed)).
+                filter(r -> String.valueOf(r.getMemorySpeed()).contains(memorySpeed)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 

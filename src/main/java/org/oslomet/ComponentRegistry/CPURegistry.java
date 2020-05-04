@@ -68,7 +68,7 @@ public class CPURegistry implements RegistryMethods {
     }
     public ObservableList<CPUModel> filterByClockSpeed(String clockSpeed) {
         return cpuArray.stream().
-                filter(cpu -> String.valueOf(cpu.getPerformanceValue()).contains(clockSpeed)).
+                filter(cpu -> String.valueOf(cpu.getClockSpeed()).contains(clockSpeed)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<CPUModel> filterByCores(String cores) {

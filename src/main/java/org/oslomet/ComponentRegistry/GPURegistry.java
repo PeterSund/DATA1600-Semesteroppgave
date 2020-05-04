@@ -64,7 +64,7 @@ public class GPURegistry implements RegistryMethods {
     }
     public ObservableList<GPUModel> filterByClockSpeed(String clockSpeed) {
         return gpuArray.stream().
-                filter(gpu -> String.valueOf(gpu.getPerformanceValue()).contains(clockSpeed)).
+                filter(gpu -> String.valueOf(gpu.getClockSpeed()).contains(clockSpeed)).
                 collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     public ObservableList<GPUModel> filterByMemory(String memory) {
