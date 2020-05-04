@@ -471,18 +471,18 @@ public class EditConfigurationController implements Initializable {
 
         }
 
-        else if(totalPV >= 0.2 && totalPV < 0.6) {
+        if(totalPV > 0.2 && totalPV < 0.5) {
             progressbarPV.setStyle(" -fx-progress-color: orange;");
             lblPerformanceValueProgressText.setText("Your computer will have a OK performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: orange;");
         }
 
-        else if(totalPV >= 0.6 && totalPV < 0.9) {
+        if(totalPV > 0.6) {
             progressbarPV.setStyle(" -fx-progress-color: green;");
             lblPerformanceValueProgressText.setText("Your computer will have a good performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: green;");
         }
-        else if(totalPV >= 0.9) {
+        if(totalPV > 0.9) {
             lblPerformanceValueProgressText.setText("Your computer will have a BEAST performance");
             lblPerformanceValueProgressText.setStyle(" -fx-text-base-color: darkgreen;");
         }
