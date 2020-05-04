@@ -26,22 +26,31 @@ public class SaveConfigurationDialog {
 
         Button yes = new Button("Yes");
         Button no = new Button("No");
-        gridPane.add(yes, 1,2);
-        gridPane.add(no, 2, 2);
+        yes.setStyle("-fx-background-color: lightgreen; -fx-border-color: black;");
+        no.setStyle("-fx-background-color: #B30000; -fx-text-fill: white; -fx-border-color: black");
+        gridPane.add(yes, 1,5);
+        gridPane.add(no, 2, 5);
 
-        String userOutput = "You have not added the following components to your configuration:\n\n";
+        String msgMissingComp = "";
         for (int i=0; i<missingComponents.size(); i++) {
             if (i == missingComponents.size()-1) {
-                userOutput += missingComponents.get(i);
+                msgMissingComp += missingComponents.get(i);
             }
             else {
-                userOutput += missingComponents.get(i) + ", ";
+                msgMissingComp += missingComponents.get(i) + ", ";
             }
-
         }
-        userOutput += ".\n\nAre you sure you want to save the configuration?";
+        msgMissingComp += "\n\n";
 
-        gridPane.add(new Label(userOutput),1,1);
+        Label msg = new Label("You have not added the following components to your configuration:\n\n");
+        Label missingComp = new Label(msgMissingComp);
+        Label confirm = new Label("Are you sure you want to save the configuration?\n\n");
+        missingComp.setStyle("-fx-text-fill: red;");
+
+        gridPane.add(msg, 1,1);
+        gridPane.add(missingComp,1,2);
+        gridPane.add(confirm,1,3);
+
 
         gridPane.setAlignment(Pos.CENTER);
 
