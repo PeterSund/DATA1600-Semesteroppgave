@@ -732,8 +732,8 @@ public class AdminController implements Initializable {
             case "Brand" : result = cpuRegistry.filterByBrand(txtFilter.getText()); break;
             case "Price" : result = cpuRegistry.filterByPrice(txtFilter.getText()); break;
             case "Performance Value" : result = cpuRegistry.filterByPerformanceValue(txtFilter.getText()); break;
-            case "Dimension" : result = cpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
-            case "Color" : result = cpuRegistry.filterByCores((txtFilter.getText())); break;
+            case "speed" : result = cpuRegistry.filterByClockSpeed((txtFilter.getText())); break;
+            case "Cores" : result = cpuRegistry.filterByCores((txtFilter.getText())); break;
         }
 
         if(result == null) {
