@@ -39,9 +39,8 @@ public class AdminInputValidation {
     }
 
     //Regex in [H x L x D] - format
-    //Source: https://stackoverflow.com/questions/39452200/match-product-dimensions-with-regular-expression
     public static boolean dimensions(String dimensions) {
-        return !dimensions.isBlank() && dimensions.matches("^\\d+(x\\d+)*$");
+        return !dimensions.isBlank() && dimensions.matches("^[0-9]+x[0-9]+x[0-9]+$");
     }
 
     //Regex accepts all letters with capital first letter

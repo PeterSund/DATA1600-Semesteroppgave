@@ -101,7 +101,7 @@ public class CPUDialog {
             try {
                 clockSpeedDouble = Double.parseDouble(clockSpeed.getText());
             } catch (NumberFormatException nfe) {
-                clockspeedErrorLbl.setText("Clockspeed must be a number between 0 and" + AdminInputValidation.MAX_CLOCK_SPEED +". Use \".\" for decimals.");
+                clockspeedErrorLbl.setText("Clockspeed must be a number between 0 and " + AdminInputValidation.MAX_CLOCK_SPEED +". Use \".\" for decimals.");
             }
             try {
                 coresInt = Integer.parseInt(cores.getText());

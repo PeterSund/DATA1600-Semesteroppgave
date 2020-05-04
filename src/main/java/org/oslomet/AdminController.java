@@ -491,8 +491,8 @@ public class AdminController implements Initializable {
             } else {
                 ErrorDialog.showErrorDialog("Memoryspeed must be a number. Use \".\" for decimals.", "Invalid input");
             }
-        } catch (InvalidPerformanceValueException ipe) {
-            ErrorDialog.showErrorDialog(ipe.getMessage(), "Invalid input");
+        } catch (InvalidMemorySpeedException imse) {
+            ErrorDialog.showErrorDialog(imse.getMessage(), "Invalid input");
         } catch (NullPointerException npe) {
             ErrorDialog.showErrorDialog("Memoryspeed cannot be blank", "Invalid input");
         }
