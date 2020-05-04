@@ -20,10 +20,10 @@ public class RAMModel extends ComponentModel implements Serializable {
     public RAMModel(String name, String brand, double price, double performanceValue, int memory, double memorySpeed) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.memory(memory)) {
-            throw new InvalidMemoryException("Memory cannot be blank and must be an even number between 0 and " + AdminInputValidation.MAX_MEMORY + ".");
+            throw new InvalidMemoryException("Memory cannot be blank and must be an even number greater then 0 and maximum " + AdminInputValidation.MAX_MEMORY + ".");
         }
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be between 0 and " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
+            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and be a number greater then 0 and maximum" + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
         }
         this.memory = new SimpleIntegerProperty(memory);
         this.memorySpeed = new SimpleDoubleProperty(memorySpeed);
@@ -35,7 +35,7 @@ public class RAMModel extends ComponentModel implements Serializable {
 
     public void setMemory(int memory) {
         if(!AdminInputValidation.memory(memory)) {
-            throw new InvalidMemoryException("Memory cannot be blank and must be an even number between 0 and " + AdminInputValidation.MAX_MEMORY + ".");
+            throw new InvalidMemoryException("Memory cannot be blank and must be an even number greater then 0 and maximum " + AdminInputValidation.MAX_MEMORY + ".");
         }
         this.memory.set(memory);
     }
@@ -46,7 +46,7 @@ public class RAMModel extends ComponentModel implements Serializable {
 
     public void setMemorySpeed(double memorySpeed) {
         if(!AdminInputValidation.memorySpeed(memorySpeed)) {
-            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and must be between 0 and " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
+            throw  new InvalidMemorySpeedException("Memory-speed cannot be blank and be a number greater then 0 and maximum " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
         }
         this.memorySpeed.set(memorySpeed);
     }

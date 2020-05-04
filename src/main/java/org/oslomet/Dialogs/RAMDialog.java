@@ -87,22 +87,22 @@ public class RAMDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0.1 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0.1 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
             try {
                 memoryInt = Integer.parseInt(memory.getText());
             } catch (NumberFormatException nfe) {
-                memoryErrorLbl.setText("Memory must be a number between 0 and " + AdminInputValidation.MAX_MEMORY + ".");
+                memoryErrorLbl.setText("Memory must be a number greater then 0 and maximum " + AdminInputValidation.MAX_MEMORY + ".");
             }
             try {
                 memorySpeedDouble = Double.parseDouble(memorySpeed.getText());
             } catch (NumberFormatException nfe) {
-                memoryspeedErrorLbl.setText("Memoryspeed must be a number between 0 and " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
+                memoryspeedErrorLbl.setText("Memoryspeed must be a number greater then 0 and maximum " + AdminInputValidation.MAX_MEMORYSPEED + ". Use \".\" for decimals.");
             }
 
             RAMRegistry.addComponent(new RAMModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, memoryInt, memorySpeedDouble));

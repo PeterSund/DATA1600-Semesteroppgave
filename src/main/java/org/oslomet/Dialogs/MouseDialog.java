@@ -79,12 +79,12 @@ public class MouseDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0.1 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0.1 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
 
             MouseRegistry.addComponent(new MouseModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, type.getValue().toString(), wireless.getValue().toString()));

@@ -93,17 +93,17 @@ public class HardDriveDialog {
             try {
                 priceDouble = Double.parseDouble(dialogTemplate.getPrice());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
+                dialogTemplate.setPriceErrorLbl("Price cannot be blank and must be between 0.1 and " + AdminInputValidation.MAX_PRICE + ". Use \".\" for decimals.");
             }
             try {
                 pvDouble = Double.parseDouble(dialogTemplate.getPerformanceValue());
             } catch (NumberFormatException nfe) {
-                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
+                dialogTemplate.setPerformanceValueErrorLbl("Performancevalue cannot be blank and must be between 0.1 and " + AdminInputValidation.MAX_PERFORMANCE_VALUE + ". Use \".\" for decimals.");
             }
             try {
                 capacityInt = Integer.parseInt(capacity.getText());
             } catch (NumberFormatException nfe) {
-                capacityErrorLbl.setText("Capacity must be a number between 0 and " + AdminInputValidation.MAX_CAPACITY + ".");
+                capacityErrorLbl.setText("Capacity must be a number greater then 0 and maximum " + AdminInputValidation.MAX_CAPACITY + ".");
             }
 
             HardDriveRegistry.addComponent(new HarddriveModel(dialogTemplate.getName(), dialogTemplate.getBrand(), priceDouble, pvDouble, typeString, capacityInt));

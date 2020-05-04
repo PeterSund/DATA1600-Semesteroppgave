@@ -17,7 +17,7 @@ public class MonitorModel extends ComponentModel implements Serializable {
     public MonitorModel(String name, String brand, double price, double performanceValue, int size) {
         super(name, brand, price, performanceValue);
         if(!AdminInputValidation.size(size)) {
-            throw new InvalidSizeException("Size cannot be blank and must be between 0 and " + AdminInputValidation.MAX_SIZE_MONITOR);
+            throw new InvalidSizeException("Size cannot be blank and must be greater then 0 and maximum " + AdminInputValidation.MAX_SIZE_MONITOR);
         }
         this.size = new SimpleIntegerProperty(size);
     }
@@ -29,7 +29,7 @@ public class MonitorModel extends ComponentModel implements Serializable {
 
     public void setSize(int size) {
         if(!AdminInputValidation.size(size)) {
-            throw new InvalidSizeException("Size cannot be blank and must be between 0 and " + AdminInputValidation.MAX_SIZE_MONITOR);
+            throw new InvalidSizeException("Size cannot be blank and must be greater then 0 and maximum " + AdminInputValidation.MAX_SIZE_MONITOR);
         }
         this.size.set(size);
     }
