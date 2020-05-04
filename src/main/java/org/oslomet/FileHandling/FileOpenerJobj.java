@@ -2,10 +2,7 @@ package org.oslomet.FileHandling;
 
 import org.oslomet.ComponentRegistry.*;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.StreamCorruptedException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -46,6 +43,9 @@ public class FileOpenerJobj extends FileChooser {
         }
         catch (StreamCorruptedException sce) {
             throw new StreamCorruptedException("File corrupted and cannot be opened");
+        }
+        catch (EOFException eofe) {
+            throw new EOFException("File corrupted and cannot be opened");
         }
     }
 }
