@@ -34,7 +34,7 @@ public class RAMDialog {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("RAM");
         window.setMinWidth(650);
-        window.setMinHeight(400);
+        window.setMinHeight(500);
 
         GridPane gridPane = dialogTemplate.addComponentGridPane();
 
