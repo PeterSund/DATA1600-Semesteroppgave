@@ -7,8 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class AdminInputValidationTest {
 
     @org.junit.jupiter.api.Test
-    void validName() {
-        assertTrue(AdminInputValidation.name(""));
+    void validConfigName() {
+        assertTrue(AdminInputValidation.configName("My Computer"));
+        assertTrue(AdminInputValidation.configName("my computer"));
+        assertTrue(AdminInputValidation.configName("demo-computer"));
+        assertTrue(AdminInputValidation.configName("Computer 43"));
+        assertTrue(AdminInputValidation.configName("#Computer!"));
     }
 
     @org.junit.jupiter.api.Test
