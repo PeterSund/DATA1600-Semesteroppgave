@@ -21,7 +21,7 @@ public class ComputerCaseModel extends ComponentModel implements Serializable {
             throw new InvalidDimensionsException("Dimensions cannot be blank and must be in input-format HxLxD");
         }
         if(!AdminInputValidation.color(color)) {
-            throw new InvalidColorException("Color cannot be blank and must be entered with a capital first letters. Only letters allowed");
+            throw new InvalidColorException("Color cannot be blank and must be entered with a capital first letters. Hyphen and/or spaces allowed");
         }
         this.dimensions = new SimpleStringProperty(dimensions);
         this.color = new SimpleStringProperty(color);
@@ -44,7 +44,7 @@ public class ComputerCaseModel extends ComponentModel implements Serializable {
 
     public void setColor(String color) {
         if(!AdminInputValidation.color(color)) {
-            throw new InvalidColorException("Color cannot be blank and must be entered with a capital first letters. Only letters allowed");
+            throw new InvalidColorException("Color cannot be blank and must be entered with a capital first letters. Hyphen and/or spaces allowed");
         }
         this.color.set(color);
     }
