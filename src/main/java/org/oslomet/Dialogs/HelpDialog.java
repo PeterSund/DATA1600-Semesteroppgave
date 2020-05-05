@@ -59,7 +59,7 @@ public class HelpDialog {
 
         String helpText =
         "\nThis is an overview of all configurations." + "\n\n" +
-        "Name can be edited in the table. Double-click the the cell you want to edit." + "\n\n" +
+        "Name can be edited in the table. Double-click the cell you want to edit." + "\n\n" +
         "Edit configuration:\n" +
         "Select a computer from the table and press «Edit configuration» to edit" + "\n\n" +
         "New configuration:\n" +
