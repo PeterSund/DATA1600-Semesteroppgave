@@ -64,13 +64,18 @@ class AdminInputValidationTest {
     @org.junit.jupiter.api.Test
     void validColor() {
         assertTrue(AdminInputValidation.color("Blue"));
+        assertTrue(AdminInputValidation.color("Lightblue"));
+        assertTrue(AdminInputValidation.color("Light blue"));
+        assertTrue(AdminInputValidation.color("Light-Blue"));
+        assertTrue(AdminInputValidation.color("Light-blue"));
     }
 
     @org.junit.jupiter.api.Test
     void invalidColor() {
         assertFalse(AdminInputValidation.color("blue"));
-        assertFalse(AdminInputValidation.color("Dark blue"));
-        assertFalse(AdminInputValidation.color("Blue"));
+        assertFalse(AdminInputValidation.color("DArk blue"));
+        assertFalse(AdminInputValidation.color("Blue-SKY"));
+        assertFalse(AdminInputValidation.color("LightBlue"));
     }
 
     @org.junit.jupiter.api.Test
@@ -83,6 +88,8 @@ class AdminInputValidationTest {
     @org.junit.jupiter.api.Test
     void invalidClockSpeed() {
         assertFalse(AdminInputValidation.clockSpeed(0));
+        assertFalse(AdminInputValidation.clockSpeed(-1));
+        assertFalse(AdminInputValidation.clockSpeed(-100));
         assertFalse(AdminInputValidation.clockSpeed(101));
     }
 
@@ -98,6 +105,8 @@ class AdminInputValidationTest {
         assertFalse(AdminInputValidation.cores(0));
         assertFalse(AdminInputValidation.cores(3));
         assertFalse(AdminInputValidation.cores(129));
+        assertFalse(AdminInputValidation.cores(-0));
+        assertFalse(AdminInputValidation.cores(-1));
     }
 
     @org.junit.jupiter.api.Test
