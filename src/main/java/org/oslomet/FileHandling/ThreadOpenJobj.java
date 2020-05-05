@@ -1,11 +1,6 @@
 package org.oslomet.FileHandling;
 
 import javafx.concurrent.Task;
-import org.oslomet.Dialogs.ErrorDialog;
-
-import java.io.File;
-import java.io.StreamCorruptedException;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 public class ThreadOpenJobj extends Task<Void> {

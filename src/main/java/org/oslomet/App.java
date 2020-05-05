@@ -9,8 +9,6 @@ import org.oslomet.ComponentClasses.*;
 import org.oslomet.ComponentRegistry.*;
 import org.oslomet.ComputerClasses.ComputerModel;
 import org.oslomet.ComputerClasses.ComputerRegistry;
-import org.oslomet.Dialogs.ErrorDialog;
-import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileOpenerJobj;
 
 import java.io.IOException;

@@ -241,6 +241,70 @@ public class AdminController implements Initializable {
     @FXML
     private AnchorPane ap;
 
+    @FXML
+    private TextField txtFilter;
+
+    @FXML
+    private ChoiceBox<String> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
+            cbFilterRAM, cbFilterSoundcard, cbFilterPSU, cbFilterMonitor, cbFilterMouse, cbFilterKeyboard;
+
+    private ComputerCaseRegistry computerCaseRegistry = new ComputerCaseRegistry();
+    private CPURegistry cpuRegistry = new CPURegistry();
+    private GPURegistry gpuRegistry = new GPURegistry();
+    private HardDriveRegistry hardDriveRegistry = new HardDriveRegistry();
+    private KeyboardRegistry keyboardRegistry = new KeyboardRegistry();
+    private MonitorRegistry monitorRegistry = new MonitorRegistry();
+    private MotherboardRegistry motherboardRegistry = new MotherboardRegistry();
+    private MouseRegistry mouseRegistry = new MouseRegistry();
+    private PSURegistry psuRegistry = new PSURegistry();
+    private RAMRegistry ramRegistry = new RAMRegistry();
+    private SoundCardRegistry soundCardRegistry = new SoundCardRegistry();
+
+    @FXML
+    private void updateComputerCaseList() {
+        ComputerCaseRegistry.attachTableView(tvComputercase);
+    }
+
+    private void updateCPUList() {
+        CPURegistry.attachTableView(tvCPU);
+    }
+
+    private void updateGPUList() {
+        GPURegistry.attachTableView(tvGPU);
+    }
+
+    private void updateHardDriveList() {
+        HardDriveRegistry.attachTableView(tvHarddrive);
+    }
+
+    private void updateKeyboardList() {
+        KeyboardRegistry.attachTableView(tvKeyboard);
+    }
+
+    private void updateMonitorList() {
+        MonitorRegistry.attachTableView(tvMonitor);
+    }
+
+    private void updateMotherboardList() {
+        MotherboardRegistry.attachTableView(tvMotherboard);
+    }
+
+    private void updateMouseList() {
+        MouseRegistry.attachTableView(tvMouse);
+    }
+
+    private void updatePSUList() {
+        PSURegistry.attachTableView(tvPSU);
+    }
+
+    private void updateRAMList() {
+        RAMRegistry.attachTableView(tvRAM);
+    }
+
+    private void updateSoundCardList() {
+        SoundCardRegistry.attachTableView(tvSoundcard);
+    }
+
     //Calls on methods for saving jobj files
     @FXML
     private void saveObj() throws IOException {
@@ -588,70 +652,6 @@ public class AdminController implements Initializable {
     private void editKeyboardWireless(TableColumn.CellEditEvent<KeyboardModel, String> event) {
         event.getRowValue().setWireless(event.getNewValue());
         tableViewVisible().refresh();
-    }
-
-    @FXML
-    private TextField txtFilter;
-
-    @FXML
-    private ChoiceBox<String> cbFilterComputerCase, cbFilterCPU, cbFilterGPU, cbFilterHarddrive, cbFilterMotherboard,
-            cbFilterRAM, cbFilterSoundcard, cbFilterPSU, cbFilterMonitor, cbFilterMouse, cbFilterKeyboard;
-
-    private ComputerCaseRegistry computerCaseRegistry = new ComputerCaseRegistry();
-    private CPURegistry cpuRegistry = new CPURegistry();
-    private GPURegistry gpuRegistry = new GPURegistry();
-    private HardDriveRegistry hardDriveRegistry = new HardDriveRegistry();
-    private KeyboardRegistry keyboardRegistry = new KeyboardRegistry();
-    private MonitorRegistry monitorRegistry = new MonitorRegistry();
-    private MotherboardRegistry motherboardRegistry = new MotherboardRegistry();
-    private MouseRegistry mouseRegistry = new MouseRegistry();
-    private PSURegistry psuRegistry = new PSURegistry();
-    private RAMRegistry ramRegistry = new RAMRegistry();
-    private SoundCardRegistry soundCardRegistry = new SoundCardRegistry();
-
-    @FXML
-    private void updateComputerCaseList() {
-        ComputerCaseRegistry.attachTableView(tvComputercase);
-    }
-
-    private void updateCPUList() {
-        CPURegistry.attachTableView(tvCPU);
-    }
-
-    private void updateGPUList() {
-        GPURegistry.attachTableView(tvGPU);
-    }
-
-    private void updateHardDriveList() {
-        HardDriveRegistry.attachTableView(tvHarddrive);
-    }
-
-    private void updateKeyboardList() {
-        KeyboardRegistry.attachTableView(tvKeyboard);
-    }
-
-    private void updateMonitorList() {
-        MonitorRegistry.attachTableView(tvMonitor);
-    }
-
-    private void updateMotherboardList() {
-        MotherboardRegistry.attachTableView(tvMotherboard);
-    }
-
-    private void updateMouseList() {
-        MouseRegistry.attachTableView(tvMouse);
-    }
-
-    private void updatePSUList() {
-        PSURegistry.attachTableView(tvPSU);
-    }
-
-    private void updateRAMList() {
-        RAMRegistry.attachTableView(tvRAM);
-    }
-
-    private void updateSoundCardList() {
-        SoundCardRegistry.attachTableView(tvSoundcard);
     }
 
     @FXML
