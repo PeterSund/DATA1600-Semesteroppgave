@@ -63,32 +63,41 @@ class AdminInputValidationTest {
 
     @org.junit.jupiter.api.Test
     void validColor() {
-        assertTrue(AdminInputValidation.color(""));
+        assertTrue(AdminInputValidation.color("Blue"));
     }
 
     @org.junit.jupiter.api.Test
     void invalidColor() {
-        assertFalse(AdminInputValidation.color(""));
+        assertFalse(AdminInputValidation.color("blue"));
+        assertFalse(AdminInputValidation.color("Dark blue"));
+        assertFalse(AdminInputValidation.color("Blue"));
     }
 
     @org.junit.jupiter.api.Test
     void validClockSpeed() {
-        assertTrue(AdminInputValidation.clockSpeed(0));
+        assertTrue(AdminInputValidation.clockSpeed(100));
+        assertTrue(AdminInputValidation.clockSpeed(0.1));
+        assertTrue(AdminInputValidation.clockSpeed(50));
     }
 
     @org.junit.jupiter.api.Test
     void invalidClockSpeed() {
         assertFalse(AdminInputValidation.clockSpeed(0));
+        assertFalse(AdminInputValidation.clockSpeed(101));
     }
 
     @org.junit.jupiter.api.Test
     void validCores() {
-        assertTrue(AdminInputValidation.cores(0));
+        assertTrue(AdminInputValidation.cores(128));
+        assertTrue(AdminInputValidation.cores(1));
+        assertTrue(AdminInputValidation.cores(50));
     }
 
     @org.junit.jupiter.api.Test
     void invalidCores() {
         assertFalse(AdminInputValidation.cores(0));
+        assertFalse(AdminInputValidation.cores(3));
+        assertFalse(AdminInputValidation.cores(129));
     }
 
     @org.junit.jupiter.api.Test
