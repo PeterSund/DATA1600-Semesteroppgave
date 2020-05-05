@@ -272,6 +272,7 @@ public class AdminController implements Initializable {
     //Enables anchorpane (window) when thread is done
     private void threadDone(WorkerStateEvent e) {
         ap.setDisable(false);
+        clearFilter();
     }
 
     //Enables anchorpane (window) if thread fails, generates error messages which is displayed to user
