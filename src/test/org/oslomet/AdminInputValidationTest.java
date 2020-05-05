@@ -13,52 +13,90 @@ class AdminInputValidationTest {
         assertTrue(AdminInputValidation.configName("demo-computer"));
         assertTrue(AdminInputValidation.configName("Computer 43"));
         assertTrue(AdminInputValidation.configName("#Computer!"));
+        assertTrue(AdminInputValidation.configName("4094320823"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void invalidConfigName() {
+        assertFalse(AdminInputValidation.name(""));
+        assertFalse(AdminInputValidation.name("   "));
+        assertFalse(AdminInputValidation.name("My;Computer"));
+        assertFalse(AdminInputValidation.name("My:Computer"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void validName() {
+        assertTrue(AdminInputValidation.name("x230"));
+        assertTrue(AdminInputValidation.name("X230"));
+        assertTrue(AdminInputValidation.name("X 230"));
+        assertTrue(AdminInputValidation.name("X-230!"));
+        assertTrue(AdminInputValidation.name("4299032"));
     }
 
     @org.junit.jupiter.api.Test
     void invalidName() {
         assertFalse(AdminInputValidation.name(""));
+        assertFalse(AdminInputValidation.name("   "));
+        assertFalse(AdminInputValidation.name("X;230"));
     }
 
     @org.junit.jupiter.api.Test
     void validBrand() {
-        assertTrue(AdminInputValidation.brand(""));
+        assertTrue(AdminInputValidation.brand("Intel"));
+        assertTrue(AdminInputValidation.brand("intel"));
+        assertTrue(AdminInputValidation.brand("Intel Corporations"));
+        assertTrue(AdminInputValidation.brand("Intel-Corporations"));
+        assertTrue(AdminInputValidation.brand("8491289"));
     }
 
     @org.junit.jupiter.api.Test
     void invalidBrand() {
         assertFalse(AdminInputValidation.brand(""));
+        assertFalse(AdminInputValidation.brand("   "));
+        assertFalse(AdminInputValidation.brand("Intel;corporations"));
     }
 
 
     @org.junit.jupiter.api.Test
     void validPrice() {
-        assertTrue(AdminInputValidation.brand(""));
+        assertTrue(AdminInputValidation.price(0.1));
+        assertTrue(AdminInputValidation.price(99999));
+        assertTrue(AdminInputValidation.price(5.5));
     }
 
     @org.junit.jupiter.api.Test
     void invalidPrice() {
-        assertFalse(AdminInputValidation.brand(""));
+        assertFalse(AdminInputValidation.price(0));
+        assertFalse(AdminInputValidation.price(-1));
+        assertFalse(AdminInputValidation.price(100000));
     }
 
     @org.junit.jupiter.api.Test
     void validPerformanceValue() {
-        assertTrue(AdminInputValidation.performanceValue(0));
+        assertTrue(AdminInputValidation.performanceValue(0.1));
+        assertTrue(AdminInputValidation.performanceValue(100));
     }
 
     @org.junit.jupiter.api.Test
     void invalidPerformanceValue() {
+        assertFalse(AdminInputValidation.performanceValue(-1));
         assertFalse(AdminInputValidation.performanceValue(0));
+        assertFalse(AdminInputValidation.performanceValue(101));
     }
 
     @org.junit.jupiter.api.Test
     void validDimensions() {
-        assertTrue(AdminInputValidation.dimensions(""));
+        assertTrue(AdminInputValidation.dimensions("5x5x5"));
+        assertTrue(AdminInputValidation.dimensions("999x999x999"));
     }
 
     @org.junit.jupiter.api.Test
     void invalidDimensions() {
+        assertFalse(AdminInputValidation.dimensions("5X5X5"));
+        assertFalse(AdminInputValidation.dimensions("-1x-1x-1"));
         assertFalse(AdminInputValidation.dimensions(""));
+        assertFalse(AdminInputValidation.dimensions("      "));
+        assertFalse(AdminInputValidation.dimensions("12 by 12 by 12"));
     }
 
     @org.junit.jupiter.api.Test
