@@ -45,7 +45,7 @@ public class AdminInputValidation {
 
     //Regex accepts all letters with capital first letter
     public static boolean color(String color) {
-        return !color.isBlank() && color.matches("^[A-Z]{1,19}[a-z]{2,19}$");
+        return !color.isBlank() && color.matches("^[A-Z][a-z]+[-]?[ ]?[a-z]+$");
     }
 
     public static boolean clockSpeed(double clockSpeed) {
