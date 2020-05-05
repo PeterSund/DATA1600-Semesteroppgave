@@ -43,9 +43,9 @@ public class AdminInputValidation {
         return !dimensions.isBlank() && dimensions.matches("^[0-9]+x[0-9]+x[0-9]+$");
     }
 
-    //Regex accepts all letters with capital first letter
+    //Regex accepts all letters with capital first letter. Accepts spaces and hyphen.
     public static boolean color(String color) {
-        return !color.isBlank() && color.matches("^[A-Z][a-z]+[-]?[ ]?[a-z]+$");
+        return !color.isBlank() && color.matches("^[A-Z][a-z- ]+$");
     }
 
     public static boolean clockSpeed(double clockSpeed) {
