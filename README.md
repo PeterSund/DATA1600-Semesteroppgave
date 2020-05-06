@@ -12,15 +12,15 @@ Ved første kjøring i Intellij må man opprette en run-konfigurasjon av typen �
 ###Maven
 
 For å kjøre programmet i Maven, åpne en termnal og naviger til mappen prosjektet ligger i  
-Skriv: mvn compile
+Skriv: mvn compile  
 Skriv: mvn exec:java -Dexec.mainClass=org.oslomet.App
 
 ##Logge inn som admin
 
-Trykk på "Admin login" knappen øverst til venstre i programmet
+Trykk på "Admin login" knappen øverst til venstre i programmet  
 
-Brukernavn: Admin
-Passord: pass
+Brukernavn: Admin  
+Passord: pass  
 
 ##Om programmet
 
