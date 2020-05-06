@@ -1,28 +1,28 @@
-#ReadMe#
-##Semesteroppgave DATA1600 05.05.2020##
+#ReadMe
+##Semesteroppgave DATA1600 05.05.2020
 
 Dette er ett Maven Java 13 prosjekt utviklet i Intellij. 
 
-##Hvordan kjøre programmet##
+##Hvordan kjøre programmet
 
-###Intellij###
+###Intellij
 
 Ved første kjøring i Intellij må man opprette en run-konfigurasjon av typen «Application» med main class «org.oslomet.App».
 
-###Maven###
+###Maven
 
 For å kjøre programmet i Maven, åpne en termnal og naviger til mappen prosjektet ligger i  
 Skriv: mvn compile
 Skriv: mvn exec:java -Dexec.mainClass=org.oslomet.App
 
-##Logge inn som admin##
+##Logge inn som admin
 
 Trykk på "Admin login" knappen øverst til venstre i programmet
 
 Brukernavn: Admin
 Passord: pass
 
-##Om programmet##
+##Om programmet
 
 Programmet brukes til å lage PC-konfigurasjoner.   
 Superbruker har ved innlogging anledning til å redigere og opprette egne komponenter.   
