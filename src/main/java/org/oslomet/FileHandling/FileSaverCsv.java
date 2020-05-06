@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class FileSaverCsv {
+public class FileSaverCsv implements FileSaver<String> {
     //Writes string to file from app
-    public static void writeFile(Path p, String str) throws IOException {
-        Files.write(p, str.getBytes());
+    @Override
+    public void save(Path path, String obj) throws IOException {
+        Files.write(path, obj.getBytes());
     }
 }
 

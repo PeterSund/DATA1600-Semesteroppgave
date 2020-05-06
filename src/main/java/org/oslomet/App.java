@@ -16,6 +16,7 @@ import java.io.StreamCorruptedException;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -32,8 +33,11 @@ public class App extends Application {
         stage.show();
 
         try {
+            ComponentsRegistry componentsRegistry = new ComponentsRegistry();
+            FileOpenerJobj fileOpenerJobj = new FileOpenerJobj();
             Path path = Paths.get("Components.jobj");
-            FileOpenerJobj.openJobj(path);
+            componentsRegistry.removeAllComponents();
+            componentsRegistry.addComponentsToRegisters((ArrayList<ArrayList>) fileOpenerJobj.open(path));
             makeDemoComputer("Gaming computer", 0,0,0,0,17,19,0,0,0,0,0);
             makeDemoComputer("Budget computer", 15,13,10,19,0,0,14,10,17,17,18);
             makeDemoComputer("Office computer", 10,10,10,10,10,10,10,10,10,10,10);

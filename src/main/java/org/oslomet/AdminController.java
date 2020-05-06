@@ -49,6 +49,8 @@ public class AdminController implements Initializable {
     private ConverterStringToNumber.DoubleStringConverter StringToDoubleConv
             = new ConverterStringToNumber.DoubleStringConverter();
 
+    private ComponentsRegistry componentsRegistry = new ComponentsRegistry();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Adds tableviews, choiceboxes (filtering) and buttons to lists. Lists are used to easier control which components are visible to the user
@@ -309,9 +311,10 @@ public class AdminController implements Initializable {
     @FXML
     private void saveObj() throws IOException {
         try {
+            FileSaverJobj fileSaverJobj = new FileSaverJobj();
             Path path = FileChooser.saveJobjFile();
             ArrayList arrayLists = ComponentsRegistry.addAllComponentsArraysToArray();
-            FileSaverJobj.saveJobj(arrayLists, path);
+            fileSaverJobj.save(path, arrayLists);
         } catch (NullPointerException npe) {
             //Prevents program from crashing when user closes filechooser without action
         }

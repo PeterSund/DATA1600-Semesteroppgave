@@ -103,7 +103,8 @@ public class ComputerRegistry {
 
     //Add computer from file
     public static ComputerModel readFromFile() throws IOException {
-        ArrayList<String> computerFromFile = FileOpenerCsv.readFile(FileChooser.openTxtFile());
+        FileOpenerCsv fileOpenerCsv = new FileOpenerCsv();
+        ArrayList<String> computerFromFile = (ArrayList<String>) fileOpenerCsv.open(FileChooser.openTxtFile());
 
         try {
             //Gets the name of all components

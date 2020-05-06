@@ -17,6 +17,7 @@ import org.oslomet.ComputerClasses.ComputerRegistry;
 import org.oslomet.ExceptionClasses.*;
 import org.oslomet.FileHandling.FileChooser;
 import org.oslomet.FileHandling.FileSaverCsv;
+import org.oslomet.FileHandling.FileSaverJobj;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,6 +73,7 @@ public class ViewConfigurationsController implements Initializable {
     void saveConfig(ActionEvent event) throws IOException {
 
         ComputerModel selectedComputer = (ComputerModel) tableviewMyConfigs.getSelectionModel().getSelectedItem();
+        FileSaverCsv fileSaverCsv = new FileSaverCsv();
 
         try {
             if (selectedComputer == null) {
@@ -80,7 +82,7 @@ public class ViewConfigurationsController implements Initializable {
             else {
                 Path savedFilepath = FileChooser.saveTxtFile();
                 String formattedComputer = selectedComputer.formatComputerForFile();
-                FileSaverCsv.writeFile(savedFilepath, formattedComputer);
+                fileSaverCsv.save(savedFilepath, formattedComputer);
             }
         }
 
@@ -124,7 +126,6 @@ public class ViewConfigurationsController implements Initializable {
 
     //Edit selected computer
     public void editConfig(ActionEvent event) throws IOException {
-
         Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("editConfiguration.fxml"));
         Parent root = loader.load();

@@ -8,13 +8,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-public class FileSaverJobj extends FileChooser implements Serializable {
+public class FileSaverJobj extends FileChooser implements Serializable, FileSaver<ArrayList> {
 
-    public static void saveJobj(ArrayList registry, Path filePath) throws IOException {
-        try (OutputStream os = Files.newOutputStream(filePath);
+    @Override
+    public void save(Path path, ArrayList obj) throws IOException {
+        try (OutputStream os = Files.newOutputStream(path);
              ObjectOutputStream out = new ObjectOutputStream(os))
         {
-            out.writeObject(new ArrayList<> (registry));
+            out.writeObject(new ArrayList<> (obj));
         }
     }
 }

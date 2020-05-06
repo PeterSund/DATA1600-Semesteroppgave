@@ -5,10 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-public class FileOpenerCsv {
+public class FileOpenerCsv implements FileOpener {
 
     //Reads from selected file, add string to array and returns array of string from file
-    public static ArrayList<String> readFile(Path path) throws IOException {
+    @Override
+    public ArrayList<?> open(Path path) throws IOException {
         ArrayList<String> computer = new ArrayList<String>();
 
         try(var reader = Files.newBufferedReader(path)) {
