@@ -1,6 +1,8 @@
 #ReadMe
 ##Semesteroppgave DATA1600 05.05.2020
 
+Innlevering for gruppemedlemmer: kandidatnummer 412, 382 og 376.
+                
 Dette er ett Maven Java 13 prosjekt utviklet i Intellij. 
 
 ##Hvordan kjøre programmet
