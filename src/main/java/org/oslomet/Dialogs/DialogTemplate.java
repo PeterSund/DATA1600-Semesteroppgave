@@ -64,12 +64,12 @@ public class DialogTemplate {
         name.setPromptText("Name");
         brand.setPromptText("Brand");
         price.setPromptText("Price");
-        performanceValue.setPromptText("Performance-value");
+        performanceValue.setPromptText("Performance value (0-100)");
 
         grid.add(new Label("Name:"), 0, 1);
         grid.add(new Label("Brand:"), 0, 2);
         grid.add(new Label("Price:"), 0, 3);
-        grid.add(new Label("Performance-value (0-100):"), 0, 4);
+        grid.add(new Label("Performance value (0-100):"), 0, 4);
 
         return grid;
     }

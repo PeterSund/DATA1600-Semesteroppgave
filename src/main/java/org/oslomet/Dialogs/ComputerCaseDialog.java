@@ -43,7 +43,7 @@ public class ComputerCaseDialog {
         gridPane.add(new Label("Dimensions (HxLxD):"), 0, 5);
         gridPane.add(dimensions, 1,5);
         gridPane.add(dimensionsErrorLbl, 2, 5);
-        dimensions.setPromptText("H x L x D");
+        dimensions.setPromptText("HxLxD");
         dimensionsErrorLbl.setStyle("-fx-text-fill: red;");
         dimensionsErrorLbl.setWrapText(true);
 

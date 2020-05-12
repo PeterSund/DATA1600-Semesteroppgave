@@ -340,6 +340,7 @@ public class AdminController implements Initializable {
     private void threadDone(WorkerStateEvent e) {
         ap.setDisable(false);
         clearFilter();
+        refreshTableViews();
     }
 
     //Enables anchorpane (window) if thread fails, generates error messages which is displayed to user
@@ -1206,4 +1207,12 @@ public class AdminController implements Initializable {
 
         }
     }
+
+    private void refreshTableViews() {
+        for (TableView tv : tableViewArray) {
+            tv.refresh();
+        }
+    }
 }
+
+
